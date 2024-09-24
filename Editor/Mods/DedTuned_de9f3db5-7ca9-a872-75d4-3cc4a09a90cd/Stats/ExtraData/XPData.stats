@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="4ac2c440-9b43-40ae-9b3d-a0fe0ef0443e">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ce126fe8-2f29-4e7f-9e61-b045779511c2" />
+        <field name="Name" type="NameTableFieldDefinition" value="Level1" />
+        <field name="Value" type="IntegerTableFieldDefinition" value="300" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="09f07229-0454-4254-8c7a-3c92db0f19ee" />
+        <field name="Name" type="NameTableFieldDefinition" value="Level2" />
+        <field name="Value" type="IntegerTableFieldDefinition" value="690" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>
