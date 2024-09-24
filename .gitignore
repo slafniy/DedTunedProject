@@ -2,6 +2,11 @@
 
 # BG3 stock files
 /*.pak
+
+# some binary file
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/GUI/metadata.lsf
+
+# BG3 stock folders
 /Video/
 /Mods/Gustav/
 /Mods/GustavDev/
