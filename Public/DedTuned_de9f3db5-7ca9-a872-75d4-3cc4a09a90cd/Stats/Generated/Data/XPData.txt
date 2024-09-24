@@ -2,3 +2,23 @@ key "Level1","300"
 
 key "Level2","690"
 
+key "Level3","2000"
+
+key "Level4","4300"
+
+key "Level5","7475"
+
+key "Level6","9200"
+
+key "Level7","11700"
+
+key "Level8","15600"
+
+key "Level9","18200"
+
+key "Level10","26000"
+
+key "Level11","31200"
+
+key "Level12","39000"
+
