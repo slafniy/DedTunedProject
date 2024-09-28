@@ -21,4 +21,3 @@ key "Level10","26000"
 key "Level11","31200"
 
 key "Level12","39000"
-

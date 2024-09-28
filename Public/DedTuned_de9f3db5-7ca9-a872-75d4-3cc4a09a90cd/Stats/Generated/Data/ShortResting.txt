@@ -1,0 +1,5 @@
+new entry "ShortResting"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnShortRest"
+data "StatsFunctors" "IF(not HasPassive('Durable') and CheckRulesetModifier('1d9a608a-3885-4d48-8816-458e40d1136e', false)):RegainHitPoints(MaxHP/2);IF(HasPassive('Durable') or CheckRulesetModifier('1d9a608a-3885-4d48-8816-458e40d1136e', true)):RegainHitPoints(MaxHP)"

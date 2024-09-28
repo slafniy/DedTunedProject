@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="307"/>
+    <region id="AbilityLists">
+        <node id="root">
+            <children>
+                <node id="AbilityList">
+                    <attribute id="Abilities" type="LSString" value="Intelligence, Wisdom, Charisma"/>
+                    <attribute id="UUID" type="guid" value="3d509ad6-fecc-4f1f-a1c1-2486b1164366"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

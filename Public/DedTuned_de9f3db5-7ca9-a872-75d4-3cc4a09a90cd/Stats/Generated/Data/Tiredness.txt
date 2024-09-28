@@ -1,0 +1,95 @@
+# Apply Tiredness mechanics for all possible player-controlled characters
+new entry "_Hero"
+type "Character"
+using "_Hero"
+data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;TIREDNESS_ADD_STACK_IN_COMBAT;TIREDNESS_REMOVE_STACKS_ON_SHORT_REST"
+
+new entry "ORIGIN_Karlach"
+type "Character"
+using "ORIGIN_Karlach"
+data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;ORI_Karlach_SweatImmune;TIREDNESS_ADD_STACK_IN_COMBAT;TIREDNESS_REMOVE_STACKS_ON_SHORT_REST"
+
+
+
+# DEBUFF: shows current level of Tiredness and applies debuffs on certain breakpoints
+new entry "TIREDNESS_DEBUFF_STACKS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h34f7d8d7gc6b8g4fa2g81f5g7636c1a91f99;1"
+data "Description" "h2c80a44eg9020g4d93gbdebg50abf17df167;1"
+data "Icon" "Status_Exhaustion"
+data "StackId" "TIREDNESS_DEBUFF_STACKS"
+data "StackType" "Additive"
+data "StatusPropertyFlags" "FreezeDuration;MultiplyEffectsByDuration;ApplyToDead;DisableCombatlog;DisableOverhead"
+data "TickType" "EndTurn"
+data "TickFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'TIREDNESS_DEBUFF_STACKS',20) and not HasStatus('TIREDNESS_DEBUFF_LIGHT')):ApplyStatus(SELF,TIREDNESS_DEBUFF_LIGHT,100,-1);IF(StatusDurationLessThan(SELF,'TIREDNESS_DEBUFF_STACKS',20) and HasStatus('TIREDNESS_DEBUFF_LIGHT')):RemoveStatus(SELF,TIREDNESS_DEBUFF_LIGHT);IF(StatusDurationEqualOrMoreThan(SELF,'TIREDNESS_DEBUFF_STACKS',30) and not HasStatus('TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP') and not HasStatus('TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE') and not HasStatus('SLEEPING')):ApplyStatus(SELF,TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP,100,1);IF((StatusDurationLessThan(SELF,'TIREDNESS_DEBUFF_STACKS',30) and HasStatus('TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP')):RemoveStatus(SELF,TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP);IF(StatusDurationEqualOrMoreThan(SELF,'TIREDNESS_DEBUFF_STACKS',40) and not HasStatus('TIREDNESS_DEBUFF_DEATH')):ApplyStatus(SELF,TIREDNESS_DEBUFF_DEATH,100,-1);IF(StatusDurationLessThan(SELF,'TIREDNESS_DEBUFF_STACKS',40) and HasStatus('TIREDNESS_DEBUFF_DEATH')):RemoveStatus(SELF,TIREDNESS_DEBUFF_DEATH)"
+
+# DEBUFF: Tiredness level 1 - SLIGHT FATIGUE
+# Slightly reduced move speed, light penalty on ability checks, attack rolls, spell DC and saving throws
+new entry "TIREDNESS_DEBUFF_LIGHT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h3ba53e30g3696g4b88ga0fbg9384a90f24bd;1"
+data "Description" "h2ca02a2eg8501g4bd1gb598ge5c396b52493;1"
+data "DescriptionParams" "-2"
+data "Icon" "Spell_Enchantment_Bane"
+data "StillAnimationType" "Weakened"
+data "StillAnimationPriority" "Weakened"
+data "Boosts" "RollBonus(Attack,-2);RollBonus(SavingThrow,-2);SpellSaveDC(-2);RollBonus(SkillCheck,-2);RollBonus(RawAbility,-2)"
+data "StatusGroups" "SG_Condition"
+
+# DEBUFF: Tiredness level 2 - SLEEP
+# If not passed CON save falls asleep
+new entry "TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h366f465ag287ag4ffbgb155gb3e2eae42575;1"
+data "Description" "h5a57a63cg3578g4cd0gb895g5b16a105eb23;1"
+data "DescriptionParams" "15"
+data "Icon" "Status_Sleep"
+data "StillAnimationType" "Weakened"
+data "StillAnimationPriority" "Weakened"
+data "TickType" "EndTurn"
+data "OnTickRoll" "not SavingThrow(Ability.Constitution, 15)"
+data "OnTickSuccess" "ApplyStatus(SLEEPING,100,2)"
+data "OnTickFail" "ApplyStatus(TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE,100,2)"
+data "TooltipSave" "Constitution"
+
+# DEBUFF: Tiredness level 3 - DEATH
+new entry "TIREDNESS_DEBUFF_DEATH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h4568bcf8g51b7g42c3gb7a5g259d2b0d12f4;1"
+data "Description" "h9a276103g3eb8g4a50g90aeg5828c7d4aad6;1"
+data "Icon" "Status_Dying"
+data "StillAnimationType" "Weakened"
+data "StillAnimationPriority" "Weakened"
+data "TickType" "EndTurn"
+data "TickFunctors" "Kill()"
+
+# DEBUFF: Tiredness sleep resistance
+# If passed CON save - cannot fall asleep from TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP for 3 turns
+new entry "TIREDNESS_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h81842d9eg5a97g4d31ga85aged127ace8dd3;1"
+data "Description" "h7d01f311ge446g4f72g839age36ec4763782;1"
+data "DescriptionParams" "3"
+data "Icon" "Status_Positive"
+
+
+
+# PASSIVE: Adds +1 stack of Tiredness every time when character turn starts in combat
+new entry "TIREDNESS_ADD_STACK_IN_COMBAT"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnTurn"
+data "Conditions" "Combat()"
+data "StatsFunctors" "ApplyStatus(SELF,TIREDNESS_DEBUFF_STACKS,100,1)"
+
+# PASSIVE: Removes N stacks of Tiredness on Short Rest
+new entry "TIREDNESS_REMOVE_STACKS_ON_SHORT_REST"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnShortRest"
+data "StatsFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'TIREDNESS_DEBUFF_STACKS',10)):ApplyStatus(SELF,TIREDNESS_DEBUFF_STACKS,100,-10);IF(StatusDurationLessThan(SELF,'TIREDNESS_DEBUFF_STACKS',10)):SetStatusDuration(TIREDNESS_DEBUFF_STACKS,0,ForceSet)"
