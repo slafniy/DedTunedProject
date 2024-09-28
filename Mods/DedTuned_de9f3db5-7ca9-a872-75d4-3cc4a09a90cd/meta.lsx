@@ -9,7 +9,7 @@
                     <children>
                         <node id="ModuleShortDesc">
                             <attribute id="Folder" type="LSString" value="GustavDev"/>
-                            <attribute id="MD5" type="LSString" value="dcd22e501e9653168dad9c096ea63553"/>
+                            <attribute id="MD5" type="LSString" value="96c19798a020e178251944be557fc464"/>
                             <attribute id="Name" type="LSString" value="GustavDev"/>
                             <attribute id="PublishHandle" type="uint64" value="0"/>
                             <attribute id="UUID" type="guid" value="28ac9ce2-2aba-8cda-b3b5-6e922f71b6b8"/>
@@ -20,8 +20,13 @@
                 <node id="ModuleInfo">
                     <attribute id="Author" type="LSString" value="slafniy"/>
                     <attribute id="CharacterCreationLevelName" type="FixedString" value=""/>
-                    <attribute id="Description" type="LSString" value="DedTuned balance mod for Larian&apos;s Baldur&apos;s Gate 3 (WIP) The final goals of this mod: - Make Honor mode slightly harder - Eliminate as many abuses as possible - Make too weak abilities stronger and strong abilities weaker - Balance out resting"/>
-                    <attribute id="FileSize" type="uint64" value="2283770"/>
+                    <attribute id="Description" type="LSString" value="DedTuned balance mod for Larian&apos;s Baldur&apos;s Gate 3 (WIP)
+The final goals of this mod:
+- Make Honor mode slightly harder
+- Eliminate as many abuses as possible
+- Make too weak abilities stronger and strong abilities weaker
+- Balance out resting"/>
+                    <attribute id="FileSize" type="uint64" value="0"/>
                     <attribute id="Folder" type="LSString" value="DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
                     <attribute id="MD5" type="LSString" value="fa75789693b6ff070db9dfee2653f8c2"/>
