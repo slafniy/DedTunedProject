@@ -78,8 +78,5 @@ Note: first, it's impossible to balance out Multiclassing with my experience, kn
 Second, I personally don't like it as a concept because it looks like abusing combination of too strong low-level features which are essential for pure class and could not be nerfed too much.
 Proper multiclassing should include some lore limitations, karma mechanics of something else, which is not the case in BG3.
 
-### Resting (DOESN'T WORK)
-- Long rest is blocked if you have not enough supplies (you can't end the day without 250 supplies)
-
-Note: the goal is to remove partial resting. Possible issue - if you somehow destroyed supplies during evening before sleep
-you will live in a camp forever :)
+### Resting
+- Long rest cost increased to 250
