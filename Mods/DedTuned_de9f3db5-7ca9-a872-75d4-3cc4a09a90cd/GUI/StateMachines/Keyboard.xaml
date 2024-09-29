@@ -11,12 +11,21 @@
 		This StateMachine gets loaded when the Keyboard and mouse mode is activated.
 	-->
 	
-	<ls:StateMachine.States>
+    <ls:StateMachine.States>
+        <!--STATE: MainMenu-->
         <ls:State Name = "MainMenu" ModType="Extend">
-          <ls:State.Widgets>
-            <ls:StateWidget Filename="TestModHub.xaml" Layer="HUD"/>
-          </ls:State.Widgets>
+            <ls:State.Widgets>
+                <ls:StateWidget Filename="TestModHub.xaml" Layer="HUD"/>
+            </ls:State.Widgets>
         </ls:State>
+
+        <!--STATE: PlayerHUD-->
+        <ls:State Name = "PlayerHUD" Layout = "Player" Owner = "Player" ModType="Override">
+            <ls:State.Widgets>
+                <ls:StateWidget Filename="DT_HotBar.xaml" Layer="HUDTop"/>
+            </ls:State.Widgets>
+        </ls:State>
+
     </ls:StateMachine.States>
     
 </ls:StateMachine>
