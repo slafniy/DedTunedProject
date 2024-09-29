@@ -1,29 +1,38 @@
 <ls:StateMachine xmlns:ls="clr-namespace:ls;assembly=Code"
                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!--
-		In here you will be able to extend or override the original States creates by Larian Studios.
-		As well as extend or override the States of previously loaded mods.
-
-		Your states will contain your custom UI Pages or Pages contained in previously loaded mods or created by Larian Studios.
-
-		This StateMachine gets loaded when the Keyboard and mouse mode is activated.
-	-->
-	
     <ls:StateMachine.States>
-        <!--STATE: MainMenu-->
-        <ls:State Name = "MainMenu" ModType="Extend">
-            <ls:State.Widgets>
-                <ls:StateWidget Filename="TestModHub.xaml" Layer="HUD"/>
-            </ls:State.Widgets>
-        </ls:State>
 
         <!--STATE: PlayerHUD-->
         <ls:State Name = "PlayerHUD" Layout = "Player" Owner = "Player" ModType="Override">
             <ls:State.Widgets>
+<!--                 <ls:StateWidget Filename="Overlay.xaml" Layer="Notifications"/> -->
+<!--                 <ls:StateWidget Filename="HudIndicator.xaml" Layer="HUD" IgnoreHitTest="True"/> -->
+<!--                 <ls:StateWidget Filename="OverheadInfo.xaml" Layer="HUD" IgnoreHitTest="True"/> -->
                 <ls:StateWidget Filename="DT_HotBar.xaml" Layer="HUDTop"/>
+<!--                 <ls:StateWidget Filename="Minimap.xaml" Layer="HUD"/> -->
+<!--                 <ls:StateWidget Filename="TargetInfo.xaml" Layer="HUD" IgnoreHitTest="True"/> -->
+<!--                 <ls:StateWidget Filename="PlayerPortraits.xaml" Layer="PopupPanels"/> -->
+<!--                 <ls:StateWidget Filename="TurnModeInfo.xaml" Layer="HUD"/> -->
+<!--                 <ls:StateWidget Filename="CombatLog.xaml" Layer="HUD"/> -->
+<!--                 <ls:StateWidget Filename="CombatantsOverlay.xaml" Layer="HUD"/> -->
+<!--                 <ls:StateWidget Filename="CursorText.xaml" Layer="PopupPanels"/> -->
+<!--                 <ls:StateWidget Filename="DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/> -->
+<!--                 <ls:StateWidget Filename="PassiveRoll.xaml" Layer="PopupPanels"/> -->
+<!--                 <ls:StateWidget Filename="AlwaysOnTopOverlay.xaml" Layer="PopupPanels"/> -->
             </ls:State.Widgets>
+
+            <ls:State.InitialSubstates>
+                <ls:InitialSubstate Name="PlayerPortraits" Metadata="InHUD"/>
+            </ls:State.InitialSubstates>
+
+            <ls:State.Events>
+                <ls:StateEvent Name = "OpenSelectionFlyOut">
+                    <ls:StateEvent.Actions>
+                        <ls:AddSubstate Name="SelectionFlyOut"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+            </ls:State.Events>
         </ls:State>
 
     </ls:StateMachine.States>

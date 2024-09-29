@@ -4132,6 +4132,10 @@
                                                 <DataTrigger Binding="{Binding CurrentPlayer.EndTheDayState}" Value="Unavailable">
                                                     <Setter Property="IsEnabled" Value="False"/>
                                                 </DataTrigger>
+                                                <!-- Block LongRest if not enough supplies TODO: use dynamic RequiredPartySupplies to check -->
+                                                <DataTrigger Binding="{Binding CurrentPlayer.PartySupplies, Converter={StaticResource LessThanConverter}, ConverterParameter=250}" Value="True">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
 
                                                 <Trigger Property="IsMouseOver" Value="True">
                                                     <Setter TargetName="BtnBg" Property="Source" Value="pack://application:,,,/GustavNoesisGUI;component/Assets/BottomBar/btn_pop_h.png"/>
