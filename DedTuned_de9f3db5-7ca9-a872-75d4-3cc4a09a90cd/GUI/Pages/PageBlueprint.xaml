@@ -1,0 +1,21 @@
+<ls:UIWidget x:Name="PageBlueprint"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ls="clr-namespace:ls;assembly=Code"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:noesis="clr-namespace:NoesisGUIExtensions;assembly=Noesis.GUI.Extensions"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance {x:Type ls:DCWidget}, IsDesignTimeCreatable=True}">
+
+    <!--
+		This file can be copied and used to create your UI page.
+		Just rename the file and set the 'x:Name' property.
+		
+		You'll be able to use all the resources, templates and styles defined in your mod, previously loaded mods and
+		those defined by Larian Studios.
+	-->
+
+</ls:UIWidget>
