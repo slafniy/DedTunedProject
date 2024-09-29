@@ -199,10 +199,12 @@
             <ls:LSButton x:Name="StartRestBtn" Command="{Binding ProcessRestCommand}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,220">
                 <ls:LSButton.Style>
                     <Style BasedOn="{StaticResource BlueEdgeButtonStyle}" TargetType="ls:LSButton">
-                        <Setter Property="Content" Value="{Binding Source='h7e75fd8fgc164g436fgbbf7gc0b993f7fee8', Converter={StaticResource TranslatedStringConverter}}"/>
+                        <Setter Property="Content" Value="{Binding Source='hba69db9cg5219g4c79gae4ege1a32ed2ed43', Converter={StaticResource TranslatedStringConverter}}"/>
+                        <Setter Property="IsEnabled" Value="False"/>
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Tag, ElementName=root}" Value="True">
-                                <Setter Property="Content" Value="{Binding Source='h8eb28360g171eg47a7g8915g31d5ebd7198d', Converter={StaticResource TranslatedStringConverter}}"/>
+                                <Setter Property="IsEnabled" Value="True"/>
+                                <Setter Property="Content" Value="{Binding Source='hba69db9cg5219g4c79gae4ege1a32ed2ed43', Converter={StaticResource TranslatedStringConverter}}"/>
                                 <Setter Property="Foreground" Value="{DynamicResource LS_specialTxtColor}"/>
                                 <Setter Property="SoundID" Value="UI_HUD_LongRest"/>
                             </DataTrigger>
