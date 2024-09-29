@@ -6,20 +6,20 @@
         <!--STATE: PlayerHUD-->
         <ls:State Name = "PlayerHUD" Layout = "Player" Owner = "Player" ModType="Override">
             <ls:State.Widgets>
-<!--                 <ls:StateWidget Filename="Overlay.xaml" Layer="Notifications"/> -->
-<!--                 <ls:StateWidget Filename="HudIndicator.xaml" Layer="HUD" IgnoreHitTest="True"/> -->
-<!--                 <ls:StateWidget Filename="OverheadInfo.xaml" Layer="HUD" IgnoreHitTest="True"/> -->
                 <ls:StateWidget Filename="DT_HotBar.xaml" Layer="HUDTop"/>
-<!--                 <ls:StateWidget Filename="Minimap.xaml" Layer="HUD"/> -->
-<!--                 <ls:StateWidget Filename="TargetInfo.xaml" Layer="HUD" IgnoreHitTest="True"/> -->
-<!--                 <ls:StateWidget Filename="PlayerPortraits.xaml" Layer="PopupPanels"/> -->
-<!--                 <ls:StateWidget Filename="TurnModeInfo.xaml" Layer="HUD"/> -->
-<!--                 <ls:StateWidget Filename="CombatLog.xaml" Layer="HUD"/> -->
-<!--                 <ls:StateWidget Filename="CombatantsOverlay.xaml" Layer="HUD"/> -->
-<!--                 <ls:StateWidget Filename="CursorText.xaml" Layer="PopupPanels"/> -->
-<!--                 <ls:StateWidget Filename="DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/> -->
-<!--                 <ls:StateWidget Filename="PassiveRoll.xaml" Layer="PopupPanels"/> -->
-<!--                 <ls:StateWidget Filename="AlwaysOnTopOverlay.xaml" Layer="PopupPanels"/> -->
+                <ls:StateWidget Filename="/MainUI;component/Pages/Overlay.xaml" Layer="Notifications"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/HudIndicator.xaml" Layer="HUD" IgnoreHitTest="True"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/OverheadInfo.xaml" Layer="HUD" IgnoreHitTest="True"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/Minimap.xaml" Layer="HUD"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/TargetInfo.xaml" Layer="HUD" IgnoreHitTest="True"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/PlayerPortraits.xaml" Layer="PopupPanels"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/TurnModeInfo.xaml" Layer="HUD"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/CombatLog.xaml" Layer="HUD"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/CombatantsOverlay.xaml" Layer="HUD"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/CursorText.xaml" Layer="PopupPanels"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/PassiveRoll.xaml" Layer="PopupPanels"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/AlwaysOnTopOverlay.xaml" Layer="PopupPanels"/>
             </ls:State.Widgets>
 
             <ls:State.InitialSubstates>
@@ -38,8 +38,8 @@
         <ls:State Name="MakeCamp" Layout = "Player" Owner = "Player" ModType="Override">
             <ls:State.Widgets>
                 <ls:StateWidget Filename="DT_MakeCamp.xaml" Layer="PopupPanels" SoundLayer="NonHUDWidget"/>
-<!--                <ls:StateWidget Filename="DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/>-->
-<!--                <ls:StateWidget Filename="AlwaysOnTopOverlay.xaml" Layer="MessageBox"/>-->
+                <ls:StateWidget Filename="/MainUI;component/Pages/DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/AlwaysOnTopOverlay.xaml" Layer="MessageBox"/>
             </ls:State.Widgets>
 
             <ls:State.Events>
