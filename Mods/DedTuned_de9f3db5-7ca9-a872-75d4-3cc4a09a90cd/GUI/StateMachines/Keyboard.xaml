@@ -35,6 +35,45 @@
             </ls:State.Events>
         </ls:State>
 
+        <ls:State Name="MakeCamp" Layout = "Player" Owner = "Player" ModType="Override">
+            <ls:State.Widgets>
+                <ls:StateWidget Filename="DT_MakeCamp.xaml" Layer="PopupPanels" SoundLayer="NonHUDWidget"/>
+<!--                <ls:StateWidget Filename="DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/>-->
+<!--                <ls:StateWidget Filename="AlwaysOnTopOverlay.xaml" Layer="MessageBox"/>-->
+            </ls:State.Widgets>
+
+            <ls:State.Events>
+                <ls:StateEvent Name = "CloseWidget">
+                    <ls:StateEvent.Actions>
+                        <ls:RemoveState/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "CloseMakeCamp">
+                    <ls:StateEvent.Actions>
+                        <ls:RemoveState/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "OpenMessageBox">
+                    <ls:StateEvent.Actions>
+                        <ls:AddSubstate Name="MessageBox"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "SplitItemToggle">
+                    <ls:StateEvent.Actions>
+                        <ls:PushState Name="SplitItem"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <ls:StateEvent Name = "OpenPinnedTooltips">
+                    <ls:StateEvent.Actions>
+                        <ls:AddSubstate Name="PinnedTooltips"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+            </ls:State.Events>
+        </ls:State>
+
     </ls:StateMachine.States>
     
 </ls:StateMachine>
