@@ -1391,8 +1391,7 @@
                              UriSource="pack://application:,,,/GustavNoesisGUI;component/Assets/Shared/ico_exit_h.png"/>
             </ControlTemplate.Resources>
 
-            <Grid x:Name="StatusPanel" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-35,-180,0,180"
-                  Visibility="{Binding CurrentPlayer.SelectedCharacter.StatusEffects.Count, Converter={StaticResource CountToVisibilityConverter}}">
+            <Grid x:Name="StatusPanel" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-35,-180,0,180" Visibility="Visible">
                 <Rectangle x:Name="Gradient" Margin="10,0,10,36" IsHitTestVisible="False">
                     <Rectangle.Fill>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
