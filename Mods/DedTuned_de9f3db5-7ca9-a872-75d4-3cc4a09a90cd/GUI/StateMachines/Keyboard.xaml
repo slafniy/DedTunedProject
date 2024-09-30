@@ -7,6 +7,7 @@
         <ls:State Name = "PlayerHUD" Layout = "Player" Owner = "Player" ModType="Override">
             <ls:State.Widgets>
                 <ls:StateWidget Filename="DT_HotBar.xaml" Layer="HUDTop"/>
+                <ls:StateWidget Filename="DT_TirednessWidget.xaml" Layer="HUDTop"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/Overlay.xaml" Layer="Notifications"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/HudIndicator.xaml" Layer="HUD" IgnoreHitTest="True"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/OverheadInfo.xaml" Layer="HUD" IgnoreHitTest="True"/>
