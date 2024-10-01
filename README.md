@@ -64,11 +64,13 @@ Note: additional attack as bonus action isn't THAT strong.
 Note: pickpocketing without any risk doesn't make sense.
 
 ### Honor mode boost
-- HP boost increased from 30% to 160% (x2 HP from stock Honor) (verified)
+- HP boost increased from 30% to 160% (x2 HP from stock Honor)
+- Honor attack roll bonus for almost all enemies increased from 2 to 3
+- Zhalk now has 300hp (was 195)
 - Raphael HP set to 1666
-- Honor attack roll bonus for enemies increased from 2 to 3 (verified)
 
-Note: HP boost should give a chance for enemies to use their abilities and not being slain on first turn.
+Note: HP boost should give a chance for enemies to use their abilities and not being slain on first turn. 
+I'm tuning HP for some bosses, so not all of them will have +160% boost.  
 Attack bonus should make enemies slightly more dangerous.
 
 ### Multiclassing (verified)

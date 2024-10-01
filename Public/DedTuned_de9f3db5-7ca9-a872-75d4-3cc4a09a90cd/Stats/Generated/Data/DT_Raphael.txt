@@ -1,0 +1,4 @@
+new entry "GLO_Raphael"
+type "Character"
+using "GLO_Raphael"
+data "Vitality" "1666"

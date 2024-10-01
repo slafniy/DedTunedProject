@@ -7,13 +7,3 @@ new entry "GLO_Volo"
 type "Character"
 using "GLO_Volo"
 data "DefaultBoosts" "Tag(BLOCK_PICKPOCKET)"
-
-new entry "GLO_Raphael"
-type "Character"
-using "GLO_Raphael"
-data "Vitality" "1666"
-
-new entry "TUT_CambionCommander"
-type "Character"
-using "TUT_CambionCommander"
-data "Vitality" "150"
