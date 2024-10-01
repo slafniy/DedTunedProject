@@ -11,9 +11,9 @@ The final goals of this mod:
 A new mechanics which forces party to rest more often. 
   
 In a combat characters will get Tiredness stacks, which on some point lead to various consequences:
-- Level 1 (30+ stacks): slight fatigue. A penalty to attack rolls, saving throws, ability checks, skill checks and spell DC
-- Level 2 (40+ stacks): Uncontrollable sleep. Every turn character must perform CON saving throw or will fall asleep for 2 turns
-- Level 3 (60+ stacks): Death.
+- Level 1 (20+ stacks): slight fatigue. A penalty to attack rolls, saving throws, ability checks, skill checks and spell DC
+- Level 2 (30+ stacks): Uncontrollable sleep. Every turn character must perform CON saving throw or will fall asleep for 2 turns
+- Level 3 (50+ stacks): Death.
 
 Long Rest (with supplies) removes all Tiredness stacks, Short Rest removes 20.
 
