@@ -7,6 +7,21 @@ The final goals of this mod:
 - Balance out need of resting for different classes (WIP)
 
 ## Changelist
+### Exhaustion - new mechanics (WIP)
+A new mechanics which forces party to rest more often. 
+  
+In a combat characters will get Tiredness stacks, which on some point lead to various consequences:
+- Level 1 (30+ stacks): slight fatigue. A penalty to attack rolls, saving throws, ability checks, skill checks and spell DC
+- Level 2 (40+ stacks): Uncontrollable sleep. Every turn character must perform CON saving throw or will fall asleep for 2 turns
+- Level 3 (60+ stacks): Death.
+
+Long Rest (with supplies) removes all Tiredness stacks, Short Rest removes 20.
+
+Note: Not a direct adaptation of dnd5e Exhaustion and I'm not going to do direct replica. 
+TBH I invented it in my head first and found that dnd already has something like that second.
+
+Note 2: I haven't tested this long term yet, so it could be not balanced, most probably too weak :)
+
 ### Experience reward
 Required XP per level increased (around +27% total) because of two reasons:
 - Do not let player to over-level enemies too much
