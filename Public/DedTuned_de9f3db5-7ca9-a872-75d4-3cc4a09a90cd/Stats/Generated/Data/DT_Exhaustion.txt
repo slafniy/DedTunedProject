@@ -56,6 +56,7 @@ data "OnTickFail" "ApplyStatus(EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE
 data "TooltipSave" "Constitution"
 
 # DEBUFF: Exhaustion level 3 - DEATH, also set exhaustion stacks to level 2 to give a chance after resurrection
+# Removes "DOWNED" first to be sure of instant death
 new entry "EXHAUSTION_DEBUFF_DEATH"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -65,7 +66,7 @@ data "Icon" "Status_Dying"
 data "StillAnimationType" "Weakened"
 data "StillAnimationPriority" "Weakened"
 data "TickType" "EndTurn"
-data "TickFunctors" "Kill();RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH);"SetStatusDuration(EXHAUSTION_DEBUFF_STACKS,30,ForceSet)""
+data "TickFunctors" "RemoveStatus(SELF,DOWNED);Kill();RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH);SetStatusDuration(EXHAUSTION_DEBUFF_STACKS,30,ForceSet)"
 
 # DEBUFF: Exhaustion sleep resistance
 # If passed CON save - cannot fall asleep from EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP for 3 turns
