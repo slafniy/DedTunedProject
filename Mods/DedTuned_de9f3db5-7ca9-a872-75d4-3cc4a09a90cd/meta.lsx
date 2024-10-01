@@ -25,7 +25,7 @@ The final goals of this mod are: make Honor mode slightly harder, eliminate as m
                     <attribute id="FileSize" type="uint64" value="0"/>
                     <attribute id="Folder" type="LSString" value="DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
-                    <attribute id="MD5" type="LSString" value="9fba56548c82bf418b0f74578a794d05"/>
+                    <attribute id="MD5" type="LSString" value="909633d407db83a64b1030ac68caf870"/>
                     <attribute id="MenuLevelName" type="FixedString" value=""/>
                     <attribute id="Name" type="LSString" value="DedTuned"/>
                     <attribute id="NumPlayers" type="uint8" value="4"/>
@@ -33,7 +33,7 @@ The final goals of this mod are: make Honor mode slightly harder, eliminate as m
                     <attribute id="PublishHandle" type="uint64" value="4369118"/>
                     <attribute id="StartupLevelName" type="FixedString" value=""/>
                     <attribute id="UUID" type="FixedString" value="de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
-                    <attribute id="Version64" type="int64" value="36028797018964001"/>
+                    <attribute id="Version64" type="int64" value="36028797018964003"/>
                     <children>
                         <node id="PublishVersion">
                             <attribute id="Version64" type="int64" value="144255927717549775"/>
