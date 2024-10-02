@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="CanBeMoved" type="bool" value="True" />
+					<attribute id="CanBePickedUp" type="bool" value="True" />
+					<attribute id="Description" type="TranslatedString" handle="h72055faag34d6g4046ga995g01b195f1c131" version="1" />
+					<attribute id="DestroyWithStack" type="bool" value="True" />
+					<attribute id="Flag" type="int32" value="0" />
+					<attribute id="GravityType" type="uint8" value="0" />
+					<attribute id="Icon" type="FixedString" value="Item_LTS_DUN_Candles_C" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="34df8770-06c5-4752-a7b6-25d4f64d64dc" />
+					<attribute id="Name" type="LSString" value="LTS_DUN_Candles_C" />
+					<attribute id="ParentTemplateId" type="FixedString" value="9b812c00-17c2-4525-9e17-154381576943" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="f93af83e-3154-0ee4-fae8-94b0427ac1bc" />
+					<attribute id="ReadinessFlags" type="uint32" value="140" />
+					<attribute id="Stats" type="FixedString" value="OBJ_Candle" />
+					<attribute id="Tooltip" type="uint8" value="0" />
+					<attribute id="Type" type="FixedString" value="item" />
+					<attribute id="VisualTemplate" type="FixedString" value="4afe07c0-c10b-d04b-c73e-17a1294cd3d2" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403208908" />
+					<attribute id="maxStackAmount" type="int32" value="99" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.7405061" />
+									<attribute id="Max" type="fvec3" value="0.16554336 0.7121721 0.15744112" />
+									<attribute id="Min" type="fvec3" value="-0.1655431 -0.028334022 -0.15744112" />
+									<attribute id="Radius" type="float" value="0.21753138" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.7405061" />
+									<attribute id="Max" type="fvec3" value="0.16554336 0.7121721 0.15744112" />
+									<attribute id="Min" type="fvec3" value="-0.1655431 -0.028334022 -0.15744112" />
+									<attribute id="Radius" type="float" value="0.21753138" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="2" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="float" value="0.7405061" />
+									<attribute id="Max" type="fvec3" value="0.08277168 0.7121721 0.07872056" />
+									<attribute id="Min" type="fvec3" value="-0.08277155 -0.028334022 -0.07872056" />
+									<attribute id="Radius" type="float" value="0.10876569" />
+									<attribute id="Shape" type="uint8" value="1" />
+									<attribute id="Type" type="uint8" value="0" />
+								</node>
+							</children>
+						</node>
+						<node id="OnDestroyActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="26" />
+									<children>
+										<node id="Attributes">
+											<attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3" />
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="PlayOnHUD" type="bool" value="False" />
+										</node>
+									</children>
+								</node>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="5" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="Conditions" type="LSString" value="" />
+											<attribute id="ExplodeFX" type="FixedString" value="2c26d6b2-ebfe-f61d-1772-66f511e202f4" />
+											<attribute id="FadeOutDelay" type="float" value="0" />
+											<attribute id="FadeOutFX" type="FixedString" value="" />
+											<attribute id="TargetItemState" type="uint8" value="0" />
+											<attribute id="VisualWithDynamicPhysics" type="FixedString" value="" />
+											<attribute id="templateAfterDestruction" type="FixedString" value="" />
+											<attribute id="visualDestruction" type="FixedString" value="" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="ScriptOverrides">
+							<children>
+								<node id="ScriptOverrides">
+									<children>
+										<node id="Object">
+											<attribute id="MapKey" type="FixedString" value="d289389c-882d-4695-a8d5-dda2a1351711" />
+											<children>
+												<node id="ScriptOverrides">
+													<children>
+														<node id="ScriptVariables">
+															<children>
+																<node id="Object">
+																	<attribute id="MapKey" type="FixedString" value="BurnEffect" />
+																	<children>
+																		<node id="ScriptVariables">
+																			<attribute id="Value" type="LSString" value="VFX_LightSources_DUN_Candles_C_01" />
+																		</node>
+																	</children>
+																</node>
+																<node id="Object">
+																	<attribute id="MapKey" type="FixedString" value="BurnEffectBone" />
+																	<children>
+																		<node id="ScriptVariables">
+																			<attribute id="Value" type="LSString" value="LTS_DUN_Candles_C_Mesh" />
+																		</node>
+																	</children>
+																</node>
+															</children>
+														</node>
+													</children>
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="OnUsePeaceActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="int32" value="7" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="FixedString" value="" />
+											<attribute id="Conditions" type="LSString" value="(Player(context.Source) or (not HasStatus('SG_WeaponCoating', GetActiveWeapon(context.Source))))" />
+											<attribute id="Consume" type="bool" value="False" />
+											<attribute id="IsHiddenStatus" type="bool" value="True" />
+											<attribute id="StatsId" type="FixedString" value="POISON_MALICE" />
+											<attribute id="StatusDuration" type="int32" value="0" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>
