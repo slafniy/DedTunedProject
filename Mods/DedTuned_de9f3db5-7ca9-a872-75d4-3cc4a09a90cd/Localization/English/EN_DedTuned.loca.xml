@@ -10,5 +10,4 @@
     <content contentuid="h5e392bd2g8456g4a43g9569g923af01fda43" version="1">Pick up an item or creature and throw it at a target, dealing additional damage and knocking it &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;. &lt;br&gt;&lt;br&gt;Will cause a stack of &lt;LSTag Type="Status" Tooltip="RAGE_FRENZY_BURNOUT"&gt;Frenzied Strain&lt;/LSTag&gt; on the barbarian.</content>
     <content contentuid="h8770a174gdbadg4351g92f8ge79025cb52df" version="1">Using Frenzied Strike adds a penalty to Attack Rolls every time, stacking so that you miss more often. This adds up until the end of your Frenzy.</content>
     <content contentuid="h2273d2fbg754fg4516gb043g7cc822af735b" version="1">Will cause a stack of &lt;LSTag Type="Status" Tooltip="RAGE_FRENZY_BURNOUT"&gt;Frenzied Strain&lt;/LSTag&gt; on the barbarian.</content>
-    <content contentuid="hd8eee711g3e10g4f40g9e6cg772781ab70ec" version="1">Deal damage to a creature each turn for [1] turns. The type of damage changes to the last type the creature suffered.</content>
 </contentList>

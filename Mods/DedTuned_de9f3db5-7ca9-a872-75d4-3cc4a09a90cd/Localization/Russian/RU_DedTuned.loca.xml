@@ -10,5 +10,4 @@
     <content contentuid="h5e392bd2g8456g4a43g9569g923af01fda43" version="1">Схватить предмет или существо и метнуть его в цель, нанеся ей дополнительный урон и заставив упасть &lt;LSTag Type="Status" Tooltip="PRONE"&gt;плашмя&lt;/LSTag&gt;. &lt;br&gt;&lt;br&gt;Дает варвару уровень &lt;LSTag Type="Status" Tooltip="RAGE_FRENZY_BURNOUT"&gt;Бешеного Напряжения&lt;/LSTag&gt;.</content>
     <content contentuid="h8770a174gdbadg4351g92f8ge79025cb52df" version="1">Использование Бешеного Удара или Яростного Броска каждый раз добавляет штраф к броскам атаки. Эффект складывается, так что вы с каждым разом будете чаще промахиваться. Накапливается до конца вашего бешенства.</content>
     <content contentuid="h2273d2fbg754fg4516gb043g7cc822af735b" version="1">Дает варвару уровень &lt;LSTag Type="Status" Tooltip="RAGE_FRENZY_BURNOUT"&gt;Бешеного Напряжения&lt;/LSTag&gt;.</content>
-    <content contentuid="hd8eee711g3e10g4f40g9e6cg772781ab70ec" version="1">Наносить существу урон каждый ход. Тип урона меняется на последний тип, полученный существом до этого. Ходов: [1].</content>
 </contentList>
