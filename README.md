@@ -102,3 +102,10 @@ Proper multiclassing should include some lore limitations, karma mechanics of so
 Note: It is currently working by disabling "Long Rest" button if you have less than 250 supplies.
 "Partial Rest" button is removed, you just cannot rest if you do not choose enough supplies, so be careful and 
 don't destroy them if you already triggered end of the day :)
+
+### Equipment
+#### Arrow of Many Targets
+- Renamed to Arrow of Ricochet
+- Now only affects one additional target in 9 meters range
+
+Note: it was insanely strong
