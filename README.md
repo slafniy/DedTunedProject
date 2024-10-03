@@ -109,3 +109,6 @@ don't destroy them if you already triggered end of the day :)
 - Now only affects one additional target in 9 meters range
 
 Note: it was insanely strong
+
+#### Hat of Fire Acuity
+Now stacks buff only up to 5 stacks (was 10)
