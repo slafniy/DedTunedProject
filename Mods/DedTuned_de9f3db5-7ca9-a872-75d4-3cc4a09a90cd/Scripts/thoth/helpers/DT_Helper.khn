@@ -1,12 +1,10 @@
-local __util = require 'larian.util'
-
-function DT_HatApplyAcuity()
+function DT_HatApplyAcuityHowMuchToAdd()
     -- Apply Arcane Acuity stacks up to threshold
     local stringStatusName = 'MAG_GISH_ARCANE_ACUITY'
     local threshold = 5
-    local diff = threshold - GetStatusDuration(stringStatusName, Self())
-    if diff <= 0 then -- we already have 5+ stacks
-        return
+    local diff = threshold - GetStatusDuration(stringStatusName, context.Source)
+    if diff <= 0 then
+        return 0  -- we already have 5+ stacks
     end
-    ApplyStatus(Self(), MAG_GISH_ARCANE_ACUITY, 100, math.min(diff,2))  -- add up to 2 stacks
+    return math.min(diff,2)  -- add up to 2 stacks
 end
