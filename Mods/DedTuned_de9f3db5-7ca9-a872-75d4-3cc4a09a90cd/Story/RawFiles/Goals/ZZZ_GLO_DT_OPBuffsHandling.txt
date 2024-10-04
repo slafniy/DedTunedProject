@@ -3,10 +3,17 @@ SubGoalCombiner SGC_AND
 INITSECTION
 //REGION Overpowered buffs which have to be removed if its caster left the party
 DB_DT_OPBufffs_List("LONGSTRIDER");
-DB_DT_OPBufffs_List("GUIDANCE");
+DB_DT_OPBufffs_List("WARDING_BOND");  // TODO: fix WAARDING_BOND_CASTER left on caster
+DB_DT_OPBufffs_List("PROTECTION_FROM_POISON");
+DB_DT_OPBufffs_List("FREEDOM_OF_MOVEMENT");
+DB_DT_OPBufffs_List("DEATH_WARD");
+DB_DT_OPBufffs_List("HEROES_FEAST");
+DB_DT_OPBufffs_List("AID");
+DB_DT_OPBufffs_List("DARKVISION");
+DB_DT_OPBufffs_List("MAGE_ARMOR");
 //END_REGION
 KBSECTION
-//REGION OP Cast handler
+//REGION OP Cast event handler
 // Store casted spells info to check if some OP spell is casted on teammate
 // data to store: TARGET, STATUS, CASTER
 // override it every new status application (buffs replace each other not stack)
@@ -33,6 +40,7 @@ DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Caster);
 //END_REGION
 
 
+//REGION Party buffs handler
 // Caster in party, target leaves
 IF
 DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Caster)
@@ -67,12 +75,8 @@ Concatenate("Removing ", _Status, _msg1)
 THEN
 RemoveStatus(_Target, _Status, DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
 DebugText(_Target, _msg1);
-
-
-
-
-
-
+//END_REGION
 EXITSECTION
 
 ENDEXITSECTION
+ParentTargetEdge "__Start"
