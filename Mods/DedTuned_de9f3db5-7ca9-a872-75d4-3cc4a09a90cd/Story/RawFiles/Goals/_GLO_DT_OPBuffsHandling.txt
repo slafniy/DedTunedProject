@@ -2,31 +2,53 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 //REGION Overpowered buffs which have to be removed if its caster left the party
-DB_DT_OPBufffsList("GUIDANCE");
+DB_DT_OPBufffs_List("LONGSTRIDER");
+DB_DT_OPBufffs_List("GUIDANCE");
 //END_REGION
 KBSECTION
-// Character dismissed from party
-PROC
-PROC_GLO_PartyMembers_MakeNPCHook((CHARACTER)_LeavingCharacter)
-THEN
-DebugText(_LeavingCharacter, "I'm leaving the party and taking all my buffs from you!");
-
-// Handle casted spells to check if some OP spell is casted
+// Store casted spells info to check if some OP spell is casted in party
 IF
 StatusApplied((CHARACTER)_Character,_Status,(CHARACTER)_Caster,_StoryID)
 AND
-_Caster != _Character
+_Caster != _Character  // don't care if we use OP spells on self
 AND
-DB_PartyMembers(_Caster)
+DB_PartyMembers(_Caster)  // don't care if caster is outside of our party (is it possible for him to cast?)
 AND
-DB_PartyMembers(_Character)
+DB_PartOfTheTeam(_Character)  // don't care 
 AND
-DB_DT_OPBufffsList(_Status)
+DB_DT_OPBufffs_List(_Status)
 AND
 Concatenate("Kastanul tebe luchi ponosa proveryai: ", _Status, _Msg)
+AND
+Concatenate(_Msg, " ID: ", _Msg2)
+AND
+ConcatenateInteger(_Msg2, _StoryID, _Msg3)
 THEN
-DebugText(_Caster, _Msg);
+DB_DT_OPBuffs_Casted((CHARACTER)_Caster,(STRING)_Status,(CHARACTER)_Character,(INTEGER)_StoryID);
+DebugText(_Caster, _Msg3);
 DebugText(_Character, "Proveril real'no ponos!");
+
+
+// Character dismissed from party
+PROC
+PROC_GLO_PartyMembers_MakeNPCHook((CHARACTER)_LeavingCharacter)
+AND
+DB_DT_OPBuffs_Casted((CHARACTER)_Caster,(STRING)_Status,(CHARACTER)_Character,(INTEGER)_StoryID)
+AND
+_Caster == _LeavingCharacter
+AND
+ConcatenateInteger("I'm leaving the party and taking this buff from you: ", _StoryID, _msg)
+THEN
+RemoveStatus(_Character, _Status, NULL_00000000-0000-0000-0000-000000000000);
+NOT DB_DT_OPBuffs_Casted((CHARACTER)_Caster,(STRING)_Status,(CHARACTER)_Character,(INTEGER)_StoryID);
+DebugText(_LeavingCharacter, _msg);
+
+
+
+
+
+
+
 EXITSECTION
 
 ENDEXITSECTION
