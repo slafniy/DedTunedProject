@@ -6,43 +6,67 @@ DB_DT_OPBufffs_List("LONGSTRIDER");
 DB_DT_OPBufffs_List("GUIDANCE");
 //END_REGION
 KBSECTION
-// Store casted spells info to check if some OP spell is casted in party
+//REGION OP Cast handler
+// Store casted spells info to check if some OP spell is casted on teammate
+// data to store: TARGET, STATUS, CASTER
+// override it every new status application (buffs replace each other not stack)
+
+// Status is re-applied and we have a record about this cast type remove information about old caster
 IF
-StatusApplied((CHARACTER)_Character,_Status,(CHARACTER)_Caster,_StoryID)
+StatusApplied((CHARACTER)_Target,_Status,(CHARACTER)_Caster,_)
 AND
-_Caster != _Character  // don't care if we use OP spells on self
+DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_OldCaster)
+THEN
+NOT DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_OldCaster);
+
+// If status applied within teammates and cast is in DB_DT_OPBufffs_List - store info about it
+IF
+StatusApplied((CHARACTER)_Target,_Status,(CHARACTER)_Caster,_)
 AND
-DB_PartyMembers(_Caster)  // don't care if caster is outside of our party (is it possible for him to cast?)
+DB_PartOfTheTeam(_Caster)
 AND
-DB_PartOfTheTeam(_Character)  // don't care 
+DB_PartOfTheTeam(_Target)
 AND
 DB_DT_OPBufffs_List(_Status)
-AND
-Concatenate("Kastanul tebe luchi ponosa proveryai: ", _Status, _Msg)
-AND
-Concatenate(_Msg, " ID: ", _Msg2)
-AND
-ConcatenateInteger(_Msg2, _StoryID, _Msg3)
 THEN
-DB_DT_OPBuffs_Casted((CHARACTER)_Caster,(STRING)_Status,(CHARACTER)_Character,(INTEGER)_StoryID);
-DebugText(_Caster, _Msg3);
-DebugText(_Character, "Proveril real'no ponos!");
+DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Caster);
+//END_REGION
 
 
-// Character dismissed from party
-PROC
-PROC_GLO_PartyMembers_MakeNPCHook((CHARACTER)_LeavingCharacter)
+// Caster in party, target leaves
+IF
+DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Caster)
 AND
-DB_DT_OPBuffs_Casted((CHARACTER)_Caster,(STRING)_Status,(CHARACTER)_Character,(INTEGER)_StoryID)
+_Target != _Caster  // allow to keep buff on self
 AND
-_Caster == _LeavingCharacter
+DB_PartyMembers(_Caster)
 AND
-ConcatenateInteger("I'm leaving the party and taking this buff from you: ", _StoryID, _msg)
+NOT DB_PartyMembers(_Target)
+AND
+HasAppliedStatus(_Target, _Status, 1)
+AND
+Concatenate("Removing ", _Status, _msg1)
 THEN
-RemoveStatus(_Character, _Status, NULL_00000000-0000-0000-0000-000000000000);
-NOT DB_DT_OPBuffs_Casted((CHARACTER)_Caster,(STRING)_Status,(CHARACTER)_Character,(INTEGER)_StoryID);
-DebugText(_LeavingCharacter, _msg);
+RemoveStatus(_Target, _Status, DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
+DebugText(_Target, _msg1);
 
+
+// Target in party, caster leaves
+IF
+DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Caster)
+AND
+_Target != _Caster  // allow to keep buff on self
+AND
+NOT DB_PartyMembers(_Caster)
+AND
+DB_PartyMembers(_Target)
+AND
+HasAppliedStatus(_Target, _Status, 1)
+AND
+Concatenate("Removing ", _Status, _msg1)
+THEN
+RemoveStatus(_Target, _Status, DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
+DebugText(_Target, _msg1);
 
 
 
