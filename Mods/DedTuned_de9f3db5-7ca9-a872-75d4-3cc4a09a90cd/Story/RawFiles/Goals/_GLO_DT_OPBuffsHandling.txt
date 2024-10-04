@@ -1,0 +1,32 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+//REGION Overpowered buffs which have to be removed if its caster left the party
+DB_DT_OPBufffsList("GUIDANCE");
+//END_REGION
+KBSECTION
+// Character dismissed from party
+PROC
+PROC_GLO_PartyMembers_MakeNPCHook((CHARACTER)_LeavingCharacter)
+THEN
+DebugText(_LeavingCharacter, "I'm leaving the party and taking all my buffs from you!");
+
+// Handle casted spells to check if some OP spell is casted
+IF
+StatusApplied((CHARACTER)_Character,_Status,(CHARACTER)_Caster,_StoryID)
+AND
+_Caster != _Character
+AND
+DB_PartyMembers(_Caster)
+AND
+DB_PartyMembers(_Character)
+AND
+DB_DT_OPBufffsList(_Status)
+AND
+Concatenate("Kastanul tebe luchi ponosa proveryai: ", _Status, _Msg)
+THEN
+DebugText(_Caster, _Msg);
+DebugText(_Character, "Proveril real'no ponos!");
+EXITSECTION
+
+ENDEXITSECTION
