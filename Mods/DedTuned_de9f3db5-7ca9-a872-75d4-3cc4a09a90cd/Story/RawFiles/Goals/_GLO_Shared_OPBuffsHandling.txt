@@ -1,0 +1,12 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+PROC
+PROC_GLO_PartyMembers_MakeNPCHook((CHARACTER)_LeavingCharacter)
+THEN
+DebugText(_LeavingCharacter, "I'm leaving the party and taking all my buffs from you!");
+EXITSECTION
+
+ENDEXITSECTION
