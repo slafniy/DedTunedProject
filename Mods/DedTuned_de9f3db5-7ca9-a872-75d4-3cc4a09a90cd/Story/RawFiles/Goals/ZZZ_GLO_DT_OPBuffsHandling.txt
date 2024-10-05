@@ -1,7 +1,7 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-//REGION Overpowered buffs which have to be removed if its caster left the party
+//REGION Overpowered buffs (without concentration) which have to be removed if its caster left the party OR changed spec
 DB_DT_OPBufffs_List("LONGSTRIDER");
 DB_DT_OPBufffs_List("WARDING_BOND");  // TODO: fix WAARDING_BOND_CASTER left on caster
 DB_DT_OPBufffs_List("PROTECTION_FROM_POISON");
@@ -75,6 +75,20 @@ Concatenate("Removing ", _Status, _msg1)
 THEN
 RemoveStatus(_Target, _Status, DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
 DebugText(_Target, _msg1);
+//END_REGION
+
+
+//REGION Respec buffs bugfix  
+// https://github.com/slafniy/DedTuned/issues/13
+// Original game bug/feature but is has to be fixed
+IF
+RespecCompleted(_Player)
+AND
+DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Player)
+AND
+HasAppliedStatus(_Target, _Status, 1)
+THEN
+RemoveStatus(_Target, _Status, DT_OPBuffRemovingRespec_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
 //END_REGION
 EXITSECTION
 
