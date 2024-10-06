@@ -1,5 +1,9 @@
 /.idea/
 
+# Dirty hack to ignore another Git repos in this folder and have several projects
+/.gitPPMeter/
+/.gitDedTuned/
+
 # BG3 stock files
 /*.pak
 
