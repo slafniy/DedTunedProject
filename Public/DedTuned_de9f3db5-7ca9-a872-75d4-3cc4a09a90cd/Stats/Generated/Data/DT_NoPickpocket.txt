@@ -1,9 +1,0 @@
-new entry "GLO_Jergal"
-type "Character"
-using "GLO_Jergal"
-data "DefaultBoosts" "Tag(BLOCK_PICKPOCKET)"
-
-new entry "GLO_Volo"
-type "Character"
-using "GLO_Volo"
-data "DefaultBoosts" "Tag(BLOCK_PICKPOCKET)"
