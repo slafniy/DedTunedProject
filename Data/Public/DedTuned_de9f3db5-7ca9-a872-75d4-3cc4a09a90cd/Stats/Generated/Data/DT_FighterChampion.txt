@@ -1,0 +1,8 @@
+new entry "ImprovedCritical"
+type "PassiveData"
+data "DisplayName" "h483bde24g1d76g4d93ga3eag71302e74d195;2"
+data "Description" "h6c2bbbeegc149g40bcg9575g5726f16270dd;1"
+data "DescriptionParams" "2"
+data "Icon" "PassiveFeature_ImprovedCritical"
+data "Properties" "Highlighted"
+data "Boosts" "ReduceCriticalAttackThreshold(2)"

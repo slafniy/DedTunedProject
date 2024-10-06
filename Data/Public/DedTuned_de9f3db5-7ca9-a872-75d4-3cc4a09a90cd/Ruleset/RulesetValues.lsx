@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="5" revision="0" build="0"/>
+    <region id="RulesetValues">
+        <node id="root">
+            <children>
+                <node id="RulesetValue">
+                    <attribute id="Modifier" type="guid" value="6b8b28a3-52cf-41e5-817e-0d3226135a7d"/>
+                    <attribute id="Ruleset" type="guid" value="5d595a7a-6182-4559-b404-ed7cc7ad8ada"/>
+                    <attribute id="UUID" type="guid" value="924e5e37-6b85-4eb0-a931-6046da461c11"/>
+                    <attribute id="Value" type="LSString" value="false"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

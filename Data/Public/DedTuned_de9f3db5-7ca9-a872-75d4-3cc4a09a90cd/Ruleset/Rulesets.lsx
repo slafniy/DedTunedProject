@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="3" revision="0" build="302"/>
+    <region id="Rulesets">
+        <node id="root">
+            <children>
+                <node id="Ruleset">
+                    <attribute id="Description" type="TranslatedString" handle="h5e2183f0g1d9ag4726g86ffg83791b335a2b" version="4"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h39ed1ebbg6dadg4bafga046g6e3523d8bf7b" version="4"/>
+                    <attribute id="Name" type="LSString" value="RULESET_HONOUR"/>
+                    <attribute id="ShowInCustom" type="bool" value="true"/>
+                    <attribute id="Type" type="uint8" value="0"/>
+                    <attribute id="UUID" type="guid" value="5d595a7a-6182-4559-b404-ed7cc7ad8ada"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

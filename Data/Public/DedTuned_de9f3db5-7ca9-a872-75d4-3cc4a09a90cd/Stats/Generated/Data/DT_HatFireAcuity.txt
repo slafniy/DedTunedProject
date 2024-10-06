@@ -1,0 +1,5 @@
+new entry "MAG_Fire_ArcaneAcuityOnFireDamage_Hat_Passive"
+type "PassiveData"
+using "MAG_Fire_ArcaneAcuityOnFireDamage_Hat_Passive"
+data "Description" "h0aed5e4cg1abfg4408g9647g1e14388b2533;4"
+data "StatsFunctors" "IF(ConditionResult(DT_HatApplyAcuityHowMuchToAdd() == 2)):ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY, 100, 2);IF(ConditionResult(DT_HatApplyAcuityHowMuchToAdd() == 1)):ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY, 100, 1);ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY_DURATION_TECHNICAL, 100, 1)"
