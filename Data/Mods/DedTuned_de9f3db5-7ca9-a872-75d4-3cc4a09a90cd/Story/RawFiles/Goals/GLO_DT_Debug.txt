@@ -5,7 +5,7 @@ INITSECTION
 KBSECTION
 // spawn fat wolf to test damage
 IF
-TextEvent("wolf")
+TextEvent("auf")
 AND
 GetHostCharacter(_Player)
 AND
