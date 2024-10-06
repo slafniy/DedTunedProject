@@ -12,7 +12,18 @@ compiled_files_list = [
     DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_ac.dat",
     DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_ac.dat",
     DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_found.txt",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_ignore.txt"
+    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_ignore.txt",
+
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/RawFiles/story_definitions.div",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/RawFiles/story_header.div",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/goals.raw",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/log.txt",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story.div",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story.div.osi",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story_ac.dat",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story_ac.dat",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story_orphanqueries_found.txt",
+    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story_orphanqueries_ignore.txt"
 ]
 
 
