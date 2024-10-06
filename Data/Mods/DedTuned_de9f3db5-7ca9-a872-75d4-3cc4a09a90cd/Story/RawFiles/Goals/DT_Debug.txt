@@ -5,7 +5,7 @@ INITSECTION
 KBSECTION
 // spawn fat wolf to test damage
 IF
-TextEvent("woof")
+TextEvent("wolf")
 AND
 GetHostCharacter(_Player)
 AND
@@ -22,4 +22,4 @@ ApplyStatus(_Wolf, "DT_DEBUG_HP_BOOST_1000", -1.0, 1, _Wolf);
 EXITSECTION
 
 ENDEXITSECTION
-ParentTargetEdge "Start"
+ParentTargetEdge "__Start"
