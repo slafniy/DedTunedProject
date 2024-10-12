@@ -50,3 +50,5 @@
 /Data/Localization/Voice.pak
 /Data/Localization/VoiceMeta.pak
 /Data/_dbcache_/loca.db
+/Data/Projects/CommonUtility/get_all_bindings.py
+/Data/Projects/CommonUtility/XAMLBindings.txt
