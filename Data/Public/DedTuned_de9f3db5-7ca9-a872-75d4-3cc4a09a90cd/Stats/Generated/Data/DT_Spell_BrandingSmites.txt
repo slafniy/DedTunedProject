@@ -1,0 +1,28 @@
+new entry "Target_Smite_Branding"
+type "SpellData"
+using "Target_Smite_Branding"
+data "HitCosts" "SpellSlotsGroup:1:1:2"
+data "SpellFlags" "IsSpell;HasVerbalComponent;IsMelee;IsHarmful"
+
+new entry "Target_Smite_Branding_Container"
+type "SpellData"
+using "Target_Smite_Branding_Container"
+data "SpellFlags" "IsSpell;HasVerbalComponent;IsMelee;IsHarmful;IsLinkedSpellContainer"
+
+new entry "Target_Smite_Branding_3"
+type "SpellData"
+using "Target_Smite_Branding_3"
+data "HitCosts" "SpellSlotsGroup:1:1:3"
+data "SpellFlags" "IsSpell;HasVerbalComponent;IsMelee;IsHarmful"
+
+new entry "Projectile_Smite_Branding"
+type "SpellData"
+using "Projectile_Smite_Branding"
+data "HitCosts" "SpellSlotsGroup:1:1:2"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful"
+
+new entry "Projectile_Smite_Branding_3"
+type "SpellData"
+using "Projectile_Smite_Branding_3"
+data "HitCosts" "SpellSlotsGroup:1:1:3"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful"
