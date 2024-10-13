@@ -4,20 +4,23 @@
     <ls:StateMachine.States>
 
         <!--STATE: PlayerHUD-->
-        <ls:State Name = "PlayerHUD" Layout = "Player" Owner = "Player" ModType="Override">
+        <ls:State Name="PlayerHUD" Layout="Player" Owner="Player" ModType="Override">
             <ls:State.Widgets>
                 <ls:StateWidget Filename="DT_HotBar.xaml" Layer="HUDTop"/>
+                <ls:StateWidget Filename="PPMeterPartyStats.xaml" Layer="PopupPanels"/>
+                <ls:StateWidget Filename="PPMeter_HotBar.xaml" Layer="HUDTop"/>
+                <ls:StateWidget Filename="PPMeter_PlayerPortraits.xaml" Layer="PopupPanels"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/Overlay.xaml" Layer="Notifications"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/HudIndicator.xaml" Layer="HUD" IgnoreHitTest="True"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/OverheadInfo.xaml" Layer="HUD" IgnoreHitTest="True"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/Minimap.xaml" Layer="HUD"/>
-                <ls:StateWidget Filename="/MainUI;component/Pages/TargetInfo.xaml" Layer="HUD" IgnoreHitTest="True"/>
-                <ls:StateWidget Filename="/MainUI;component/Pages/PlayerPortraits.xaml" Layer="PopupPanels"/>
+                <ls:StateWidget Filename="PPMeter_TargetInfo.xaml" Layer="HUD" IgnoreHitTest="True"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/TurnModeInfo.xaml" Layer="HUD"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/CombatLog.xaml" Layer="HUD"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/CombatantsOverlay.xaml" Layer="HUD"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/CursorText.xaml" Layer="PopupPanels"/>
-                <ls:StateWidget Filename="/MainUI;component/Pages/DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/DragAndDropPreview.xaml" Layer="DragAndDrop"
+                                IgnoreHitTest="True"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/PassiveRoll.xaml" Layer="PopupPanels"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/AlwaysOnTopOverlay.xaml" Layer="PopupPanels"/>
             </ls:State.Widgets>
@@ -27,12 +30,13 @@
             </ls:State.InitialSubstates>
 
             <ls:State.Events>
-                <ls:StateEvent Name = "OpenSelectionFlyOut">
+                <ls:StateEvent Name="OpenSelectionFlyOut">
                     <ls:StateEvent.Actions>
                         <ls:AddSubstate Name="SelectionFlyOut"/>
                     </ls:StateEvent.Actions>
                 </ls:StateEvent>
             </ls:State.Events>
+
         </ls:State>
 
         <ls:State Name="MakeCamp" Layout = "Player" Owner = "Player" ModType="Override">
@@ -74,6 +78,137 @@
             </ls:State.Events>
         </ls:State>
 
+        <!--STATE: Character panel-->
+        <ls:State Name="CharacterPanel" Layout="Player" Owner="Player" HideStatesBelow="False" IsModal="False" ModType="Override">
+            <ls:State.Widgets>
+                <ls:StateWidget Filename="PPMeter_CharacterPanel.xaml" Layer="PopupPanels" SoundLayer="NonHUDWidget"/>
+            </ls:State.Widgets>
+
+            <ls:State.Events>
+                <ls:StateEvent Name = "CloseWidget">
+                    <ls:StateEvent.Actions>
+                        <ls:RequestCloseWidget/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <!--RemovePanelState happens after closing animation so the widget is cleaned up-->
+                <ls:StateEvent Name = "RemovePanelState">
+                    <ls:StateEvent.Actions>
+                        <ls:RemoveState/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <ls:StateEvent Name = "ToggleCharacterPanel">
+                    <ls:StateEvent.Actions>
+                        <ls:RequestCloseWidget/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <ls:StateEvent Name = "ToggleInterrupts">
+                    <ls:StateEvent.Actions>
+                        <ls:RequestCloseWidget Metadata="ToggleInterrupts"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "OpenLearnSpells">
+                    <ls:StateEvent.Actions>
+                        <ls:SetSubstate Name="LearnSpellsPopupPanel"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+            </ls:State.Events>
+        </ls:State>
+
+        <!--STATE: Examine-->
+        <ls:State Name = "Examine" DisableStatesBelow = "False" HideStatesBelow = "False" Layout = "Player" Owner = "Player" ModType="Override">
+            <ls:State.Widgets>
+                <ls:StateWidget Filename="PPMeter_Examine.xaml" Layer="PopupPanels" SoundLayer="NonHUDWidget"/>
+            </ls:State.Widgets>
+            <ls:State.Events>
+                <ls:StateEvent Name = "CloseWidget">
+                    <ls:StateEvent.Actions>
+                        <ls:RemoveState/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <ls:StateEvent Name = "IE.ToggleInGameMenu">
+                    <ls:StateEvent.Actions>
+                        <ls:RemoveState/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+            </ls:State.Events>
+        </ls:State>
+
+        <!--STATE: Party panels-->
+        <ls:State Name="PartyPanel" Layout="Player" Owner="Player" IsModal="True" ModType="Override">
+            <ls:State.Widgets>
+                <ls:StateWidget Filename="PPMeter_PartyPanel.xaml" Layer="Panels" SoundLayer="NonHUDWidget"/>
+                <ls:StateWidget Filename="/MainUI;component/Pages/DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/>
+            </ls:State.Widgets>
+
+            <ls:State.Events>
+                <ls:StateEvent Name = "CloseWidget">
+                    <ls:StateEvent.Actions>
+                        <ls:RequestCloseWidget AllowToggle="False"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <!--RemovePanelState happens after closing animation so the widget is cleaned up-->
+                <ls:StateEvent Name = "RemovePanelState">
+                    <ls:StateEvent.Actions>
+                        <ls:RemoveState/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "TogglePartyPanel">
+                    <ls:StateEvent.Actions>
+                        <ls:RequestCloseWidget/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "IE.TogglePartyCharacterView">
+                    <ls:StateEvent.Actions>
+                        <ls:RequestCloseWidget AllowToggle="False"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "ClosePartyPanel">
+                    <ls:StateEvent.Actions>
+                        <ls:RequestCloseWidget AllowToggle="False"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "CloseAllFullscreen">
+                    <ls:StateEvent.Actions>
+                        <ls:RemoveState />
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <ls:StateEvent Name = "IE.ToggleMap">
+                    <ls:StateEvent.Actions>
+                        <ls:SetSubstate Name="JournalMap"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <ls:StateEvent Name = "IE.ToggleJournal">
+                    <ls:StateEvent.Actions>
+                        <ls:SetSubstate Name="JournalQuests"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <ls:StateEvent Name = "IE.ToggleInspiration">
+                    <ls:StateEvent.Actions>
+                        <ls:SetSubstate Name="JournalInspiration"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <ls:StateEvent Name = "OpenLearnSpells">
+                    <ls:StateEvent.Actions>
+                        <ls:SetSubstate Name="LearnSpellsPanel"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+                <ls:StateEvent Name = "OpenPinnedTooltips">
+                    <ls:StateEvent.Actions>
+                        <ls:AddSubstate Name="PinnedTooltips"/>
+                    </ls:StateEvent.Actions>
+                </ls:StateEvent>
+
+                <!-- Events triggered in the spell book, shared with character panel. Shouldn't do anything in party panel -->
+                <ls:StateEvent Name="ToggleSpells"/>
+                <ls:StateEvent Name="ToggleInterrupts"/>
+            </ls:State.Events>
+        </ls:State>
+
     </ls:StateMachine.States>
-    
 </ls:StateMachine>
