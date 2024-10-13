@@ -1,34 +1,34 @@
 from pathlib import Path
 
-DATA_FOLDER = Path("C:\Program Files (x86)\Steam\steamapps\common\Baldurs Gate 3\Data")
-
-compiled_files_list = [
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/RawFiles/story_definitions.div",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/RawFiles/story_header.div",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/goals.raw",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/log.txt",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story.div",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story.div.osi",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_ac.dat",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_ac.dat",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_found.txt",
-    DATA_FOLDER / "Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_ignore.txt",
-
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/RawFiles/story_definitions.div",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/RawFiles/story_header.div",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/goals.raw",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/log.txt",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story.div",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story.div.osi",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story_ac.dat",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story_ac.dat",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story_orphanqueries_found.txt",
-    DATA_FOLDER / "Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/Story/story_orphanqueries_ignore.txt"
-]
+ROOT_PATH = Path(__file__).parent.parent.parent.parent
+GITIGNORE_PATH = ROOT_PATH / ".gitignore"
 
 
 if __name__ == '__main__':
-    for compiled_file in compiled_files_list:
-        if compiled_file.exists():
-            print(f'Removing {compiled_file}')
-            compiled_file.unlink()
+    safe_to_remove = []
+
+    with GITIGNORE_PATH.open() as gitignore_file:
+        is_safe_to_remove_block = False
+        for line in gitignore_file.readlines():
+            if line.startswith("# SAFETOREMOVE_START"):
+                is_safe_to_remove_block = True
+                continue
+            if line.startswith("# SAFETOREMOVE_END"):
+                is_safe_to_remove_block = False
+            if is_safe_to_remove_block:
+                safe_to_remove.append(line[:-1])
+
+    safe_to_remove_resolved = set()
+    for path in safe_to_remove:
+        resolved = Path(f'{ROOT_PATH}{path}').resolve()
+        safe_to_remove_resolved.add(resolved)
+
+    print('Safe to remove file list from .gitignore:')
+    [print(f) for f in safe_to_remove_resolved]
+
+    for file_to_remove in safe_to_remove_resolved:
+        if file_to_remove.exists():
+            print(f'Removing {file_to_remove}')
+            file_to_remove.unlink()
+        else:
+            print(f'{file_to_remove} does not exist')

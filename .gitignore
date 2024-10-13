@@ -55,13 +55,13 @@
 
 # BG3 story generated files which are safe to remove to decrease mod pak size
 # SAFETOREMOVE_START
-/Data/Mods/*/Story/goals.raw
-/Data/Mods/*/Story/log.txt
-/Data/Mods/*/Story/story.div
-/Data/Mods/*/Story/story.div.osi
-/Data/Mods/*/Story/story_ac.dat
-/Data/Mods/*/Story/RawFiles/story_definitions.div
-/Data/Mods/*/Story/RawFiles/story_header.div
-/Data/Mods/*/Story/story_orphanqueries_found.txt
-/Data/Mods/*/Story/story_orphanqueries_ignore.txt
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/goals.raw
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/log.txt
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story.div
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story.div.osi
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_ac.dat
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/RawFiles/story_definitions.div
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/RawFiles/story_header.div
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_found.txt
+/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_ignore.txt
 # SAFETOREMOVE_END
