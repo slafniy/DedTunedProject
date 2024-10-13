@@ -1,0 +1,4 @@
+new entry "Target_Barkskin"
+type "SpellData"
+using "Target_Barkskin"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsMelee;IsSpell"
