@@ -1,0 +1,19 @@
+new entry "Target_PlanarAlly_Deva"
+type "SpellData"
+using "Target_PlanarAlly_Deva"
+data "SpellProperties" "AI_IGNORE:Ground:Summon(2337e270-3c93-4088-8439-7c7450b99179, 10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);AI_ONLY:Ground:Summon(2337e270-3c93-4088-8439-7c7450b99179, 10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK,KNOCKED_OUT_SUMMON_DISMISS)"
+
+new entry "Target_PlanarAlly_Deva_Banite"
+type "SpellData"
+using "Target_PlanarAlly_Deva_Banite"
+data "SpellProperties" "AI_IGNORE:Ground:Summon(af547ac0-c5fb-481d-9d67-8da3799aef5a, 10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);AI_ONLY:Ground:Summon(af547ac0-c5fb-481d-9d67-8da3799aef5a, 10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK,KNOCKED_OUT_SUMMON_DISMISS)"
+
+new entry "Target_PlanarAlly_Cambion"
+type "SpellData"
+using "Target_PlanarAlly_Cambion"
+data "SpellProperties" "AI_IGNORE:Ground:Summon(6708ae4b-8dcf-4812-bdba-fd5fe1c343f6, 10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);AI_ONLY:Ground:Summon(6708ae4b-8dcf-4812-bdba-fd5fe1c343f6, 10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK,KNOCKED_OUT_SUMMON_DISMISS)"
+
+new entry "Target_PlanarAlly_Djinni"
+type "SpellData"
+using "Target_PlanarAlly_Djinni"
+data "SpellProperties" "AI_IGNORE:Ground:Summon(c6ad9c71-43a9-410b-8e3e-219a0a7fddc8, 10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);AI_ONLY:Ground:Summon(c6ad9c71-43a9-410b-8e3e-219a0a7fddc8, 10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK,KNOCKED_OUT_SUMMON_DISMISS)"
