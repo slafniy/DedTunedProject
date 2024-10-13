@@ -322,7 +322,7 @@
                         </b:Interaction.Triggers>
                     </ls:LSButton>
 
-                    <ls:LSButton x:Name="HidePPMeterButton" VerticalAlignment="Center">
+                    <ls:LSButton x:Name="HidePPMeterButton" VerticalAlignment="Center" Visibility="Collapsed">
                         <ls:LSButton.Template>
                             <ControlTemplate TargetType="ls:LSButton">
                                 <Grid Height="114" Width="80" Background="Transparent">
