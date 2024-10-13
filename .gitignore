@@ -52,3 +52,16 @@
 /Data/_dbcache_/loca.db
 /Data/Projects/CommonUtility/get_all_bindings.py
 /Data/Projects/CommonUtility/XAMLBindings.txt
+
+# BG3 story generated files which are safe to remove to decrease mod pak size
+# SAFETOREMOVE_START
+/Data/Mods/*/Story/goals.raw
+/Data/Mods/*/Story/log.txt
+/Data/Mods/*/Story/story.div
+/Data/Mods/*/Story/story.div.osi
+/Data/Mods/*/Story/story_ac.dat
+/Data/Mods/*/Story/RawFiles/story_definitions.div
+/Data/Mods/*/Story/RawFiles/story_header.div
+/Data/Mods/*/Story/story_orphanqueries_found.txt
+/Data/Mods/*/Story/story_orphanqueries_ignore.txt
+# SAFETOREMOVE_END
