@@ -1,0 +1,579 @@
+<ls:UIWidget x:Name="PlayerPortraits"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:noesis="clr-namespace:NoesisGUIExtensions;assembly=Noesis.GUI.Extensions"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:ls="clr-namespace:ls;assembly=Code"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance {x:Type ls:Widget}, IsDesignTimeCreatable=True}">
+    <ls:UIWidget.Style>
+        <Style TargetType="ls:UIWidget" BasedOn="{StaticResource {x:Type ls:UIWidget}}">
+            <Setter Property="Template" Value="{StaticResource Hud.Root}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding CurrentPlayer.UIData.ActiveState}" Value="Trade">
+                    <Setter Property="Template" Value="{StaticResource Hud.RootNoAnim}"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding CurrentPlayer.UIData.ActiveState}" Value="MessageBox">
+                    <Setter Property="Template" Value="{StaticResource Hud.RootNoAnim}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ls:UIWidget.Style>
+
+    <ls:UIWidget.Resources>
+
+        <KeyTime x:Key="SlideInHudTime">0:0:0.7</KeyTime>
+        <KeyTime x:Key="SlideInHudBeginTime">0:0:0.3</KeyTime>
+        <Storyboard x:Key="CampCompanionsButtonIn" FillBehavior="Stop">
+            <DoubleAnimation Storyboard.TargetName="CompanionAccessHolder"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                             From="-150"
+                             To="0"
+                             Duration="0:0:0.4">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Key="CampCompanionsButtonOut" FillBehavior="Stop">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="CompanionAccessHolder">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation
+                                Storyboard.TargetName="CompanionAccessHolder"
+                                Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                From="0"
+                                To="-150"
+                                Duration="0:0:0.4">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+
+        <ControlTemplate x:Key="ChainTemplate">
+            <Rectangle Width="18">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="pack://application:,,,/Core;component/Assets/PlayerPortraits/chainTile.png" Stretch="Fill" TileMode="Tile"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </ControlTemplate>
+
+        <Style x:Key="DropHighlightStyle" TargetType="Rectangle">
+            <Setter Property="Stroke" Value="White"/>
+            <Setter Property="StrokeThickness" Value="6"/>
+            <Setter Property="Fill" Value="#FFFFFF" />
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Width" Value="164"/>
+            <Setter Property="Height" Value="216"/>
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="Visibility" Value="Hidden"/>
+            <Style.Triggers>
+                <Trigger Property="Visibility" Value="Visible">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard x:Name="DropHighliteAnim" >
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames  RepeatBehavior="Forever" Storyboard.TargetProperty="Opacity">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="0.6"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="0.3">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CubicEase EasingMode="EaseIn"/>
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <StopStoryboard BeginStoryboardName="DropHighliteAnim" />
+                    </Trigger.ExitActions>
+                </Trigger>
+                <EventTrigger RoutedEvent="Unloaded" >
+                    <StopStoryboard BeginStoryboardName="DropHighliteAnim" />
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </ls:UIWidget.Resources>
+
+    <ls:UIWidget.ContentTemplate>
+        <DataTemplate>
+            <Grid>
+                <Border x:Name="Root" HorizontalAlignment="Left">
+                    <Border.Resources>
+                        <Storyboard x:Key="Hud.AnimIn">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" >
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="{StaticResource SlideInHudBeginTime}" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="{StaticResource SlideInHudTime}" Value="1">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                                <EasingDoubleKeyFrame KeyTime="{StaticResource SlideInHudBeginTime}" Value="200"/>
+                                <EasingDoubleKeyFrame KeyTime="{StaticResource SlideInHudTime}" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="-200"/>
+                                <EasingDoubleKeyFrame KeyTime="{StaticResource SlideInHudBeginTime}" Value="-200"/>
+                                <EasingDoubleKeyFrame KeyTime="{StaticResource SlideInHudTime}" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+
+                    </Border.Resources>
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.ActiveState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="Trade">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.ActiveState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="MessageBox">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="PartyInventory">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard Storyboard="{StaticResource Hud.AnimIn}" />
+                                    </DataTrigger.EnterActions>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="PartyEquipment">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard Storyboard="{StaticResource Hud.AnimIn}" />
+                                    </DataTrigger.EnterActions>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="Dialogue">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard Storyboard="{StaticResource Hud.AnimIn}" />
+                                    </DataTrigger.EnterActions>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="PartyCharacterSheet">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard Storyboard="{StaticResource Hud.AnimIn}" />
+                                    </DataTrigger.EnterActions>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="SpellBook">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard Storyboard="{StaticResource Hud.AnimIn}" />
+                                    </DataTrigger.EnterActions>
+                                </DataTrigger>
+
+                                <!-- Check if we can hide player portraits -->
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <!-- There's only one player -->
+                                        <Condition Binding="{Binding DataContext.Data.Players.Count, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}, Converter={StaticResource GreaterThanConverter}, ConverterParameter=1}" Value="False"/>
+                                        <!-- And it only has one assigned character -->
+                                        <Condition Binding="{Binding DataContext.Data.Players[0].AssignedCharacters.Count, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}, Converter={StaticResource GreaterThanConverter}, ConverterParameter=1}" Value="False"/>
+                                        <!-- And it has no companion nor follower -->
+                                        <Condition Binding="{Binding DataContext.Data.Players[0].AssignedCharacters[0].PlayerCharacterProperties.Followers.Count, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}, Converter={StaticResource GreaterThanConverter}, ConverterParameter=0}" Value="False"/>
+                                        <!-- And it has no companion nor unlinked follower -->
+                                        <Condition Binding="{Binding DataContext.Data.Players[0].AssignedCharacters[0].PlayerCharacterProperties.FollowersUnlinked.Count, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}, Converter={StaticResource GreaterThanConverter}, ConverterParameter=0}" Value="False"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.Setters>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </MultiDataTrigger.Setters>
+                                </MultiDataTrigger>
+
+                                <!-- Add background when dragging followers/companions to allow drop behaviors -->
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding CurrentPlayer.UIData.DragData.DraggingGameObjects[0], Converter={StaticResource TypeConverter}}" Value="ls.Character"/>
+                                        <Condition Binding="{Binding CurrentPlayer.UIData.DragData.DraggingGameObjects[0].CharacterType}" Value="Follower"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding CurrentPlayer.UIData.DragData.DraggingGameObjects[0], Converter={StaticResource TypeConverter}}" Value="ls.Character"/>
+                                        <Condition Binding="{Binding CurrentPlayer.UIData.DragData.DraggingGameObjects[0].CharacterType}" Value="Summon"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </MultiDataTrigger>
+
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+
+                    <b:Interaction.Behaviors>
+                        <!-- We need to NOT eat events to let them reach the portrait as well -->
+                        <ls:DropOnGenericBehavior DropCommand="{Binding DataContext.DropFollowerOrSummonCommand, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" EatEvents="False"/>
+                    </b:Interaction.Behaviors>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1850"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <ls:LSNineSliceImage Margin="-4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" ImageSource="pack://application:,,,/Core;component/Assets/PlayerPortraits/portrait_party_bg.png" Slices="108,155,0,255">
+                            <StackPanel>
+                                <Grid Height="155">
+                                    <ls:LSInputBinding BoundEvent="ToggleInventory" Command="{Binding CustomEvent}" CommandParameter="ToggleInventory"/>
+                                    <ls:LSInputBinding BoundEvent="ToggleCharacterOverview" Command="{Binding CustomEvent}" CommandParameter="ToggleInventory"/>
+                                    <ls:LSInputBinding BoundEvent="ToggleSpells" Command="{Binding CustomEvent}" CommandParameter="ToggleSpells"/>
+                                    <ls:LSInputBinding x:Name="AlchemyShortcut" BoundEvent="UIToggleAlchemy" Command="{Binding CustomEvent}" CommandParameter="ToggleAlchemy"/>
+
+                                    <ls:LSButton BoundEvent="TogglePartyCharacterView" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,25" Command="{Binding DataContext.CustomEvent, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" CommandParameter="TogglePartyPanel" SoundID="UI_HUD_PartyPanel" ToolTipService.Placement="Top" ToolTipService.IsEnabled="True" ToolTipService.VerticalOffset="4" Template="{StaticResource PanelButtonWT}">
+                                        <ls:LSButton.ToolTip>
+                                            <ls:LSTooltip Content="{Binding DataContext.CurrentPlayer.UIData.InputEvents, ElementName=PlayerPortraits, Converter={StaticResource FindInputEventConverter}, ConverterParameter='TogglePartyCharacterView'}"/>
+                                        </ls:LSButton.ToolTip>
+                                        <ls:LSButton.Resources>
+                                            <BitmapImage x:Key="Icon_Normal" UriSource="pack://application:,,,/Core;component/Assets/BottomBar/ico_equipment_d.png" />
+                                            <BitmapImage x:Key="Icon_Hover" UriSource="pack://application:,,,/Core;component/Assets/BottomBar/ico_equipment_h.png" />
+                                            <BitmapImage x:Key="Icon_Pressed" UriSource="pack://application:,,,/Core;component/Assets/BottomBar/ico_equipment_h.png" />
+                                        </ls:LSButton.Resources>
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                                <ls:LSPlaySound Sound="UI_HUD_PartyPanel_Release"/>
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                    </ls:LSButton>
+                                </Grid>
+
+                                <ls:LSPlayerList x:Name="PlayerList" Scalable="False" VerticalOrientation="True" ItemsSource="{Binding  Data.Players}" DefaultAvailableSpace="1486" MinAvailableSpace="620" MaxCharactersPerPage="6" SinglePortraitWidth="164" SinglePortraitHeight="214" ScreenResolution="{Binding Data.ScreenResolution}">
+                                    <ls:LSPlayerList.Template>
+                                        <ControlTemplate>
+                                            <Grid>
+                                                <Grid.Resources>
+                                                    <Storyboard x:Key="PlayerListAnim">
+                                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(ls:TutorialProperties.IsAnimating)">
+                                                            <DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                                                            <DiscreteBooleanKeyFrame KeyTime="{StaticResource SlideInHudTime}" Value="False"/>
+                                                        </BooleanAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </Grid.Resources>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <ls:LSScrollViewer x:Name="PART_ScrollViewer" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled"  MaxHeight="1420">
+                                                    <ls:LSScrollViewer.OpacityMask>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                            <LinearGradientBrush.GradientStops>
+                                                                <GradientStop Offset="0" Color="Transparent"/>
+                                                                <GradientStop Offset="0.013" Color="Black"/>
+                                                                <GradientStop Offset="0.987" Color="Black"/>
+                                                                <GradientStop Offset="1" Color="Transparent"/>
+                                                            </LinearGradientBrush.GradientStops>
+                                                        </LinearGradientBrush>
+                                                    </ls:LSScrollViewer.OpacityMask>
+                                                    <ItemsPresenter x:Name="PART_Presenter" Margin="25,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                                                </ls:LSScrollViewer>
+
+                                                <Grid Visibility="{Binding ActualHeight, ElementName=PART_Presenter, Converter={StaticResource CountToVisibilityConverter}, ConverterParameter='1420'}">
+                                                    <ls:LSButton x:Name="UpScrollButton" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource PartylineScrollButtonStyleUp}" Margin="10,-20,0,0">
+                                                        <b:Interaction.Behaviors>
+                                                            <ls:ScrollBehavior x:Name="UpScrollBehavior" Orientation="{x:Static Orientation.Vertical}" ScrollViewer="{Binding ElementName=PART_ScrollViewer}" Offset="-300" ScrollRate="10"/>
+                                                        </b:Interaction.Behaviors>
+                                                    </ls:LSButton>
+                                                    <ls:LSButton x:Name="DownScrollButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource PartylineScrollButtonStyleDown}" Margin="10,0,0,-20">
+                                                        <b:Interaction.Behaviors>
+                                                            <ls:ScrollBehavior x:Name="DownScrollBehavior" Orientation="{x:Static Orientation.Vertical}" ScrollViewer="{Binding ElementName=PART_ScrollViewer}" Offset="300" ScrollRate="10"/>
+                                                        </b:Interaction.Behaviors>
+                                                    </ls:LSButton>
+                                                </Grid>
+
+
+                                                <Grid.Style>
+                                                    <Style TargetType="Grid">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="PartyInventory">
+                                                                <DataTrigger.EnterActions>
+                                                                    <BeginStoryboard  Storyboard="{StaticResource PlayerListAnim}" />
+                                                                </DataTrigger.EnterActions>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="PartyEquipment">
+                                                                <DataTrigger.EnterActions>
+                                                                    <BeginStoryboard  Storyboard="{StaticResource PlayerListAnim}" />
+                                                                </DataTrigger.EnterActions>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="Dialogue">
+                                                                <DataTrigger.EnterActions>
+                                                                    <BeginStoryboard  Storyboard="{StaticResource PlayerListAnim}" />
+                                                                </DataTrigger.EnterActions>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="PartyCharacterSheet">
+                                                                <DataTrigger.EnterActions>
+                                                                    <BeginStoryboard  Storyboard="{StaticResource PlayerListAnim}" />
+                                                                </DataTrigger.EnterActions>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding DataContext.CurrentPlayer.UIData.PreviousState , RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" Value="SpellBook">
+                                                                <DataTrigger.EnterActions>
+                                                                    <BeginStoryboard  Storyboard="{StaticResource PlayerListAnim}" />
+                                                                </DataTrigger.EnterActions>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Grid.Style>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </ls:LSPlayerList.Template>
+                                    <ls:LSPlayerList.ItemContainerStyle>
+                                        <Style TargetType="ls:LSPortraitList">
+                                            <Setter Property="Opacity" Value="0.9"/>
+                                            <Setter Property="ItemsSource" Value="{Binding PartyGroups}"/>
+                                            <Setter Property="ItemsPanel">
+                                                <Setter.Value>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Vertical"/>
+                                                    </ItemsPanelTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Tag">
+                                                <Setter.Value>
+                                                    <MultiBinding Converter="{StaticResource EqualConverter}">
+                                                        <Binding ElementName="PlayerList" Path="DataContext.CurrentPlayer"/>
+                                                        <Binding Path="DataContext" RelativeSource="{RelativeSource Mode=Self}"/>
+                                                    </MultiBinding>
+                                                </Setter.Value>
+                                            </Setter>
+
+                                            <Setter Property="ItemContainerStyle">
+                                                <Setter.Value>
+                                                    <Style TargetType="ls:LSPortraitListGroup">
+                                                        <Setter Property="Panel.ZIndex" Value="0"/>
+                                                        <Setter Property="DragThreshold" Value="380"/>
+                                                        <Setter Property="DragStart" Value="40"/>
+                                                        <Setter Property="PlayerId" Value="{Binding DataContext.PlayerId, RelativeSource={RelativeSource AncestorType={x:Type ls:LSPortraitList}}}" />
+                                                        <Setter Property="ItemsSource" Value="{Binding .}"/>
+                                                        <Setter Property="AllowDragging" Value="{Binding Path=Tag , ElementName=PortraitList}"/>
+                                                        <Setter Property="LinkTemplate" Value="{StaticResource ChainTemplate}"/>
+                                                        <Setter Property="ItemsPanel">
+                                                            <Setter.Value>
+                                                                <ItemsPanelTemplate>
+                                                                    <StackPanel Orientation="Vertical"/>
+                                                                </ItemsPanelTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="ls:LSPortraitListGroup">
+                                                                    <Grid Margin="0,10,0,10">
+                                                                        <Canvas x:Name="PART_ItemLinksHolder"/>
+                                                                        <ItemsPresenter/>
+                                                                        <Rectangle RenderTransformOrigin="0,1" x:Name="PART_Positioner" Style="{StaticResource DropHighlightStyle}"/>
+                                                                    </Grid>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Setter Property="ItemContainerStyle">
+                                                            <Setter.Value>
+                                                                <Style TargetType="ls:LSPortraitListItem">
+                                                                    <Setter Property="Template" Value="{StaticResource Template.ListBoxItem}"/>
+                                                                    <Setter Property="ContentTemplate" Value="{StaticResource PPMeter_CharacterPortrait}" />
+                                                                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                                                                    <Setter Property="MinWidth" Value="152"/>
+                                                                    <Setter Property="Opacity" Value="1"/>
+                                                                    <Setter Property="BorderThickness" Value="0"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding IsDragged}" Value="True">
+                                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                                            <Setter Property="Panel.ZIndex" Value="100"/>
+                                                                        </DataTrigger>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                                                            <Setter Property="Background" Value="Transparent" />
+                                                                        </Trigger>
+                                                                        <Trigger Property="IsSelected" Value="True">
+                                                                            <Setter Property="Panel.ZIndex" Value="100"/>
+                                                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                                                            <Setter Property="Background" Value="Transparent" />
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Setter.Value>
+                                                        </Setter>
+
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsDragging" Value="True">
+                                                                <Setter Property="Panel.ZIndex" Value="100"/>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="Tag" Value="{StaticResource TrueValue}">
+                                                    <Setter Property="Opacity" Value="1"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ls:LSPlayerList.ItemContainerStyle>
+                                    <ls:LSPlayerList.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Vertical"/>
+                                        </ItemsPanelTemplate>
+                                    </ls:LSPlayerList.ItemsPanel>
+                                </ls:LSPlayerList>
+
+                                <Grid Height="255" x:Name="BottomButtonHolder">
+                                    <Grid.Resources>
+                                        <Style TargetType="ls:LSButton">
+                                            <Setter Property="Template" Value="{StaticResource PanelButtonWT}"/>
+                                            <Setter Property="ToolTipService.Placement" Value="Top"  />
+                                            <Setter Property="ToolTipService.VerticalOffset" Value="4"  />
+                                            <Setter Property="ToolTipService.IsEnabled" Value="True"  />
+                                        </Style>
+                                    </Grid.Resources>
+                                    <ls:LSButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,15,0,0" Command="{Binding DataContext.ToggleGroupMode, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" BoundEvent="ToggleGroupMode" IsEnabled="{Binding DataContext.CurrentPlayer.UIData.InPlayerPanels, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}, Converter={StaticResource InvertBoolConverter}}" OverwriteClickSound="UI_Gameplay_PartyMember_Group">
+                                        <ls:LSButton.ToolTip>
+                                            <ls:LSTooltip Content="{Binding DataContext.CurrentPlayer.UIData.InputEvents, ElementName=PlayerPortraits, Converter={StaticResource FindInputEventConverter}, ConverterParameter='ToggleGroupMode'}"/>
+                                        </ls:LSButton.ToolTip>
+                                        <ls:LSButton.Resources>
+                                            <BitmapImage x:Key="Icon_Normal" UriSource="pack://application:,,,/Core;component/Assets/PlayerPortraits/ico_party_groupAll_d.png" />
+                                            <BitmapImage x:Key="Icon_Hover" UriSource="pack://application:,,,/Core;component/Assets/PlayerPortraits/ico_party_groupAll_h.png" />
+                                            <BitmapImage x:Key="Icon_Pressed" UriSource="pack://application:,,,/Core;component/Assets/PlayerPortraits/ico_party_groupAll_d.png" />
+                                        </ls:LSButton.Resources>
+                                    </ls:LSButton>
+                                    <ls:LSButton x:Name="ToggleGroupHideButton" HorizontalAlignment="Left" Margin="6,36,0,0"  Command="{Binding DataContext.ToggleGroupHide, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" BoundEvent="ToggleGroupStealth" >
+                                        <ls:LSButton.ToolTip>
+                                            <ls:LSTooltip Content="{Binding DataContext.CurrentPlayer.UIData.InputEvents, ElementName=PlayerPortraits, Converter={StaticResource FindInputEventConverter}, ConverterParameter='ToggleGroupStealth'}"/>
+                                        </ls:LSButton.ToolTip>
+                                        <ls:LSButton.Resources>
+                                            <BitmapImage x:Key="Icon_Normal" UriSource="pack://application:,,,/Core;component/Assets/PlayerPortraits/ico_party_hideAll_d.png" />
+                                            <BitmapImage x:Key="Icon_Hover" UriSource="pack://application:,,,/Core;component/Assets/PlayerPortraits/ico_party_hideAll_h.png" />
+                                            <BitmapImage x:Key="Icon_Pressed" UriSource="pack://application:,,,/Core;component/Assets/PlayerPortraits/ico_party_hideAll_d.png" />
+                                        </ls:LSButton.Resources>
+                                    </ls:LSButton>
+                                </Grid>
+
+                            </StackPanel>
+                        </ls:LSNineSliceImage>
+                    </Grid>
+                </Border>
+
+                <!--CAMP COMPANIONS TOGGLE-->
+                <Grid x:Name="CompanionAccessHolder" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Collapsed" Margin="-16,0,0,48">
+                    <Grid.Resources>
+                        <BitmapImage x:Key="CompanionButtonholder" UriSource="pack://application:,,,/Core;component/Assets/CharacterSheet/campFollowers_btn_bg.png"/>
+                    </Grid.Resources>
+                    <Grid.RenderTransform>
+                        <TranslateTransform X="0" Y="0" />
+                    </Grid.RenderTransform>
+                    <Image Source="{StaticResource CompanionButtonholder}" Stretch="None" />
+
+                    <ls:LSButton x:Name="ToggleCampCompanionButton" Width="130" Height="130" Margin="0,0,0,28" ToolTipService.Placement="Top" Command="{Binding Path=DataContext.CustomEvent, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ls:UIWidget}}}" CommandParameter="ToggleCompanionsPanel">
+                        <ls:LSButton.Resources>
+                            <BitmapImage x:Key="partyLine_bigBtn_d" UriSource="pack://application:,,,/Core;component/Assets/Buttons/partyLine_bigBtn_h.png"/>
+                            <BitmapImage x:Key="ico_party_d" UriSource="pack://application:,,,/Core;component/Assets/Shared/campFollowers_btn_ico_d.png"/>
+                        </ls:LSButton.Resources>
+                        <ls:LSButton.ToolTip>
+                            <ls:LSTooltip IsHitTestVisible="False">
+                                <TextBlock Text="{Binding Source='ha8cd9920g28dfg4ebcg8a03g20ffa9fa4e4e',Converter={StaticResource TranslatedStringConverter}}" Style="{StaticResource TooltipBaseTextStyle}"/>
+                            </ls:LSTooltip>
+                        </ls:LSButton.ToolTip>
+                        <ls:LSButton.Template>
+                            <ControlTemplate TargetType="ls:LSButton">
+                                <Grid>
+                                    <Image x:Name="Background" Source="{StaticResource partyLine_bigBtn_d}" Stretch="None" Margin="-1,-1,1,1"/>
+                                    <Image x:Name="ClassIcon" Source="{StaticResource ico_party_d}" Height="48" Margin="0"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Source" Value="pack://application:,,,/Core;component/Assets/Buttons/partyLine_bigBtn_h.png"/>
+                                        <Setter TargetName="ClassIcon" Property="Source" Value="pack://application:,,,/Core;component/Assets/Shared/campFollowers_btn_ico_h.png"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="Background" Property="Source" Value="pack://application:,,,/Core;component/Assets/Buttons/partyLine_bigBtn_p.png"/>
+                                        <Setter TargetName="ClassIcon" Property="Height" Value="40"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </ls:LSButton.Template>
+                    </ls:LSButton>
+                </Grid>
+
+
+
+                <!-- If partly line is hidden, allow centering the camera on the unique character by pressing UISelectChar1 -->
+                <ls:LSInputBinding x:Name="CameraResetInput"
+                           PlayerId="{Binding CurrentPlayer.PlayerId}"
+                           Command="{Binding SetCameraOnGameObject}"  CommandParameter="{Binding CurrentPlayer.SelectedCharacter}"
+                           BoundEvent="UISelectChar1"/>
+
+            </Grid>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding CurrentPlayer.SelectedCharacter.CharacterType}" Value="Summon">
+                    <Setter TargetName="AlchemyShortcut" Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding CurrentPlayer.SelectedCharacter.CharacterType}" Value="Follower">
+                    <Setter TargetName="AlchemyShortcut" Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding ElementName=Root,Path=Visibility}" Value="Hidden">
+                    <Setter TargetName="PlayerList" Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding CurrentPlayer.SelectedCharacter.CharacterMode}" Value="InCombat">
+                    <Setter TargetName="ToggleGroupHideButton" Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding CurrentPlayer.UIData.InPlayerPanels}" Value="True">
+                    <Setter TargetName="ToggleGroupHideButton" Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding Visibility, ElementName=Root}" Value="Visible">
+                    <Setter TargetName="CameraResetInput" Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+
+                <!--Show Camp Companions Access Button-->
+                <DataTrigger Binding="{Binding CurrentPlayer.SelectedCharacter.PlayerCharacterProperties.IsInCamp}" Value="True">
+
+                    <Setter TargetName="CompanionAccessHolder" Property="Visibility" Value="Visible"/>
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard x:Name="AnimateCampCompanionsButtonIn" Storyboard="{StaticResource CampCompanionsButtonIn}"/>
+                        <StopStoryboard BeginStoryboardName="AnimateCampCompanionsButtonOut" />
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard x:Name="AnimateCampCompanionsButtonOut" Storyboard="{StaticResource CampCompanionsButtonOut}"/>
+                        <StopStoryboard BeginStoryboardName="AnimateCampCompanionsButtonIn" />
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+
+
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+    </ls:UIWidget.ContentTemplate>
+
+
+
+
+</ls:UIWidget>
