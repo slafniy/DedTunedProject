@@ -8,7 +8,6 @@
             <ls:State.Widgets>
                 <ls:StateWidget Filename="DT_HotBar.xaml" Layer="HUDTop"/>
                 <ls:StateWidget Filename="PPMeterPartyStats.xaml" Layer="PopupPanels"/>
-                <ls:StateWidget Filename="PPMeter_HotBar.xaml" Layer="HUDTop"/>
                 <ls:StateWidget Filename="PPMeter_PlayerPortraits.xaml" Layer="PopupPanels"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/Overlay.xaml" Layer="Notifications"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/HudIndicator.xaml" Layer="HUD" IgnoreHitTest="True"/>
