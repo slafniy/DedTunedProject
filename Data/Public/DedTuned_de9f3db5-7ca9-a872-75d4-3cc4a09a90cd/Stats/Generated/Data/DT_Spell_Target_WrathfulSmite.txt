@@ -1,0 +1,17 @@
+new entry "Target_Smite_Wrathful"
+type "SpellData"
+using "Target_Smite_Wrathful"
+data "HitCosts" "SpellSlotsGroup:1:1:1"
+data "SpellFlags" "IsSpell;HasVerbalComponent;IsMelee;IsHarmful"
+
+new entry "Target_Smite_Wrathful_2"
+type "SpellData"
+using "Target_Smite_Wrathful_2"
+data "HitCosts" "SpellSlotsGroup:1:1:2"
+data "SpellFlags" "IsSpell;HasVerbalComponent;IsMelee;IsHarmful"
+
+new entry "Target_Smite_Wrathful_3"
+type "SpellData"
+using "Target_Smite_Wrathful_3"
+data "HitCosts" "SpellSlotsGroup:1:1:3"
+data "SpellFlags" "IsSpell;HasVerbalComponent;IsMelee;IsHarmful"
