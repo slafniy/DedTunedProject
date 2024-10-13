@@ -1,0 +1,4 @@
+new entry "Shout_Rage"
+type "SpellData"
+using "Shout_Rage"
+data "UseCosts" "Rage:1"
