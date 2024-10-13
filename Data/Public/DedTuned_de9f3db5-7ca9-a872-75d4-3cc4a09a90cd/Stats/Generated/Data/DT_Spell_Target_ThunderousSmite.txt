@@ -1,0 +1,14 @@
+new entry "Target_Smite_Thunderous"
+type "SpellData"
+using "Target_Smite_Thunderous"
+data "HitCosts" "SpellSlotsGroup:1:1:1"
+
+new entry "Target_Smite_Thunderous_2"
+type "SpellData"
+using "Target_Smite_Thunderous_2"
+data "HitCosts" "SpellSlotsGroup:1:1:1"
+
+new entry "Target_Smite_Thunderous_3"
+type "SpellData"
+using "Target_Smite_Thunderous_3"
+data "HitCosts" "SpellSlotsGroup:1:1:1"
