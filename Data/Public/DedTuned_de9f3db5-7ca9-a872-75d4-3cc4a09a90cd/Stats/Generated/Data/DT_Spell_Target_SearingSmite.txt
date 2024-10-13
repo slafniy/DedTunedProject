@@ -2,6 +2,7 @@ new entry "Target_Smite_Searing"
 type "SpellData"
 using "Target_Smite_Searing"
 data "HitCosts" "SpellSlotsGroup:1:1:1"
+data "SpellFlags" "IsHarmful;HasVerbalComponent;IsSpell"
 
 new entry "Target_Smite_Searing_2"
 type "SpellData"
