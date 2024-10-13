@@ -1,0 +1,19 @@
+new entry "Target_AnimateDead_Skeleton"
+type "SpellData"
+using "Target_AnimateDead_Skeleton"
+data "SpellProperties" "SwitchDeathType(Explode);Summon(6c06cda2-6e13-4663-a6f6-c4bb7564c10f, 10,,,'AnimateDeadStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK) "
+
+new entry "Target_AnimateDead_Zombie"
+type "SpellData"
+using "Target_AnimateDead_Zombie"
+data "SpellProperties" "SwitchDeathType(Explode);Summon(c2a2c269-ede8-4887-99f1-e0c044cc0c75,10,,,'AnimateDeadStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+
+new entry "Target_AnimateDead_Ghoul"
+type "SpellData"
+using "Target_AnimateDead_Ghoul"
+data "SpellProperties" "TARGET:SwitchDeathType(Explode);GROUND:IF(HasPassive('UndeadThrall_BetterSummon',context.Source)):Summon(405e65e2-a6c9-4418-9de6-b06978d033b7,10,,,'AnimateDeadStack',UNDEADTHRALL_SUMMON,UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);GROUND:IF(not HasPassive('UndeadThrall_BetterSummon',context.Source)):Summon(405e65e2-a6c9-4418-9de6-b06978d033b7, 10,,,'AnimateDeadStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);TARGET:IF(Tagged('CORPSE_PILE')):ApplyStatus(ANIMATEDEAD_EXPLODED_CORPSE,100,-1)"
+
+new entry "Target_AnimateDead_FlyingGhoul"
+type "SpellData"
+using "Target_AnimateDead_FlyingGhoul"
+data "SpellProperties" "TARGET:SwitchDeathType(Explode);GROUND:IF(HasPassive('UndeadThrall_BetterSummon',context.Source)):Summon(1d7bd5b7-1879-452d-980f-34a5ba58a389,10,,,'AnimateDeadStack',UNDEADTHRALL_SUMMON,UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);GROUND:IF(not HasPassive('UndeadThrall_BetterSummon',context.Source)):Summon(1d7bd5b7-1879-452d-980f-34a5ba58a389, 10,,,'AnimateDeadStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK);TARGET:IF(Tagged('CORPSE_PILE')):ApplyStatus(ANIMATEDEAD_EXPLODED_CORPSE,100,-1)"
