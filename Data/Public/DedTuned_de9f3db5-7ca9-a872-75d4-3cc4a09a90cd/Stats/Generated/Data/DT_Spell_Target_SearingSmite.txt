@@ -1,0 +1,14 @@
+new entry "Target_Smite_Searing"
+type "SpellData"
+using "Target_Smite_Searing"
+data "HitCosts" "SpellSlotsGroup:1:1:1"
+
+new entry "Target_Smite_Searing_2"
+type "SpellData"
+using "Target_Smite_Searing_2"
+data "HitCosts" "SpellSlotsGroup:1:1:2"
+
+new entry "Target_Smite_Searing_3"
+type "SpellData"
+using "Target_Smite_Searing_3"
+data "HitCosts" "SpellSlotsGroup:1:1:3"
