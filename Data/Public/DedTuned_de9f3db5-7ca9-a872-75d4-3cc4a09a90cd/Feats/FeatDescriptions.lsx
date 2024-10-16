@@ -95,6 +95,14 @@
                     <attribute id="FeatId" type="guid" value="56c3c247-35cf-4ffd-86dd-7d249cc1808f"/>
                     <attribute id="UUID" type="guid" value="43c5159d-1ba2-400b-8657-805aa84bec04"/>
                 </node>
+               <!-- New feat - Abnormal Obstinacy -->
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="he64b0949g051bg4e54ga122g5a6981054955" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h18a7c55cg4234g4716g8856g1b1215f646fc" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="AbilityScoreIncrease"/>
+                    <attribute id="FeatId" type="guid" value="d215b9ad-9753-4d74-8ff9-24bf1dce53d6"/>
+                    <attribute id="UUID" type="guid" value="7956d6f3-cef7-4470-ad62-c208231d3258"/>
+                </node>
             </children>
         </node>
     </region>

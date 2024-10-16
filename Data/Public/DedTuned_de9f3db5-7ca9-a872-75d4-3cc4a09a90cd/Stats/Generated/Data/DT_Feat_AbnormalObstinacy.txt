@@ -1,0 +1,7 @@
+new entry "DT_AbnormalObstinacy"
+type "PassiveData"
+data "DisplayName" "h18a7c55cg4234g4716g8856g1b1215f646fc;1"
+data "Description" "he64b0949g051bg4e54ga122g5a6981054955;1"
+data "Icon" "PassiveFeature_ImprovedCritical"
+data "Properties" "Highlighted"
+data "Boosts" ""

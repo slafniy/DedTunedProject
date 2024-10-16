@@ -41,9 +41,10 @@
                     <attribute id="Selectors" type="LSString" value="SelectPassives(f21e6b94-44e8-4ae0-a6f1-0c81abac03a2,4,WeaponMasterProficiencies)"/>
                     <attribute id="UUID" type="guid" value="b153e75c-27a2-4412-95cd-60b477121679"/>
                 </node>
+                <!-- Replaced with new feat -->
                 <node id="Feat">
-                    <attribute id="CanBeTakenMultipleTimes" type="bool" value="true"/>
                     <attribute id="Name" type="FixedString" value="AbilityScoreIncrease"/>
+                    <attribute id="PassivesAdded" type="LSString" value="DT_AbnormalObstinacy"/>
                     <attribute id="UUID" type="guid" value="d215b9ad-9753-4d74-8ff9-24bf1dce53d6"/>
                 </node>
             </children>
