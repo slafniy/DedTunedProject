@@ -1,0 +1,11 @@
+new entry "Target_PhantasmalForce"
+type "SpellData"
+using "Target_PhantasmalForce"
+data "SpellSuccess" "ApplyStatus(PHANTASMAL_FORCE,100,5)"
+data "TooltipStatusApply" "ApplyStatus(PHANTASMAL_FORCE,100,5)"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful"
+
+new entry "PHANTASMAL_FORCE"
+type "StatusData"
+using "PHANTASMAL_FORCE"
+data "OnApplyFunctors" "ApplyStatus(PHANTASMAL_FORCE_PSYCHIC,100,5)"
