@@ -42,3 +42,13 @@ data "Description" "h7081c717gc217g4020gb97fg9c242d2804df;1"
 data "Icon" "PassiveFeature_HeavilyArmored"
 data "Properties" "Highlighted"
 data "Boosts" "Proficiency(HeavyArmor)"
+
+new entry "HeavyArmorMaster"
+type "PassiveData"
+data "DisplayName" "h3a9599eegc835g485egb629g31eeadfee623;1"
+data "Description" "h062e72a8gb2bdg4575g9071g11acf604a776;1"
+data "DescriptionParams" "3"
+data "Icon" "PassiveFeature_HeavyArmorMaster"
+data "Properties" "Highlighted"
+data "Boosts" "IF(HasHeavyArmor() and not HasDamageEffectFlag(DamageFlags.Magical)):DamageReduction(Slashing, Flat, 3); IF(HasHeavyArmor() and not HasDamageEffectFlag(DamageFlags.Magical)):DamageReduction(Bludgeoning, Flat, 3); IF(HasHeavyArmor() and not HasDamageEffectFlag(DamageFlags.Magical)):DamageReduction(Piercing, Flat, 3)"
+
