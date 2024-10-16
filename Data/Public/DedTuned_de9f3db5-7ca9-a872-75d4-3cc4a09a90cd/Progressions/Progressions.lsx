@@ -367,6 +367,39 @@
                     <attribute id="TableUUID" type="guid" value="8f068974-ed32-43fc-a9d9-028be1c01a9c"/>
                     <attribute id="UUID" type="guid" value="4f0c4d9e-2f74-4171-94c0-fe3813c69b1c"/>
                 </node>
+                <!-- Monk  -->
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="3"/>
+                    <attribute id="Name" type="LSString" value="Monk"/>
+                    <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(c46b4501-0076-4a52-baac-c4aa16c48e3b,1,DT_LevelupAbilityBoost_3)"/>
+                    <attribute id="TableUUID" type="guid" value="fe1319a2-86be-469c-aab5-e3b0bd714e0e"/>
+                    <attribute id="UUID" type="guid" value="d4fb81b2-98ed-4bc8-9c64-ecca1473ad6a"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="6"/>
+                    <attribute id="Name" type="LSString" value="Monk"/>
+                    <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_6)"/>
+                    <attribute id="TableUUID" type="guid" value="fe1319a2-86be-469c-aab5-e3b0bd714e0e"/>
+                    <attribute id="UUID" type="guid" value="cde16ba1-7dfb-402a-bab6-538d385f29d4"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="9"/>
+                    <attribute id="Name" type="LSString" value="Monk"/>
+                    <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(22881fbb-138b-4d9e-89d8-a8520e75e583,1,DT_LevelupAbilityBoost_9)"/>
+                    <attribute id="TableUUID" type="guid" value="fe1319a2-86be-469c-aab5-e3b0bd714e0e"/>
+                    <attribute id="UUID" type="guid" value="704a5fb2-a08c-4e33-899b-cd94594a8823"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="12"/>
+                    <attribute id="Name" type="LSString" value="Monk"/>
+                    <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(8b8cdf5e-9dc5-4413-9f79-d6cd7f86e8da,1,DT_LevelupAbilityBoost_12)"/>
+                    <attribute id="TableUUID" type="guid" value="fe1319a2-86be-469c-aab5-e3b0bd714e0e"/>
+                    <attribute id="UUID" type="guid" value="ca28c198-3b82-47f4-a62d-c7e9dc19e1f1"/>
+                </node>
             </children>
         </node>
     </region>
