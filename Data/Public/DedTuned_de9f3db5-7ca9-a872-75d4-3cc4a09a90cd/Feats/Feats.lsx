@@ -30,6 +30,11 @@
                     <attribute id="Selectors" type="LSString" value="SelectPassives(d4b799b4-30e2-412b-b2c9-abb144df8e7d,1)"/>
                     <attribute id="UUID" type="guid" value="b13c4744-1d45-42da-b92c-e09f598ab1c3"/>
                 </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="TavernBrawler"/>
+                    <attribute id="PassivesAdded" type="LSString" value="TavernBrawler"/>
+                    <attribute id="UUID" type="guid" value="be0889d2-f9aa-472d-b942-592bff0f1ef3"/>
+                </node>
             </children>
         </node>
     </region>
