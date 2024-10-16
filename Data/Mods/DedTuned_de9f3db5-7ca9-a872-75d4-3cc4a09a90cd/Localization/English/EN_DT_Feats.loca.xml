@@ -3,4 +3,5 @@
     <content contentuid="hf72335f6g335fg4f9bgaca2g8132ca8453b5" version="1">When you are Prone, standing up uses significantly less movement. Your &lt;LSTag Type="Spell" Tooltip="Projectile_Jump"&gt;Jump&lt;/LSTag&gt; distance also increases by 50%.</content>
     <content contentuid="hc7c6a099g07efg489cg8f35g753eeb5d480c" version="1">Your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; is doubled for Deception and Performance &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt;.</content>
     <content contentuid="h15a0a96age728g4604gb7b3g4330adc77777" version="1">You have become a true thespian. Your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; is doubled for Deception and Performance &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt;.</content>
+    <content contentuid="h7081c717gc217g4020gb97fg9c242d2804df" version="1">You have &lt;LSTag Tooltip="ArmourProficiency"&gt;Armour Proficiency&lt;/LSTag&gt; with Heavy Armour.</content>
 </contentList>
