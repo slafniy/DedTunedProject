@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="7" revision="1" build="0"/>
+    <region id="PassiveLists">
+        <node id="root">
+            <children>
+                <node id="PassiveList">
+                    <attribute id="Name" type="FixedString" value="Level 3 ability boost"/>
+                    <attribute id="Passives" type="LSString" value="DT_AbilityImprovement_Strength,DT_AbilityImprovement_Dexterity,DT_AbilityImprovement_Constitution,DT_AbilityImprovement_Intelligence,DT_AbilityImprovement_Wisdom,DT_AbilityImprovement_Charisma"/>
+                    <attribute id="UUID" type="guid" value="c46b4501-0076-4a52-baac-c4aa16c48e3b"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

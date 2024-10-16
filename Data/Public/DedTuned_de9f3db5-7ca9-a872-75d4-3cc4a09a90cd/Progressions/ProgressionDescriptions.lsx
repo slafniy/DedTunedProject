@@ -5,8 +5,8 @@
         <node id="root">
             <children>
                 <node id="ProgressionDescription">
-                    <attribute id="Description" type="TranslatedString" handle="" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="" version="2"/>
+                    <attribute id="Description" type="TranslatedString" handle="h079bdaf2g0b42g40a8g9adeg9efecadbd76e" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h0a4cd71fg639dg4274g88a7g13c2efe19d62" version="1"/>
                     <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost"/>
                     <attribute id="UUID" type="guid" value="94fa74a5-d55f-48cf-898f-d93b0e0c7b4a"/>
                 </node>

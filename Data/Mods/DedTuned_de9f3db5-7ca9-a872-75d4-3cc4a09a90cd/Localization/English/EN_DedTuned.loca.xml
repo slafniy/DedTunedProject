@@ -10,4 +10,18 @@
     <content contentuid="h5e392bd2g8456g4a43g9569g923af01fda43" version="1">Pick up an item or creature and throw it at a target, dealing additional damage and knocking it &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;. &lt;br&gt;&lt;br&gt;Will cause a stack of &lt;LSTag Type="Status" Tooltip="RAGE_FRENZY_BURNOUT"&gt;Frenzied Strain&lt;/LSTag&gt; on the barbarian.</content>
     <content contentuid="h8770a174gdbadg4351g92f8ge79025cb52df" version="1">Using Frenzied Strike adds a penalty to Attack Rolls every time, stacking so that you miss more often. This adds up until the end of your Frenzy.</content>
     <content contentuid="h2273d2fbg754fg4516gb043g7cc822af735b" version="1">Will cause a stack of &lt;LSTag Type="Status" Tooltip="RAGE_FRENZY_BURNOUT"&gt;Frenzied Strain&lt;/LSTag&gt; on the barbarian.</content>
+    <content contentuid="h535f8622g569cg4183gb357g32300d263c06" version="1">Enhanced Strength</content>
+    <content contentuid="h7233e9e9g8a30g438aga85cg9ee9986973b2" version="1">Increases your Strength by 1.</content>
+    <content contentuid="ha7919e17gbd26g4cebgaa47ga58a3c1dbd87" version="1">Enhanced Dexterity</content>
+    <content contentuid="h872db743g1e78g4821g9c5fg07811a9b205e" version="1">Increases your Dexterity by 1.</content>
+    <content contentuid="hef07eb91gc57dg47fcg9ae6g13026c18f5a2" version="1">Enhanced Constitution</content>
+    <content contentuid="hfecce8d9g87e7g4445gbf7dg5d42c4bc2253" version="1">Increases your Constitution by 1.</content>
+    <content contentuid="h07a1df91g1fadg4049g9894gdbb5228f3304" version="1">Enhanced Intelligence</content>
+    <content contentuid="hc08c5d5egd45cg46d3gad15g15ec4557e0c8" version="1">Increases your Intelligence by 1.</content>
+    <content contentuid="h9cd9af51g1f60g482cg9927g4600915f2130" version="1">Enhanced Wisdom</content>
+    <content contentuid="h360ecd96gdee4g4de0gaf5bgb10de70f86c7" version="1">Increases your Wisdom by 1.</content>
+    <content contentuid="h3acc2482g1631g4cf1gaf42g837fa94e9aca" version="1">Enhanced Charisma</content>
+    <content contentuid="h39520fdcgb91cg4ab7gbabcgcc745459593b" version="1">Increases your Charisma by 1.</content>
+    <content contentuid="h079bdaf2g0b42g40a8g9adeg9efecadbd76e" version="1">Progression name</content>
+    <content contentuid="h0a4cd71fg639dg4274g88a7g13c2efe19d62" version="1">Progression description</content>
 </contentList>
