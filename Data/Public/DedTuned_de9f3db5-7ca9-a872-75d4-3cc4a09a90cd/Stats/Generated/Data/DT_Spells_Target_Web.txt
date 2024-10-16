@@ -1,0 +1,4 @@
+new entry "Target_Web"
+type "SpellData"
+using "Target_Web"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold"
