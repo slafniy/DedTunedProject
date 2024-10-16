@@ -8,4 +8,5 @@
     <content contentuid="h55a6e63ag503ag48fdg9f02g3a15644fcd64" version="1">Получаемый урон от немагических атак снижается на 3, если вы облачены в тяжелую броню.</content>
     <content contentuid="h1e250532g39f3g4118g825cgbec80e133993" version="1">Вы получаете &lt;LSTag Tooltip="ArmourProficiency"&gt;умение&lt;/LSTag&gt; обращаться с легкой броней.</content>
     <content contentuid="ha14bd7fdg32b8g4799gb372gd4a00c5d8596" version="1">Вы получаете &lt;LSTag Tooltip="ArmourProficiency"&gt;умение&lt;/LSTag&gt; обращаться со средней броней и щитами.</content>
+    <content contentuid="h26245db0ga68fg43dfga1abga3b50b8334a1" version="1">Вы получаете &lt;LSTag Tooltip="MusicalInstrumentProficiency"&gt;умение обращаться с музыкальными инструментами&lt;/LSTag&gt;.</content>
 </contentList>

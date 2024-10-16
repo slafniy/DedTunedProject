@@ -20,6 +20,11 @@
                     <attribute id="Requirements" type="LSString" value="FeatRequirementProficiency(&apos;LightArmor&apos;)"/>
                     <attribute id="UUID" type="guid" value="681d5307-f0ed-4c94-8cf0-db0c51116f56"/>
                 </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="Performer"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Performer"/>
+                    <attribute id="UUID" type="guid" value="60dfd716-3ba8-4611-90ee-018b59775b1d"/>
+                </node>
             </children>
         </node>
     </region>
