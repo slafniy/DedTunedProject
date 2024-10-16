@@ -4,12 +4,12 @@
     <region id="Feats">
         <node id="root">
             <children>
-                <node id="Feat">
-                    <attribute id="Name" type="FixedString" value="WarCaster"/>
-                    <attribute id="Selectors" type="LSString" value="SelectAbilities(3d509ad6-fecc-4f1f-a1c1-2486b1164366,1,1,LightlyArmoredASI)"/>
-                    <attribute id="PassivesAdded" type="LSString" value="WarCaster_Bonuses;WarCaster_OpportunitySpell"/>
-                    <attribute id="UUID" type="guid" value="ed4e367d-d136-4285-abac-077147e84cf2"/>
-                </node>
+<!--                <node id="Feat">-->
+<!--                    <attribute id="Name" type="FixedString" value="WarCaster"/>-->
+<!--                    <attribute id="Selectors" type="LSString" value="SelectAbilities(3d509ad6-fecc-4f1f-a1c1-2486b1164366,1,1,LightlyArmoredASI)"/>-->
+<!--                    <attribute id="PassivesAdded" type="LSString" value="WarCaster_Bonuses;WarCaster_OpportunitySpell"/>-->
+<!--                    <attribute id="UUID" type="guid" value="ed4e367d-d136-4285-abac-077147e84cf2"/>-->
+<!--                </node>-->
             </children>
         </node>
     </region>

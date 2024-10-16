@@ -25,13 +25,13 @@
                     <attribute id="FeatId" type="guid" value="010f717e-c6e2-45cf-bbf9-298a72db4cad"/>
                     <attribute id="UUID" type="guid" value="19ec3631-4933-4695-a65c-84fbbcebe796"/>
                 </node>
-                <node id="FeatDescription">
-                    <attribute id="Description" type="TranslatedString" handle="h2826aa64g29e3g4809g9337g4885b932a46d" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="haadef5acg36f8g4affg8c7bg7901735048a8" version="2"/>
-                    <attribute id="ExactMatch" type="FixedString" value="WarCaster"/>
-                    <attribute id="FeatId" type="guid" value="ed4e367d-d136-4285-abac-077147e84cf2"/>
-                    <attribute id="UUID" type="guid" value="ce02138b-918a-4191-87d1-092892642ff8"/>
-                </node>
+<!--                <node id="FeatDescription">-->
+<!--                    <attribute id="Description" type="TranslatedString" handle="h2826aa64g29e3g4809g9337g4885b932a46d" version="1"/>-->
+<!--                    <attribute id="DisplayName" type="TranslatedString" handle="haadef5acg36f8g4affg8c7bg7901735048a8" version="2"/>-->
+<!--                    <attribute id="ExactMatch" type="FixedString" value="WarCaster"/>-->
+<!--                    <attribute id="FeatId" type="guid" value="ed4e367d-d136-4285-abac-077147e84cf2"/>-->
+<!--                    <attribute id="UUID" type="guid" value="ce02138b-918a-4191-87d1-092892642ff8"/>-->
+<!--                </node>-->
             </children>
         </node>
     </region>
