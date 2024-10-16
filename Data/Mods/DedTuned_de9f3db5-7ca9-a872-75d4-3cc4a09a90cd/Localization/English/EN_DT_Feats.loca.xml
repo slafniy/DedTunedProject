@@ -6,4 +6,5 @@
     <content contentuid="h7081c717gc217g4020gb97fg9c242d2804df" version="1">You have &lt;LSTag Tooltip="ArmourProficiency"&gt;Armour Proficiency&lt;/LSTag&gt; with Heavy Armour.</content>
     <content contentuid="h062e72a8gb2bdg4575g9071g11acf604a776" version="4">Reduce incoming damage from non-magical attacks by [1].</content>
     <content contentuid="h55a6e63ag503ag48fdg9f02g3a15644fcd64" version="1">Incoming damage from non-magical attacks decreases by 3 while you're wearing heavy armour.</content>
+    <content contentuid="h1e250532g39f3g4118g825cgbec80e133993" version="1">You gain &lt;LSTag Tooltip="ArmourProficiency"&gt;Armour Proficiency&lt;/LSTag&gt; with Light Armour.</content>
 </contentList>

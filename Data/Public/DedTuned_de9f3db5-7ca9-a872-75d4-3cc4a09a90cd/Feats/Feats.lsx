@@ -9,6 +9,11 @@
                     <attribute id="PassivesAdded" type="LSString" value="Athlete_StandUp"/>
                     <attribute id="UUID" type="guid" value="d674aa33-8633-4b67-8623-b6788f0d5fc4"/>
                 </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="LightlyArmored"/>
+                    <attribute id="PassivesAdded" type="LSString" value="LightlyArmored"/>
+                    <attribute id="UUID" type="guid" value="b441c722-e4d4-4702-861a-039bfd77c124"/>
+                </node>
             </children>
         </node>
     </region>
