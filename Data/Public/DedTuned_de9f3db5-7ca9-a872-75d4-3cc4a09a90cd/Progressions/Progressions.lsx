@@ -242,7 +242,7 @@
                     <attribute id="ProgressionType" type="uint8" value="0"/>
                     <attribute id="Selectors" type="LSString" value="SelectPassives(c46b4501-0076-4a52-baac-c4aa16c48e3b,1,DT_LevelupAbilityBoost_3)"/>
                     <attribute id="TableUUID" type="guid" value="ba2afe85-acba-4ea1-a238-2b4543f47821"/>
-                    <attribute id="UUID" type="guid" value=""/>
+                    <attribute id="UUID" type="guid" value="a69a4d80-0320-4dd2-9a08-ae6e6ad03ba2"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="6"/>
@@ -258,7 +258,7 @@
                     <attribute id="ProgressionType" type="uint8" value="0"/>
                     <attribute id="Selectors" type="LSString" value="SelectPassives(22881fbb-138b-4d9e-89d8-a8520e75e583,1,DT_LevelupAbilityBoost_9)"/>
                     <attribute id="TableUUID" type="guid" value="ba2afe85-acba-4ea1-a238-2b4543f47821"/>
-                    <attribute id="UUID" type="guid" value=""/>
+                    <attribute id="UUID" type="guid" value="13e9b539-04bb-4cdc-a7e7-0f886227e410"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="12"/>
@@ -283,7 +283,7 @@
                     <attribute id="ProgressionType" type="uint8" value="0"/>
                     <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_6)"/>
                     <attribute id="TableUUID" type="guid" value="a7a958f1-d858-4021-9fa7-cf87e7d71377"/>
-                    <attribute id="UUID" type="guid" value=""/>
+                    <attribute id="UUID" type="guid" value="72e99034-4af4-445a-a4cc-aaff101a1b79"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="9"/>
