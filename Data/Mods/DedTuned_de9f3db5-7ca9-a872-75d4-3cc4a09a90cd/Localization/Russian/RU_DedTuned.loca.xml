@@ -10,4 +10,18 @@
     <content contentuid="h5e392bd2g8456g4a43g9569g923af01fda43" version="1">Схватить предмет или существо и метнуть его в цель, нанеся ей дополнительный урон и заставив упасть &lt;LSTag Type="Status" Tooltip="PRONE"&gt;плашмя&lt;/LSTag&gt;. &lt;br&gt;&lt;br&gt;Дает варвару уровень &lt;LSTag Type="Status" Tooltip="RAGE_FRENZY_BURNOUT"&gt;Бешеного Напряжения&lt;/LSTag&gt;.</content>
     <content contentuid="h8770a174gdbadg4351g92f8ge79025cb52df" version="1">Использование Бешеного Удара или Яростного Броска каждый раз добавляет штраф к броскам атаки. Эффект складывается, так что вы с каждым разом будете чаще промахиваться. Накапливается до конца вашего бешенства.</content>
     <content contentuid="h2273d2fbg754fg4516gb043g7cc822af735b" version="1">Дает варвару уровень &lt;LSTag Type="Status" Tooltip="RAGE_FRENZY_BURNOUT"&gt;Бешеного Напряжения&lt;/LSTag&gt;.</content>
+    <content contentuid="h535f8622g569cg4183gb357g32300d263c06" version="1">Улучшенная Сила</content>
+    <content contentuid="h7233e9e9g8a30g438aga85cg9ee9986973b2" version="1">Увеличивает вашу Силу by 1.</content>
+    <content contentuid="ha7919e17gbd26g4cebgaa47ga58a3c1dbd87" version="1">Улучшенная Ловкость</content>
+    <content contentuid="h872db743g1e78g4821g9c5fg07811a9b205e" version="1">Увеличивает вашу Ловкость by 1.</content>
+    <content contentuid="hef07eb91gc57dg47fcg9ae6g13026c18f5a2" version="1">Улучшенная Выносливость</content>
+    <content contentuid="hfecce8d9g87e7g4445gbf7dg5d42c4bc2253" version="1">Увеличивает вашу Выносливость by 1.</content>
+    <content contentuid="h07a1df91g1fadg4049g9894gdbb5228f3304" version="1">Улучшенный Интеллект</content>
+    <content contentuid="hc08c5d5egd45cg46d3gad15g15ec4557e0c8" version="1">Увеличивает ваш Интеллект by 1.</content>
+    <content contentuid="h9cd9af51g1f60g482cg9927g4600915f2130" version="1">Улучшенная Мудрость</content>
+    <content contentuid="h360ecd96gdee4g4de0gaf5bgb10de70f86c7" version="1">Увеличивает вашу Мудрость by 1.</content>
+    <content contentuid="h3acc2482g1631g4cf1gaf42g837fa94e9aca" version="1">Улучшенная Харизма</content>
+    <content contentuid="h39520fdcgb91cg4ab7gbabcgcc745459593b" version="1">Увеличивает вашу Харизму by 1.</content>
+    <content contentuid="h0a4cd71fg639dg4274g88a7g13c2efe19d62" version="1">Улучшение Способности</content>
+    <content contentuid="h079bdaf2g0b42g40a8g9adeg9efecadbd76e" version="1">Вы можете увеличить одну из ваших способностей на 1, до максимума в 20.</content>
 </contentList>
