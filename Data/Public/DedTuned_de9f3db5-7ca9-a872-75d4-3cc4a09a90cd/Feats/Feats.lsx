@@ -14,6 +14,12 @@
                     <attribute id="PassivesAdded" type="LSString" value="LightlyArmored"/>
                     <attribute id="UUID" type="guid" value="b441c722-e4d4-4702-861a-039bfd77c124"/>
                 </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="ModeratelyArmored"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ModeratelyArmored"/>
+                    <attribute id="Requirements" type="LSString" value="FeatRequirementProficiency(&apos;LightArmor&apos;)"/>
+                    <attribute id="UUID" type="guid" value="681d5307-f0ed-4c94-8cf0-db0c51116f56"/>
+                </node>
             </children>
         </node>
     </region>

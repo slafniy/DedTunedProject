@@ -60,6 +60,13 @@
                     <attribute id="FeatId" type="guid" value="b441c722-e4d4-4702-861a-039bfd77c124"/>
                     <attribute id="UUID" type="guid" value="b12ac1e4-aad8-4cdf-aa22-d92b5757bd50"/>
                 </node>
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="ha14bd7fdg32b8g4799gb372gd4a00c5d8596" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h59206840g58f3g4a32g80afg737175740ee5" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="ModeratelyArmored"/>
+                    <attribute id="FeatId" type="guid" value="681d5307-f0ed-4c94-8cf0-db0c51116f56"/>
+                    <attribute id="UUID" type="guid" value="3ff13547-e5dd-4c26-955f-ec02535defa2"/>
+                </node>
             </children>
         </node>
     </region>
