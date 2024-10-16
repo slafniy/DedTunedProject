@@ -17,4 +17,5 @@
     <content contentuid="h82e2cbb8g9a71g4e97g9a55g1285556d2796" version="1">Получите &lt;LSTag Tooltip="Proficiency"&gt;умение&lt;/LSTag&gt; в &lt;LSTag Tooltip="SavingThrow"&gt;испытаниях&lt;/LSTag&gt; мудрости.</content>
     <content contentuid="h5dda09c8g1065g44e7gaa3cg7bfd130ecb62" version="1">Получите &lt;LSTag Tooltip="Proficiency"&gt;умение&lt;/LSTag&gt; в &lt;LSTag Tooltip="SavingThrow"&gt;испытаниях&lt;/LSTag&gt; харизмы.</content>
     <content contentuid="h511efcc0g4970g4a20ga0ecg8ff3a83aa45e" version="1">Вы получаете &lt;LSTag Tooltip="Proficiency"&gt;умение&lt;/LSTag&gt; обращаться с четырьмя видами оружия на ваш выбор.</content>
+    <content contentuid="h87bc3566g0989g4593g929agc66c95d7ba89" version="1">Каждый &lt;LSTag Tooltip="ShortRest"&gt;короткий отдых&lt;/LSTag&gt; полностью восстанавливает вам &lt;LSTag Tooltip="HitPoints"&gt;очки здоровья&lt;/LSTag&gt;.</content>
 </contentList>

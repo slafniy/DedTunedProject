@@ -88,6 +88,13 @@
                     <attribute id="FeatId" type="guid" value="b153e75c-27a2-4412-95cd-60b477121679"/>
                     <attribute id="UUID" type="guid" value="e1c40138-38a8-4067-87a6-597b52f379fa"/>
                 </node>
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h87bc3566g0989g4593g929agc66c95d7ba89" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="hbf51f1d9g5fafg40ceg9a6egbff13973f4a7" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="Durable"/>
+                    <attribute id="FeatId" type="guid" value="56c3c247-35cf-4ffd-86dd-7d249cc1808f"/>
+                    <attribute id="UUID" type="guid" value="43c5159d-1ba2-400b-8657-805aa84bec04"/>
+                </node>
             </children>
         </node>
     </region>

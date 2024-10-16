@@ -17,4 +17,5 @@
     <content contentuid="h82e2cbb8g9a71g4e97g9a55g1285556d2796" version="1">Gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
     <content contentuid="h5dda09c8g1065g44e7gaa3cg7bfd130ecb62" version="1">Gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in Charisma &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
     <content contentuid="h511efcc0g4970g4a20ga0ecg8ff3a83aa45e" version="1">You gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; with four weapons of your choice.</content>
+    <content contentuid="h87bc3566g0989g4593g929agc66c95d7ba89" version="1">You regain full &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; when you &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt;.</content>
 </contentList>
