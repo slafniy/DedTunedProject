@@ -81,6 +81,13 @@
                     <attribute id="FeatId" type="guid" value="b13c4744-1d45-42da-b92c-e09f598ab1c3"/>
                     <attribute id="UUID" type="guid" value="b9cec7fd-1aba-4c65-9303-cc3cc4ff81f7"/>
                 </node>
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h511efcc0g4970g4a20ga0ecg8ff3a83aa45e" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h6c2e19f1gcf94g4189g8a79gfc5f3062cccc" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="WeaponMaster"/>
+                    <attribute id="FeatId" type="guid" value="b153e75c-27a2-4412-95cd-60b477121679"/>
+                    <attribute id="UUID" type="guid" value="e1c40138-38a8-4067-87a6-597b52f379fa"/>
+                </node>
             </children>
         </node>
     </region>

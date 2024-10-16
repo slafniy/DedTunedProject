@@ -35,6 +35,12 @@
                     <attribute id="PassivesAdded" type="LSString" value="TavernBrawler"/>
                     <attribute id="UUID" type="guid" value="be0889d2-f9aa-472d-b942-592bff0f1ef3"/>
                 </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="WeaponMaster"/>
+                    <attribute id="PassivesAdded" type="LSString" value="WeaponMaster"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(f21e6b94-44e8-4ae0-a6f1-0c81abac03a2,4,WeaponMasterProficiencies)"/>
+                    <attribute id="UUID" type="guid" value="b153e75c-27a2-4412-95cd-60b477121679"/>
+                </node>
             </children>
         </node>
     </region>
