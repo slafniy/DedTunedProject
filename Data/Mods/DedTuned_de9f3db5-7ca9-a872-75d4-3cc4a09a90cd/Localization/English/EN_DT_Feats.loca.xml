@@ -4,9 +4,16 @@
     <content contentuid="hc7c6a099g07efg489cg8f35g753eeb5d480c" version="1">Your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; is doubled for Deception and Performance &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt;.</content>
     <content contentuid="h15a0a96age728g4604gb7b3g4330adc77777" version="1">You have become a true thespian. Your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; is doubled for Deception and Performance &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt;.</content>
     <content contentuid="h7081c717gc217g4020gb97fg9c242d2804df" version="1">You have &lt;LSTag Tooltip="ArmourProficiency"&gt;Armour Proficiency&lt;/LSTag&gt; with Heavy Armour.</content>
-    <content contentuid="h062e72a8gb2bdg4575g9071g11acf604a776" version="4">Reduce incoming damage from non-magical attacks by [1].</content>
+    <content contentuid="h062e72a8gb2bdg4575g9071g11acf604a776" version="1">Reduce incoming damage from non-magical attacks by [1].</content>
     <content contentuid="h55a6e63ag503ag48fdg9f02g3a15644fcd64" version="1">Incoming damage from non-magical attacks decreases by 3 while you're wearing heavy armour.</content>
     <content contentuid="h1e250532g39f3g4118g825cgbec80e133993" version="1">You gain &lt;LSTag Tooltip="ArmourProficiency"&gt;Armour Proficiency&lt;/LSTag&gt; with Light Armour.</content>
     <content contentuid="ha14bd7fdg32b8g4799gb372gd4a00c5d8596" version="1">You gain &lt;LSTag Tooltip="ArmourProficiency"&gt;Armour Proficiency&lt;/LSTag&gt; with Medium Armour and shields.</content>
     <content contentuid="h26245db0ga68fg43dfga1abga3b50b8334a1" version="1">You gain &lt;LSTag Tooltip="MusicalInstrumentProficiency"&gt;Musical Instrument Proficiency&lt;/LSTag&gt;.</content>
+    <content contentuid="h5b4a7c6cg583bg4ba7ga6dbgcc7840cf343d" version="1">You gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in chosen Ability's &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
+    <content contentuid="hdf8df8cag81d8g4c6aga1b6g8c2c2ed6237e" version="1">Gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in Strength &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
+    <content contentuid="ha4083e02g1041g4560gadccg78d3f750401e" version="1">Gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
+    <content contentuid="hf50b00edg6807g4012g83dcg18bd56fa3320" version="1">Gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in Constitution &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
+    <content contentuid="hc47ccd5dgff8eg4e30gb6f3g458582198bf0" version="1">Gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in Intelligence &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
+    <content contentuid="h82e2cbb8g9a71g4e97g9a55g1285556d2796" version="1">Gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
+    <content contentuid="h5dda09c8g1065g44e7gaa3cg7bfd130ecb62" version="1">Gain &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in Charisma &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
 </contentList>

@@ -25,6 +25,11 @@
                     <attribute id="PassivesAdded" type="LSString" value="Performer"/>
                     <attribute id="UUID" type="guid" value="60dfd716-3ba8-4611-90ee-018b59775b1d"/>
                 </node>
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="Resilient"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(d4b799b4-30e2-412b-b2c9-abb144df8e7d,1)"/>
+                    <attribute id="UUID" type="guid" value="b13c4744-1d45-42da-b92c-e09f598ab1c3"/>
+                </node>
             </children>
         </node>
     </region>

@@ -74,6 +74,13 @@
                     <attribute id="FeatId" type="guid" value="60dfd716-3ba8-4611-90ee-018b59775b1d"/>
                     <attribute id="UUID" type="guid" value="4dcb182b-3d98-406c-845a-fed95f3f8711"/>
                 </node>
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h5b4a7c6cg583bg4ba7ga6dbgcc7840cf343d" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h1b9ef848g1cb9g43b5g9114g9d1c0b7ca2c2" version="2"/>
+                    <attribute id="ExactMatch" type="FixedString" value="Resilient"/>
+                    <attribute id="FeatId" type="guid" value="b13c4744-1d45-42da-b92c-e09f598ab1c3"/>
+                    <attribute id="UUID" type="guid" value="b9cec7fd-1aba-4c65-9303-cc3cc4ff81f7"/>
+                </node>
             </children>
         </node>
     </region>
