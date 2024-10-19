@@ -6,7 +6,7 @@ data "Description" "he64b0949g051bg4e54ga122g5a6981054955;1"
 data "Icon" "PassiveFeature_ImprovedCritical"
 data "Properties" "OncePerAttack;Highlighted"
 data "StatsFunctorContext" "OnAttack"
-data "Conditions" "IsHit() and Enemy() and IsMeleeWeaponAttack()"
+data "Conditions" "IsHit() and not IsCritical() and Enemy() and IsMeleeWeaponAttack()"
 data "StatsFunctors" "IF(DT_AbnormalObstinacyWeaponCondition(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) < 3)):ApplyStatus(SELF, DT_AbnormalObstinacy_BOOST, 100, 1);"
 
 # For each stack up to 3 reduce critical threshold by 1
