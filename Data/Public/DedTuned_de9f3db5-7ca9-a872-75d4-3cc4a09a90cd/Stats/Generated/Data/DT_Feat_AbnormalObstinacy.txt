@@ -9,6 +9,19 @@ data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsHit() and not IsCritical() and Enemy() and IsMeleeWeaponAttack()"
 data "StatsFunctors" "IF(DT_AbnormalObstinacyWeaponCondition(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) < 3)):ApplyStatus(SELF, DT_AbnormalObstinacy_BOOST, 100, 1);"
 
+
+# Remove all stacks on crit in melee
+new entry "DT_AbnormalObstinacy_Technical"
+type "PassiveData"
+data "DisplayName" "h18a7c55cg4234g4716g8856g1b1215f646fc;1"
+data "Description" "he64b0949g051bg4e54ga122g5a6981054955;1"
+data "Icon" "PassiveFeature_ImprovedCritical"
+data "Properties" "OncePerAttack"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "IsCritical() and Enemy() and IsMeleeWeaponAttack()"
+data "StatsFunctors" "IF(HasStatus('DT_AbnormalObstinacy_BOOST', context.Source)):RemoveStatus(SELF,DT_AbnormalObstinacy_BOOST)"
+
+
 # For each stack up to 3 reduce critical threshold by 1
 new entry "DT_AbnormalObstinacy_BOOST"
 type "StatusData"
