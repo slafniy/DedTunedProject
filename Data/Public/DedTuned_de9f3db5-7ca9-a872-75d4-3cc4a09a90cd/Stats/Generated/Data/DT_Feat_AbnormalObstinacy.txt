@@ -34,3 +34,25 @@ data "RemoveEvents" "OnTurn"
 data "StackType" "Additive"
 data "StatusPropertyFlags" "MultiplyEffectsByDuration"
 data "Boosts" "IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) == 1)):ReduceCriticalAttackThreshold(1);IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) == 2)):ReduceCriticalAttackThreshold(2);IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) >= 3)):ReduceCriticalAttackThreshold(3)"
+
+
+# Remove all stacks if hit another target
+new entry "DT_AbnormalObstinacy_Technical_2"
+type "PassiveData"
+data "DisplayName" "h18a7c55cg4234g4716g8856g1b1215f646fc;1"
+data "Description" "he64b0949g051bg4e54ga122g5a6981054955;1"
+data "Icon" "PassiveFeature_ImprovedCritical"
+data "Properties" "OncePerTurn"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" ""
+data "StatsFunctors" "IF(Enemy() and IsMeleeWeaponAttack()):ApplyStatus(DT_AbnormalObstinacy_TARGET,100,1)"
+
+
+# Turn target lock
+new entry "DT_AbnormalObstinacy_TARGET"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h18a7c55cg4234g4716g8856g1b1215f646fc;1"
+data "Description" "he64b0949g051bg4e54ga122g5a6981054955;1"
+data "Icon" "Action_PactOfTheBlade_Rapier"
+data "StackId" "DT_AbnormalObstinacy_TARGET"

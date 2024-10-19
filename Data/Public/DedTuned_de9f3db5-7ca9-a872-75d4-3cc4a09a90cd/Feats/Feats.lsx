@@ -44,7 +44,7 @@
                 <!-- Replaced with new feat -->
                 <node id="Feat">
                     <attribute id="Name" type="FixedString" value="AbilityScoreIncrease"/>
-                    <attribute id="PassivesAdded" type="LSString" value="DT_AbnormalObstinacy;DT_AbnormalObstinacy_Technical"/>
+                    <attribute id="PassivesAdded" type="LSString" value="DT_AbnormalObstinacy;DT_AbnormalObstinacy_Technical;DT_AbnormalObstinacy_Technical_2"/>
                     <attribute id="UUID" type="guid" value="d215b9ad-9753-4d74-8ff9-24bf1dce53d6"/>
                 </node>
             </children>
