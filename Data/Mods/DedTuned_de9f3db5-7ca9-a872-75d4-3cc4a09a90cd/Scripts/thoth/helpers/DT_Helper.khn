@@ -10,11 +10,7 @@ function DT_HatApplyAcuityHowMuchToAdd()
 end
 
 
--- check entity uses not twohanded and not versatile weapons and is proficient with it
+-- check entity uses not two-handed and not versatile weapon in both hands
 function DT_AbnormalObstinacyWeaponCondition(entity)
-    return ~WieldingWeapon('Twohanded', false, false, entity)
-         & ~WieldingWeapon('Versatile', false, false, entity) 
-         & ~WieldingWeapon('Versatile', true, false, entity) 
-         & IsProficientWithEquippedWeapon(entity, false, false) 
-         & IsProficientWithEquippedWeapon(entity, false, true)
+    return ~FightingStyle_GreatWeapon(entity)
 end
