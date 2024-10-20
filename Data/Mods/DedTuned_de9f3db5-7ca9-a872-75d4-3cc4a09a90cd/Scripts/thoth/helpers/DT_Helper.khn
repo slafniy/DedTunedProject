@@ -10,12 +10,11 @@ function DT_HatApplyAcuityHowMuchToAdd()
 end
 
 
--- check entity have Light, but not Finesse weapons in both hands and is proficient with it
+-- check entity uses not twohanded and not versatile weapons and is proficient with it
 function DT_AbnormalObstinacyWeaponCondition(entity)
-    return WieldingWeapon('Light', false, false, entity)
-         & WieldingWeapon('Light', true, false, entity) 
-         & ~WieldingWeapon('Finesse', false, false, entity) 
-         & ~WieldingWeapon('Finesse', true, false, entity) 
+    return ~WieldingWeapon('Twohanded', false, false, entity)
+         & ~WieldingWeapon('Versatile', false, false, entity) 
+         & ~WieldingWeapon('Versatile', true, false, entity) 
          & IsProficientWithEquippedWeapon(entity, false, false) 
          & IsProficientWithEquippedWeapon(entity, false, true)
 end

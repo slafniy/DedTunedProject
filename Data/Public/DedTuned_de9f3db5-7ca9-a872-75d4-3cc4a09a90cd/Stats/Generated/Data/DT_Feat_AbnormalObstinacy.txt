@@ -45,7 +45,7 @@ data "Icon" "PassiveFeature_ImprovedCritical"
 data "Properties" "OncePerTurn;IsHidden"
 data "StatsFunctorContext" "OnAttack"
 data "Conditions" ""
-data "StatsFunctors" "IF(Enemy() and IsMeleeWeaponAttack()):ApplyStatus(DT_AbnormalObstinacy_TARGET,100,1);IF(Enemy() and IsMeleeWeaponAttack()):ApplyStatus(SELF, DT_AbnormalObstinacy_BOOST, 100, 1)"
+data "StatsFunctors" "IF(DT_AbnormalObstinacyWeaponCondition(context.Source) and Enemy() and IsMeleeWeaponAttack()):ApplyStatus(DT_AbnormalObstinacy_TARGET,100,1);IF(DT_AbnormalObstinacyWeaponCondition(context.Source) and Enemy() and IsMeleeWeaponAttack()):ApplyStatus(SELF, DT_AbnormalObstinacy_BOOST, 100, 1)"
 
 
 # Turn target lock
