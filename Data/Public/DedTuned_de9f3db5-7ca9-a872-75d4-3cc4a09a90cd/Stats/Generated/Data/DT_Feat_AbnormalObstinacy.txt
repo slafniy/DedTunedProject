@@ -1,4 +1,4 @@
-# Stack up to 3 stacks on SELF
+# Stack up to 5 stacks on SELF
 new entry "DT_AbnormalObstinacy"
 type "PassiveData"
 data "DisplayName" "h18a7c55cg4234g4716g8856g1b1215f646fc;1"
@@ -7,7 +7,7 @@ data "Icon" "PassiveFeature_ImprovedCritical"
 data "Properties" "OncePerAttack;Highlighted"
 data "StatsFunctorContext" "OnAttack"
 data "Conditions" "IsHit() and not IsCritical() and Enemy() and IsMeleeWeaponAttack()"
-data "StatsFunctors" "IF(HasStatus('DT_AbnormalObstinacy_TARGET', context.Target, context.Source) and DT_AbnormalObstinacyWeaponCondition(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) < 3)):ApplyStatus(SELF, DT_AbnormalObstinacy_BOOST, 100, 1);"
+data "StatsFunctors" "IF(HasStatus('DT_AbnormalObstinacy_TARGET', context.Target, context.Source) and DT_AbnormalObstinacyWeaponCondition(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) < 5)):ApplyStatus(SELF, DT_AbnormalObstinacy_BOOST, 100, 1);"
 
 
 # Remove all stacks from SELF on crit in melee
@@ -22,7 +22,7 @@ data "Conditions" ""
 data "StatsFunctors" "IF(IsCritical() and Enemy() and IsMeleeWeaponAttack() and HasStatus('DT_AbnormalObstinacy_BOOST', context.Source)):RemoveStatus(SELF,DT_AbnormalObstinacy_BOOST)"
 
 
-# For each stack up to 3 reduce critical threshold by 1
+# For each stack up to 5 reduce critical threshold by 1
 new entry "DT_AbnormalObstinacy_BOOST"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -30,10 +30,10 @@ data "DisplayName" "h18a7c55cg4234g4716g8856g1b1215f646fc;1"
 data "Description" "he64b0949g051bg4e54ga122g5a6981054955;1"
 data "Icon" "Status_Hag_HagEyed"
 data "StackId" "DT_AbnormalObstinacy_BOOST"
-data "RemoveEvents" "OnTurn"
+data "RemoveEvents" "OnTurn;OnCombatEnded"
 data "StackType" "Additive"
 data "StatusPropertyFlags" "MultiplyEffectsByDuration"
-data "Boosts" "IF(HasStatus('DT_AbnormalObstinacy_TARGET', context.Target, context.Source) and AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) == 1)):ReduceCriticalAttackThreshold(1);IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) == 2)):ReduceCriticalAttackThreshold(2);IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) >= 3)):ReduceCriticalAttackThreshold(3)"
+data "Boosts" "IF(HasStatus('DT_AbnormalObstinacy_TARGET', context.Target, context.Source) and AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) == 1)):ReduceCriticalAttackThreshold(1);IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) == 2)):ReduceCriticalAttackThreshold(2);IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) == 3)):ReduceCriticalAttackThreshold(3);IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) == 4)):ReduceCriticalAttackThreshold(4);IF(AttackingWithMeleeWeapon(context.Source) and ConditionResult(GetStatusDuration('DT_AbnormalObstinacy_BOOST', context.Source) >= 5)):ReduceCriticalAttackThreshold(5);"
 
 
 # Track target - one target per turn
