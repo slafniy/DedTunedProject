@@ -95,13 +95,31 @@ Also fixed vanilla "feature" that such buffs remains after re-spec on any person
 
 
 ### Feats
-#### Tavern Brawler (verified)
+Feats do not provide Ability increase bonus anymore. 
+Instead, you have Ability +1 bonus every 3rd level.
+
+
+
+#### Ability Improvement
+Removed from the game.
+
+
+
+#### Abnormal Obstinacy - NEW FEAT
+The number you need to roll a Critical Hit reduces by 1 every time you hit the same target in 
+melee. You should not use Two-Handed or  Versatile weapon holding it in two hands. The effect 
+lasts until you roll Critical Hit or your turn ends. Stacks up to 5 times.
+
+Note: This is an option for one-handed and dual builds to compete against GWM.
+
+
+#### Tavern Brawler
 - Does not add attack roll bonus  
 
 Note: it`s pretty strong damage boost for one feat, an attack roll bonus makes it imbalanced.
 
 
-#### Great Weapon Master (verified)
+#### Great Weapon Master
 - Attack roll penalty reduced to -3 (was -5) for levels 4-7
 - Damage bonus reduced to 6 (was 10) for levels 4-7
 
@@ -123,6 +141,25 @@ Also, there are too few feats with stat bonus for casters comparing to non-caste
 Note: same changes due to same reasons as for Great Weapon Master.
 
 
+### Spells
+- Branding Smite (both Paladin and Tiefling versions) does not consume Bonus Action and does not require concentration
+- Searing Smite (both Paladin and Tiefling versions) does not consume Bonus Action and does not require concentration
+- Thunderous Smite does not consume Bonus Action
+- Wrathful Smite does not consume Bonus Action and does not require concentration
+- Divine Favour does not require concentration but lasts 2 turns
+- Flame Blade does not require concentration and lasts until Long Rest
+- Shadow Blade (from item) does not require concentration
+- Barkskin does not require concentration (but works only for party members)
+- Heroism does not require concentration but lasts only 3 turns
+- Phantasmal Force does not require concentration but lasts only 5 turns
+- Flaming Sphere does not require concentration
+- Web does not require concentration
+- Sleep Maximum Total Target HP increased (x1.5) because enemies have more HP in mod
+- Animate Dead - lasts only 10 turns
+- Conjure Elemental - lasts only 10 turns
+- Planar Ally - lasts only 10 turns
+
+
 ### Classes
 #### Fighter Champion 
 - Improved Critical passive gives -2 critical threshold instead of -1
@@ -130,7 +167,9 @@ Note: same changes due to same reasons as for Great Weapon Master.
 Note: this subclass is too weak comparing to Battle Master, so I bring him this buff.
 
 
-#### Barbarian Berserker
+
+#### Barbarian
+- Rage does not consume Bonus Action
 - Enraged Throw now gives stack of Frenzied Strain as Frenzied Strike always does.
 
 Note: throwing build for Berserker is insanely strong, this change alongside of Tavern Brawler nerf should calm down it a little.
