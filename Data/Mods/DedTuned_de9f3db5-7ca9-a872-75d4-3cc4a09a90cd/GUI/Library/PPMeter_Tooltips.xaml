@@ -9,7 +9,48 @@
                     mc:Ignorable="d">
 
     <System:Double x:Key="MinimalDurationToShow">-2</System:Double>
-    
+
+    <DataTemplate x:Key="PPMeter_SingleIconStatusTemplate" DataType="{x:Type ls:VMStatus}">
+        <Grid x:Name="PPMeter_SingleIconStatusTemplate_Root" Width="72" Margin="0,0,9,0" ToolTip="{StaticResource ManagedTooltip}" ToolTipService.IsEnabled="True">
+            <Ellipse Width="48" Height="48" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="{Binding Icon}" />
+            <ls:LSPie x:Name="Progression" Value="{Binding RemainingPercentage, Converter={StaticResource MultiplierConverter}, ConverterParameter='0.88'}" SweepDirection="Clockwise" Width="72" Height="72" RenderTransformOrigin="0.5 0.5">
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="104"/>
+                </Grid.RenderTransform>
+                <Path Style="{StaticResource StatusPathStyle}">
+                    <b:Interaction.Behaviors>
+                        <ls:PathDashBehavior SegmentCount="{Binding LifeTime, Converter={StaticResource TimeToTurnConverter}}" FixedGapLength="1.4" StartAngle="-90"/>
+                    </b:Interaction.Behaviors>
+                </Path>
+            </ls:LSPie>
+
+            <TextBlock x:Name="DurationText" Text="{Binding Duration}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,-12" Foreground="{StaticResource LS_PrimaryColor}"
+                       noesis:Text.Stroke="{StaticResource LS_PrimaryColorOutlineColor}" noesis:Text.StrokeThickness="6" Style="{StaticResource NarrowTooltipModifierText}"
+                       FontSize="{StaticResource SmallFontSize}"/>
+        </Grid>
+        <DataTemplate.Triggers>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Duration}" Value="0"/>
+                    <Condition Binding="{Binding DurationType}" Value="Timer"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter TargetName="DurationText" Property="Visibility" Value="Collapsed"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+
+            <DataTrigger Binding="{Binding Duration}" Value="-1">
+                <Setter TargetName="Progression" Property="Visibility" Value="Hidden"/>
+                <Setter TargetName="DurationText" Property="Visibility" Value="Collapsed"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Duration, Converter={StaticResource LessThanConverter}, ConverterParameter={StaticResource MinimalDurationToShow}}" Value="True">
+                <Setter  TargetName="PPMeter_SingleIconStatusTemplate_Root" Property="Visibility" Value="Collapsed"/>
+            </DataTrigger>
+
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
     <DataTemplate x:Key="PPMeter_ActiveConditionCompleteTemplate" DataType="{x:Type ls:VMStatus}">
         <Grid x:Name="Root" Margin="0,4">
             <Grid.ColumnDefinitions>
@@ -17,7 +58,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ContentPresenter Grid.Column="0" Margin="0,0,16,0" Content="{Binding .}" ContentTemplate="{StaticResource SingleIconStatusTemplate}"/>
+            <ContentPresenter Grid.Column="0" Margin="0,0,16,0" Content="{Binding .}" ContentTemplate="{StaticResource PPMeter_SingleIconStatusTemplate}"/>
 
             <TextBlock Grid.Column="1" ls:TextBlockFormatter.SourceText="{Binding Name}" VerticalAlignment="Center" Style="{StaticResource DamageValueTextStyle}" Foreground="{StaticResource TooltipColor.Secondary}"
                        TextTrimming="CharacterEllipsis"/>
@@ -192,7 +233,7 @@
             </DataTrigger>
 
             <DataTrigger Binding="{Binding StatusEffects.Count, Converter={StaticResource GreaterThanConverter}, ConverterParameter=10}" Value="True">
-                <Setter TargetName="StatusList" Property="ItemTemplate" Value="{StaticResource SingleIconStatusTemplate}"/>
+                <Setter TargetName="StatusList" Property="ItemTemplate" Value="{StaticResource PPMeter_SingleIconStatusTemplate}"/>
                 <Setter TargetName="StatusList" Property="ItemsPanel">
                     <Setter.Value>
                         <ItemsPanelTemplate>
@@ -270,5 +311,7 @@
             </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
+
+
 
 </ResourceDictionary>
