@@ -9,6 +9,93 @@
                     xmlns:noesis="clr-namespace:NoesisGUIExtensions;assembly=Noesis.GUI.Extensions"
 					mc:Ignorable="d">
 
+    <!--Summon Portrait Representation -->
+    <DataTemplate x:Key="SummonPortrait">
+        <ContentControl x:Name="summonControl">
+            <b:Interaction.Behaviors>
+                <ls:DragGenericBehavior StartDragCommand="{Binding DataContext.DragFollowerOrSummonCommand, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}"/>
+            </b:Interaction.Behaviors>
+
+            <ContentControl.Tag>
+                <MultiBinding Converter="{StaticResource EqualConverter}">
+                    <Binding RelativeSource="{RelativeSource AncestorType={x:Type ls:UIWidget}}" Path="DataContext.CurrentPlayer.UserId"/>
+                    <Binding Path="PlayerCharacterProperties.OwnerUserID"/>
+                </MultiBinding>
+            </ContentControl.Tag>
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="MouseLeftButtonUp">
+                    <b:InvokeCommandAction IsEnabled="{Binding DataContext.CurrentPlayer.SelectedCharacter.PlayerCharacterProperties.IsCasting, Converter={StaticResource InvertBoolConverter}, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}"
+                                           Command="{Binding DataContext.SelectCharacter,RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" CommandParameter="{Binding}" />
+                    <b:InvokeCommandAction IsEnabled="{Binding DataContext.CurrentPlayer.SelectedCharacter.PlayerCharacterProperties.IsCasting, Converter={StaticResource InvertBoolConverter}, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}"
+                                           Command="{Binding DataContext.PlaySelectCharacterReaction,RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" CommandParameter="{Binding}" />
+                    <b:InvokeCommandAction Command="{Binding DataContext.TargetGameobjectCommand, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" CommandParameter="{Binding}"/>
+                    <ls:LSPlaySound Sound="UI_HUD_SelectCharacter"/>
+                </b:EventTrigger>
+                <b:EventTrigger EventName="MouseDoubleClick" >
+                    <b:InvokeCommandAction Command="{Binding DataContext.SetCameraOnGameObject,RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" CommandParameter="{Binding}" />
+                </b:EventTrigger>
+                <b:EventTrigger EventName="MouseEnter">
+                    <b:InvokeCommandAction Command="{Binding DataContext.HighlightGameobject, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" CommandParameter="{Binding}"/>
+                    <ls:LSPlaySound Sound="UI_Shared_Hover"/>
+                    <b:InvokeCommandAction Command="{Binding DataContext.SetDebugUIEntityCommand, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" CommandParameter="{Binding EntityHandle}"/>
+                    <b:ChangePropertyAction TargetName="FrameHighlight" PropertyName="Visibility" Value="Visible" />
+                </b:EventTrigger>
+                <b:EventTrigger EventName="MouseLeave">
+                    <b:InvokeCommandAction Command="{Binding DataContext.ClearHighlightGameobject, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}" CommandParameter="{Binding}"/>
+                    <b:ChangePropertyAction TargetName="FrameHighlight" PropertyName="Visibility" Value="Collapsed" />
+                    <b:InvokeCommandAction Command="{Binding DataContext.ClearDebugUIEntityCommand, RelativeSource={RelativeSource AncestorType={x:Type ls:UIWidget}}}"/>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+
+            <StackPanel x:Name="SummonPortraitRoot" Orientation="Vertical" VerticalAlignment="Bottom" Height="165">
+                <StackPanel.ToolTip>
+                    <ls:LSTooltip Content="{TemplateBinding DataContext}" ContentTemplate="{StaticResource PPMeter_PartyLineTooltipTemplate}" Placement="Top"/>
+                </StackPanel.ToolTip>
+                <Grid Style="{StaticResource PortraitGridStyle}" Margin="-6,-3,0,0">
+                    <ls:LSEntityObject EntityRef="{Binding EntityHandle}" VerticalAlignment="Center" Background="Transparent">
+
+                        <ls:AttachedProperties.AutomationId>
+                            <MultiBinding StringFormat="{}Portrait_{0}">
+                                <Binding Path="EntityUUID"/>
+                            </MultiBinding>
+                        </ls:AttachedProperties.AutomationId>
+
+                        <Rectangle Fill="Black" Width="103" Height="153" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <Rectangle Fill="{Binding Icon}" Width="100" Height="150" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <ProgressBar Template="{DynamicResource DefaultProgressBarTemplate}" Width="100" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource CharacterPortraitBarStyle}"/>
+                    </ls:LSEntityObject>
+
+                    <Image x:Name="Frame" Source="pack://application:,,,/Core;component/Assets/PlayerPortraits/portrait_frame_summon_d.png" Height="165"  Stretch="Uniform"/>
+                    <Image x:Name="FrameHighlight" Source="pack://application:,,,/Core;component/Assets/PlayerPortraits/portrait_frame_summon_h.png" Height="165" Stretch="Uniform" Visibility="Collapsed"/>
+
+                    <Image x:Name="ConditionsIndicator" Source="pack://application:,,,/Core;component/Assets/Shared/ico_conditionsBigMark_d.png" Stretch="None" Visibility="{Binding StatusEffects.Count, Converter={StaticResource CountToVisibilityConverter}}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,10,0"/>
+
+                    <Control Template="{StaticResource CharacterModeIcon}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,6,0,0"/>
+                    <Control Template="{StaticResource PortraitHealthTemplate}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="92" Margin="0,0,0,8"/>
+                </Grid>
+            </StackPanel>
+        </ContentControl>
+
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding IsSelectedCharacter}" Value="True">
+                <Setter TargetName="Frame" Property="Source" Value="pack://application:,,,/Core;component/Assets/PlayerPortraits/portrait_frame_summon_active_d.png"/>
+                <Setter TargetName="FrameHighlight" Property="Source" Value="pack://application:,,,/Core;component/Assets/PlayerPortraits/portrait_frame_summon_active_h.png"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Tag, ElementName=summonControl}" Value="False">
+                <Setter TargetName="Frame" Property="Source" Value="{StaticResource Portraits.CollapsedFrameRemote}"/>
+                <Setter TargetName="FrameHighlight" Property="Source" Value="{StaticResource Portraits.CollapsedFrameHighlightRemote}"/>
+            </DataTrigger>
+            <DataTrigger Value="True">
+                <DataTrigger.Binding>
+                    <MultiBinding Converter="{StaticResource EqualConverter}">
+                        <Binding Path="DataContext" RelativeSource="{RelativeSource Self}"/>
+                        <Binding Path="DataContext.CurrentPlayer.UIData.DragData.DraggingGameObjects[0]" RelativeSource="{RelativeSource AncestorType={x:Type ls:UIWidget}}"/>
+                    </MultiBinding>
+                </DataTrigger.Binding>
+                <Setter Property="Visibility" Value="Hidden"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
 
 
     <!-- CharacterPortrait Template -->
