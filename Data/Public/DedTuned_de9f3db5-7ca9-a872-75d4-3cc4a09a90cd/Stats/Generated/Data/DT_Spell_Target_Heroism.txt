@@ -1,6 +1,0 @@
-new entry "Target_Heroism"
-type "SpellData"
-using "Target_Heroism"
-data "SpellProperties" "ApplyStatus(HEROISM, 100, 3)"
-data "TooltipStatusApply" "ApplyStatus(HEROISM, 100, 3)"
-data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee;IgnorePreviouslyPickedEntities"

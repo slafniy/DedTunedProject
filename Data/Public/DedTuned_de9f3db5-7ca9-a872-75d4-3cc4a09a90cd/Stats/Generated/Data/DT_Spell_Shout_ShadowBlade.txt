@@ -1,4 +1,0 @@
-new entry "Shout_ShadowBlade"
-type "SpellData"
-using "Shout_ShadowBlade"
-data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"

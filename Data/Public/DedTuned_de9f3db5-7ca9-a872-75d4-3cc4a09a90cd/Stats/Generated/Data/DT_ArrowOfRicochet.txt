@@ -1,6 +1,0 @@
-new entry "Projectile_ArrowOfRicochet_Ricochet"
-type "SpellData"
-using "Projectile_ArrowOfRicochet_Ricochet"
-data "TargetRadius" "9"
-data "SpellSuccess" "DealDamage(MainRangedWeapon/2, MainRangedWeaponDamageType); ExecuteWeaponFunctors(MainHand)"
-data "SpellFail" ""

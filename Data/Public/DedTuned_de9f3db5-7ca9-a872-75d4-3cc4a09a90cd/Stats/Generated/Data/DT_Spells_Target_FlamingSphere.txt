@@ -1,4 +1,0 @@
-new entry "Target_FlamingSphere"
-type "SpellData"
-using "Target_FlamingSphere"
-data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"

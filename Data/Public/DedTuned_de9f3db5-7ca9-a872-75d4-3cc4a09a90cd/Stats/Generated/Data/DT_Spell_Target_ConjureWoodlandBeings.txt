@@ -1,9 +1,0 @@
-new entry "Target_ConjureWoodlandBeings"
-type "SpellData"
-using "Target_ConjureWoodlandBeings"
-data "SpellProperties" "GROUND:Summon(42da1663-b150-4e9b-abc8-8cdc7240fd56, 10,Projectile_AiHelper_Summon_Strong,,'ConjureWoodlandBeings',DRYAD_VFX,UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
-
-new entry "Target_Summon_WoodWoad_Dryad"
-type "SpellData"
-using "Target_Summon_WoodWoad_Dryad"
-data "SpellProperties" "Ground:Summon(9ed52ea6-0f17-4c94-b3b2-157ff1551dfc, 10,,,'ConjureWoodlandBeingsStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
