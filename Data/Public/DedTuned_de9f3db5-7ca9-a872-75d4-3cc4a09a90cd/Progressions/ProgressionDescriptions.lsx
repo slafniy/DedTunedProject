@@ -28,6 +28,22 @@
                     <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost_12"/>
                     <attribute id="UUID" type="guid" value="a5d8c991-bfce-46c3-aff2-df8c5dfd44a3"/>
                 </node>
+                <node id="ProgressionDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h700175bdg66c9g468ega5b7g848081f2f193" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h18956d0eg930fg4f0agbce8g55476d59531d" version="1"/>
+                    <attribute id="Hidden" type="bool" value="false"/>
+                    <attribute id="PassivePrototype" type="FixedString" value="GreatWeaponMaster_BonusDamage"/>
+                    <attribute id="Type" type="FixedString" value="RollBonus"/>
+                    <attribute id="UUID" type="guid" value="6280318f-6d55-4476-a03d-8a306688abd5"/>
+                </node>
+                <node id="ProgressionDescription">
+                    <attribute id="Description" type="TranslatedString" handle="hff92caa9g7042g4e72ga04dg78295bd57988" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h3676387cg22d7g4d3egaeffg66a9881bbbdc" version="1"/>
+                    <attribute id="Hidden" type="bool" value="false"/>
+                    <attribute id="PassivePrototype" type="FixedString" value="GreatWeaponMaster_BonusDamage"/>
+                    <attribute id="Type" type="FixedString" value="CharacterWeaponDamage"/>
+                    <attribute id="UUID" type="guid" value="2e4c9331-93aa-4654-a808-53f66361cdde"/>
+                </node>
             </children>
         </node>
     </region>

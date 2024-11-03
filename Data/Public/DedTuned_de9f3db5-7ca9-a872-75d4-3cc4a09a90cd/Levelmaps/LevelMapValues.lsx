@@ -7,18 +7,6 @@
                 <node id="LevelMapSeries">
                     <attribute id="Level4" type="LSString" value="6"/>
                     <attribute id="Level8" type="LSString" value="10"/>
-                    <attribute id="Name" type="FixedString" value="GWMDamage"/>
-                    <attribute id="UUID" type="guid" value="bbed581f-13e6-488a-afa5-099424915f42"/>
-                </node>
-                <node id="LevelMapSeries">
-                    <attribute id="Level4" type="LSString" value="3"/>
-                    <attribute id="Level8" type="LSString" value="5"/>
-                    <attribute id="Name" type="FixedString" value="GWMRollReduction"/>
-                    <attribute id="UUID" type="guid" value="afec1ef4-194a-4f81-95e9-364525bdba9c"/>
-                </node>
-                <node id="LevelMapSeries">
-                    <attribute id="Level4" type="LSString" value="6"/>
-                    <attribute id="Level8" type="LSString" value="10"/>
                     <attribute id="Name" type="FixedString" value="SharpshooterDamage"/>
                     <attribute id="UUID" type="guid" value="ee4056a9-a83c-4715-ac3a-4d1294c0abd1"/>
                 </node>
