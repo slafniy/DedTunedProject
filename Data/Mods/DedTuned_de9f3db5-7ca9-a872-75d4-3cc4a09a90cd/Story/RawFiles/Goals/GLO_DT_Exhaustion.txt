@@ -2,13 +2,27 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 DB_DT_Exhaustion_StatusStacks("EXHAUSTION_DEBUFF_STACKS");  // stacks counter debuff
-DB_DT_Exhaustion_StatusSleepResistance("EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE");
+//DB_DT_Exhaustion_StatusSleepResistance("EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE");
 
 // Stages list, StacksThreshold - StatusName
-DB_DT_Exhaustion_Stage(15, "EXHAUSTION_DEBUFF_LIGHT");
-DB_DT_Exhaustion_Stage(25, "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP");
-DB_DT_Exhaustion_Stage(40, "EXHAUSTION_DEBUFF_DEATH");
+//DB_DT_Exhaustion_Stage(15, "EXHAUSTION_DEBUFF_LIGHT");
+//DB_DT_Exhaustion_Stage(25, "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP");
+//DB_DT_Exhaustion_Stage(40, "EXHAUSTION_DEBUFF_DEATH");
 KBSECTION
+//REGION // handle combat round - add exhaustion stack
+IF
+TurnStarted((CHARACTER)_Character)
+AND
+DB_PartyMembers(_Character)
+AND
+IsInCombat(_Character, 1)
+AND
+DB_DT_Exhaustion_StatusStacks(_Status)
+THEN
+ApplyStatus(_Character, _Status, 1.0, 1, _Character);
+//END_REGION
+
+
 //REGION // handle Song of Rest - apply EXHAUSTION_SONG_OF_REST_LIMIT on every team member
 IF
 CastedSpell(_, "Shout_SongOfRest", _, _, _)
