@@ -3,12 +3,16 @@ SubGoalCombiner SGC_AND
 INITSECTION
 //REGION Overpowered buffs (without concentration) which have to be removed if its caster left the party OR changed spec
 DB_DT_OPBuffs_List("LONGSTRIDER");
-DB_DT_OPBuffs_List("WARDING_BOND");  // TODO: fix WAARDING_BOND_CASTER left on caster
+DB_DT_OPBuffs_List("WARDING_BOND");  // TODO: fix WARDING_BOND_CASTER left on caster
 DB_DT_OPBuffs_List("PROTECTION_FROM_POISON");
 DB_DT_OPBuffs_List("FREEDOM_OF_MOVEMENT");
 DB_DT_OPBuffs_List("DEATH_WARD");
 DB_DT_OPBuffs_List("HEROES_FEAST");
 DB_DT_OPBuffs_List("AID");
+DB_DT_OPBuffs_List("AID_3");
+DB_DT_OPBuffs_List("AID_4");
+DB_DT_OPBuffs_List("AID_5");
+DB_DT_OPBuffs_List("AID_6");
 DB_DT_OPBuffs_List("DARKVISION");
 DB_DT_OPBuffs_List("MAGE_ARMOR");
 DB_DT_OPBuffs_List("BARDIC_INSPIRATION");
