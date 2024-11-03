@@ -1,0 +1,4 @@
+new entry "Target_ORI_Wyll_SummonCambion"
+type "SpellData"
+using "Target_ORI_Wyll_SummonCambion"
+data "SpellProperties" "Ground:Summon(6708ae4b-8dcf-4812-bdba-fd5fe1c343f6,10,Projectile_AiHelper_Summon_Strong,,'PlanarAllyStack',MAG_CAMBION_SUMMON,SHADOWCURSE_SUMMON_CHECK,KNOCKED_OUT_SUMMON_DISMISS,UNSUMMON_ABLE)"
