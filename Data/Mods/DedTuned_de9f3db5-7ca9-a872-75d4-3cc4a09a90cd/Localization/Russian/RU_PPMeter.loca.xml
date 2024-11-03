@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contentList>
     <content contentuid="h7622f4d5g006cg4633g9fc2gb7b49d13f3e1" version="1">PPMeter</content>
-    <content contentuid="h1c5a75b2gc036g461cgae3cgc7e53f994df5" version="1">This dirty hack shows your damage per combat as status duration</content>
+    <content contentuid="h1c5a75b2gc036g461cgae3cgc7e53f994df5" version="1">Этот грязный хак передает данные из скриптов игры в интерфейс через длительность эффекта. Если вы это читаете, то это либо баг PPMeter, либо вы используете какой-то еще мод который модифицирует те же самые файлы интерфейса.</content>
     <content contentuid="h0406e412g1362g4eccgbe9dgd35bd6653785" version="1">Показать/Скрыть PPMeter</content>
     <content contentuid="h5e4a29f6g1329g49d6g80acg72fa24371d86" version="1">PPMeter by Slafniy - BETA</content>
     <content contentuid="ha85bd579gf2bdg459cgb379g1ef5f3d0a40c" version="1">Бой</content>
     <content contentuid="hc93603c0g0470g4676gb105ge95ab44ab6ac" version="1">День</content>
     <content contentuid="ha8bfa6e7g16a1g464ag892bg89d87a1ab378" version="1">Уровень</content>
     <content contentuid="hab7fa700g572eg4953ga4a1g7631e78145ca" version="1">Всего</content>
+    <content contentuid="h3a4ab91agf336g4e20g85bcg4a5a72fad730" version="1">Раунды</content>
+    <content contentuid="h8fb07252gc832g4ca7g8314gcf90917db4ac" version="1">Урон</content>
+    <content contentuid="hccac5399g1424g4dc9gbf1cge2f8810ab5fa" version="1">УЗР</content>
+    <content contentuid="h4c07541bg0c4ag4316g95dfgc639cae23097" version="1">Персонаж</content>
 </contentList>

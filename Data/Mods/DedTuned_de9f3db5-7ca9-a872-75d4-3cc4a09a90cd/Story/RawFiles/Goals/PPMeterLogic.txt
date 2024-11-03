@@ -6,42 +6,80 @@ INITSECTION
 
 
 // Data Lifetime enum
-//DB_PPMeter_Lifetime("Round");
 DB_PPMeter_Lifetime("Combat");
 DB_PPMeter_Lifetime("Day");
 DB_PPMeter_Lifetime("Level");
-//DB_PPMeter_Lifetime("Act");
 DB_PPMeter_Lifetime("Overall");
 
 // Data stats type enum
 DB_PPMeter_StatsType("Damage");
 DB_PPMeter_StatsType("RoundsCount");
+DB_PPMeter_StatsType("DPR");
 
 // INTEGER Tables DB_PPMeter_DataInteger (CHARACTER)_Character, (STRING)_Lifetime, (STRING)_StatsType, (INTEGER)_Value
 
 
 KBSECTION
-//REGION Fill zeros - in any situalion we have no record
-IF
-DB_PartyMembers(_Character)
+//REGION // PROC_FillZeroes - if no data in DB
+PROC
+PROC_FillZeroes((CHARACTER)_Character)
 AND
 DB_PPMeter_StatsType(_StatsType)
 AND
 DB_PPMeter_Lifetime(_Lifetime)
 AND
-NOT DB_PPMeter_DataInteger (_Character, _Lifetime, _StatsType, _)
+NOT DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsType, _)
 THEN
 DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsType, 0);
 //END_REGION
 
 
-//REGION On new combat - reset per-combat stats for each StatsType
+//REGION // Fill zeros for player - only once
+IF
+DB_PartyMembers(_Character)
+AND
+IsPlayer(_Character, 1)
+AND
+GUIDToString(_Character, _onlyOnceStr1)
+AND
+DB_PPMeter_StatsType(_StatsType)
+AND
+DB_PPMeter_Lifetime(_Lifetime)
+AND
+Concatenate(_onlyOnceStr1, _StatsType, _onlyOnceStr2)
+AND
+Concatenate(_onlyOnceStr2, _Lifetime, _onlyOnceStr)
+AND
+QRY_OnlyOnce(_onlyOnceStr)
+AND
+NOT DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsType, _)
+THEN
+DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsType, 0);
+//END_REGION
+
+
+//REGION // handle joined party - fill zeros
+IF
+CharacterJoinedParty(_Character)
+THEN
+PROC_FillZeroes(_Character);
+//END_REGION
+
+
+//REGION On new combat - fill zeros if needed and reset per-combat stats for each StatsType
+IF
+EnteredCombat((CHARACTER)_Character, _)
+THEN
+PROC_FillZeroes(_Character);
+
 IF
 EnteredCombat((CHARACTER)_Character, _)
 AND
 DB_PartyMembers(_Character)
 AND
 DB_PPMeter_StatsType(_StatsName)
+AND
+Concatenate("Reset ", _StatsName, _msg)
 THEN
 PROC_PPMeter_ReplaceInDB(_Character, "Combat", _StatsName, 0);
 //END_REGION
@@ -55,11 +93,11 @@ DB_PartyMembers(_Character)
 AND
 DB_PPMeter_StatsType(_StatsName)
 THEN
-PROC_PPMeter_ReplaceInDB((CHARACTER)_Character, "Level", _StatsName, 0);
+PROC_PPMeter_ReplaceInDB(_Character, "Level", _StatsName, 0);
 //END_REGION
 
 
-//REGION Handle turn end - count rounds 
+//REGION Handle turn end - count rounds
 // Note: cannot count on round start because it races with EnteredCombat event in case if player joined to existing fight
 IF
 TurnEnded((CHARACTER)_Character)  // Round == Turn in case of each character I suppose
@@ -67,10 +105,8 @@ AND
 DB_PartyMembers(_Character)
 AND
 DB_PPMeter_Lifetime(_Lifetime)
-AND
-_Lifetime != "Round"  // Its always 1 round in each round
 THEN
-PROC_PPMeterIncrement((CHARACTER)_Character, _Lifetime, "RoundsCount");
+PROC_PPMeterAdd(_Character, _Lifetime, "RoundsCount", 1);
 //END_REGION
 
 
@@ -103,6 +139,21 @@ PROC_PPMeter_ForseUpdateStatuses(_Character);  // Because LongRest resets status
 //END_REGION
 
 
+//REGION // Refresh DPR
+IF
+DB_PartyMembers(_Character)
+AND
+DB_PPMeter_DataInteger(_Character, _Lifetime, "RoundsCount", _Rounds)
+AND
+DB_PPMeter_DataInteger(_Character, _Lifetime, "Damage", _Damage)
+AND
+_Rounds > 0
+AND
+IntegerDivide(_Damage, _Rounds, _DPR)
+THEN
+PROC_PPMeter_ReplaceInDB(_Character, _Lifetime, "DPR", _DPR);
+//DebugText(_Character, "REFRESHING DPR");
+//END_REGION
 EXITSECTION
 
 ENDEXITSECTION

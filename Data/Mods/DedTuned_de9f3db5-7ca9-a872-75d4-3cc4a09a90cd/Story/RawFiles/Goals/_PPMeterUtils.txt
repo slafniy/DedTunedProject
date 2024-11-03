@@ -4,26 +4,18 @@ INITSECTION
 // INTEGER Tables format: (CHARACTER)_Character, (STRING)_Lifetime, (STRING)_StatsType, (INTEGER)_Value
 NOT DB_PPMeter_DataInteger((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "", "", 0);
 KBSECTION
-//REGION PROC_PPMeter_ReplaceInDB // write a value to DB and remove old value. Consider we always have old value
+//REGION PROC_PPMeter_ReplaceInDB // write a value to DB and remove old value.
 PROC
 PROC_PPMeter_ReplaceInDB((CHARACTER)_Character, (STRING)_Lifetime, (STRING)_StatsName, (INTEGER)_NewValue)
 AND
-DB_PPMeter_DataInteger((CHARACTER)_Character, (STRING)_Lifetime, (STRING)_StatsName, (INTEGER)_OldValue)
+DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsName, _OldValue)
+THEN
+NOT DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsName, _OldValue); // remove old value
+
+PROC
+PROC_PPMeter_ReplaceInDB((CHARACTER)_Character, (STRING)_Lifetime, (STRING)_StatsName, (INTEGER)_NewValue)
 THEN
 DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsName, _NewValue); // write new value
-NOT DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsName, _OldValue); // remove new value
-//END_REGION
-
-
-//REGION PROC_PPMeterIncrement // _Value++
-PROC
-PROC_PPMeterIncrement((CHARACTER)_Character, (STRING)_Lifetime, (STRING)_StatsName)
-AND
-DB_PPMeter_DataInteger(_Character, _Lifetime, _StatsName, _OldValue)
-AND
-IntegerSum(_OldValue, 1, _NewValue)
-THEN
-PROC_PPMeter_ReplaceInDB(_Character, _Lifetime, _StatsName, _NewValue);
 //END_REGION
 
 
