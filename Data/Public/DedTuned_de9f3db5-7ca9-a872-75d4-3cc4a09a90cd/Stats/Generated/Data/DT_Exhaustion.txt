@@ -1,13 +1,13 @@
-## Apply Exhaustion mechanics for all possible player-controlled characters
-#new entry "_Hero"
-#type "Character"
-#using "_Hero"
-#data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;EXHAUSTION_ADD_STACK_IN_COMBAT;EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
-#
-#new entry "ORIGIN_Karlach"
-#type "Character"
-#using "ORIGIN_Karlach"
-#data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;ORI_Karlach_SweatImmune;EXHAUSTION_ADD_STACK_IN_COMBAT;EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
+# Apply Exhaustion mechanics for all possible player-controlled characters
+new entry "_Hero"
+type "Character"
+using "_Hero"
+data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;EXHAUSTION_ADD_STACK_IN_COMBAT;EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
+
+new entry "ORIGIN_Karlach"
+type "Character"
+using "ORIGIN_Karlach"
+data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;ORI_Karlach_SweatImmune;EXHAUSTION_ADD_STACK_IN_COMBAT;EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
 
 
 
@@ -80,61 +80,17 @@ data "Icon" "Status_Positive"
 
 
 
-## PASSIVE: Adds +1 stack of Exhaustion every time when character turn starts in combat
-#new entry "EXHAUSTION_ADD_STACK_IN_COMBAT"
-#type "PassiveData"
-#data "Properties" "IsHidden"
-#data "StatsFunctorContext" "OnTurn"
-#data "Conditions" "Combat()"
-#data "StatsFunctors" "ApplyStatus(SELF,EXHAUSTION_DEBUFF_STACKS,100,1)"
-#
-## PASSIVE: Removes N stacks of Exhaustion on Short Rest
-#new entry "EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
-#type "PassiveData"
-#data "Properties" "IsHidden"
-#data "StatsFunctorContext" "OnShortRest"
-#data "StatsFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'EXHAUSTION_DEBUFF_STACKS',10)):ApplyStatus(SELF,EXHAUSTION_DEBUFF_STACKS,100,-10);IF(StatusDurationLessThan(SELF,'EXHAUSTION_DEBUFF_STACKS',10)):SetStatusDuration(EXHAUSTION_DEBUFF_STACKS,0,ForceSet)"
+# PASSIVE: Adds +1 stack of Exhaustion every time when character turn starts in combat
+new entry "EXHAUSTION_ADD_STACK_IN_COMBAT"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnTurn"
+data "Conditions" "Combat()"
+data "StatsFunctors" "ApplyStatus(SELF,EXHAUSTION_DEBUFF_STACKS,100,1)"
 
-
-
-# DEBUFF: Exhaustion - Bard rest once per day limiter
-# Sets and removes in Osiris!
-new entry "EXHAUSTION_SONG_OF_REST_LIMIT"
-type "StatusData"
-data "StatusType" "BOOST"
-data "DisplayName" ""
-data "Description" ""
-data "Icon" "Status_Positive"
-
-
-# Bard's short rest should work once per day
-#new entry "Shout_SongOfRest"
-#type "SpellData"
-#data "SpellType" "Shout"
-#data "Cooldown" "OncePerRest"
-#data "SpellProperties" "ShortRest()"
-#data "TargetConditions" "Self()"
-#data "Icon" "Action_Bard_SongOfRest"
-#data "DisplayName" "h6664033bge8b7g48c8g8fc6g18986baa0bae;1"
-#data "Description" "h004d056bga0c0g4211g864fgd0a167f0cf2d;4"
-#data "TooltipDamageList" ""
-#data "CastSound" "Spell_Cast_Bard_SongOfRest_L1to3"
-#data "TargetSound" "Spell_Impact_Bard_SongOfRest_L1to3"
-#data "CastTextEvent" "Cast"
-#data "InstrumentComponentPrepareSound" "Instrument_Bard_SongOfRest_Prepare"
-#data "InstrumentComponentLoopingSound" "Instrument_Bard_SongOfRest_Loop"
-#data "InstrumentComponentCastSound" "Instrument_Bard_SongOfRest_Cast"
-#data "InstrumentComponentImpactSound" "Instrument_Bard_SongOfRest_Impact"
-#data "UseCosts" "ActionPoint:1"
-#data "SpellAnimation" "850cd2f3-dde2-475d-b3a3-f35c47333523,,;,,;8bfc0edf-5baa-4344-a486-14032de5ab69,,;3935e00c-7d43-4243-a4ef-4c680530d593,,;ad775f69-0d9f-4215-bfc2-8e0ec7e32189,,;,,;6bfce8a0-80f1-47a8-97f4-34f4b8b6fe9e,,;,,;,,"
-#data "VerbalIntent" "Healing"
-#data "SpellStyleGroup" "Class"
-#data "SpellFlags" "HasVerbalComponent"
-#data "HitAnimationType" "MagicalNonDamage"
-#data "RequirementConditions" "CanShortRest('NotEnoughResources')"
-#data "RequirementEvents" "OnTurn;OnCombatEnded"
-#data "PrepareEffect" "d2c9dc70-d8d8-40fc-87a8-3c14a3ea842a"
-#data "CastEffect" "5e248293-1a8d-4557-a2e1-f399e4552ff0"
-#data "HitEffect" "b4d2ce64-af72-45a2-8146-6a9c3b71f1a6"
-#data "SpellSoundMagnitude" "Big"
-#data "Sheathing" "Instrument"
+# PASSIVE: Removes N stacks of Exhaustion on Short Rest
+new entry "EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnShortRest"
+data "StatsFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'EXHAUSTION_DEBUFF_STACKS',10)):ApplyStatus(SELF,EXHAUSTION_DEBUFF_STACKS,100,-10);IF(StatusDurationLessThan(SELF,'EXHAUSTION_DEBUFF_STACKS',10)):SetStatusDuration(EXHAUSTION_DEBUFF_STACKS,0,ForceSet)"
