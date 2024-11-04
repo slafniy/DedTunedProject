@@ -1,0 +1,7 @@
+new entry "Durable"
+type "PassiveData"
+data "DisplayName" "h52ed0302g36beg4fb2g917fgc1f62992fbd0;2"
+data "Description" "h87bc3566g0989g4593g929agc66c95d7ba89;1"
+data "Icon" "PassiveFeature_Durable"
+data "Properties" "Highlighted"
+data "Boosts" "CriticalHit(AttackTarget,Success,Never)"
