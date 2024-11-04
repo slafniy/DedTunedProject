@@ -47,6 +47,12 @@
                     <attribute id="PassivesAdded" type="LSString" value="DT_AbnormalObstinacy;DT_AbnormalObstinacy_Technical;DT_AbnormalObstinacy_Technical_2"/>
                     <attribute id="UUID" type="guid" value="d215b9ad-9753-4d74-8ff9-24bf1dce53d6"/>
                 </node>
+                <!-- New feat - Ambidextrous -->
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="Ambidextrous"/>
+                    <attribute id="PassivesAdded" type="LSString" value="DT_OffhandExtraAttack"/>
+                    <attribute id="UUID" type="guid" value="07896dca-ffd5-4ab7-b56d-fdd7357c37c3"/>
+                </node>
             </children>
         </node>
     </region>

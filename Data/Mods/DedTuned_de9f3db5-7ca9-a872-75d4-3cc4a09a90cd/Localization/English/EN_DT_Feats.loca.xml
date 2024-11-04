@@ -27,6 +27,8 @@
     <content contentuid="h18956d0eg930fg4f0agbce8g55476d59531d" version="1">Melee Attack Bonus: -3</content>
     <content contentuid="hff92caa9g7042g4e72ga04dg78295bd57988" version="1">You have a +6 bonus to damage rolls you make with Heavy melee weapons.</content>
     <content contentuid="h3676387cg22d7g4d3egaeffg66a9881bbbdc" version="1">Melee Damage Bonus: +6</content>
-    <content contentuid="h57a85be1g855bg48f2gb91bg89a89a526378" version="1">Offhand Extra Attack</content>
+    <content contentuid="h57a85be1g855bg48f2gb91bg89a89a526378" version="1">Ambidextrous - Offhand Extra Attack</content>
     <content contentuid="h0ea0d872gdb7ag48b0g9c9bga09876148ee4" version="1">Once per turn after making an offhand melee attack can make an additional one for free.</content>
+    <content contentuid="hae7a19b4gea51g4474g98e8gb7e8158768ce" version="1">Ambidextrous</content>
+    <content contentuid="h41a57a50g7b28g446eg97acgcb65245b9ae7" version="1">Once per turn after making an offhand melee attack you can make an additional one for free.</content>
 </contentList>

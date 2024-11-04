@@ -1,5 +1,5 @@
 # Same as ExtraAttack but for offhand
-new entry "OffhandExtraAttack"
+new entry "DT_OffhandExtraAttack"
 type "PassiveData"
 data "DisplayName" "h57a85be1g855bg48f2gb91bg89a89a526378;1"
 data "Description" "h0ea0d872gdb7ag48b0g9c9bga09876148ee4;1"

@@ -103,6 +103,14 @@
                     <attribute id="FeatId" type="guid" value="d215b9ad-9753-4d74-8ff9-24bf1dce53d6"/>
                     <attribute id="UUID" type="guid" value="7956d6f3-cef7-4470-ad62-c208231d3258"/>
                 </node>
+                <!-- New feat - Ambidextrous -->
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="h41a57a50g7b28g446eg97acgcb65245b9ae7" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="hae7a19b4gea51g4474g98e8gb7e8158768ce" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="Ambidextrous"/>
+                    <attribute id="FeatId" type="guid" value="07896dca-ffd5-4ab7-b56d-fdd7357c37c3"/>
+                    <attribute id="UUID" type="guid" value="73bcec39-4042-4d17-88a1-30e5c6b09e89"/>
+                </node>
             </children>
         </node>
     </region>
