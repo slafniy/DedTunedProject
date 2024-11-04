@@ -14,3 +14,13 @@ end
 function DT_AbnormalObstinacyWeaponCondition(entity)
     return ~FightingStyle_GreatWeapon(entity)
 end
+
+
+function OffhandExtraAttackCheck()
+    return HasStringInSpellRoll('WeaponAttack') & HasUseCosts('BonusActionPoint',false)
+end
+
+function IsMeleeOffHandAttack()
+    result = context.HitDescription.AttackType == AttackType.MeleeOffHandWeaponAttack
+	return ConditionResult(result)
+end
