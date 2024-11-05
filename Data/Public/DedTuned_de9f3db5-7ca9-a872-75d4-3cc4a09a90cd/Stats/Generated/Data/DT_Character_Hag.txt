@@ -1,0 +1,5 @@
+new entry "HAG_AuntieEthel"
+type "Character"
+using "HAG_AuntieEthel"
+data "Vitality" "400"
+data "DifficultyStatuses" "STATUS_EASY: HEALTHREDUCTION_EASYMODE; STATUS_HARD: DT_HARDCORE_NO_HP_BOOST; STATUS_HARD: HAG_HARDCORE"
