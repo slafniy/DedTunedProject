@@ -1,0 +1,5 @@
+new entry "Target_PowerWordKill"
+type "SpellData"
+using "Target_PowerWordKill"
+data "DescriptionParams" "150"
+data "TargetConditions" "Character() and not Dead() and HasHPLessThan(151)"
