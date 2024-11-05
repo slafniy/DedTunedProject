@@ -1,4 +1,12 @@
+# Removed bonus action cost
+
 new entry "Shout_Rage"
 type "SpellData"
 using "Shout_Rage"
 data "UseCosts" "Rage:1"
+
+new entry "Shout_EndRage"
+type "SpellData"
+using "Shout_EndRage"
+data "UseCosts" ""
+data "Description" "h496d198dg0f94g457egaa37g14398d907905;1"
