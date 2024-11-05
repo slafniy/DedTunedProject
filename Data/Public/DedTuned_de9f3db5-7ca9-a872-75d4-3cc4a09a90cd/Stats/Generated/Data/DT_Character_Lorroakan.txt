@@ -1,0 +1,6 @@
+# Set HP to 1000
+new entry "LOW_RamazithsTower_Lorroakan"
+type "Character"
+using "LOW_RamazithsTower_Lorroakan"
+data "Vitality" "1000"
+data "DifficultyStatuses" "STATUS_EASY: HEALTHREDUCTION_EASYMODE; STATUS_HARD: DT_HARDCORE_NO_HP_BOOST;STATUS_HARD:LOW_RAMAZITHSTOWER_HARDCORE"
