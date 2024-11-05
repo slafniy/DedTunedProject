@@ -1,4 +1,4 @@
-
+# Set 300 hp manually to make it killable
 new entry "TUT_CambionCommander"
 type "Character"
 using "TUT_CambionCommander"

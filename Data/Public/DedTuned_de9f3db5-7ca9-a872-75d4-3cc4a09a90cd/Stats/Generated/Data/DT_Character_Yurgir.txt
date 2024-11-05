@@ -1,0 +1,7 @@
+# Set HP to 666
+# Not sure if it is Yurgir only, but should be fine anyway
+new entry "Orthon"
+type "Character"
+using "Orthon"
+data "Vitality" "666"
+data "DifficultyStatuses" "STATUS_EASY: HEALTHREDUCTION_EASYMODE; STATUS_HARD: DT_HARDCORE_NO_HP_BOOST; STATUS_HARD: ORTHON_HARDCORE"

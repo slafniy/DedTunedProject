@@ -24,7 +24,7 @@
                     <attribute id="FileSize" type="uint64" value="0"/>
                     <attribute id="Folder" type="LSString" value="DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
-                    <attribute id="MD5" type="LSString" value="f6378b589c2e98ee4234dfc9310887af"/>
+                    <attribute id="MD5" type="LSString" value="984fe52f3f16d8f9ad52224966068992"/>
                     <attribute id="MenuLevelName" type="FixedString" value=""/>
                     <attribute id="Name" type="LSString" value="DedTuned - Exhaustion and Honor mode tuning (WIP)"/>
                     <attribute id="NumPlayers" type="uint8" value="4"/>
@@ -32,7 +32,7 @@
                     <attribute id="PublishHandle" type="uint64" value="4369118"/>
                     <attribute id="StartupLevelName" type="FixedString" value=""/>
                     <attribute id="UUID" type="FixedString" value="de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
-                    <attribute id="Version64" type="int64" value="36451015926480975"/>
+                    <attribute id="Version64" type="int64" value="36451015926480976"/>
                     <children>
                         <node id="PublishVersion">
                             <attribute id="Version64" type="int64" value="144255927717549775"/>
