@@ -1,7 +1,18 @@
+# Overrides default hardcore boost
+# x2.5 hp instead of x1.3, and +1 roll and spell dc
 new entry "HEALTHBOOST_HARDCORE"
 type "StatusData"
 data "StatusType" "BOOST"
 using "DIFFICULTY"
 data "StackId" "HEALTHBOOST_HARDCORE"
-data "Boosts" "IncreaseMaxHP(160%);RollBonus(Attack,3);SpellSaveDC(2)"
+data "Boosts" "IncreaseMaxHP(150%);RollBonus(Attack,3);SpellSaveDC(3)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead"
+
+# Does not boost HP. Use this to set exact Vitality values
+new entry "DT_HARDCORE_NO_HP_BOOST"
+type "StatusData"
+data "StatusType" "BOOST"
+using "DIFFICULTY"
+data "StackId" "HEALTHBOOST_HARDCORE"
+data "Boosts" "RollBonus(Attack,3);SpellSaveDC(3)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead"
