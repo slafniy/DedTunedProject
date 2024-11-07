@@ -111,6 +111,14 @@
                     <attribute id="FeatId" type="guid" value="07896dca-ffd5-4ab7-b56d-fdd7357c37c3"/>
                     <attribute id="UUID" type="guid" value="73bcec39-4042-4d17-88a1-30e5c6b09e89"/>
                 </node>
+                <!-- New feat - Duelist Mage -->
+                <node id="FeatDescription">
+                    <attribute id="Description" type="TranslatedString" handle="hc8ffdfd0gbd10g477ag9ad8g9e38aeb397b6" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="ha1c3f1f7g3904g4e66ga910g6003c567e2b4" version="1"/>
+                    <attribute id="ExactMatch" type="FixedString" value="DuelistMage"/>
+                    <attribute id="FeatId" type="guid" value="0ed0c74a-dfeb-499d-a297-325d07b1ecab"/>
+                    <attribute id="UUID" type="guid" value="c94c76a3-5e09-4c34-b9d1-94e95c086a07"/>
+                </node>
             </children>
         </node>
     </region>

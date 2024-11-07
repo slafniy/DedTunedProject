@@ -20,7 +20,13 @@ function OffhandExtraAttackCheck()
     return HasStringInSpellRoll('WeaponAttack') & HasUseCosts('BonusActionPoint',false)
 end
 
+
 function IsMeleeOffHandAttack()
     result = context.HitDescription.AttackType == AttackType.MeleeOffHandWeaponAttack
 	return ConditionResult(result)
+end
+
+
+function DuelistMageCantripCheck()
+    return IsCantrip() & HasUseCosts('ActionPoint') & (HasSpellFlag(SpellFlags.Spell))
 end

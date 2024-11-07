@@ -1,0 +1,18 @@
+new entry "DT_DuelistMage"
+type "PassiveData"
+data "DisplayName" "ha1c3f1f7g3904g4e66ga910g6003c567e2b4;1"
+data "Description" "hc8ffdfd0gbd10g477ag9ad8g9e38aeb397b6;1"
+data "Icon" "PassiveFeature_WarMagic"
+data "Properties" "Highlighted;OncePerTurn"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "IsMeleeWeaponAttack() and TurnBased()"
+data "StatsFunctors" "IF(HasActionResource('BonusActionPoint', 1, 0, false, false, context.Source)):ApplyStatus(SELF, DT_CANTRIP_AS_BONUS, 100, 1)"
+
+
+new entry "DT_CANTRIP_AS_BONUS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Boosts" "UnlockSpellVariant(DuelistMageCantripCheck(), ModifyIconGlow(), ModifyTooltipDescription(), ModifyUseCosts(Replace,BonusActionPoint,1,0,ActionPoint))"
+data "RemoveConditions" "IsCantrip() and HasUseCosts('ActionPoint')"
+data "RemoveEvents" "OnSpellCast"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;DisableOverhead;ApplyToDead"

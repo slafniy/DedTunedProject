@@ -53,6 +53,12 @@
                     <attribute id="PassivesAdded" type="LSString" value="DT_OffhandExtraAttack"/>
                     <attribute id="UUID" type="guid" value="07896dca-ffd5-4ab7-b56d-fdd7357c37c3"/>
                 </node>
+                <!-- New feat - Duelist Mage -->
+                <node id="Feat">
+                    <attribute id="Name" type="FixedString" value="DuelistMage"/>
+                    <attribute id="PassivesAdded" type="LSString" value="DT_DuelistMage"/>
+                    <attribute id="UUID" type="guid" value="0ed0c74a-dfeb-499d-a297-325d07b1ecab"/>
+                </node>
             </children>
         </node>
     </region>
