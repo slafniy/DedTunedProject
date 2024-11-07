@@ -28,5 +28,10 @@ end
 
 
 function DuelistMageCantripCheck()
-    return IsCantrip() & HasUseCosts('ActionPoint') & (HasSpellFlag(SpellFlags.Spell))
+    return IsCantrip() & HasUseCosts('ActionPoint') & HasSpellFlag(SpellFlags.Spell) & HasSpellRangeEqualOrLessThan(3, context.Source)
+end
+
+
+function DT_DuelistMageWeaponCondition(entity)
+    return FightingStyle_Dueling(entity) & ~HasShieldEquipped(entity)
 end
