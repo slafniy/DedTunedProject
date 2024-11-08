@@ -1,0 +1,11 @@
+new entry "POTION_OF_STRENGTH_HILL_GIANT"
+type "StatusData"
+using "POTION_OF_STRENGTH_HILL_GIANT"
+data "Description" "habd4b0b9gceb6g43deg987eg8864b04b94aa;1"
+data "Boosts" "Ability(Strength, 2, 22)"
+
+new entry "POTION_OF_STRENGTH_CLOUD_GIANT"
+type "StatusData"
+using "POTION_OF_STRENGTH_CLOUD_GIANT"
+data "Description" "h7dce670cga078g4776g81d3ga4574b38ab80;1"
+data "Boosts" "Ability(Strength, 6, 26)"

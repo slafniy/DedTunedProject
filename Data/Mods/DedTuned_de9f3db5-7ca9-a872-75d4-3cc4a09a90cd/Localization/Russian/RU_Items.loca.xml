@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contentList>
+    <content contentuid="h3c6eae5bg5105g40bcg855agfa0686f36ae0" version="4">Увеличивает &lt;LSTag Tooltip="Strength"&gt;силу&lt;/LSTag&gt; на 6 с пределом в 26. Этот эликсир можно метнуть в цель, чтобы применить его эффекты на 10 ходов.</content>
+    <content contentuid="hf8dbc1d6gae25g4265g99c4gcc422d88cdce" version="3">Увеличивает &lt;LSTag Tooltip="Strength"&gt;силу&lt;/LSTag&gt; на 2 с пределом в 22. Этот эликсир можно метнуть в цель, чтобы применить его эффекты на 10 ходов.</content>
+    <content contentuid="habd4b0b9gceb6g43deg987eg8864b04b94aa" version="1">&lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; increased by 2.</content>
+    <content contentuid="h7dce670cga078g4776g81d3ga4574b38ab80" version="1">&lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; increased by 6.</content>
     <content contentuid="h0aed5e4cg1abfg4408g9647g1e14388b2533" version="4">Всякий раз, когда вы наносите урон огнем, вы получаете &lt;LSTag Type="Status" Tooltip="MAG_GISH_ARCANE_ACUITY"&gt;магическую интуицию&lt;/LSTag&gt; на 2 хода вплоть до максимума в 5.</content>
 </contentList>
