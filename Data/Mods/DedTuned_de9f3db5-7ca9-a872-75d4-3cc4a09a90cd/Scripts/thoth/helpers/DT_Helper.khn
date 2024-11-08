@@ -28,7 +28,7 @@ end
 
 
 function DuelistMageCantripCheck()
-    return IsCantrip() & HasUseCosts('ActionPoint') & HasSpellFlag(SpellFlags.Spell) & HasSpellRangeEqualOrLessThan(3, context.Source)
+    return IsCantrip() & HasUseCosts('ActionPoint') & HasSpellFlag(SpellFlags.Spell) & ~SpellId('Projectile_EldritchBlast')
 end
 
 

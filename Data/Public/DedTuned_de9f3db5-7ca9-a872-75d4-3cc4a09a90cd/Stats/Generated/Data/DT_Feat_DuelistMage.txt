@@ -1,4 +1,3 @@
-#TODO: fix MAG_CQCaster_CloseRangedSpellMastery_Gloves_c9f03464-488c-4f3f-aa2f-6d4c8e48a106 interaction
 new entry "DT_DuelistMage"
 type "PassiveData"
 data "DisplayName" "ha1c3f1f7g3904g4e66ga910g6003c567e2b4;1"
