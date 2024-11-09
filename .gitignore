@@ -52,7 +52,7 @@
 /Data/_dbcache_/loca.db
 /Data/Projects/CommonUtility/get_all_bindings.py
 /Data/Projects/CommonUtility/XAMLBindings.txt
-/Data/Projects/CommonUtility/*.log
+/Data/Projects/CommonUtility/damage_calc/*.log
 
 # BG3 story generated files which are safe to remove to decrease mod pak size
 # SAFETOREMOVE_START
