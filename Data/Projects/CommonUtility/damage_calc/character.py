@@ -30,6 +30,10 @@ class Character:
         self.ability_proficiency_bonus = int(math.floor((MAIN_ABILITY_ON_LEVEL_DEFAULT[level] - BASE_ABILITY_SIZE) / 2))
         self.has_fighting_style_archery = fighting_style_archery
         self.has_fighting_style_dual_weapon = fighting_style_dual_weapon
+        self.spec: str = (f'{self.name} lvl {self.level} with {self.weapon_main.name}'
+                          f'{" and " if self.weapon_offhand is not None else ""}'
+                          f'{self.weapon_offhand.name if self.weapon_offhand is not None else ""}')
+        # self.spec += ' ' * (self.SPEC_NAME_LEN - len(self.spec))
 
     def do_attack(self, weapon: Weapon, target_ac, apply_proficiency_bonus=True) -> int:
         attack_roll = roll_dice(ATTACK_ROLL_DICE_SIZE)
@@ -55,33 +59,19 @@ class Character:
         return res
 
     def main_hand_attack(self, target_ac=DEFAULT_TARGET_AC):
+        dc_logger.debug(f'\tmain hand attack:')
         return self.do_attack(self.weapon_main, target_ac)
 
     def offhand_attack(self, target_ac=DEFAULT_TARGET_AC):
+        dc_logger.debug(f'\toffhand attack:')
         return self.do_attack(self.weapon_offhand, target_ac, self.has_fighting_style_dual_weapon)
 
-    def simulate(self, rounds=5, target_ac=DEFAULT_TARGET_AC, iterations=1000):
-        results = []
-        raw_rounds = []
-        worst_combat_dpr = 0
-        best_combat_dpr = 0
-        for _ in range(iterations):
-            results_per_round = []
-            for _ in range(rounds):
-                dpr = self.main_hand_attack(target_ac)
-                dpr += self.offhand_attack(target_ac) if self.weapon_offhand is not None else 0
-                dpr += self.main_hand_attack(target_ac) if self.level >= 5 else 0
-                results_per_round.append(dpr)
-            raw_rounds.append(results_per_round)
-            combat_dpr = sum(results_per_round) / rounds
-            worst_combat_dpr = min(worst_combat_dpr, combat_dpr)
-            best_combat_dpr = max(best_combat_dpr, combat_dpr)
-            results.append(combat_dpr)
-        avg_damage = sum(results) / iterations
-        spec_name = f'{self.name} lvl {self.level} with {self.weapon_main.name} {"and " if self.weapon_offhand is not None else ""} {self.weapon_offhand.name if self.weapon_offhand is not None else ""}'
-        spec_name += ' ' * (self.SPEC_NAME_LEN - len(spec_name))
-        print(f'{spec_name}, avg DPR: {avg_damage:.1f}, Worst combat DPR: {worst_combat_dpr:.1f}, Best combat DPR: {best_combat_dpr:.1f}')
-        return raw_rounds
+    def play_round(self, target_ac: int):
+        dc_logger.debug(f'\n>>> {self.name} combat round:')
+        dpr = self.main_hand_attack(target_ac)
+        dpr += self.offhand_attack(target_ac) if self.weapon_offhand is not None else 0
+        dpr += self.main_hand_attack(target_ac) if self.level >= 5 else 0
+        return dpr
 
 
 RANGER_LEVEL_5_ARCHERY = Character("Ranger archery", 5, HEAVY_CROSSBOW_1, fighting_style_archery=True)
@@ -92,6 +82,4 @@ RANGER_LEVEL_5_ARCHERY_DUAL = Character("Ranger dual", 5, HAND_CROSSBOW_1, HAND_
 
 if __name__ == "__main__":
     AC = 20
-    RANGER_LEVEL_5_ARCHERY.simulate(target_ac=AC)
-    RANGER_LEVEL_5_DUAL.simulate(target_ac=AC)
-    RANGER_LEVEL_5_ARCHERY_DUAL.simulate(target_ac=AC)
+    RANGER_LEVEL_5_ARCHERY.play_round(target_ac=AC)
