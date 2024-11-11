@@ -39,6 +39,5 @@ end
 
 function IsMainHandRangedWeaponAttack()
     entity = context.Source
-    -- WieldingWeapon('Ammunition', false, false, entity) & IsRangedWeaponAttack() & IsProficientWith(entity, GetAttackWeapon(entity)) & HasUseCosts('ActionPoint',false)
-    return HasUseCosts('ActionPoint',false) & HasStringInSpellRoll('RangedWeaponAttack')
+    return HasUseCosts('ActionPoint',false) & HasStringInSpellRoll('RangedWeaponAttack') & WieldingWeapon('Ammunition', false, true, entity) & WieldingWeapon('Twohanded', false, true, entity)
 end
