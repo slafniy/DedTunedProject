@@ -1,6 +1,7 @@
 import math
+import typing as t
 
-from Data.Projects.CommonUtility.damage_calc.weapon import HAND_CROSSBOW_1
+from weapon import HAND_CROSSBOW_1
 from constants import (PROFICIENCY_BONUS_ON_LEVEL,
                        DEFAULT_TARGET_AC,
                        MAIN_ABILITY_ON_LEVEL_DEFAULT,
@@ -74,12 +75,14 @@ class Character:
         return dpr
 
 
-RANGER_LEVEL_5_ARCHERY = Character("Ranger archery", 5, HEAVY_CROSSBOW_1, fighting_style_archery=True)
-RANGER_LEVEL_5_DUAL = Character("Ranger dual", 5, HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-                                fighting_style_dual_weapon=True)
-RANGER_LEVEL_5_ARCHERY_DUAL = Character("Ranger dual", 5, HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-                                fighting_style_archery=True)
+def generate_archers() -> t.List[Character]:
+    result = []
+    for level in range(1, 13):
+        result.append(Character("Ranger Archery", level, HEAVY_CROSSBOW_1, fighting_style_archery=True))
+        result.append(Character("Ranger TwoWeaponFighting", level, HAND_CROSSBOW_1, HAND_CROSSBOW_1,
+                                fighting_style_dual_weapon=True))
+    return result
+
 
 if __name__ == "__main__":
-    AC = 20
-    RANGER_LEVEL_5_ARCHERY.play_round(target_ac=AC)
+    pass

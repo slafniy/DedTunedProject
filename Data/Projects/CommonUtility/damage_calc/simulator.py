@@ -3,18 +3,22 @@ import typing as t
 from character import Character
 
 
-def simulate_combat(characters: t.List[Character], rounds=5, target_ac=13) -> t.List[dict]:
+def simulate_combat(characters: t.List[Character], target_ac=13, rounds=5, iterations=100) -> t.List[dict]:
     data = []
-    for round_number in range(1, rounds + 1):
-        for c in characters:
-            round_damage = c.play_round(target_ac)
-            data.append({
-                'round_number': round_number,
-                'spec': c.spec,
-                'level': c.level,
-                'round_damage': round_damage
-            })
+    for iteration_number in range(iterations):
+        for round_number in range(1, rounds + 1):
+            for c in characters:
+                round_damage = c.play_round(target_ac)
+                data.append({
+                    'iteration_number': iteration_number,
+                    'round_number': round_number,
+                    'name': c.name,
+                    'level': c.level,
+                    'round_damage': round_damage
+                })
     return data
+
+
 
 
 if __name__ == '__main__':
