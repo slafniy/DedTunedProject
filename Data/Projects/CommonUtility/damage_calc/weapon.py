@@ -37,6 +37,14 @@ LONGBOW_1 = Weapon("Longbow +1", dice_size=8, bonus=1)
 LONGBOW_2 = Weapon("Longbow +2", dice_size=8, bonus=2)
 LONGBOW_3 = Weapon("Longbow +3", dice_size=8, bonus=3)
 
+SHORT_SWORD_0 = Weapon("Short Sword", dice_size=6)
+SHORT_SWORD_1 = Weapon("Short Sword +1", dice_size=6, bonus=1)
+SHORT_SWORD_2 = Weapon("Short Sword +2", dice_size=6, bonus=2)
+
+TWO_HANDED_SWORD_0 = Weapon("Two Handed Sword", dice_size=6, dice_count=2)
+TWO_HANDED_SWORD_1 = Weapon("Two Handed Sword +1", dice_size=6, dice_count=2, bonus=1)
+TWO_HANDED_SWORD_2 = Weapon("Two Handed Sword +2", dice_size=6, dice_count=2, bonus=2)
+
 
 if __name__ == "__main__":
     HAND_CROSSBOW_1.damage_roll()

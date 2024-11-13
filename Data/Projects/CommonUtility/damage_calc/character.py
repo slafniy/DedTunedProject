@@ -1,7 +1,7 @@
 import math
 import typing as t
 
-from Data.Projects.CommonUtility.damage_calc.weapon import HEAVY_CROSSBOW_2
+from Data.Projects.CommonUtility.damage_calc.weapon import HEAVY_CROSSBOW_2, TWO_HANDED_SWORD_1
 from weapon import HAND_CROSSBOW_1
 from constants import (PROFICIENCY_BONUS_ON_LEVEL,
                        DEFAULT_TARGET_AC,
@@ -25,6 +25,7 @@ class Character:
                  fighting_style_archery=False,
                  fighting_style_dual_weapon=False,
                  has_feat_vanilla_sharpshooter=False,
+                 has_feat_vanilla_gwm=False,
                  logging_enabled=False):
         self.name = name
         self.level = 1
@@ -33,10 +34,13 @@ class Character:
         self.has_fighting_style_archery = fighting_style_archery
         self.has_fighting_style_dual_weapon = fighting_style_dual_weapon
         self.has_feat_vanilla_sharpshooter = has_feat_vanilla_sharpshooter
+        self.has_feat_vanilla_gwm = has_feat_vanilla_gwm
         self.spec: str = (f'{self.name} lvl {self.level} with {self.weapon_main.name}'
                           f'{" and " if self.weapon_offhand is not None else ""}'
                           f'{self.weapon_offhand.name if self.weapon_offhand is not None else ""}')
         self._debug = dc_logger.debug if logging_enabled else lambda _: None
+
+        self._gwm_proc = False
 
     @property
     def base_proficiency_bonus(self):
@@ -72,9 +76,9 @@ class Character:
         attack_roll += weapon.bonus
         self._debug(f'Weapon bonus: {weapon.bonus}')
 
-        if self.has_feat_vanilla_sharpshooter:
+        if self.has_feat_vanilla_sharpshooter or self.has_feat_vanilla_gwm:
             attack_roll -= 5
-            self._debug(f'Sharpshooter (vanilla): -5')
+            self._debug(f'Sharpshooter/GWM (vanilla): -5')
 
         self._debug(f'Roll result: >> {attack_roll} <<')
         return attack_roll
@@ -90,6 +94,8 @@ class Character:
             res = weapon.damage_roll(critical=True)
             res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
             self._debug(f"{self.name} -> {res} damage, Critical hit!")
+            if weapon is self.weapon_main and self.has_feat_vanilla_gwm:
+                self._gwm_proc = True
             return res
 
         if attack_roll < target_ac:
@@ -99,9 +105,9 @@ class Character:
         res = weapon.damage_roll()
         res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
 
-        if self.has_feat_vanilla_sharpshooter:
+        if self.has_feat_vanilla_sharpshooter or self.has_feat_vanilla_gwm:
             res += 10
-            self._debug('Sharpshooter (vanilla): +10 damage')
+            self._debug('Sharpshooter/GWM (vanilla): +10 damage')
 
         self._debug(f"{self.name} -> {res} damage, rolled {attack_roll} against {target_ac}")
         return res
@@ -116,9 +122,11 @@ class Character:
 
     def play_round(self, target_ac: int):
         self._debug(f'\n>>> {self.name} combat round:')
+        self._gwm_proc = False
         dpr = self.main_hand_attack(target_ac)
         dpr += self.offhand_attack(target_ac) if self.weapon_offhand is not None else 0
         dpr += self.main_hand_attack(target_ac) if self.level >= 5 else 0
+        dpr += self.main_hand_attack(target_ac) if self._gwm_proc else 0
         return dpr
 
 
@@ -144,11 +152,22 @@ TWO_WEAPONS_CROSSBOWS_SS_VANILLA = {
                  fighting_style_dual_weapon=True, has_feat_vanilla_sharpshooter=True)
 }
 
+TWO_HANDED_SWORD_MELEE_NO_FEATS = {
+    1: Character("Melee_TwoHanded_NoFeats", TWO_HANDED_SWORD_1)
+}
+
+TWO_HANDED_SWORD_MELEE_GWM_VANILLA = {
+    1: Character("Melee_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1),
+    4: Character("Melee_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1, has_feat_vanilla_gwm=True)
+}
+
 ALL_PROGRESSIONS = [
     ARCHERY_SS_VANILLA,
     ARCHERY_NO_FEATS,
     TWO_WEAPONS_CROSSBOWS_NO_FEATS,
-    TWO_WEAPONS_CROSSBOWS_SS_VANILLA
+    TWO_WEAPONS_CROSSBOWS_SS_VANILLA,
+    TWO_HANDED_SWORD_MELEE_NO_FEATS,
+    TWO_HANDED_SWORD_MELEE_GWM_VANILLA
 ]
 
 if __name__ == "__main__":
@@ -156,4 +175,3 @@ if __name__ == "__main__":
     ranger.level = 8
     ranger.level = 9
     pass
-
