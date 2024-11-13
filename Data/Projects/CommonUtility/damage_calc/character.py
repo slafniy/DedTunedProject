@@ -25,21 +25,26 @@ class Character:
                  fighting_style_archery=False,
                  fighting_style_dual_weapon=False,
                  has_feat_vanilla_sharpshooter=False,
-                 loggingEnabled=False):
+                 logging_enabled=False):
         self.name = name
         self.level = 1
         self.weapon_main = weapon_main
         self.weapon_offhand = weapon_offhand
-        self.base_proficiency_bonus = PROFICIENCY_BONUS_ON_LEVEL[self.level]
-        self.ability_proficiency_bonus = int(
-            math.floor((MAIN_ABILITY_ON_LEVEL_DEFAULT[self.level] - BASE_ABILITY_SIZE) / 2))
         self.has_fighting_style_archery = fighting_style_archery
         self.has_fighting_style_dual_weapon = fighting_style_dual_weapon
         self.has_feat_vanilla_sharpshooter = has_feat_vanilla_sharpshooter
         self.spec: str = (f'{self.name} lvl {self.level} with {self.weapon_main.name}'
                           f'{" and " if self.weapon_offhand is not None else ""}'
                           f'{self.weapon_offhand.name if self.weapon_offhand is not None else ""}')
-        self._debug = dc_logger.debug if loggingEnabled else lambda _: None
+        self._debug = dc_logger.debug if logging_enabled else lambda _: None
+
+    @property
+    def base_proficiency_bonus(self):
+        return PROFICIENCY_BONUS_ON_LEVEL[self.level]
+
+    @property
+    def ability_proficiency_bonus(self):
+        return int(math.floor((MAIN_ABILITY_ON_LEVEL_DEFAULT[self.level] - BASE_ABILITY_SIZE) / 2))
 
     def attack_roll(self, weapon: Weapon) -> t.Union[int, t.Literal["CRITICAL_MISS", "CRITICAL_HIT"]]:
         """Get attack roll with all possible bonuses and penalties"""
@@ -148,16 +153,7 @@ ALL_PROGRESSIONS = [
 
 if __name__ == "__main__":
     ranger = Character("Ranger", HEAVY_CROSSBOW_2, fighting_style_archery=True)
-    ranger_ss = Character("Ranger_SS", HEAVY_CROSSBOW_2, fighting_style_archery=True,
-                          has_feat_vanilla_sharpshooter=True)
+    ranger.level = 8
+    ranger.level = 9
+    pass
 
-    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
