@@ -1,6 +1,7 @@
 import math
 import typing as t
 
+from Data.Projects.CommonUtility.damage_calc.weapon import HEAVY_CROSSBOW_2
 from weapon import HAND_CROSSBOW_1
 from constants import (PROFICIENCY_BONUS_ON_LEVEL,
                        DEFAULT_TARGET_AC,
@@ -34,22 +35,49 @@ class Character:
         self.spec: str = (f'{self.name} lvl {self.level} with {self.weapon_main.name}'
                           f'{" and " if self.weapon_offhand is not None else ""}'
                           f'{self.weapon_offhand.name if self.weapon_offhand is not None else ""}')
-        # self.spec += ' ' * (self.SPEC_NAME_LEN - len(self.spec))
+
+    def attack_roll(self, weapon: Weapon) -> t.Union[int, t.Literal["CRITICAL_MISS", "CRITICAL_HIT"]]:
+        """Get attack roll with all possible bonuses and penalties"""
+        attack_roll = roll_dice(ATTACK_ROLL_DICE_SIZE)
+        dc_logger.debug(f'Attack dice roll: {attack_roll}')
+
+        if attack_roll == 1:
+            dc_logger.debug(f"Critical miss!")
+            return "CRITICAL_MISS"
+        if attack_roll == ATTACK_ROLL_DICE_SIZE:
+            dc_logger.debug(f'Critical hit!')
+            return "CRITICAL_HIT"
+
+        # no crits this time, add bonuses to roll
+        attack_roll += self.base_proficiency_bonus
+        dc_logger.debug(f'Proficiency bonus: {self.base_proficiency_bonus}')
+
+        style_bonus = 2 if self.has_fighting_style_archery else 0
+        dc_logger.debug(f'Fighting Style bonus: {style_bonus}')
+        attack_roll += style_bonus
+
+        attack_roll += self.ability_proficiency_bonus
+        dc_logger.debug(f'Ability proficiency bonus: {self.ability_proficiency_bonus}')
+
+        attack_roll += weapon.bonus
+        dc_logger.debug(f'Weapon bonus: {weapon.bonus}')
+
+        dc_logger.debug(f'Roll result: >> {attack_roll} <<')
+        return attack_roll
 
     def do_attack(self, weapon: Weapon, target_ac, apply_proficiency_bonus=True) -> int:
-        attack_roll = roll_dice(ATTACK_ROLL_DICE_SIZE)
-        if attack_roll == 1:
+        attack_roll = self.attack_roll(weapon)
+
+        if attack_roll == "CRITICAL_MISS":
             dc_logger.debug(f"{self.name} -> 0 damage, Critical miss!")
             return 0
 
-        if attack_roll == ATTACK_ROLL_DICE_SIZE:
+        if attack_roll == "CRITICAL_HIT":
             res = weapon.damage_roll(critical=True)
             res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
             dc_logger.debug(f"{self.name} -> {res} damage, Critical hit!")
             return res
 
-        style_bonus = 2 if self.has_fighting_style_archery else 0
-        attack_roll = attack_roll + self.base_proficiency_bonus + self.ability_proficiency_bonus + weapon.bonus + style_bonus
         if attack_roll < target_ac:
             dc_logger.debug(f"{self.name} -> 0 damage, rolled {attack_roll} against {target_ac}")
             return 0
@@ -85,4 +113,15 @@ def generate_archers() -> t.List[Character]:
 
 
 if __name__ == "__main__":
-    pass
+    ranger = Character("Ranger", 8, HEAVY_CROSSBOW_2, fighting_style_archery=True)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
+    ranger.do_attack(ranger.weapon_main, 13)
