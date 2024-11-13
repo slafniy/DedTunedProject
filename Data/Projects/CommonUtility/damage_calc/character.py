@@ -24,6 +24,7 @@ class Character:
                  weapon_offhand: Weapon = None,
                  fighting_style_archery=False,
                  fighting_style_dual_weapon=False,
+                 fighting_style_great_weapon_fighting=False,
                  has_feat_vanilla_sharpshooter=False,
                  has_feat_vanilla_gwm=False,
                  logging_enabled=False):
@@ -33,6 +34,7 @@ class Character:
         self.weapon_offhand = weapon_offhand
         self.has_fighting_style_archery = fighting_style_archery
         self.has_fighting_style_dual_weapon = fighting_style_dual_weapon
+        self.has_fighting_style_great_weapon_fighting = fighting_style_great_weapon_fighting
         self.has_feat_vanilla_sharpshooter = has_feat_vanilla_sharpshooter
         self.has_feat_vanilla_gwm = has_feat_vanilla_gwm
         self.spec: str = (f'{self.name} lvl {self.level} with {self.weapon_main.name}'
@@ -102,7 +104,7 @@ class Character:
             self._debug(f"{self.name} -> 0 damage, rolled {attack_roll} against {target_ac}")
             return 0
 
-        res = weapon.damage_roll()
+        res = weapon.damage_roll(great_weapon_fighting=self.has_fighting_style_great_weapon_fighting)
         res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
 
         if self.has_feat_vanilla_sharpshooter or self.has_feat_vanilla_gwm:
@@ -161,13 +163,20 @@ TWO_HANDED_SWORD_MELEE_GWM_VANILLA = {
     4: Character("Melee_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1, has_feat_vanilla_gwm=True)
 }
 
+TWO_HANDED_SWORD_GREAT_WEAPON_FIGHTING_GWM_VANILLA = {
+    1: Character("GreatWeapon_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1, fighting_style_great_weapon_fighting=True),
+    4: Character("GreatWeapon_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1, fighting_style_great_weapon_fighting=True,
+                 has_feat_vanilla_gwm=True)
+}
+
 ALL_PROGRESSIONS = [
     ARCHERY_SS_VANILLA,
     ARCHERY_NO_FEATS,
     TWO_WEAPONS_CROSSBOWS_NO_FEATS,
     TWO_WEAPONS_CROSSBOWS_SS_VANILLA,
     TWO_HANDED_SWORD_MELEE_NO_FEATS,
-    TWO_HANDED_SWORD_MELEE_GWM_VANILLA
+    TWO_HANDED_SWORD_MELEE_GWM_VANILLA,
+    TWO_HANDED_SWORD_GREAT_WEAPON_FIGHTING_GWM_VANILLA
 ]
 
 if __name__ == "__main__":
