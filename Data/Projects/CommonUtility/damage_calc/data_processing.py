@@ -11,13 +11,13 @@ def process(raw_data):
 
 
 def _get_per_round_stats(df):
-    return df.groupby(['iteration_number', 'level', 'name']).agg(
+    return df.groupby(['iteration_number', 'level', 'name', 'target_ac']).agg(
         mean_round_damage=('round_damage', 'mean')
     ).reset_index()
 
 
 def _get_overall_stats(df):
-    return df.groupby(['level', 'name']).agg(
+    return df.groupby(['level', 'name', 'target_ac']).agg(
         mean_DPR=('mean_round_damage', 'mean')
     ).reset_index()
 
@@ -25,15 +25,23 @@ def _get_overall_stats(df):
 def get_plot(df_overall: pd.DataFrame) -> go.Figure:
     fig = go.Figure()
 
-    for name_value in df_overall['name'].unique():
-        df_name = df_overall[df_overall['name'] == name_value]
-        color = px.colors.qualitative.Set1[df_overall['name'].unique().tolist().index(name_value)]
+    unique_combinations = df_overall[['name', 'target_ac']].drop_duplicates()
+
+    for _, row in unique_combinations.iterrows():
+        name_value = row['name']
+        target_ac_value = row['target_ac']
+
+        df_filtered = df_overall[(df_overall['name'] == name_value) & (df_overall['target_ac'] == target_ac_value)]
+
+        color_index = unique_combinations.index[(unique_combinations['name'] == name_value) &
+                                                (unique_combinations['target_ac'] == target_ac_value)].tolist()[0]
+        color = px.colors.qualitative.Set1[color_index % len(px.colors.qualitative.Set1)]
 
         fig.add_trace(go.Scatter(
-            x=df_name['level'],
-            y=df_name['mean_DPR'],
+            x=df_filtered['level'],
+            y=df_filtered['mean_DPR'],
             mode='lines+markers',
-            name=f'{name_value} Mean DPR',
+            name=f'AC{target_ac_value} {name_value}',
             line=dict(color=color)
         ))
 
