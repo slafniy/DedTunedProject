@@ -17,10 +17,10 @@ class Weapon:
         rolls = []
         for _ in range(dice_count):
             damage = roll_dice(self.dice_size)
-            dc_logger.debug(f"\t\tDamage roll: {damage} | d{self.dice_size}")
+            # dc_logger.debug(f"\t\tDamage roll: {damage} | d{self.dice_size}")
             rolls.append(damage)
         res = sum(rolls) + self.bonus
-        dc_logger.debug(f"\t{self.name} damage: {res} | {dice_count}d{self.dice_size} + {self.bonus}{' CRITICAL' if critical else ''}")
+        # dc_logger.debug(f"\t{self.name} damage: {res} | {dice_count}d{self.dice_size} + {self.bonus}{' CRITICAL' if critical else ''}")
         return res
 
 
