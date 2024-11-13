@@ -7,10 +7,10 @@ def simulate_combat(character_progressions: t.List[t.Dict[int, Character]],
                     target_ac=13, rounds=5, iterations=10) -> t.List[dict]:
     data = []
     for iteration_number in range(iterations):
-        for round_number in range(1, rounds + 1):
-            for progression in character_progressions:
-                character = progression[1]  # should always have level 1 character defined
-                for level in range(1, 13):
+        for progression in character_progressions:
+            character = progression[1]  # should always have level 1 character defined
+            for level in range(1, 13):
+                for round_number in range(1, rounds + 1):
                     character = progression.get(level, character)  # update character if needed
                     character.level = level  # Update level to update level-related stats
 

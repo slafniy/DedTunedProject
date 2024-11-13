@@ -117,41 +117,38 @@ class Character:
         return dpr
 
 
-# def generate_archers() -> t.List[Character]:
-#     result = []
-#     for level in range(1, 13):
-#         result.append(Character("Ranger_Archery", level, HEAVY_CROSSBOW_1, fighting_style_archery=True))
-#         result.append(Character("Ranger_Archery_SharpshooterVanilla", level, HEAVY_CROSSBOW_1,
-#                                 fighting_style_archery=True, has_feat_vanilla_sharpshooter=True))
-#         result.append(Character("Ranger_TwoWeaponFighting", level, HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-#                                 fighting_style_dual_weapon=True)),
-#         result.append(Character("Ranger_TwoWeaponFighting_SharpshooterVanilla", level, HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-#                                 fighting_style_dual_weapon=True, has_feat_vanilla_sharpshooter=True))
-#     return result
+ARCHERY_SS_VANILLA = {
+    1: Character("Ranger_Archery_SS_Vanilla", HEAVY_CROSSBOW_1, fighting_style_archery=True),
+    4: Character("Ranger_Archery_SS_Vanilla", HEAVY_CROSSBOW_1, fighting_style_archery=True,
+                 has_feat_vanilla_sharpshooter=True)
+}
 
+ARCHERY_NO_FEATS = {
+    1: Character("Ranger_Archery_NoFeats", HEAVY_CROSSBOW_1, fighting_style_archery=True)
+}
+
+TWO_WEAPONS_CROSSBOWS_NO_FEATS = {
+    1: Character("Ranger_TwoCrossbows_NoFeats", HAND_CROSSBOW_1, HAND_CROSSBOW_1,
+                 fighting_style_dual_weapon=True)
+}
+
+TWO_WEAPONS_CROSSBOWS_SS_VANILLA = {
+    1: Character("Ranger_TwoCrossbows_SS_Vanilla", HAND_CROSSBOW_1, HAND_CROSSBOW_1,
+                 fighting_style_dual_weapon=True),
+    4: Character("Ranger_TwoCrossbows_SS_Vanilla", HAND_CROSSBOW_1, HAND_CROSSBOW_1,
+                 fighting_style_dual_weapon=True, has_feat_vanilla_sharpshooter=True)
+}
 
 ALL_PROGRESSIONS = [
-    {
-        1: Character("Ranger_Archery_SS_Vanilla", HEAVY_CROSSBOW_1, fighting_style_archery=True),
-        4: Character("Ranger_Archery_SS_Vanilla", HEAVY_CROSSBOW_1, fighting_style_archery=True,
-                     has_feat_vanilla_sharpshooter=True)
-    },
-    {
-        1: Character("Ranger_Archery_NoFeats", HEAVY_CROSSBOW_1, fighting_style_archery=True)
-    },
-    {
-        1: Character("Ranger_TwoCrossbows_NoFeats", HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-                     fighting_style_dual_weapon=True)
-    },
-    {
-        1: Character("Ranger_TwoCrossbows_SS_Vanilla", HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-                     fighting_style_dual_weapon=True, has_feat_vanilla_sharpshooter=True)
-    }
+    ARCHERY_SS_VANILLA,
+    ARCHERY_NO_FEATS,
+    TWO_WEAPONS_CROSSBOWS_NO_FEATS,
+    TWO_WEAPONS_CROSSBOWS_SS_VANILLA
 ]
 
 if __name__ == "__main__":
-    ranger = Character("Ranger", 8, HEAVY_CROSSBOW_2, fighting_style_archery=True)
-    ranger_ss = Character("Ranger_SS", 8, HEAVY_CROSSBOW_2, fighting_style_archery=True,
+    ranger = Character("Ranger", HEAVY_CROSSBOW_2, fighting_style_archery=True)
+    ranger_ss = Character("Ranger_SS", HEAVY_CROSSBOW_2, fighting_style_archery=True,
                           has_feat_vanilla_sharpshooter=True)
 
     ranger_ss.do_attack(ranger_ss.weapon_main, 13)
