@@ -171,6 +171,10 @@ TWO_HANDED_SWORD_GREAT_WEAPON_FIGHTING_GWM_VANILLA = {
                  has_feat_vanilla_gwm=True)
 }
 
+TWO_HANDED_SWORD_GREAT_WEAPON_FIGHTING = {
+    1: Character("GreatWeapon_TwoHanded", TWO_HANDED_SWORD_1, fighting_style_great_weapon_fighting=True)
+}
+
 ALL_PROGRESSIONS = [
     ARCHERY_SS_VANILLA,
     ARCHERY_NO_FEATS,
