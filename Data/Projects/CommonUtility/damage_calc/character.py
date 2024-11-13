@@ -23,7 +23,8 @@ class Character:
                  weapon_main: Weapon,
                  weapon_offhand: Weapon = None,
                  fighting_style_archery=False,
-                 fighting_style_dual_weapon=False):
+                 fighting_style_dual_weapon=False,
+                 has_feat_vanilla_sharpshooter=False):
         self.name = name
         self.level = level
         self.weapon_main = weapon_main
@@ -32,6 +33,7 @@ class Character:
         self.ability_proficiency_bonus = int(math.floor((MAIN_ABILITY_ON_LEVEL_DEFAULT[level] - BASE_ABILITY_SIZE) / 2))
         self.has_fighting_style_archery = fighting_style_archery
         self.has_fighting_style_dual_weapon = fighting_style_dual_weapon
+        self.has_feat_vanilla_sharpshooter = has_feat_vanilla_sharpshooter
         self.spec: str = (f'{self.name} lvl {self.level} with {self.weapon_main.name}'
                           f'{" and " if self.weapon_offhand is not None else ""}'
                           f'{self.weapon_offhand.name if self.weapon_offhand is not None else ""}')
@@ -62,6 +64,10 @@ class Character:
         attack_roll += weapon.bonus
         dc_logger.debug(f'Weapon bonus: {weapon.bonus}')
 
+        if self.has_feat_vanilla_sharpshooter:
+            attack_roll -= 5
+            dc_logger.debug(f'Sharpshooter (vanilla): -5')
+
         dc_logger.debug(f'Roll result: >> {attack_roll} <<')
         return attack_roll
 
@@ -84,6 +90,11 @@ class Character:
 
         res = weapon.damage_roll()
         res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
+
+        if self.has_feat_vanilla_sharpshooter:
+            res += 10
+            dc_logger.debug('Sharpshooter (vanilla): +10 damage')
+
         dc_logger.debug(f"{self.name} -> {res} damage, rolled {attack_roll} against {target_ac}")
         return res
 
@@ -106,22 +117,29 @@ class Character:
 def generate_archers() -> t.List[Character]:
     result = []
     for level in range(1, 13):
-        result.append(Character("Ranger Archery", level, HEAVY_CROSSBOW_1, fighting_style_archery=True))
-        result.append(Character("Ranger TwoWeaponFighting", level, HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-                                fighting_style_dual_weapon=True))
+        result.append(Character("Ranger_Archery", level, HEAVY_CROSSBOW_1, fighting_style_archery=True))
+        result.append(Character("Ranger_Archery_SharpshooterVanilla", level, HEAVY_CROSSBOW_1,
+                                fighting_style_archery=True, has_feat_vanilla_sharpshooter=True))
+        result.append(Character("Ranger_TwoWeaponFighting", level, HAND_CROSSBOW_1, HAND_CROSSBOW_1,
+                                fighting_style_dual_weapon=True)),
+        result.append(Character("Ranger_TwoWeaponFighting_SharpshooterVanilla", level, HAND_CROSSBOW_1, HAND_CROSSBOW_1,
+                                fighting_style_dual_weapon=True, has_feat_vanilla_sharpshooter=True))
     return result
 
 
 if __name__ == "__main__":
     ranger = Character("Ranger", 8, HEAVY_CROSSBOW_2, fighting_style_archery=True)
+    ranger_ss = Character("Ranger_SS", 8, HEAVY_CROSSBOW_2, fighting_style_archery=True,
+                          has_feat_vanilla_sharpshooter=True)
+
+    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
     ranger.do_attack(ranger.weapon_main, 13)
+    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
     ranger.do_attack(ranger.weapon_main, 13)
+    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
     ranger.do_attack(ranger.weapon_main, 13)
+    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
     ranger.do_attack(ranger.weapon_main, 13)
+    ranger_ss.do_attack(ranger_ss.weapon_main, 13)
     ranger.do_attack(ranger.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
-    ranger.do_attack(ranger.weapon_main, 13)
+
