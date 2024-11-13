@@ -1,6 +1,11 @@
-import typing as t
 import pandas as pd
-import numpy as np
+
+
+def process(raw_data):
+    df = pd.DataFrame(raw_data)
+    df = get_per_round_stats(df)
+    df = get_overall_stats(df)
+    return df
 
 
 def get_per_round_stats(df):
