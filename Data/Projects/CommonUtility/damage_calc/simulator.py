@@ -1,5 +1,6 @@
 import typing as t
 
+from data_processing import process
 from character import Character
 
 
@@ -22,7 +23,8 @@ def simulate_combat(character_progressions: t.List[t.Dict[int, Character]],
                         'level': character.level,
                         'round_damage': round_damage
                     })
-    return data
+    df = process(data)
+    return df
 
 
 if __name__ == '__main__':

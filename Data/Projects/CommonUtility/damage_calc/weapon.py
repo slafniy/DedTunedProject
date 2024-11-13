@@ -48,7 +48,6 @@ TWO_HANDED_SWORD_0 = Weapon("Two Handed Sword", dice_size=6, dice_count=2)
 TWO_HANDED_SWORD_1 = Weapon("Two Handed Sword +1", dice_size=6, dice_count=2, bonus=1)
 TWO_HANDED_SWORD_2 = Weapon("Two Handed Sword +2", dice_size=6, dice_count=2, bonus=2)
 
-
 if __name__ == "__main__":
     HAND_CROSSBOW_1.damage_roll()
     HAND_CROSSBOW_1.damage_roll()

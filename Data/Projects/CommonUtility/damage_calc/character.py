@@ -1,8 +1,13 @@
 import math
 import typing as t
 
-from Data.Projects.CommonUtility.damage_calc.weapon import HEAVY_CROSSBOW_2, TWO_HANDED_SWORD_1
-from weapon import HAND_CROSSBOW_1
+from weapon import (Weapon,
+                    HAND_CROSSBOW_1,
+                    HEAVY_CROSSBOW_1,
+                    HEAVY_CROSSBOW_2,
+                    TWO_HANDED_SWORD_1
+                    )
+
 from constants import (PROFICIENCY_BONUS_ON_LEVEL,
                        DEFAULT_TARGET_AC,
                        MAIN_ABILITY_ON_LEVEL_DEFAULT,
@@ -10,9 +15,6 @@ from constants import (PROFICIENCY_BONUS_ON_LEVEL,
                        ATTACK_ROLL_DICE_SIZE)
 from dc_logger import dc_logger
 from dice import roll_dice
-
-from weapon import (Weapon,
-                    HEAVY_CROSSBOW_1)
 
 
 class Character:
