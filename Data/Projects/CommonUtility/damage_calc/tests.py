@@ -93,3 +93,30 @@ def test_reckless_attack():
         # Expect 1st attack roll 10, 2nd attack roll (re-roll) 11, damage 8
         damage = reckless_attack_on.play_round(11)
         assert damage == 8
+
+
+@pytest.mark.parametrize(['character', 'rolls', 'expected_damage'], [
+    # no GWF
+    [Character("gwf_off", wpn.TWO_HANDED_AXE_0), [5, 3], 6],
+    [Character("gwf_off", wpn.TWO_HANDED_AXE_0), [5, 2], 5],
+    [Character("gwf_off", wpn.TWO_HANDED_AXE_0), [5, 1], 4],
+    # GWF bug roll > 2
+    [Character("gwf_on", wpn.TWO_HANDED_AXE_0,
+               passives_progression={1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING}}), [5, 3], 6],
+    # GWF re-roll 1 and 2 to 10
+    [Character("gwf_on", wpn.TWO_HANDED_AXE_0,
+               passives_progression={1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING}}), [5, 2, 10], 13],
+    [Character("gwf_on", wpn.TWO_HANDED_AXE_0,
+               passives_progression={1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING}}), [5, 1, 10], 13],
+    # GWF re-roll 1 into 2
+    [Character("gwf_on", wpn.TWO_HANDED_AXE_0,
+               passives_progression={1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING}}), [5, 1, 2], 5]
+])
+def test_great_weapon_fighting(character, rolls, expected_damage):
+    gwf_axe_on = Character("test", wpn.TWO_HANDED_AXE_0,
+                           passives_progression={1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING}})
+
+    # damage roll 3 STR + weapon
+    with mock.patch('random.randint', side_effect=rolls):
+        damage = character.play_round(0)
+        assert damage == expected_damage

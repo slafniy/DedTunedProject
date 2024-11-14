@@ -26,7 +26,7 @@ class Passive(enum.Enum):
     FEAT_EXTRA_OFFHAND_ATTACK = enum.auto()
     FEAT_SHARPSHOOTER_VANILLA = enum.auto()
     FEAT_GREAT_WEAPON_MASTER_VANILLA = enum.auto()
-    FEAT_SAVAGE_ATTACKER = enum.auto()
+    # FEAT_SAVAGE_ATTACKER = enum.auto()
 
 
 logger = get_logger("Character")
@@ -127,18 +127,15 @@ class Character:
     def damage_roll(self, weapon: wpn.Weapon, critical=False) -> int:
         """Only weapon damage, basic dice + basic enchantment, also process critical hits"""
         dice_count = weapon.dice_count * 2 if critical else weapon.dice_count
-        rolls = []
+        tota_damage = []
         for _ in range(dice_count):
             damage = roll_dice(weapon.dice_size)
             if damage in (1, 2) and Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives:
-                if logger:
-                    logger.debug(f"Rerolled!")
-                rerolled_damage = roll_dice(weapon.dice_size)
-                damage = max(rerolled_damage, damage)
-            if logger:
-                logger.debug(f"Damage roll: {damage} | d{weapon.dice_size}")
-            rolls.append(damage)
-        res = sum(rolls) + weapon.bonus
+                logger.debug(f"Rerolled!")
+                damage = roll_dice(weapon.dice_size)
+            logger.debug(f"Damage roll: {damage} | d{weapon.dice_size}")
+            tota_damage.append(damage)
+        res = sum(tota_damage) + weapon.bonus
         if logger:
             logger.info(
                 f"Damage: {res} | {dice_count}d{weapon.dice_size} + {weapon.bonus}{' CRITICAL' if critical else ''}")
