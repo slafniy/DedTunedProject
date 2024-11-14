@@ -7,25 +7,19 @@
                 <node id="ProgressionDescription">
                     <attribute id="Description" type="TranslatedString" handle="h079bdaf2g0b42g40a8g9adeg9efecadbd76e" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="h0a4cd71fg639dg4274g88a7g13c2efe19d62" version="1"/>
-                    <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost_3"/>
-                    <attribute id="UUID" type="guid" value="94fa74a5-d55f-48cf-898f-d93b0e0c7b4a"/>
-                </node>
-                <node id="ProgressionDescription">
-                    <attribute id="Description" type="TranslatedString" handle="h079bdaf2g0b42g40a8g9adeg9efecadbd76e" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="h0a4cd71fg639dg4274g88a7g13c2efe19d62" version="1"/>
-                    <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost_6"/>
+                    <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost_7"/>
                     <attribute id="UUID" type="guid" value="cf685797-4371-4fe5-a63d-846f1849a997"/>
                 </node>
                 <node id="ProgressionDescription">
                     <attribute id="Description" type="TranslatedString" handle="h079bdaf2g0b42g40a8g9adeg9efecadbd76e" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="h0a4cd71fg639dg4274g88a7g13c2efe19d62" version="1"/>
-                    <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost_9"/>
+                    <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost_11_1"/>
                     <attribute id="UUID" type="guid" value="2ca68c8e-b6cc-4efb-99b2-f510bdb661da"/>
                 </node>
                 <node id="ProgressionDescription">
                     <attribute id="Description" type="TranslatedString" handle="h079bdaf2g0b42g40a8g9adeg9efecadbd76e" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="h0a4cd71fg639dg4274g88a7g13c2efe19d62" version="1"/>
-                    <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost_12"/>
+                    <attribute id="SelectorId" type="FixedString" value="DT_LevelupAbilityBoost_11_2"/>
                     <attribute id="UUID" type="guid" value="a5d8c991-bfce-46c3-aff2-df8c5dfd44a3"/>
                 </node>
                 <node id="ProgressionDescription">
