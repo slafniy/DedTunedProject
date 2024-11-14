@@ -13,7 +13,7 @@ def simulate_character(character, target_ac, rounds, iterations) -> t.List[dict]
     data = []
 
     while True:  # levels iteration
-        print(f">> {character.name=} {character.level=} {target_ac=}")
+        # print(f">> {character.name=} {character.level=} {target_ac=}")
         for iteration_number in range(iterations):
             for round_number in range(1, rounds + 1):
                 round_data = {
@@ -32,6 +32,15 @@ def simulate_character(character, target_ac, rounds, iterations) -> t.List[dict]
     return data
 
 
+def split_iterations(iterations: int, parts=cpu_count()) -> t.List[int]:
+    new_size = iterations // parts
+    diff = iterations - parts * new_size
+    last_iter_size = new_size + diff
+    res = [new_size for _ in range(parts)]
+    res.append(last_iter_size)
+    return res
+
+
 def simulate_combat(characters: t.List[Character], target_ac_list=(13,), rounds=5, iterations=500) -> pd.DataFrame:
     data = []
 
@@ -42,9 +51,6 @@ def simulate_combat(characters: t.List[Character], target_ac_list=(13,), rounds=
 
     for result in results:
         data += result
-
-    # for character, target_ac in product(characters, target_ac_list):
-    #     data += simulate_character(character, target_ac, rounds, iterations)
 
     df = process(data)
     return df
@@ -68,7 +74,7 @@ if __name__ == '__main__':
         characters=[basic_two_handed_sword,
                     basic_two_handed_sword_dt_ability_progression],
         target_ac_list=(13,),
-        iterations=500,
+        iterations=1000,
         rounds=5
     )
 
