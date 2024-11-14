@@ -17,12 +17,12 @@ from dice import roll_dice
 class Passive(enum.Enum):
     PASSIVE_EXTRA_ATTACK = enum.auto()
     PASSIVE_SECOND_EXTRA_ATTACK = enum.auto()
-    PASSIVE_EXTRA_OFFHAND_ATTACK = enum.auto()
 
     FIGHTING_STYLE_ARCHERY = enum.auto()
     FIGHTING_STYLE_TWO_WEAPON_FIGHTING = enum.auto()
     FIGHTING_STYLE_GREAT_WEAPON_FIGHTING = enum.auto()
 
+    FEAT_EXTRA_OFFHAND_ATTACK = enum.auto()
     FEAT_SHARPSHOOTER_VANILLA = enum.auto()
     FEAT_GREAT_WEAPON_MASTER_VANILLA = enum.auto()
 
@@ -43,17 +43,24 @@ class Character:
         self._level = 1
         self._weapon_main = weapon_main
         self._weapon_offhand = weapon_offhand
-        self._gwm_proc = False
-
-        self._passives: t.Set[Passive] = set()
-
         self._passives_progression: t.Dict[int, t.Set[Passive]] = passives_progression
         self._main_ability_progression: t.Dict[int, int] = main_ability_progression
         self._base_proficiency_progression: t.Dict[int, int] = PROFICIENCY_BONUS_ON_LEVEL
 
+        self._gwm_proc = False
+        self._passives: t.Set[Passive] = set()
+        self._apply_passives()
+
+    def _apply_passives(self):
+        self._passives = set()
+        for level in range(1, self._level + 1):
+            self._passives.update(
+                self._passives_progression.get(level, set())
+            )
+
     def drop_to_level_1(self):
         self._level = 1
-        self._passives = set()
+        self._apply_passives()
 
     def level_up(self, levels=1) -> bool:
         """Add levels, returns False if is already on max level"""
@@ -63,9 +70,7 @@ class Character:
         for _ in range(levels):
             if self._level < self.MAX_LEVEL:
                 self._level += 1
-                self._passives.update(
-                    self._passives_progression.get(self._level, set())
-                )
+                self._apply_passives()
         return True
 
     @property
@@ -157,7 +162,7 @@ class Character:
         dpr = self.main_hand_attack(target_ac)
         dpr += self.offhand_attack(target_ac) if self._weapon_offhand is not None else 0
         dpr += self.offhand_attack(
-            target_ac) if self._weapon_offhand is not None and Passive.PASSIVE_EXTRA_OFFHAND_ATTACK in self._passives else 0
+            target_ac) if self._weapon_offhand is not None and Passive.FEAT_EXTRA_OFFHAND_ATTACK in self._passives else 0
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_EXTRA_ATTACK in self._passives else 0
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_SECOND_EXTRA_ATTACK in self._passives else 0
         dpr += self.main_hand_attack(target_ac) if self._gwm_proc else 0
@@ -171,14 +176,8 @@ if __name__ == "__main__":
     random.seed(555)
 
     c1 = Character("TestCharacter",
-                   passives_progression={5: {Passive.PASSIVE_EXTRA_ATTACK}},
-                   weapon_main=wpn.TWO_HANDED_SWORD_0)
+                   passives_progression={1: {Passive.FIGHTING_STYLE_TWO_WEAPON_FIGHTING}},
+                   weapon_main=wpn.SHORT_SWORD_0, weapon_offhand=wpn.SHORT_SWORD_0)
 
     c1.play_round(13)
 
-    c1.level_up()
-    c1.level_up()
-    c1.level_up()
-    c1.level_up()
-
-    c1.play_round(13)
