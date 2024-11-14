@@ -100,19 +100,19 @@ class Character:
         attack_roll = self.attack_roll(weapon)
 
         if attack_roll == "CRITICAL_MISS":
-            self._logger.debug(f"{self.name} -> 0 damage, Critical miss!")
+            self._logger.debug(f"0 damage, Critical miss!")
             return 0
 
         if attack_roll == "CRITICAL_HIT":
             res = weapon.damage_roll(critical=True)
             res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
-            self._logger.debug(f"{self.name} -> {res} damage, Critical hit!")
+            self._logger.debug(f"{res} damage, Critical hit!")
             if weapon is self.weapon_main and Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self.passives:
                 self._gwm_proc = True
             return res
 
         if attack_roll < target_ac:
-            self._logger.debug(f"{self.name} -> 0 damage, rolled {attack_roll} against {target_ac}")
+            self._logger.debug(f"0 damage, rolled {attack_roll} against {target_ac}")
             return 0
 
         res = weapon.damage_roll(great_weapon_fighting=Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self.passives)
@@ -122,19 +122,18 @@ class Character:
             res += 10
             self._logger.debug('Sharpshooter/GWM (vanilla): +10 damage')
 
-        self._logger.debug(f"{self.name} -> {res} damage, rolled {attack_roll} against {target_ac}")
+        self._logger.debug(f"{res} damage, rolled {attack_roll} against {target_ac}")
         return res
 
     def main_hand_attack(self, target_ac=DEFAULT_TARGET_AC):
-        self._logger.debug(f'\tmain hand attack:')
+        self._logger.debug(f'Main hand attack:')
         return self.do_attack(self.weapon_main, target_ac)
 
     def offhand_attack(self, target_ac=DEFAULT_TARGET_AC):
-        self._logger.debug(f'\toffhand attack:')
+        self._logger.debug(f'Offhand attack:')
         return self.do_attack(self.weapon_offhand, target_ac,  Passive.FIGHTING_STYLE_TWO_WEAPON_FIGHTING in self.passives)
 
     def play_round(self, target_ac: int):
-        self._logger.debug(f'\n>>> {self.name} combat round:')
         self._gwm_proc = False
         dpr = self.main_hand_attack(target_ac)
         dpr += self.offhand_attack(target_ac) if self.weapon_offhand is not None else 0
@@ -143,14 +142,15 @@ class Character:
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_EXTRA_ATTACK in self.passives else 0
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_SECOND_EXTRA_ATTACK in self.passives else 0
         dpr += self.main_hand_attack(target_ac) if self._gwm_proc else 0
+        self._logger.info(f"DPR: {dpr}\n")
         return dpr
 
 
 if __name__ == "__main__":
-    c = Character("TestCharacter", {}, wpn.TWO_HANDED_SWORD_0)
+    c1 = Character("TestCharacter", {}, wpn.TWO_HANDED_SWORD_0)
+    c2 = Character("TestCharacter", {
+        5: {Passive.PASSIVE_EXTRA_ATTACK}
+    }, wpn.TWO_HANDED_SWORD_0)
 
-    c.play_round(13)
-    c.play_round(13)
-    c.play_round(13)
-    c.play_round(13)
-    c.play_round(13)
+    c1.play_round(13)
+    c2.play_round(13)

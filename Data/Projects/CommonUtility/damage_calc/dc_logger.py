@@ -19,5 +19,3 @@ class DCLogger(logging.Logger):
         self.file_handler = logging.FileHandler(_path_to_log, mode='w')
         self.file_handler.setFormatter(formatter)
         self.addHandler(self.file_handler)
-
-
