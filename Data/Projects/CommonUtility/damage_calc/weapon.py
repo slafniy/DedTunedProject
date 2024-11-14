@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-from dc_logger import dc_logger
 from dice import roll_dice
 
 
