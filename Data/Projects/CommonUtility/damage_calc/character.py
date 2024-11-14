@@ -1,6 +1,9 @@
 import math
 import typing as t
 
+from attr import dataclass
+
+from Data.Projects.CommonUtility.damage_calc.weapon import TWO_HANDED_SWORD_0
 from weapon import (Weapon,
                     HAND_CROSSBOW_1,
                     HEAVY_CROSSBOW_1,
@@ -17,6 +20,20 @@ from dc_logger import dc_logger
 from dice import roll_dice
 
 
+@dataclass
+class Passives:
+    passive_extra_attack = False
+    passive_second_extra_attack = False
+    passive_extra_offhand_attack = False
+
+    fighting_style_archery = False
+    fighting_style_two_weapon_fighting = False
+    fighting_style_great_weapon_fighting = False
+
+    feat_sharpshooter_vanilla = False
+    feat_great_weapon_master_vanilla = False
+
+
 class Character:
     SPEC_NAME_LEN = 70
 
@@ -24,24 +41,12 @@ class Character:
                  name: str,
                  weapon_main: Weapon,
                  weapon_offhand: Weapon = None,
-                 fighting_style_archery=False,
-                 fighting_style_dual_weapon=False,
-                 fighting_style_great_weapon_fighting=False,
-                 has_feat_vanilla_sharpshooter=False,
-                 has_feat_vanilla_gwm=False,
-                 logging_enabled=False):
+                 logging_enabled=True):
         self.name = name
         self.level = 1
         self.weapon_main = weapon_main
         self.weapon_offhand = weapon_offhand
-        self.has_fighting_style_archery = fighting_style_archery
-        self.has_fighting_style_dual_weapon = fighting_style_dual_weapon
-        self.has_fighting_style_great_weapon_fighting = fighting_style_great_weapon_fighting
-        self.has_feat_vanilla_sharpshooter = has_feat_vanilla_sharpshooter
-        self.has_feat_vanilla_gwm = has_feat_vanilla_gwm
-        self.spec: str = (f'{self.name} lvl {self.level} with {self.weapon_main.name}'
-                          f'{" and " if self.weapon_offhand is not None else ""}'
-                          f'{self.weapon_offhand.name if self.weapon_offhand is not None else ""}')
+        self.passives = Passives()
         self._debug = dc_logger.debug if logging_enabled else lambda _: None
 
         self._gwm_proc = False
@@ -70,7 +75,7 @@ class Character:
         attack_roll += self.base_proficiency_bonus
         self._debug(f'Proficiency bonus: {self.base_proficiency_bonus}')
 
-        style_bonus = 2 if self.has_fighting_style_archery else 0
+        style_bonus = 2 if self.passives.fighting_style_archery else 0
         self._debug(f'Fighting Style bonus: {style_bonus}')
         attack_roll += style_bonus
 
@@ -80,7 +85,7 @@ class Character:
         attack_roll += weapon.bonus
         self._debug(f'Weapon bonus: {weapon.bonus}')
 
-        if self.has_feat_vanilla_sharpshooter or self.has_feat_vanilla_gwm:
+        if self.passives.feat_sharpshooter_vanilla or self.passives.feat_great_weapon_master_vanilla:
             attack_roll -= 5
             self._debug(f'Sharpshooter/GWM (vanilla): -5')
 
@@ -98,7 +103,7 @@ class Character:
             res = weapon.damage_roll(critical=True)
             res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
             self._debug(f"{self.name} -> {res} damage, Critical hit!")
-            if weapon is self.weapon_main and self.has_feat_vanilla_gwm:
+            if weapon is self.weapon_main and self.passives.feat_great_weapon_master_vanilla:
                 self._gwm_proc = True
             return res
 
@@ -106,10 +111,10 @@ class Character:
             self._debug(f"{self.name} -> 0 damage, rolled {attack_roll} against {target_ac}")
             return 0
 
-        res = weapon.damage_roll(great_weapon_fighting=self.has_fighting_style_great_weapon_fighting)
+        res = weapon.damage_roll(great_weapon_fighting=self.passives.fighting_style_great_weapon_fighting)
         res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
 
-        if self.has_feat_vanilla_sharpshooter or self.has_feat_vanilla_gwm:
+        if self.passives.feat_sharpshooter_vanilla or self.passives.feat_great_weapon_master_vanilla:
             res += 10
             self._debug('Sharpshooter/GWM (vanilla): +10 damage')
 
@@ -122,71 +127,33 @@ class Character:
 
     def offhand_attack(self, target_ac=DEFAULT_TARGET_AC):
         self._debug(f'\toffhand attack:')
-        return self.do_attack(self.weapon_offhand, target_ac, self.has_fighting_style_dual_weapon)
+        return self.do_attack(self.weapon_offhand, target_ac, self.passives.fighting_style_two_weapon_fighting)
 
     def play_round(self, target_ac: int):
         self._debug(f'\n>>> {self.name} combat round:')
         self._gwm_proc = False
         dpr = self.main_hand_attack(target_ac)
         dpr += self.offhand_attack(target_ac) if self.weapon_offhand is not None else 0
-        dpr += self.main_hand_attack(target_ac) if self.level >= 5 else 0
+        dpr += self.offhand_attack(
+            target_ac) if self.weapon_offhand is not None and self.passives.passive_extra_offhand_attack else 0
+        dpr += self.main_hand_attack(target_ac) if self.passives.passive_extra_attack else 0
+        dpr += self.main_hand_attack(target_ac) if self.passives.passive_second_extra_attack else 0
         dpr += self.main_hand_attack(target_ac) if self._gwm_proc else 0
         return dpr
 
 
-ARCHERY_SS_VANILLA = {
-    1: Character("Ranger_Archery_SS_Vanilla", HEAVY_CROSSBOW_1, fighting_style_archery=True),
-    4: Character("Ranger_Archery_SS_Vanilla", HEAVY_CROSSBOW_1, fighting_style_archery=True,
-                 has_feat_vanilla_sharpshooter=True)
-}
+class ProgressionBase:
+    def __init__(self, character_1_level: Character):
+        self._character_map = {level: character_1_level for level in range(1, 13)}
 
-ARCHERY_NO_FEATS = {
-    1: Character("Ranger_Archery_NoFeats", HEAVY_CROSSBOW_1, fighting_style_archery=True)
-}
+    def get_character(self, level: int):
+        assert 1 <= level <= 12
+        return self._character_map[level]
 
-TWO_WEAPONS_CROSSBOWS_NO_FEATS = {
-    1: Character("Ranger_TwoCrossbows_NoFeats", HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-                 fighting_style_dual_weapon=True)
-}
 
-TWO_WEAPONS_CROSSBOWS_SS_VANILLA = {
-    1: Character("Ranger_TwoCrossbows_SS_Vanilla", HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-                 fighting_style_dual_weapon=True),
-    4: Character("Ranger_TwoCrossbows_SS_Vanilla", HAND_CROSSBOW_1, HAND_CROSSBOW_1,
-                 fighting_style_dual_weapon=True, has_feat_vanilla_sharpshooter=True)
-}
-
-TWO_HANDED_SWORD_MELEE_NO_FEATS = {
-    1: Character("Melee_TwoHanded_NoFeats", TWO_HANDED_SWORD_1)
-}
-
-TWO_HANDED_SWORD_MELEE_GWM_VANILLA = {
-    1: Character("Melee_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1),
-    4: Character("Melee_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1, has_feat_vanilla_gwm=True)
-}
-
-TWO_HANDED_SWORD_GREAT_WEAPON_FIGHTING_GWM_VANILLA = {
-    1: Character("GreatWeapon_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1, fighting_style_great_weapon_fighting=True),
-    4: Character("GreatWeapon_TwoHanded_GWM_Vanilla", TWO_HANDED_SWORD_1, fighting_style_great_weapon_fighting=True,
-                 has_feat_vanilla_gwm=True)
-}
-
-TWO_HANDED_SWORD_GREAT_WEAPON_FIGHTING = {
-    1: Character("GreatWeapon_TwoHanded", TWO_HANDED_SWORD_1, fighting_style_great_weapon_fighting=True)
-}
-
-ALL_PROGRESSIONS = [
-    ARCHERY_SS_VANILLA,
-    ARCHERY_NO_FEATS,
-    TWO_WEAPONS_CROSSBOWS_NO_FEATS,
-    TWO_WEAPONS_CROSSBOWS_SS_VANILLA,
-    TWO_HANDED_SWORD_MELEE_NO_FEATS,
-    TWO_HANDED_SWORD_MELEE_GWM_VANILLA,
-    TWO_HANDED_SWORD_GREAT_WEAPON_FIGHTING_GWM_VANILLA
-]
+PROGRESSION_BASIC = ProgressionBase(
+    Character("Basic", TWO_HANDED_SWORD_0)
+)
 
 if __name__ == "__main__":
-    ranger = Character("Ranger", HEAVY_CROSSBOW_2, fighting_style_archery=True)
-    ranger.level = 8
-    ranger.level = 9
     pass
