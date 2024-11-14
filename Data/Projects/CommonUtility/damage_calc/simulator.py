@@ -25,6 +25,7 @@ def simulate_character(character, target_ac, rounds, iterations) -> t.List[dict]
                 }
                 data.append(round_data)
         if not character.level_up():
+            character.drop_to_level_1()
             break
 
     return data

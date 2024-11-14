@@ -42,15 +42,20 @@ class Character:
         self._level = 1
         self._weapon_main = weapon_main
         self._weapon_offhand = weapon_offhand
-        self._passives: t.Set[Passive] = set()
         self._logger = DCLogger(name)
         self._logger.file_handler.setLevel(file_logging_level)
         self._logger.stream_handler.setLevel(console_logging_level)
         self._gwm_proc = False
 
+        self._passives: t.Set[Passive] = set()
+
         self._passives_progression: t.Dict[int, t.Set[Passive]] = passives_progression
         self._main_ability_progression: t.Dict[int, int] = main_ability_progression
         self._base_proficiency_progression: t.Dict[int, int] = PROFICIENCY_BONUS_ON_LEVEL
+
+    def drop_to_level_1(self):
+        self._level = 1
+        self._passives = set()
 
     def level_up(self, levels=1) -> bool:
         """Add levels, returns False if is already on max level"""
