@@ -33,7 +33,7 @@ def test_weapon_2d6_2(randint_value_1, randint_value_2):
 
 def test_gwm_vanilla():
     gwm_on = Character("Fighter Big Sword + GWM", weapon_main=wpn.TWO_HANDED_SWORD_0,
-                  passives_progression={1: {Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA}})
+                       passives_progression={1: {Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA}})
     gwm_off = Character("Fighter Big Sword", weapon_main=wpn.TWO_HANDED_SWORD_0)
 
     with mock.patch('random.randint', return_value=5):
@@ -69,3 +69,27 @@ def test_gwm_vanilla():
         # and 2nd (bonus for crit) attack: 3 + 3 + 3 + 10 = 19, total damage 44
         damage = gwm_on.play_round(0)
         assert damage == 44
+
+
+def test_reckless_attack():
+    reckless_attack_off = Character("Barb Big Axe", weapon_main=wpn.TWO_HANDED_AXE_0)
+    reckless_attack_on = Character("Barb Big Axe Reckless", weapon_main=wpn.TWO_HANDED_AXE_0,
+                                   passives_progression={1: {Passive.PASSIVE_RECKLESS_ATTACK}})
+    # Attack roll bonus: +2 proficiency, +3 STR
+    with mock.patch('random.randint', return_value=5):
+        # Expect attack roll 2 + 3 + 5 = 10, damage 5 + 3 = 8
+        damage = reckless_attack_off.play_round(10)
+        assert damage == 8
+        # Expect miss
+        damage = reckless_attack_off.play_round(11)
+        assert damage == 0
+
+    with mock.patch('random.randint', side_effect=[5, 1, 5]):
+        # Expect attack roll 10, damage 8
+        damage = reckless_attack_on.play_round(10)
+        assert damage == 8
+
+    with mock.patch('random.randint', side_effect=[5, 6, 5]):
+        # Expect 1st attack roll 10, 2nd attack roll (re-roll) 11, damage 8
+        damage = reckless_attack_on.play_round(11)
+        assert damage == 8

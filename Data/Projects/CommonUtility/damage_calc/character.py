@@ -17,6 +17,7 @@ from dice import roll_dice
 class Passive(enum.Enum):
     PASSIVE_EXTRA_ATTACK = enum.auto()
     PASSIVE_SECOND_EXTRA_ATTACK = enum.auto()
+    PASSIVE_RECKLESS_ATTACK = enum.auto()  # Constant advantage, for Barbarian
 
     FIGHTING_STYLE_ARCHERY = enum.auto()
     FIGHTING_STYLE_TWO_WEAPON_FIGHTING = enum.auto()
@@ -89,6 +90,10 @@ class Character:
     def attack_roll(self, weapon: wpn.Weapon) -> t.Union[int, t.Literal["CRITICAL_MISS", "CRITICAL_HIT"]]:
         """Get attack roll with all possible bonuses and penalties"""
         attack_roll = roll_dice(ATTACK_ROLL_DICE_SIZE)
+
+        if Passive.PASSIVE_RECKLESS_ATTACK in self._passives:
+            attack_roll = max(attack_roll, roll_dice(ATTACK_ROLL_DICE_SIZE))
+
         logger.debug(f'Attack dice roll: {attack_roll}')
 
         if attack_roll == 1:
