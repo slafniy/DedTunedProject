@@ -25,6 +25,7 @@ class Passive(enum.Enum):
     FEAT_EXTRA_OFFHAND_ATTACK = enum.auto()
     FEAT_SHARPSHOOTER_VANILLA = enum.auto()
     FEAT_GREAT_WEAPON_MASTER_VANILLA = enum.auto()
+    # FEAT_GREAT_WEAPON_MASTER_3x6 = enum.auto()
 
 
 logger = get_logger("Character")
@@ -125,22 +126,20 @@ class Character:
             logger.debug(f"0 damage, Critical miss!")
             return 0
 
-        if attack_roll == "CRITICAL_HIT":
-            res = weapon.damage_roll(critical=True, logger=logger)
-            res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
-            logger.debug(f"{res} damage, Critical hit!")
-            if weapon is self._weapon_main and Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:
-                self._gwm_proc = True
-            return res
-
-        if attack_roll < target_ac:
+        if attack_roll != "CRITICAL_HIT" and attack_roll < target_ac:
             logger.debug(f"0 damage, rolled {attack_roll} against {target_ac}")
             return 0
 
-        res = weapon.damage_roll(great_weapon_fighting=Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives,
-                                 logger=logger)
-        res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
+        if attack_roll == "CRITICAL_HIT":
+            res = weapon.damage_roll(critical=True, logger=logger)
+            logger.debug(f"{res} damage, Critical hit!")
+            if weapon is self._weapon_main and Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:
+                self._gwm_proc = True
+        else:  # normal hit
+            res = weapon.damage_roll(great_weapon_fighting=Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives,
+                                     logger=logger)
 
+        res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
         if Passive.FEAT_SHARPSHOOTER_VANILLA in self._passives or Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:
             res += 10
             logger.debug('Sharpshooter/GWM (vanilla): +10 damage')
@@ -171,13 +170,14 @@ class Character:
 
 
 if __name__ == "__main__":
-    import random
+    logger.stream_handler.setLevel(logging.DEBUG)
 
-    random.seed(555)
+    c1 = Character("Fighter Big Sword + GWM", weapon_main=wpn.TWO_HANDED_SWORD_1,
+                   passives_progression={
+                       1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING},
+                       4: {Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA},
+                       5: {Passive.PASSIVE_EXTRA_ATTACK}
+                   })
 
-    c1 = Character("TestCharacter",
-                   passives_progression={1: {Passive.FIGHTING_STYLE_TWO_WEAPON_FIGHTING}},
-                   weapon_main=wpn.SHORT_SWORD_0, weapon_offhand=wpn.SHORT_SWORD_0)
-
+    c1.level_up(4)
     c1.play_round(13)
-
