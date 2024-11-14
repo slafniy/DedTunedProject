@@ -26,7 +26,7 @@ class Passive(enum.Enum):
     FEAT_EXTRA_OFFHAND_ATTACK = enum.auto()
     FEAT_SHARPSHOOTER_VANILLA = enum.auto()
     FEAT_GREAT_WEAPON_MASTER_VANILLA = enum.auto()
-    # FEAT_GREAT_WEAPON_MASTER_3x6 = enum.auto()
+    FEAT_SAVAGE_ATTACKER = enum.auto()
 
 
 logger = get_logger("Character")
@@ -39,13 +39,13 @@ class Character:
                  name: str,
                  weapon_main: wpn.Weapon,
                  weapon_offhand: wpn.Weapon = None,
-                 passives_progression: t.Dict[int, t.Set[Passive]] = {},
+                 passives_progression: t.Dict[int, t.Set[Passive]] = None,
                  main_ability_progression: t.Dict[int, int] = MAIN_ABILITY_PROGRESSION_DT):
         self.name = name
         self._level = 1
         self._weapon_main = weapon_main
         self._weapon_offhand = weapon_offhand
-        self._passives_progression: t.Dict[int, t.Set[Passive]] = passives_progression
+        self._passives_progression: t.Dict[int, t.Set[Passive]] = passives_progression or {}
         self._main_ability_progression: t.Dict[int, int] = main_ability_progression
         self._base_proficiency_progression: t.Dict[int, int] = PROFICIENCY_BONUS_ON_LEVEL
 
@@ -124,6 +124,26 @@ class Character:
         logger.debug(f'Roll result: >> {attack_roll} <<')
         return attack_roll
 
+    def damage_roll(self, weapon: wpn.Weapon, critical=False) -> int:
+        """Only weapon damage, basic dice + basic enchantment, also process critical hits"""
+        dice_count = weapon.dice_count * 2 if critical else weapon.dice_count
+        rolls = []
+        for _ in range(dice_count):
+            damage = roll_dice(weapon.dice_size)
+            if damage in (1, 2) and Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives:
+                if logger:
+                    logger.debug(f"Rerolled!")
+                rerolled_damage = roll_dice(weapon.dice_size)
+                damage = max(rerolled_damage, damage)
+            if logger:
+                logger.debug(f"Damage roll: {damage} | d{weapon.dice_size}")
+            rolls.append(damage)
+        res = sum(rolls) + weapon.bonus
+        if logger:
+            logger.info(
+                f"Damage: {res} | {dice_count}d{weapon.dice_size} + {weapon.bonus}{' CRITICAL' if critical else ''}")
+        return res
+
     def do_attack(self, weapon: wpn.Weapon, target_ac, apply_proficiency_bonus=True) -> int:
         attack_roll = self.attack_roll(weapon)
 
@@ -136,13 +156,12 @@ class Character:
             return 0
 
         if attack_roll == "CRITICAL_HIT":
-            res = weapon.damage_roll(critical=True, logger=logger)
+            res = self.damage_roll(weapon, critical=True)
             logger.debug(f"{res} damage, Critical hit!")
             if weapon is self._weapon_main and Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:
                 self._gwm_proc = True
         else:  # normal hit
-            res = weapon.damage_roll(great_weapon_fighting=Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives,
-                                     logger=logger)
+            res = self.damage_roll(weapon)
 
         res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
         if Passive.FEAT_SHARPSHOOTER_VANILLA in self._passives or Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:

@@ -11,25 +11,7 @@ class Weapon:
     dice_count: int = 1
     bonus: int = 0
 
-    def damage_roll(self, critical=False, great_weapon_fighting=False, logger: Logger = None) -> int:
-        """Only weapon damage, basic dice + basic enchantment, also process critical hits"""
-        dice_count = self.dice_count * 2 if critical else self.dice_count
-        rolls = []
-        for _ in range(dice_count):
-            damage = roll_dice(self.dice_size)
-            if damage in (1, 2) and great_weapon_fighting:
-                if logger:
-                    logger.debug(f"Rerolled!")
-                rerolled_damage = roll_dice(self.dice_size)
-                damage = max(rerolled_damage, damage)
-            if logger:
-                logger.debug(f"Damage roll: {damage} | d{self.dice_size}")
-            rolls.append(damage)
-        res = sum(rolls) + self.bonus
-        if logger:
-            logger.info(
-                f"Damage: {res} | {dice_count}d{self.dice_size} + {self.bonus}{' CRITICAL' if critical else ''}")
-        return res
+
 
 
 HAND_CROSSBOW_0 = Weapon("Hand Crossbow", dice_size=6)
@@ -54,6 +36,7 @@ TWO_HANDED_SWORD_1 = Weapon("Two Handed Sword +1", dice_size=6, dice_count=2, bo
 TWO_HANDED_SWORD_2 = Weapon("Two Handed Sword +2", dice_size=6, dice_count=2, bonus=2)
 
 TWO_HANDED_AXE_0 = Weapon("Two Handed Axe", dice_size=12)
+TWO_HANDED_AXE_1 = Weapon("Two Handed Axe +1", dice_size=12, bonus=1)
 
 if __name__ == "__main__":
     HAND_CROSSBOW_1.damage_roll()

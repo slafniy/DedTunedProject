@@ -13,9 +13,9 @@ logger.stream_handler.setLevel(logging.DEBUG)
 @pytest.mark.parametrize('randint_value', [1, 2, 3, 4, 3, 2, 1, 4])
 def test_weapon_1d4(randint_value):
     weapon = wpn.Weapon('weapon_1d4', 4, 1)
-
+    c = Character("test", weapon)
     with mock.patch('random.randint', return_value=randint_value):
-        damage = weapon.damage_roll()
+        damage = c.damage_roll(weapon)
         assert damage == randint_value
 
 
@@ -24,9 +24,9 @@ def test_weapon_1d4(randint_value):
 ])
 def test_weapon_2d6_2(randint_value_1, randint_value_2):
     weapon = wpn.Weapon('weapon_2d6+2', 6, 2, bonus=2)
-
+    c = Character("test", weapon)
     with mock.patch('random.randint', side_effect=[randint_value_1, randint_value_2]):
-        damage = weapon.damage_roll()
+        damage = c.damage_roll(weapon)
         expected_damage = randint_value_1 + randint_value_2 + 2
         assert damage == expected_damage
 
