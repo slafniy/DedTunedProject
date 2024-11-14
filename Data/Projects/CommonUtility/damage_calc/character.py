@@ -8,7 +8,7 @@ from dc_logger import DCLogger
 
 from constants import (PROFICIENCY_BONUS_ON_LEVEL,
                        DEFAULT_TARGET_AC,
-                       MAIN_ABILITY_ON_LEVEL_DEFAULT,
+                       MAIN_ABILITY_PROGRESSION_DT,
                        BASE_ABILITY_SIZE,
                        ATTACK_ROLL_DICE_SIZE)
 from dice import roll_dice
@@ -35,7 +35,7 @@ class Character:
                  weapon_main: wpn.Weapon,
                  weapon_offhand: wpn.Weapon = None,
                  passives_progression: t.Dict[int, t.Set[Passive]] = {},
-                 main_ability_progression: t.Dict[int, int] = MAIN_ABILITY_ON_LEVEL_DEFAULT,
+                 main_ability_progression: t.Dict[int, int] = MAIN_ABILITY_PROGRESSION_DT,
                  console_logging_level=logging.ERROR,
                  file_logging_level=logging.ERROR):
         self.name = name

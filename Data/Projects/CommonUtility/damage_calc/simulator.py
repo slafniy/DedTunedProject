@@ -12,10 +12,10 @@ def simulate_character(character, target_ac, rounds, iterations) -> t.List[dict]
     data = []
 
     while True:  # levels iteration
-        print(f">> {character.name=} {character.level=}")
+        print(f">> {character.name=} {character.level=} {target_ac=}")
         for iteration_number in range(iterations):
             for round_number in range(1, rounds + 1):
-                round_data ={
+                round_data = {
                     'iteration_number': iteration_number,
                     'round_number': round_number,
                     'name': character.name,
@@ -45,16 +45,20 @@ if __name__ == '__main__':
     import logging
     from character import Character
     import random
+
     random.seed(555)
 
     basic_two_handed_sword = Character("Basic 2H - no progression (only proficiency)",
                                        weapon_main=TWO_HANDED_SWORD_0,
-                                        main_ability_progression={level: 17 for level in range(1,13)})
+                                       main_ability_progression={level: 17 for level in range(1, 13)})
+    basic_two_handed_sword_dt_ability_progression = Character("Basic 2H - DT ability progression",
+                                                              weapon_main=TWO_HANDED_SWORD_0)
 
     combat_data = simulate_combat(
-        characters=[basic_two_handed_sword],
+        characters=[basic_two_handed_sword,
+                    basic_two_handed_sword_dt_ability_progression],
         target_ac_list=(13,),
-        iterations=5000,
+        iterations=500,
         rounds=5
     )
 
