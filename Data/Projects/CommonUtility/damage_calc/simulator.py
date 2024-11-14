@@ -11,6 +11,7 @@ def simulate_combat(characters: t.List[Character], target_ac_list=(13,), rounds=
     for target_ac in target_ac_list:
         for character in characters:
             while True:  # levels iteration
+                print(f">> {character.name=} {character.level=}")
                 for iteration_number in range(iterations):
                     for round_number in range(1, rounds + 1):
                         round_data ={
@@ -22,7 +23,6 @@ def simulate_combat(characters: t.List[Character], target_ac_list=(13,), rounds=
                             'round_damage': character.play_round(target_ac)
                         }
                         data.append(round_data)
-                        print(f">> {round_data}")
                 if not character.level_up():
                     break
     df = process(data)
@@ -36,14 +36,15 @@ if __name__ == '__main__':
     import random
     random.seed(555)
 
-    basic_two_handed_sword = Character("Basic 2H", {}, TWO_HANDED_SWORD_0,
-                                       console_logging_level=logging.DEBUG)
+    basic_two_handed_sword = Character("Basic 2H - no progression (only proficiency)",
+                                       weapon_main=TWO_HANDED_SWORD_0,
+                                        main_ability_progression={level: 17 for level in range(1,13)})
 
     combat_data = simulate_combat(
         characters=[basic_two_handed_sword],
         target_ac_list=(13,),
-        iterations=500,
-        rounds=3
+        iterations=5000,
+        rounds=5
     )
 
     pprint.pprint(combat_data)
