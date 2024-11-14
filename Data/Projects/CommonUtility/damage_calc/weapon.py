@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from logging import Logger
 
 from dice import roll_dice
 
@@ -10,19 +11,23 @@ class Weapon:
     dice_count: int = 1
     bonus: int = 0
 
-    def damage_roll(self, critical=False, great_weapon_fighting=False) -> int:
+    def damage_roll(self, critical=False, great_weapon_fighting=False, logger: Logger = None) -> int:
         """Only weapon damage, basic dice + basic enchantment, also process critical hits"""
         dice_count = self.dice_count * 2 if critical else self.dice_count
         rolls = []
         for _ in range(dice_count):
             damage = roll_dice(self.dice_size)
             if damage in (1, 2) and great_weapon_fighting:
+                if logger:
+                    logger.debug(f"Rerolled!")
                 rerolled_damage = roll_dice(self.dice_size)
                 damage = max(rerolled_damage, damage)
-            # dc_logger.debug(f"\t\tDamage roll: {damage} | d{self.dice_size}")
+            if logger:
+                logger.debug(f"Damage roll: {damage} | d{self.dice_size}")
             rolls.append(damage)
         res = sum(rolls) + self.bonus
-        # dc_logger.debug(f"\t{self.name} damage: {res} | {dice_count}d{self.dice_size} + {self.bonus}{' CRITICAL' if critical else ''}")
+        if logger:
+            logger.info(f"Damage: {res} | {dice_count}d{self.dice_size} + {self.bonus}{' CRITICAL' if critical else ''}")
         return res
 
 

@@ -1,4 +1,5 @@
 import enum
+import logging
 import math
 import typing as t
 
@@ -33,13 +34,17 @@ class Character:
                  name: str,
                  passives_progression: t.Dict[int, t.Set[Passive]],
                  weapon_main: wpn.Weapon,
-                 weapon_offhand: wpn.Weapon = None):
+                 weapon_offhand: wpn.Weapon = None,
+                 console_logging_level = logging.ERROR,
+                 file_logging_level = logging.INFO):
         self.name = name
         self.level = 1
         self.weapon_main = weapon_main
         self.weapon_offhand = weapon_offhand
         self.passives: t.Set[Passive] = set()
         self._logger = DCLogger(name)
+        self._logger.file_handler.setLevel(file_logging_level)
+        self._logger.stream_handler.setLevel(console_logging_level)
         self._gwm_proc = False
 
         self.passives_progression: t.Dict[int, t.Set[Passive]] = passives_progression
@@ -104,7 +109,7 @@ class Character:
             return 0
 
         if attack_roll == "CRITICAL_HIT":
-            res = weapon.damage_roll(critical=True)
+            res = weapon.damage_roll(critical=True, logger=self._logger)
             res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
             self._logger.debug(f"{res} damage, Critical hit!")
             if weapon is self.weapon_main and Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self.passives:
@@ -115,7 +120,8 @@ class Character:
             self._logger.debug(f"0 damage, rolled {attack_roll} against {target_ac}")
             return 0
 
-        res = weapon.damage_roll(great_weapon_fighting=Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self.passives)
+        res = weapon.damage_roll(great_weapon_fighting=Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self.passives,
+                                 logger=self._logger)
         res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
 
         if Passive.FEAT_SHARPSHOOTER_VANILLA in self.passives or Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self.passives:
@@ -147,10 +153,20 @@ class Character:
 
 
 if __name__ == "__main__":
-    c1 = Character("TestCharacter", {}, wpn.TWO_HANDED_SWORD_0)
-    c2 = Character("TestCharacter", {
+
+    import random
+    random.seed(555)
+
+    c1 = Character("TestCharacter", {
         5: {Passive.PASSIVE_EXTRA_ATTACK}
-    }, wpn.TWO_HANDED_SWORD_0)
+    }, wpn.TWO_HANDED_SWORD_0, console_logging_level=logging.DEBUG)
+
 
     c1.play_round(13)
-    c2.play_round(13)
+
+    c1.level_up()
+    c1.level_up()
+    c1.level_up()
+    c1.level_up()
+
+    c1.play_round(13)
