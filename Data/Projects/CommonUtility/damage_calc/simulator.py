@@ -1,5 +1,6 @@
 import typing as t
 from itertools import product
+from multiprocessing import Pool, cpu_count
 
 import pandas as pd
 
@@ -34,8 +35,16 @@ def simulate_character(character, target_ac, rounds, iterations) -> t.List[dict]
 def simulate_combat(characters: t.List[Character], target_ac_list=(13,), rounds=5, iterations=500) -> pd.DataFrame:
     data = []
 
-    for character, target_ac in product(characters, target_ac_list):
-        data += simulate_character(character, target_ac, rounds, iterations)
+    tasks = [(character, target_ac, rounds, iterations) for character, target_ac in product(characters, target_ac_list)]
+
+    with Pool(processes=cpu_count()) as pool:
+        results = pool.starmap(simulate_character, tasks)
+
+    for result in results:
+        data += result
+
+    # for character, target_ac in product(characters, target_ac_list):
+    #     data += simulate_character(character, target_ac, rounds, iterations)
 
     df = process(data)
     return df
