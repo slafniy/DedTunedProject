@@ -46,19 +46,21 @@ class Character:
         self._logger.file_handler.setLevel(file_logging_level)
         self._logger.stream_handler.setLevel(console_logging_level)
         self._gwm_proc = False
-
         self.passives_progression: t.Dict[int, t.Set[Passive]] = passives_progression
 
-    def level_up(self) -> bool:
-        if self.level == self.MAX_LEVEL:
+    def level_up(self, levels=1) -> bool:
+        """Add levels, returns False if is already on max level"""
+        if self.level >= self.MAX_LEVEL:
             return False
 
-        self.level += 1
-        self.passives.update(
-            self.passives_progression.get(self.level, set())
-        )
-
+        for _ in range(levels):
+            if self.level < self.MAX_LEVEL:
+                self.level += 1
+                self.passives.update(
+                    self.passives_progression.get(self.level, set())
+                )
         return True
+
 
     @property
     def base_proficiency_bonus(self):
@@ -148,7 +150,7 @@ class Character:
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_EXTRA_ATTACK in self.passives else 0
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_SECOND_EXTRA_ATTACK in self.passives else 0
         dpr += self.main_hand_attack(target_ac) if self._gwm_proc else 0
-        self._logger.info(f"DPR: {dpr}\n")
+        self._logger.info(f"DPR: {dpr}")
         return dpr
 
 
