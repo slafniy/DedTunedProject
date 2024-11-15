@@ -60,13 +60,16 @@ class Character:
         self._apply_progressions()
 
         self._gwm_proc = False
+        self._gwm_proc_used = False  # TODO: remade
 
     def short_rest(self):
+        self._gwm_proc_used = False
         for r in self._resources.values():
             if r.replenish_type != ReplenishType.LONG_REST:
                 r.value = r.max_value
 
     def long_rest(self):
+        self._gwm_proc_used = False
         for r in self._resources.values():
             r.value = r.max_value
 
@@ -228,14 +231,17 @@ class Character:
                               Passive.FIGHTING_STYLE_TWO_WEAPON_FIGHTING in self._passives)
 
     def play_round(self, target_ac: int):
-        self._gwm_proc = False
         dpr = self.main_hand_attack(target_ac)
         dpr += self.offhand_attack(target_ac) if self._weapon_offhand is not None else 0
         dpr += self.offhand_attack(
             target_ac) if self._weapon_offhand is not None and Passive.FEAT_EXTRA_OFFHAND_ATTACK in self._passives else 0
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_EXTRA_ATTACK in self._passives else 0
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_SECOND_EXTRA_ATTACK in self._passives else 0
-        dpr += self.main_hand_attack(target_ac) if self._gwm_proc else 0
+
+        if self._gwm_proc and not self._gwm_proc_used:
+            dpr += self.main_hand_attack(target_ac)
+            self._gwm_proc_used = True
+            self._gwm_proc = False
 
         dpr += self._process_action_surge(target_ac)
 
