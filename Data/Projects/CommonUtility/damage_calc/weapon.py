@@ -35,3 +35,5 @@ TWO_HANDED_SWORD_2 = Weapon("Two Handed Sword +2", dice_size=6, dice_count=2, bo
 
 TWO_HANDED_AXE_0 = Weapon("Two Handed Axe", dice_size=12)
 TWO_HANDED_AXE_1 = Weapon("Two Handed Axe +1", dice_size=12, bonus=1)
+
+RAPIER_1 = Weapon("Rapier +1", dice_size=8, bonus=1)

@@ -142,20 +142,24 @@ class Character:
         logger.debug(f'Roll result: >> {attack_roll} <<')
         return attack_roll
 
+    def _damage_roll_respect_feats(self, weapon: wpn.Weapon):
+        """Damage roll which respects Savage Attacker and GWF"""
+        damage = roll_dice(weapon.dice_size)
+        if damage in (1,2) and Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives:
+            damage = roll_dice(weapon.dice_size)
+        if Passive.FEAT_SAVAGE_ATTACKER in self._passives:
+            damage = max(damage, roll_dice(weapon.dice_size))
+        return damage
+
     def damage_roll(self, weapon: wpn.Weapon, critical=False) -> int:
         """Only weapon damage, basic dice + basic enchantment, also process critical hits"""
         dice_count = weapon.dice_count * 2 if critical else weapon.dice_count
-        total_damage = []
+        res = 0
         for _ in range(dice_count):
-            damage = roll_dice(weapon.dice_size)
-            if Passive.FEAT_SAVAGE_ATTACKER in self._passives:
-                damage = max(damage, roll_dice(weapon.dice_size))
-            if damage in (1, 2) and Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives:
-                logger.debug(f"Rerolled!")
-                damage = roll_dice(weapon.dice_size)
+            damage = self._damage_roll_respect_feats(weapon)
             logger.debug(f"Damage roll: {damage} | d{weapon.dice_size}")
-            total_damage.append(damage)
-        res = sum(total_damage) + weapon.bonus
+            res += damage
+        res += weapon.bonus
         if logger:
             logger.info(
                 f"Damage: {res} | {dice_count}d{weapon.dice_size} + {weapon.bonus}{' CRITICAL' if critical else ''}")
