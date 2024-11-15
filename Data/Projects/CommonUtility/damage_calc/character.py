@@ -19,6 +19,7 @@ class Passive(enum.Enum):
     PASSIVE_EXTRA_ATTACK = enum.auto()
     PASSIVE_SECOND_EXTRA_ATTACK = enum.auto()
     PASSIVE_RECKLESS_ATTACK = enum.auto()  # Constant advantage, for Barbarian
+    PASSIVE_HUNTERS_MARK = enum.auto()  # For Ranger consider it as a permanent buff
 
     FIGHTING_STYLE_ARCHERY = enum.auto()
     FIGHTING_STYLE_TWO_WEAPON_FIGHTING = enum.auto()
@@ -139,8 +140,8 @@ class Character:
 
         attack_roll += self._rage_damage()
 
-        if Passive.FEAT_SHARPSHOOTER_DT in self._passives:
-            attack_roll += 3
+        # if Passive.FEAT_SHARPSHOOTER_DT in self._passives:
+        #     attack_roll += 3
 
         if Passive.FEAT_SHARPSHOOTER_VANILLA in self._passives or Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:
             attack_roll -= 5
@@ -156,7 +157,7 @@ class Character:
     def _damage_roll_respect_feats(self, weapon: wpn.Weapon):
         """Damage roll which respects Savage Attacker and GWF"""
         damage = roll_dice(weapon.dice_size)
-        if damage in (1,2) and Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives:
+        if damage in (1, 2) and Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING in self._passives:
             damage = roll_dice(weapon.dice_size)
         if Passive.FEAT_SAVAGE_ATTACKER in self._passives:
             damage = max(damage, roll_dice(weapon.dice_size))
@@ -196,6 +197,11 @@ class Character:
             res = self.damage_roll(weapon)
 
         res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
+
+        if Passive.PASSIVE_HUNTERS_MARK in self._passives:
+            res += self.damage_roll(wpn.HUNTERS_MARK_DAMAGE,
+                                    critical=attack_roll == "CRITICAL_HIT")  # TODO: not sure it can crit
+            logger.debug("Hunter's mark bonus!")
 
         if Passive.FEAT_SHARPSHOOTER_DT in self._passives:
             res += self.ability_proficiency_bonus
@@ -256,17 +262,15 @@ class Character:
 
 
 if __name__ == "__main__":
-    from resource import RESOURCE_PROGRESSION_FIGHTER_BATTLE_MASTER
-
     logger.stream_handler.setLevel(logging.DEBUG)
 
-    c1 = Character("Fighter Big Sword + GWM", weapon_main=wpn.TWO_HANDED_SWORD_1,
+    c1 = Character("Ranger Heavy Crossbow + SS_DT", wpn.HEAVY_CROSSBOW_1,
                    passives_progression={
-                       1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING},
-                       4: {Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA},
+                       1: {Passive.FIGHTING_STYLE_ARCHERY},
+                       2: {Passive.PASSIVE_HUNTERS_MARK},
+                       4: {Passive.FEAT_SHARPSHOOTER_DT},
                        5: {Passive.PASSIVE_EXTRA_ATTACK}
-                   },
-                   resource_progression=RESOURCE_PROGRESSION_FIGHTER_BATTLE_MASTER)
+                   })
 
     c1.level_up(4)
     c1.play_round(13)

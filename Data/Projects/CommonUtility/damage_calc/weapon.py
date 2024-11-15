@@ -1,7 +1,4 @@
 from dataclasses import dataclass
-from logging import Logger
-
-from dice import roll_dice
 
 
 @dataclass
@@ -37,3 +34,5 @@ TWO_HANDED_AXE_0 = Weapon("Two Handed Axe", dice_size=12)
 TWO_HANDED_AXE_1 = Weapon("Two Handed Axe +1", dice_size=12, bonus=1)
 
 RAPIER_1 = Weapon("Rapier +1", dice_size=8, bonus=1)
+
+HUNTERS_MARK_DAMAGE = Weapon("Hunters Mark", dice_size=6)
