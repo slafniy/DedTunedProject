@@ -32,13 +32,11 @@ def simulate_character(character, target_ac, rounds, iterations) -> t.List[dict]
     return data
 
 
-def split_iterations(iterations: int, parts=cpu_count()) -> t.List[int]:
-    new_size = iterations // parts
-    diff = iterations - parts * new_size
-    last_iter_size = new_size + diff
-    res = [new_size for _ in range(parts)]
-    res.append(last_iter_size)
-    return res
+# def split_iterations(iterations: int, parts=cpu_count()) -> t.List[t.Tuple[int, int]]:
+#     new_size = iterations // parts
+#     res = [(i, i + new_size) for i in range(0, iterations - new_size, new_size)]
+#     res.append((res[-1][1], iterations))
+#     return res
 
 
 def simulate_combat(characters: t.List[Character], target_ac_list=(13,), rounds=5, iterations=500) -> pd.DataFrame:
@@ -73,7 +71,7 @@ if __name__ == '__main__':
     combat_data = simulate_combat(
         characters=[basic_two_handed_sword,
                     basic_two_handed_sword_dt_ability_progression],
-        target_ac_list=(13,),
+        target_ac_list=(13, 16),
         iterations=1000,
         rounds=5
     )
