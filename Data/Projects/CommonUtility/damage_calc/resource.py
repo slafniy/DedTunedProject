@@ -38,18 +38,18 @@ class ResourceSuperiorityDice(Resource):
         self.dice_size = dice_size
 
 
-RESOURCE_PROGRESSION_FIGHTER_CHAMPION = {
+RESOURCE_PROGRESSION_FIGHTER_CHAMPION = lambda: {
     2: {Resource("ActionSurge", ReplenishType.SHORT_REST, 1)}
 }
 
-RESOURCE_PROGRESSION_FIGHTER_BATTLE_MASTER = {
+RESOURCE_PROGRESSION_FIGHTER_BATTLE_MASTER = lambda: {
     2: {Resource("ActionSurge", ReplenishType.SHORT_REST, 1)},
     3: {ResourceSuperiorityDice("SuperiorityDice", ReplenishType.SHORT_REST, 4, 8)},
     7: {ResourceSuperiorityDice("SuperiorityDice", ReplenishType.SHORT_REST, 5, 8)},
     10: {ResourceSuperiorityDice("SuperiorityDice", ReplenishType.SHORT_REST, 5, 10)}
 }
 
-RESOURCE_PROGRESSION_BARBARIAN = {
+RESOURCE_PROGRESSION_BARBARIAN = lambda: {
     1: {ResourceRage("Rage", ReplenishType.LONG_REST, 2, 2)},
     3: {ResourceRage("Rage", ReplenishType.LONG_REST, 3, 2)},
     6: {ResourceRage("Rage", ReplenishType.LONG_REST, 4, 2)},
