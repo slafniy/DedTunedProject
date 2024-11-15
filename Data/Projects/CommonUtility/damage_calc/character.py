@@ -12,7 +12,7 @@ from constants import (PROFICIENCY_BONUS_ON_LEVEL,
                        BASE_ABILITY_SIZE,
                        ATTACK_ROLL_DICE_SIZE)
 from dice import roll_dice
-from resource import Resource, ReplenishType
+from resource import Resource, ReplenishType, ResourceRage
 
 
 class Passive(enum.Enum):
@@ -135,6 +135,8 @@ class Character:
         attack_roll += weapon.bonus
         logger.debug(f'Weapon bonus: {weapon.bonus}')
 
+        attack_roll += self._rage_damage()
+
         if Passive.FEAT_SHARPSHOOTER_VANILLA in self._passives or Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:
             attack_roll -= 5
             logger.debug(f'Sharpshooter/GWM (vanilla): -5')
@@ -227,6 +229,12 @@ class Character:
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_EXTRA_ATTACK in self._passives else 0
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_SECOND_EXTRA_ATTACK in self._passives else 0
         return dpr
+
+    def _rage_damage(self):
+        if "Rage" not in self._resources:
+            return 0
+        if isinstance(self._resources["Rage"], ResourceRage):
+            return self._resources["Rage"].rage_damage  # TODO: remade
 
 
 if __name__ == "__main__":
