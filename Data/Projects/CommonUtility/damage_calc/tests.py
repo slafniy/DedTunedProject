@@ -113,9 +113,6 @@ def test_reckless_attack():
                passives_progression={1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING}}), [5, 1, 2], 5]
 ])
 def test_great_weapon_fighting(character, rolls, expected_damage):
-    gwf_axe_on = Character("test", wpn.TWO_HANDED_AXE_0,
-                           passives_progression={1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING}})
-
     # damage roll 3 STR + weapon
     with mock.patch('random.randint', side_effect=rolls):
         damage = character.play_round(0)

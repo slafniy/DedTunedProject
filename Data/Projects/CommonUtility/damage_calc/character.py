@@ -12,6 +12,7 @@ from constants import (PROFICIENCY_BONUS_ON_LEVEL,
                        BASE_ABILITY_SIZE,
                        ATTACK_ROLL_DICE_SIZE)
 from dice import roll_dice
+from resource import Resource, ReplenishType
 
 
 class Passive(enum.Enum):
@@ -40,39 +41,56 @@ class Character:
                  weapon_main: wpn.Weapon,
                  weapon_offhand: wpn.Weapon = None,
                  passives_progression: t.Dict[int, t.Set[Passive]] = None,
+                 resource_progression: t.Dict[int, t.Set[Resource]] = None,
                  main_ability_progression: t.Dict[int, int] = MAIN_ABILITY_PROGRESSION_DT):
         self.name = name
         self._level = 1
         self._weapon_main = weapon_main
         self._weapon_offhand = weapon_offhand
         self._passives_progression: t.Dict[int, t.Set[Passive]] = passives_progression or {}
+        self._resource_progression: t.Dict[int, t.Set[Resource]] = resource_progression or {}
         self._main_ability_progression: t.Dict[int, int] = main_ability_progression
         self._base_proficiency_progression: t.Dict[int, int] = PROFICIENCY_BONUS_ON_LEVEL
 
-        self._gwm_proc = False
         self._passives: t.Set[Passive] = set()
-        self._apply_passives()
+        self._resources: t.Dict[str, Resource] = {}
+        self._apply_progressions()
 
-    def _apply_passives(self):
+        self._gwm_proc = False
+
+    def _short_rest(self):
+        for r in self._resources.values():
+            if r.replenish_type != ReplenishType.LONG_REST:
+                r.value = r.max_value
+
+    def _long_rest(self):
+        for r in self._resources.values():
+            r.value = r.max_value
+
+    def _apply_progressions(self):
         self._passives = set()
+        self._resources = dict()
         for level in range(1, self._level + 1):
             self._passives.update(
                 self._passives_progression.get(level, set())
             )
+            for resource in self._resource_progression.get(level, set()):
+                self._resources[resource.name] = resource
 
     def drop_to_level_1(self):
         self._level = 1
-        self._apply_passives()
+        self._apply_progressions()
+        self._long_rest()
 
     def level_up(self, levels=1) -> bool:
-        """Add levels, returns False if is already on max level"""
+        """Add levels, returns False if is already on max level, restore resources"""
         if self._level >= self.MAX_LEVEL:
             return False
 
-        for _ in range(levels):
-            if self._level < self.MAX_LEVEL:
-                self._level += 1
-                self._apply_passives()
+        self._level = min(self._level + levels, self.MAX_LEVEL)
+
+        self._apply_progressions()
+        self._long_rest()
         return True
 
     @property
