@@ -26,6 +26,7 @@ class Passive(enum.Enum):
 
     FEAT_EXTRA_OFFHAND_ATTACK = enum.auto()
     FEAT_SHARPSHOOTER_VANILLA = enum.auto()
+    FEAT_SHARPSHOOTER_DT = enum.auto()
     FEAT_GREAT_WEAPON_MASTER_VANILLA = enum.auto()
     FEAT_GREAT_WEAPON_MASTER_DT = enum.auto()
     FEAT_SAVAGE_ATTACKER = enum.auto()
@@ -138,6 +139,9 @@ class Character:
 
         attack_roll += self._rage_damage()
 
+        if Passive.FEAT_SHARPSHOOTER_DT in self._passives:
+            attack_roll += 3
+
         if Passive.FEAT_SHARPSHOOTER_VANILLA in self._passives or Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:
             attack_roll -= 5
             logger.debug(f'Sharpshooter/GWM (vanilla): -5')
@@ -192,6 +196,10 @@ class Character:
             res = self.damage_roll(weapon)
 
         res += self.ability_proficiency_bonus if apply_proficiency_bonus else 0
+
+        if Passive.FEAT_SHARPSHOOTER_DT in self._passives:
+            res += self.ability_proficiency_bonus
+            logger.debug('SS DT bonus')
 
         if Passive.FEAT_SHARPSHOOTER_VANILLA in self._passives or Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA in self._passives:
             res += 10
