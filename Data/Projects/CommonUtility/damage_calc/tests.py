@@ -162,3 +162,19 @@ def test_action_surge():
         # next round only 3 attacks
         damage = character.play_round(0)
         assert damage == 30
+
+
+def test_savage_attacker():
+    no_sa = Character("no_SA", weapon_main=wpn.TWO_HANDED_SWORD_0)
+    has_sa = Character("has_SA", weapon_main=wpn.TWO_HANDED_SWORD_0,
+                       passives_progression={1: {Passive.FEAT_SAVAGE_ATTACKER}})
+
+    # damage roll 5 + 5 + 3 STR
+    with mock.patch('random.randint', side_effect=[5, 5, 5]):
+        damage = no_sa.play_round(0)
+        assert damage == 13
+
+    # damage roll max(5,3) + max(2,4) + 3 STR
+    with mock.patch('random.randint', side_effect=[5, 5, 3, 2, 4]):
+        damage = has_sa.play_round(0)
+        assert damage == 12

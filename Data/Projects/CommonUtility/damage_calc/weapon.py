@@ -12,8 +12,6 @@ class Weapon:
     bonus: int = 0
 
 
-
-
 HAND_CROSSBOW_0 = Weapon("Hand Crossbow", dice_size=6)
 HAND_CROSSBOW_1 = Weapon("Hand Crossbow +1", dice_size=6, bonus=1)
 HAND_CROSSBOW_2 = Weapon("Hand Crossbow +2", dice_size=6, bonus=2)
@@ -37,10 +35,3 @@ TWO_HANDED_SWORD_2 = Weapon("Two Handed Sword +2", dice_size=6, dice_count=2, bo
 
 TWO_HANDED_AXE_0 = Weapon("Two Handed Axe", dice_size=12)
 TWO_HANDED_AXE_1 = Weapon("Two Handed Axe +1", dice_size=12, bonus=1)
-
-if __name__ == "__main__":
-    HAND_CROSSBOW_1.damage_roll()
-    HAND_CROSSBOW_1.damage_roll()
-    HAND_CROSSBOW_1.damage_roll()
-    HAND_CROSSBOW_1.damage_roll(True)
-    HAND_CROSSBOW_1.damage_roll(True)
