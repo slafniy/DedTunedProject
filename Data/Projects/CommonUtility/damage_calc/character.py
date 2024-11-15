@@ -204,11 +204,28 @@ class Character:
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_EXTRA_ATTACK in self._passives else 0
         dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_SECOND_EXTRA_ATTACK in self._passives else 0
         dpr += self.main_hand_attack(target_ac) if self._gwm_proc else 0
+
+        dpr += self._process_action_surge(target_ac)
+
         logger.info(f"DPR: {dpr}")
+        return dpr
+
+    def _process_action_surge(self, target_ac) -> int:
+        """do an additional attack(s)"""
+        action_surge = self._resources.get('ActionSurge', None)
+        if action_surge is None or action_surge.value == 0:
+            return 0
+
+        action_surge.value -= 1
+        dpr = self.main_hand_attack(target_ac)
+        dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_EXTRA_ATTACK in self._passives else 0
+        dpr += self.main_hand_attack(target_ac) if Passive.PASSIVE_SECOND_EXTRA_ATTACK in self._passives else 0
         return dpr
 
 
 if __name__ == "__main__":
+    from resource import RESOURCE_PROGRESSION_FIGHTER_BATTLE_MASTER
+
     logger.stream_handler.setLevel(logging.DEBUG)
 
     c1 = Character("Fighter Big Sword + GWM", weapon_main=wpn.TWO_HANDED_SWORD_1,
@@ -216,7 +233,8 @@ if __name__ == "__main__":
                        1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING},
                        4: {Passive.FEAT_GREAT_WEAPON_MASTER_VANILLA},
                        5: {Passive.PASSIVE_EXTRA_ATTACK}
-                   })
+                   },
+                   resource_progression=RESOURCE_PROGRESSION_FIGHTER_BATTLE_MASTER)
 
     c1.level_up(4)
     c1.play_round(13)

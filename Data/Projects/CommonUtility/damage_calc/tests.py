@@ -6,6 +6,7 @@ import pytest
 
 from character import Character, Passive, logger
 import weapon as wpn
+from resource import Resource, ReplenishType
 
 logger.stream_handler.setLevel(logging.DEBUG)
 
@@ -113,7 +114,51 @@ def test_reckless_attack():
                passives_progression={1: {Passive.FIGHTING_STYLE_GREAT_WEAPON_FIGHTING}}), [5, 1, 2], 5]
 ])
 def test_great_weapon_fighting(character, rolls, expected_damage):
-    # damage roll 3 STR + weapon
     with mock.patch('random.randint', side_effect=rolls):
         damage = character.play_round(0)
         assert damage == expected_damage
+
+
+def test_action_surge():
+    passives_progression = {5: {Passive.PASSIVE_EXTRA_ATTACK},
+                            11: {Passive.PASSIVE_SECOND_EXTRA_ATTACK}}
+    resource_progression = {2: {Resource("ActionSurge", ReplenishType.SHORT_REST, 1)}}
+    character = Character("ActionSurgeChar", weapon_main=wpn.TWO_HANDED_AXE_0,
+                          passives_progression=passives_progression,
+                          resource_progression=resource_progression)
+    # On level 1 should not have AS
+    # 1 attack 5 + 3 STR = 8 damage
+    with mock.patch('random.randint', return_value=5):
+        damage = character.play_round(0)
+        assert damage == 8
+
+    character.level_up(1)  # get level 2
+
+    # Should have 1 charge of ActionSurge,
+    # 2 attacks, 16 damage
+    with mock.patch('random.randint', return_value=5):
+        damage = character.play_round(0)
+        assert damage == 16
+        # and next round singe attack because there is no action surge charge
+        damage = character.play_round(0)
+        assert damage == 8
+
+    character.level_up(3)  # get level 5
+
+    # should have 4 attacks here, 4x8 damage
+    with mock.patch('random.randint', return_value=5):
+        damage = character.play_round(0)
+        assert damage == 32
+        # next round only 2 attacks
+        damage = character.play_round(0)
+        assert damage == 16
+
+    character.level_up(6)  # get level 11
+
+    # expect 6 x (5 + 5 STR) damage
+    with mock.patch('random.randint', return_value=5):
+        damage = character.play_round(0)
+        assert damage == 60
+        # next round only 3 attacks
+        damage = character.play_round(0)
+        assert damage == 30
