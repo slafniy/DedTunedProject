@@ -58,12 +58,12 @@ class Character:
 
         self._gwm_proc = False
 
-    def _short_rest(self):
+    def short_rest(self):
         for r in self._resources.values():
             if r.replenish_type != ReplenishType.LONG_REST:
                 r.value = r.max_value
 
-    def _long_rest(self):
+    def long_rest(self):
         for r in self._resources.values():
             r.value = r.max_value
 
@@ -80,7 +80,7 @@ class Character:
     def drop_to_level_1(self):
         self._level = 1
         self._apply_progressions()
-        self._long_rest()
+        self.long_rest()
 
     def level_up(self, levels=1) -> bool:
         """Add levels, returns False if is already on max level, restore resources"""
@@ -90,7 +90,7 @@ class Character:
         self._level = min(self._level + levels, self.MAX_LEVEL)
 
         self._apply_progressions()
-        self._long_rest()
+        self.long_rest()
         return True
 
     @property

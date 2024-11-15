@@ -15,6 +15,12 @@ def simulate_character(character, target_ac, rounds, iterations) -> t.List[dict]
     while True:  # levels iteration
         # print(f">> {character.name=} {character.level=} {target_ac=}")
         for iteration_number in range(iterations):
+            # do rest before each combat
+            if iteration_number % 3:
+                character.long_rest()
+            else:
+                character.short_rest()
+
             for round_number in range(1, rounds + 1):
                 round_data = {
                     'iteration_number': iteration_number,
@@ -39,7 +45,7 @@ def simulate_character(character, target_ac, rounds, iterations) -> t.List[dict]
 #     return res
 
 
-def simulate_combat(characters: t.List[Character], target_ac_list=(13,), rounds=5, iterations=500) -> pd.DataFrame:
+def simulate_combat(characters: t.List[Character], target_ac_list=(13,), rounds=15, iterations=500) -> pd.DataFrame:
     data = []
 
     tasks = [(character, target_ac, rounds, iterations) for character, target_ac in product(characters, target_ac_list)]
