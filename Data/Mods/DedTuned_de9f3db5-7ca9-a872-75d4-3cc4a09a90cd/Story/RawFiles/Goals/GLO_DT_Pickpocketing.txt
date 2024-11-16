@@ -14,7 +14,7 @@ ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM_AURA", -1.0, 1, _Victim);
 //END_REGION
 
 
-//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR - apply SleightOfHand debuff if needed
+//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR - apply/remove SleightOfHand debuff if needed
 IF
 StatusApplied((CHARACTER)_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", (CHARACTER)_Victim, _)
 AND
@@ -22,7 +22,13 @@ DB_PartyMembers(_Thief)
 AND
 DB_DT_Pickpocketing_StolenCounter(_Victim, _NumberOfItems, _)
 THEN
-ApplyStatus(_Thief, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", -1.0, 1, _Victim);
+AddBoosts(_Thief, "Skill(SleightOfHand, -10)", "DT_Pickpocketing", (GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000);
+
+IF
+StatusRemoved((CHARACTER)_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", _, _)
+THEN
+RemoveBoosts(_Thief, "Skill(SleightOfHand, -10)", 1, "DT_Pickpocketing", (GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000);
+DebugText(_Thief, "should remove debuff here");
 //END_REGION
 
 
