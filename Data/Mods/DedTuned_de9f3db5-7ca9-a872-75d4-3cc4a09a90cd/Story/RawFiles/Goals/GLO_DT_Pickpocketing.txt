@@ -4,15 +4,13 @@ INITSECTION
 // Store info about pickpockets this day, (CHARACTER)_Thief, (CHARACTER)_Victim, (INTEGER)_NumberOfItems
 NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);
 KBSECTION
-//REGION // Handle Pickpocket Started
+//REGION // Handle Pickpocket Started - apply aura to make range checks with it
 IF
 RequestPickpocket(_Thief, _Victim)
 AND
 DB_PartyMembers(_Thief)  // not sure if this triggers for non-party thieves somewhere
-AND
-DB_DT_Pickpocketing_StolenCounter(_Thief, _Victim, _StolenNumber)
 THEN
-ApplyStatus(_Thief, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", -1.0, 1, _Victim);
+ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM_AURA", -1.0, 1, _Victim);
 //END_REGION
 
 
@@ -30,18 +28,18 @@ PROC_DT_Pickpocketing_SuccessHandler(_Thief, _Victim);
 PROC
 PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Thief, (CHARACTER)_Victim)
 AND
-NOT DB_DT_Pickpocketing_StolenCounter(_Thief, _Victim, _)  // have no records yet, add
-THEN
-DB_DT_Pickpocketing_StolenCounter(_Thief, _Victim, 1);
-
-PROC
-PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Thief, (CHARACTER)_Victim)
-AND
 DB_DT_Pickpocketing_StolenCounter(_Thief, _Victim, _OldValue)  // have record, increment counter
 AND
 IntegerSum(_OldValue, 1, _NewValue)
 THEN
 PROC_DT_Pickpocketing_StolenCounterReplace(_Thief, _Victim, _NewValue);
+
+PROC
+PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Thief, (CHARACTER)_Victim)
+AND
+NOT DB_DT_Pickpocketing_StolenCounter(_Thief, _Victim, _)  // have no records yet, add
+THEN
+DB_DT_Pickpocketing_StolenCounter(_Thief, _Victim, 1);
 //END_REGION
 
 
