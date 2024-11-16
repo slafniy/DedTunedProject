@@ -14,15 +14,16 @@ ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM_AURA", -1.0, 1, _Victim);
 //END_REGION
 
 
-/*//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR
+//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR - apply SleightOfHand debuff if needed
 IF
-StatusApplied(_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", _Victim, _)
+StatusApplied((CHARACTER)_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", (CHARACTER)_Victim, _)
 AND
 DB_PartyMembers(_Thief)
 AND
-DB_DT_Pickpocketing_StolenCounter(_Thief, _Victim, _NumberOfItems)
-
-//END_REGION*/
+DB_DT_Pickpocketing_StolenCounter(_Victim, _NumberOfItems, _)
+THEN
+ApplyStatus(_Thief, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", -1.0, 1, _Victim);
+//END_REGION
 
 
 //REGION // Handle Pickpocket Success
