@@ -92,7 +92,7 @@
                                                 <attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09"/>
                                                 <attribute id="Conditions" type="LSString" value="CanUseSpellScroll(&quot;Shout_Aid&quot;)"/>
                                                 <attribute id="Consume" type="bool" value="True"/>
-                                                <attribute id="SkillID" type="FixedString" value="Target_CureWounds"/>
+                                                <attribute id="SkillID" type="FixedString" value="DT_Target_ApplyPotion_Healing"/>
                                             </node>
                                         </children>
                                     </node>
