@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency"/>
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h1777cf6cg4df6g49b5ga264g6538918e4879" version="3"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="ha248915ag9249g4fafg8924g12bb3e56c426" version="1"/>
+                    <attribute id="Flag" type="int32" value="0"/>
+                    <attribute id="Icon" type="FixedString" value="Item_CONS_Potion_Healing_A"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="d47006e9-8a51-453d-b200-9e0d42e9bbab"/>
+                    <attribute id="Name" type="LSString" value="CONS_Potion_Healing_A"/>
+                    <attribute id="OnUseDescription" type="TranslatedString" handle="h4fda3f21g7c6eg48e8gb00fg9573cfa8227b" version="1"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="8e660fd9-489d-42ff-a762-e4392e826666"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="e3541832-307a-4e23-49fc-a72544220d42"/>
+                    <attribute id="Stats" type="FixedString" value="OBJ_Potion_Healing"/>
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="hd758f907g0b31g4e74ga4d4g4e8dc916716c" version="1"/>
+                    <attribute id="TreasureOnDestroy" type="bool" value="True"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="b98412cd-911a-212b-8804-90cea269b90d"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209014"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.06 0.31 0.06"/>
+                                    <attribute id="Min" type="fvec3" value="-0.06 -0.00019913912 -0.06"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.06 0.31 0.06"/>
+                                    <attribute id="Min" type="fvec3" value="-0.06 -0.00019913912 -0.06"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.3115223"/>
+                                    <attribute id="Max" type="fvec3" value="0.17416006 0.31132317 0.21316117"/>
+                                    <attribute id="Min" type="fvec3" value="-0.17556751 -0.00019913912 -0.05720955"/>
+                                    <attribute id="Radius" type="float" value="0.13519797"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="InventoryList"/>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="5"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="ExplodeFX" type="FixedString" value="df744de3-fb7f-4808-6881-fd466107d27f"/>
+                                            <attribute id="FadeOutDelay" type="float" value="0"/>
+                                            <attribute id="FadeOutFX" type="FixedString" value=""/>
+                                            <attribute id="SnapToGround" type="bool" value="True"/>
+                                            <attribute id="TargetItemState" type="uint8" value="0"/>
+                                            <attribute id="VisualWithDynamicPhysics" type="FixedString" value=""/>
+                                            <attribute id="templateAfterDestruction" type="FixedString" value=""/>
+                                            <attribute id="visualDestruction" type="FixedString" value="00000000-0000-0000-0000-000000000000"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <children>
+                                    <node id="Action">
+                                        <attribute id="ActionType" type="int32" value="12"/>
+                                        <children>
+                                            <node id="Attributes">
+                                                <attribute id="Animation" type="FixedString" value=""/>
+                                                <attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09"/>
+                                                <attribute id="Conditions" type="LSString" value=""/>
+                                                <attribute id="Consume" type="bool" value="True"/>
+                                                <attribute id="SkillID" type="FixedString" value="DT_Target_ApplyPotion_Healing"/>
+                                            </node>
+                                        </children>
+                                    </node>
+                                </children>
+                            </children>
+                        </node>
+                        <node id="Scripts">
+                            <children>
+                                <node id="Script">
+                                    <attribute id="UUID" type="FixedString" value="a557ab71-77f3-4b0c-8174-f605e51c90c7"/>
+                                    <children>
+                                        <node id="Parameters">
+                                            <children>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
+                                                    <attribute id="Type" type="int32" value="1"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="LifeTime"/>
+                                                    <attribute id="Type" type="int32" value="2"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="ProjectileSpell"/>
+                                                    <attribute id="Type" type="int32" value="9"/>
+                                                    <attribute id="Value" type="LSString" value="Projectile_Potion_Destroy_Healing"/>
+                                                </node>
+                                            </children>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="Tags">
+                            <children>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="1879a93d-2edf-4f54-85dd-81a3724d677f"/>
+                                </node>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="ef5d1184-dd1c-4988-bef9-ad19471aadba"/>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="had294da4g6aefg403dga1e5g2270a09ba114" version="3"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h224d31e1g4c6eg4c37gaac5gbd7871bebc92" version="1"/>
+                    <attribute id="DisplayNameAlchemy" type="TranslatedString" handle="h9a16414fgad2cg41ffgaa93g7427915da9c7" version="1"/>
+                    <attribute id="Flag" type="int32" value="0"/>
+                    <attribute id="Icon" type="FixedString" value="Item_CONS_Potion_Healing_A_Greater"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="e3b95c96-dc26-40fe-bfc0-baa05e1abd20"/>
+                    <attribute id="Name" type="LSString" value="CONS_Potion_Healing_A_Greater"/>
+                    <attribute id="OnUseDescription" type="TranslatedString" handle="h755c38fdgf114g416dgac3cgf828bb2b7573" version="1"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="8e660fd9-489d-42ff-a762-e4392e826666"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="1e544fc6-8aec-a600-8071-c7d29e6d0fa5"/>
+                    <attribute id="Stats" type="FixedString" value="OBJ_Potion_Healing_Greater"/>
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="hb6759ce9g91e9g48d0gb248g3e7e0d89167c" version="1"/>
+                    <attribute id="TreasureOnDestroy" type="bool" value="True"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="103f27e3-226b-2ce9-e710-e1e81f01b34b"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.13 0.36 0.13"/>
+                                    <attribute id="Min" type="fvec3" value="-0.13 0 -0.093401"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.13 0.36 0.13"/>
+                                    <attribute id="Min" type="fvec3" value="-0.13 0 -0.093401"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.13 0.36 0.13"/>
+                                    <attribute id="Min" type="fvec3" value="-0.13 0 -0.093401"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="InventoryList"/>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="5"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="ExplodeFX" type="FixedString" value="df744de3-fb7f-4808-6881-fd466107d27f"/>
+                                            <attribute id="FadeOutDelay" type="float" value="0"/>
+                                            <attribute id="FadeOutFX" type="FixedString" value=""/>
+                                            <attribute id="SnapToGround" type="bool" value="True"/>
+                                            <attribute id="TargetItemState" type="uint8" value="0"/>
+                                            <attribute id="VisualWithDynamicPhysics" type="FixedString" value=""/>
+                                            <attribute id="templateAfterDestruction" type="FixedString" value=""/>
+                                            <attribute id="visualDestruction" type="FixedString" value="00000000-0000-0000-0000-000000000000"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <children>
+                                    <node id="Action">
+                                        <attribute id="ActionType" type="int32" value="12"/>
+                                        <children>
+                                            <node id="Attributes">
+                                                <attribute id="Animation" type="FixedString" value=""/>
+                                                <attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09"/>
+                                                <attribute id="Conditions" type="LSString" value=""/>
+                                                <attribute id="Consume" type="bool" value="True"/>
+                                                <attribute id="SkillID" type="FixedString" value="DT_Target_ApplyPotion_Healing_Greater"/>
+                                            </node>
+                                        </children>
+                                    </node>
+                                </children>
+                            </children>
+                        </node>
+                        <node id="Scripts">
+                            <children>
+                                <node id="Script">
+                                    <attribute id="UUID" type="FixedString" value="a557ab71-77f3-4b0c-8174-f605e51c90c7"/>
+                                    <children>
+                                        <node id="Parameters">
+                                            <children>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
+                                                    <attribute id="Type" type="int32" value="1"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="LifeTime"/>
+                                                    <attribute id="Type" type="int32" value="2"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="ProjectileSpell"/>
+                                                    <attribute id="Type" type="int32" value="9"/>
+                                                    <attribute id="Value" type="LSString" value="Projectile_Potion_Destroy_Healing_Greater"/>
+                                                </node>
+                                            </children>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="Tags">
+                            <children>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="1879a93d-2edf-4f54-85dd-81a3724d677f"/>
+                                </node>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="ef5d1184-dd1c-4988-bef9-ad19471aadba"/>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h4c51f974g46bfg4c67g9220gf57bf23d51fc" version="3"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="hfaf12441g485bg4d9dgbb32gb44fa8f62f78" version="1"/>
+                    <attribute id="DisplayNameAlchemy" type="TranslatedString" handle="h8bf2395fg487cg4929g9f84gd3000020cebc" version="1"/>
+                    <attribute id="Flag" type="int32" value="0"/>
+                    <attribute id="Icon" type="FixedString" value="Item_CONS_Potion_Healing_A_Superior"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="df4f3495-abaf-4732-b82f-55bcccd561db"/>
+                    <attribute id="Name" type="LSString" value="CONS_Potion_Healing_A_Superior"/>
+                    <attribute id="OnUseDescription" type="TranslatedString" handle="h52637098g3b16g4bdegac4cg788d909b8f1d" version="1"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="8e660fd9-489d-42ff-a762-e4392e826666"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="751f98d7-624b-23b3-1ec5-3b95745b4df3"/>
+                    <attribute id="Stats" type="FixedString" value="OBJ_Potion_Healing_Superior"/>
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="h7a080ea0g4f06g47c1gb5acg3a30103e8676" version="1"/>
+                    <attribute id="TreasureOnDestroy" type="bool" value="True"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="fa6656f2-679d-e765-a5a8-2a3d16a291dc"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.14 0.48 0.14"/>
+                                    <attribute id="Min" type="fvec3" value="-0.14 0 -0.14"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.14 0.48 0.14"/>
+                                    <attribute id="Min" type="fvec3" value="-0.14 0 -0.14"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.14 0.48 0.14"/>
+                                    <attribute id="Min" type="fvec3" value="-0.14 0 -0.14"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="InventoryList"/>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="5"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="ExplodeFX" type="FixedString" value="df744de3-fb7f-4808-6881-fd466107d27f"/>
+                                            <attribute id="FadeOutDelay" type="float" value="0"/>
+                                            <attribute id="FadeOutFX" type="FixedString" value=""/>
+                                            <attribute id="SnapToGround" type="bool" value="True"/>
+                                            <attribute id="TargetItemState" type="uint8" value="0"/>
+                                            <attribute id="VisualWithDynamicPhysics" type="FixedString" value=""/>
+                                            <attribute id="templateAfterDestruction" type="FixedString" value=""/>
+                                            <attribute id="visualDestruction" type="FixedString" value="00000000-0000-0000-0000-000000000000"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <children>
+                                    <node id="Action">
+                                        <attribute id="ActionType" type="int32" value="12"/>
+                                        <children>
+                                            <node id="Attributes">
+                                                <attribute id="Animation" type="FixedString" value=""/>
+                                                <attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09"/>
+                                                <attribute id="Conditions" type="LSString" value=""/>
+                                                <attribute id="Consume" type="bool" value="True"/>
+                                                <attribute id="SkillID" type="FixedString" value="DT_Target_ApplyPotion_Healing_Superior"/>
+                                            </node>
+                                        </children>
+                                    </node>
+                                </children>
+                            </children>
+                        </node>
+                        <node id="Scripts">
+                            <children>
+                                <node id="Script">
+                                    <attribute id="UUID" type="FixedString" value="a557ab71-77f3-4b0c-8174-f605e51c90c7"/>
+                                    <children>
+                                        <node id="Parameters">
+                                            <children>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
+                                                    <attribute id="Type" type="int32" value="1"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="LifeTime"/>
+                                                    <attribute id="Type" type="int32" value="2"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="ProjectileSpell"/>
+                                                    <attribute id="Type" type="int32" value="9"/>
+                                                    <attribute id="Value" type="LSString" value="Projectile_Potion_Destroy_Healing_Superior"/>
+                                                </node>
+                                            </children>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="Tags">
+                            <children>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="1879a93d-2edf-4f54-85dd-81a3724d677f"/>
+                                </node>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="ef5d1184-dd1c-4988-bef9-ad19471aadba"/>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h8b58b23ege1e3g4674g9862g06a39540930e" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="ha693f065gd71eg4108g9888g754c4e4aa7c1" version="1"/>
+                    <attribute id="DisplayNameAlchemy" type="TranslatedString" handle="hb2ef7636g06b4g4d90gad71g9455f7e4272c" version="1"/>
+                    <attribute id="Flag" type="int32" value="0"/>
+                    <attribute id="Icon" type="FixedString" value="Item_CONS_Potion_Healing_A_Supreme"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="7d78f227-e8d4-486d-8121-25cf0bee751d"/>
+                    <attribute id="Name" type="LSString" value="CONS_Potion_Healing_A_Supreme"/>
+                    <attribute id="OnUseDescription" type="TranslatedString" handle="hc857245cg5f9dg4f90g88d4g604f596d85ca" version="1"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="8e660fd9-489d-42ff-a762-e4392e826666"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="26cfdec8-6eff-ed79-7d50-a5c40bfe0cb3"/>
+                    <attribute id="Stats" type="FixedString" value="OBJ_Potion_Healing_Supreme"/>
+                    <attribute id="TechnicalDescription" type="TranslatedString" handle="h26289dbdg9b04g4f4dgaa93g54e83767896b" version="1"/>
+                    <attribute id="TreasureOnDestroy" type="bool" value="True"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="a93bcc13-e31b-f6a6-7076-e64fe7771d9e"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209031"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.21 0.62 0.2"/>
+                                    <attribute id="Min" type="fvec3" value="-0.21 0 -0.2"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.21 0.62 0.2"/>
+                                    <attribute id="Min" type="fvec3" value="-0.21 0 -0.2"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.418184"/>
+                                    <attribute id="Max" type="fvec3" value="0.21 0.62 0.2"/>
+                                    <attribute id="Min" type="fvec3" value="-0.21 0 -0.2"/>
+                                    <attribute id="Radius" type="float" value="0.114147"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="InventoryList"/>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="5"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="ExplodeFX" type="FixedString" value="df744de3-fb7f-4808-6881-fd466107d27f"/>
+                                            <attribute id="FadeOutDelay" type="float" value="0"/>
+                                            <attribute id="FadeOutFX" type="FixedString" value=""/>
+                                            <attribute id="SnapToGround" type="bool" value="True"/>
+                                            <attribute id="TargetItemState" type="uint8" value="0"/>
+                                            <attribute id="VisualWithDynamicPhysics" type="FixedString" value=""/>
+                                            <attribute id="templateAfterDestruction" type="FixedString" value=""/>
+                                            <attribute id="visualDestruction" type="FixedString" value="00000000-0000-0000-0000-000000000000"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <children>
+                                    <node id="Action">
+                                        <attribute id="ActionType" type="int32" value="12"/>
+                                        <children>
+                                            <node id="Attributes">
+                                                <attribute id="Animation" type="FixedString" value=""/>
+                                                <attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09"/>
+                                                <attribute id="Conditions" type="LSString" value=""/>
+                                                <attribute id="Consume" type="bool" value="True"/>
+                                                <attribute id="SkillID" type="FixedString" value="DT_Target_ApplyPotion_Healing_Supreme"/>
+                                            </node>
+                                        </children>
+                                    </node>
+                                </children>
+                            </children>
+                        </node>
+                        <node id="Scripts">
+                            <children>
+                                <node id="Script">
+                                    <attribute id="UUID" type="FixedString" value="a557ab71-77f3-4b0c-8174-f605e51c90c7"/>
+                                    <children>
+                                        <node id="Parameters">
+                                            <children>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
+                                                    <attribute id="Type" type="int32" value="1"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="LifeTime"/>
+                                                    <attribute id="Type" type="int32" value="2"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="ProjectileSpell"/>
+                                                    <attribute id="Type" type="int32" value="9"/>
+                                                    <attribute id="Value" type="LSString" value="Projectile_Potion_Destroy_Healing_Supreme"/>
+                                                </node>
+                                            </children>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="Tags">
+                            <children>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="1879a93d-2edf-4f54-85dd-81a3724d677f"/>
+                                </node>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="ef5d1184-dd1c-4988-bef9-ad19471aadba"/>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>
