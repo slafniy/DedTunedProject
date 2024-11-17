@@ -4,11 +4,26 @@ INITSECTION
 // Store info about pickpockets this day, (CHARACTER)_Victim, (INTEGER)_TheftCount, (INTEGER)_Gold
 //NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0, 0);
 KBSECTION
-//REGION // Apply DT_PICKPOCKETING_VICTIM status on every victim from DB_DT_Pickpocketing_StolenCounter list
+//REGION // Apply DT_PICKPOCKETING_VICTIM status on every victim from DB_DT_Pickpocketing_StolenCounter list if match minimal condition
 IF
-DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _)
 AND
 HasAppliedStatus(_Victim, "DT_PICKPOCKETING_VICTIM", 0)
+AND
+DB_DT_Pickpocketing_Breakpoints(_CountBreakpoint, _)
+AND
+_TheftCount >= _CountBreakpoint
+THEN
+ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM", -1.0, 1, _Victim);
+
+IF
+DB_DT_Pickpocketing_StolenCounter(_Victim, _, _Gold)
+AND
+HasAppliedStatus(_Victim, "DT_PICKPOCKETING_VICTIM", 0)
+AND
+DB_DT_Pickpocketing_Breakpoints(_, _GoldBreakpoint)
+AND
+_Gold >= _GoldBreakpoint
 THEN
 ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM", -1.0, 1, _Victim);
 //END_REGION
@@ -19,6 +34,8 @@ IF
 LongRestFinished()
 AND
 DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _Gold)
+AND
+HasAppliedStatus(_Victim, "DT_PICKPOCKETING_VICTIM", 1)
 THEN
 RemoveStatus(_Victim, "DT_PICKPOCKETING_VICTIM", _Victim);
 

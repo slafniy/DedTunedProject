@@ -22,4 +22,6 @@
     <content contentuid="h0a4cd71fg639dg4274g88a7g13c2efe19d62" version="1">Улучшение Способности</content>
     <content contentuid="h079bdaf2g0b42g40a8g9adeg9efecadbd76e" version="1">Вы можете увеличить одну из ваших способностей на 1, до максимума в 20.</content>
     <content contentuid="h496d198dg0f94g457egaa37g14398d907905" version="1">Окончить ярость.</content>
+    <content contentuid="hdb73e460g84cag4fe9gbe79g29129091f8ef" version="1">Жертва ограбления</content>
+    <content contentuid="h47959f17g754dg4129gbedcgf7b049151ac1" version="1">Этому существу недавно обчистили карманы, и теперь оно на страже. Вы получите штраф к проверкам &lt;LSTag Tooltip="SleightOfHand"&gt;Ловкости Рук&lt;/LSTag&gt; если будете находиться рядом с ним.</content>
 </contentList>

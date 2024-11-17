@@ -3,12 +3,6 @@ SubGoalCombiner SGC_AND
 INITSECTION
 // Store info about pickpockets this day, (CHARACTER)_Victim, (INTEGER)_TheftCount, (INTEGER)_Gold
 NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0, 0);
-
-// Character - Victim
-//NOT DB_DT_Pickpocketing_DefuffsTracker((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
-
-// Store SleightOfHandDebuff debuff string and ID (use _VictimStr) - _DebuffString, _VictimStr
-//NOT DB_DT_Pickpocketing_SleightOfHandDebuffs("", "");
 KBSECTION
 //REGION  // Add DT_MoveEventGeneratorPassive to each party member 
 IF
