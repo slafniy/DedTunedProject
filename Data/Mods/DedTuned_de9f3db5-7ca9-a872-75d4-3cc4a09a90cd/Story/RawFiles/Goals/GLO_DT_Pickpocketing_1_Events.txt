@@ -26,6 +26,16 @@ AND
 DB_PartyMembers(_Thief)  // not sure if this triggers for non-party thieves somewhere
 THEN
 PROC_DT_Pickpocketing_SuccessHandler(_Victim, _Gold);
+
+IF
+CharacterPickpocketSuccess(_Thief, _Victim, _, _, _, _Gold)
+THEN
+PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff(_Thief, _Victim);
+
+IF
+CharacterPickpocketSuccess(_Thief, _Victim, _, _, _, _Gold)
+THEN
+PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff(_Thief, _Victim);
 //END_REGION
 EXITSECTION
 
