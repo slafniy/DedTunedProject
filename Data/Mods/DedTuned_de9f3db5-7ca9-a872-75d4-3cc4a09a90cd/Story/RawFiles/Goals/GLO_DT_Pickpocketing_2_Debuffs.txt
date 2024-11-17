@@ -1,0 +1,234 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// Store info about pickpockets this day, (CHARACTER)_Victim, (INTEGER)_TheftCount, (INTEGER)_Gold
+//NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0, 0);
+
+// Distance between potential Thief and Victim for SlieghtOfHand debuff
+DB_DT_PickpocketingDebuffRange(3.0);
+
+// Track SleightOfHand debuff + status
+// (CHARACTER)_Character, (CHARACTER)_Victim, (STRING)_DebuffString, (STRING)_BoostID
+NOT DB_DT_PickpocketingDebuffsTracker((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000, "", "");
+
+// [how many items should be stolen for -1] - [how many gold should be stolen for -1]
+// DON'T SET TO ZERO OR GAME WILL CRASH
+DB_DT_Pickpocketing_Breakpoints(5, 250);
+KBSECTION
+//REGION // >>> events to trigger debuffs refresh for _Character - _Victim pairs
+// Victim moved
+IF
+StatusApplied((CHARACTER)_Victim, "DT_PICKPOCKETING_JUST_MOVED",_,_)
+AND
+DB_PartyMembers(_Character)
+AND
+_Victim != _Character
+THEN
+PROC_DT_Pickpocketing_RefreshDebuffs(_Character, _Victim);
+
+// Characted moved
+IF
+StatusApplied((CHARACTER)_Character, "DT_PICKPOCKETING_JUST_MOVED",_,_)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)
+AND
+_Character != _Victim
+THEN
+PROC_DT_Pickpocketing_RefreshDebuffs(_Character, _Victim);
+
+IF
+RequestPickpocket(_Character, _Victim)
+THEN
+PROC_DT_Pickpocketing_RefreshDebuffs(_Character, _Victim);
+
+IF
+CharacterPickpocketSuccess(_Character, _Victim, _, _, _, _)
+THEN
+PROC_DT_Pickpocketing_RefreshDebuffs(_Character, _Victim);
+//END_REGION
+
+
+//REGION  // PROC_DT_Pickpocketing_RefreshDebuffs
+PROC
+PROC_DT_Pickpocketing_RefreshDebuffs((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+QRY_DT_IsInTheftRange(_Character, _Victim)
+THEN
+PROC_DT_ReApplySleightOfHandDebuff(_Character, _Victim);
+
+PROC
+PROC_DT_Pickpocketing_RefreshDebuffs((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+NOT QRY_DT_IsInTheftRange(_Character, _Victim)
+THEN
+PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff(_Character, _Victim);
+//END_REGION
+
+
+//REGION  // PROC_DT_ReApplySleightOfHandDebuff
+// case if we already have debuff - remove it
+PROC
+PROC_DT_ReApplySleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _DebuffString, _BoostID)
+THEN
+RemoveBoosts(_Character, _DebuffString, 1, _BoostID, NULL_00000000-0000-0000-0000-000000000000);
+
+// ... and remove record too
+PROC
+PROC_DT_ReApplySleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _DebuffString, _BoostID)
+THEN
+NOT DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _DebuffString, _BoostID);
+
+// case we heve no debuff applied - calc and apply
+PROC
+PROC_DT_ReApplySleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+NOT DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _, _)
+THEN
+PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff(_Character, _Victim);  // should add a record too
+//END_REGION
+
+
+//REGION  // QRY_DT_IsInTheftRange
+QRY
+QRY_DT_IsInTheftRange((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+DB_DT_PickpocketingDebuffRange(_PickpocketingRange)
+AND
+GetDistanceTo(_Character, _Victim, _Distance)
+AND
+_Distance <= _PickpocketingRange
+THEN
+DB_NOOP(1);
+//END_REGION
+
+
+//REGION // PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff - calculate and add boost
+PROC
+PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _Gold)
+AND
+GUIDToString(_Victim, _VictimStr)
+AND
+DB_DT_Pickpocketing_Breakpoints(_CountBreakpoint, _GoldBreakpoint)
+AND
+IntegerDivide(_TheftCount, _CountBreakpoint, _DebuffForCount)
+AND
+IntegerDivide(_Gold, _GoldBreakpoint, _DebuffForGold)
+AND
+IntegerSum(_DebuffForCount, _DebuffForGold, _DebuffTotalValue)
+AND
+ConcatenateInteger("Skill(SleightOfHand, -", _DebuffTotalValue, _str1)
+AND
+Concatenate(_str1, ")", _DebuffString)
+THEN
+PROC_DT_Pickpocketing_AddBoost(_Character, _Victim, _DebuffString, _VictimStr);
+//END_REGION
+
+
+//REGION  // PROC_DT_Pickpocketing_AddBoost
+PROC
+PROC_DT_Pickpocketing_AddBoost((CHARACTER)_Character, (CHARACTER)_Victim, (STRING)_DebuffString, (STRING)_VictimStr)
+THEN
+AddBoosts(_Character, _DebuffString, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+
+PROC
+PROC_DT_Pickpocketing_AddBoost((CHARACTER)_Character, (CHARACTER)_Victim, (STRING)_DebuffString, (STRING)_VictimStr)
+THEN
+DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _DebuffString, _VictimStr);
+//END_REGION
+
+
+//REGION // PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff
+PROC
+PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+GUIDToString(_Victim, _VictimStr)
+AND
+DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _DebuffString, _VictimStr)
+THEN
+PROC_DT_Pickpocketing_RemoveBoost(_Character, _Victim, _DebuffString, _VictimStr);
+//END_REGION
+
+
+//REGION  // PROC_DT_Pickpocketing_RemoveBoost
+PROC
+PROC_DT_Pickpocketing_RemoveBoost((CHARACTER)_Character, (CHARACTER)_Victim, (STRING)_DebuffString, (STRING)_VictimStr)
+THEN
+RemoveBoosts(_Character, _DebuffString, 1, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+
+PROC
+PROC_DT_Pickpocketing_RemoveBoost((CHARACTER)_Character, (CHARACTER)_Victim, (STRING)_DebuffString, (STRING)_VictimStr)
+THEN
+NOT DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _DebuffString, _VictimStr);
+//END_REGION
+
+/*
+//REGION // PROC_DT_Pickpocketing_SuccessHandler 
+PROC
+PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld)  // have record, increment counter
+AND
+IntegerSum(_TheftCountOld, 1, _TheftCountNew)
+AND
+IntegerSum(_GoldOld, _Gold, _GoldNew)
+THEN
+PROC_DT_Pickpocketing_StolenCounterReplace(_Victim, _TheftCountNew, _GoldNew);
+
+PROC
+PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
+AND
+NOT DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)  // have no records yet, add
+THEN
+DB_DT_Pickpocketing_StolenCounter(_Victim, 1, _Gold);
+
+PROC
+PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
+THEN
+PROC_DT_Pickpocketing_RefreshDebuffs();
+
+PROC
+PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
+AND
+HasAppliedStatus(_Victim, "DT_PICKPOCKETING_VICTIM", 0)
+THEN
+ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM", -1.0, 1, _Victim);
+//END_REGION
+
+
+//REGION  // PROC_DT_Pickpocketing_StolenCounterReplace - replace values in db
+PROC
+PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld)
+THEN
+NOT DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld);  // remove old
+
+PROC
+PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
+THEN
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountNew, _GoldNew);  // add new
+
+
+// only for debugging, works on 2nd+ theft
+PROC
+PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
+AND
+ConcatenateInteger("Stolen: ", _TheftCountNew, _msg1)
+AND
+Concatenate(_msg1, ", Gold: ", _msg2)
+AND
+ConcatenateInteger(_msg2, _GoldNew, _msg)
+THEN
+DebugText(_Victim, _msg);
+//END_REGION
+*/
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
