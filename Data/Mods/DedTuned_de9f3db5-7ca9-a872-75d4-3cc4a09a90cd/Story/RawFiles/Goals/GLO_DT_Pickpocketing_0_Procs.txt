@@ -6,6 +6,9 @@ NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-00
 
 // Character - Victim
 NOT DB_DT_Pickpocketing_DefuffsTracker((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+
+// Store SleightOfHandDebuff debuff string and ID (use _VictimStr) - _DebuffString, _VictimStr
+NOT DB_DT_Pickpocketing_SleightOfHandDebuffs("", "");
 KBSECTION
 //REGION  // Add DT_MoveEventGeneratorPassive to each party member 
 IF
@@ -107,8 +110,23 @@ NOT DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
 //REGION // PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff
 PROC
 PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _Gold)
+AND
+GUIDToString(_Victim, _VictimStr)
+AND
+IntegerDivide(_TheftCount, 3, _DebuffForCount)
+AND
+IntegerDivide(_Gold, 100, _DebuffForGold)
+AND
+IntegerSum(_DebuffForCount, _DebuffForGold, _DebuffTotalValue)
+AND
+ConcatenateInteger("Skill(SleightOfHand, -", _DebuffTotalValue, _str1)
+AND
+Concatenate(_str1, ")", _DebuffString)
 THEN
-//AddBoosts(_Character, "Skill(SleightOfHand, -10)", _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+AddBoosts(_Character, _DebuffString, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+DB_DT_Pickpocketing_SleightOfHandDebuffs(_DebuffString, _VictimStr);
 DB_NOOP(1);
 //END_REGION
 
@@ -116,8 +134,13 @@ DB_NOOP(1);
 //REGION // PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff
 PROC
 PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+GUIDToString(_Victim, _VictimStr)
+AND
+DB_DT_Pickpocketing_SleightOfHandDebuffs(_DebuffString, _VictimStr)
 THEN
-//RemoveBoosts(_Character, "Skill(SleightOfHand, -10)", 1, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+RemoveBoosts(_Character, _DebuffString, 1, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+NOT DB_DT_Pickpocketing_SleightOfHandDebuffs(_DebuffString, _VictimStr);
 DB_NOOP(1);
 //END_REGION
 
