@@ -3,27 +3,6 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-/*//REGION  // >>> event StatusApplied/StatusRemoved - handle DT_PICKPOCKETING_DEBUFF status and add/remove SleightOfHand debuff
-IF
-StatusApplied(_Character, "DT_PICKPOCKETING_DEBUFF", _Victim, _)
-AND
-GUIDToString(_Victim, _VictimStr)
-AND
-DB_DT_Pickpocketing_StolenCounter((CHARACTER)_Victim, _TheftCount, _Gold)
-THEN
-AddBoosts(_Character, "Skill(SleightOfHand, -10)", _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
-
-IF
-StatusRemoved((CHARACTER)_Character, "DT_PICKPOCKETING_DEBUFF", _Victim, _)
-AND
-GUIDToString(_Victim, _VictimStr)
-AND
-DB_DT_Pickpocketing_StolenCounter((CHARACTER)_Victim, _TheftCount, _Gold)
-THEN
-RemoveBoosts(_Character, "Skill(SleightOfHand, -10)", 0, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
-//END_REGION*/
-
-
 //REGION // >>> event StatusApplied - on DT_PICKPOCKETING_JUST_MOVED try refresh debuffs
 IF
 StatusApplied(_,"DT_PICKPOCKETING_JUST_MOVED",_,_)
@@ -48,7 +27,6 @@ DB_PartyMembers(_Thief)  // not sure if this triggers for non-party thieves some
 THEN
 PROC_DT_Pickpocketing_SuccessHandler(_Victim, _Gold);
 //END_REGION
-
 EXITSECTION
 
 ENDEXITSECTION

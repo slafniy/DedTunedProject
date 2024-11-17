@@ -79,10 +79,8 @@ ApplyStatus(_Character, "DT_PICKPOCKETING_DEBUFF", -1.0, 1, _Victim);
 
 PROC
 PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
-AND
-GUIDToString(_Victim, _VictimStr)
 THEN
-AddBoosts(_Character, "Skill(SleightOfHand, -10)", _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff(_Character, _Victim);
 //END_REGION
 
 
@@ -96,15 +94,31 @@ RemoveStatus(_Character, "DT_PICKPOCKETING_DEBUFF", _Victim);
 
 PROC
 PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
-AND
-GUIDToString(_Victim, _VictimStr)
 THEN
-RemoveBoosts(_Character, "Skill(SleightOfHand, -10)", 1, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff(_Character, _Victim);
 
 PROC
 PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 THEN
 NOT DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
+//END_REGION
+
+
+//REGION // PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff
+PROC
+PROC_DT_Pickpocketing_CalculateAndApplySleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+THEN
+//AddBoosts(_Character, "Skill(SleightOfHand, -10)", _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+DB_NOOP(1);
+//END_REGION
+
+
+//REGION // PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff
+PROC
+PROC_DT_Pickpocketing_RemoveSleightOfHandDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+THEN
+//RemoveBoosts(_Character, "Skill(SleightOfHand, -10)", 1, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
+DB_NOOP(1);
 //END_REGION
 
 
