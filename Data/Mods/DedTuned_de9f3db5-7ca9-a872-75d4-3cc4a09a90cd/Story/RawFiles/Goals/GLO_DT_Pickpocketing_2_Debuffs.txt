@@ -13,7 +13,7 @@ NOT DB_DT_PickpocketingDebuffsTracker((CHARACTER)NULL_00000000-0000-0000-0000-00
 
 // [how many items should be stolen for -1] - [how many gold should be stolen for -1]
 // DON'T SET TO ZERO OR GAME WILL CRASH
-DB_DT_Pickpocketing_Breakpoints(5, 250);
+DB_DT_Pickpocketing_Breakpoints(2, 100);
 KBSECTION
 //REGION // >>> events to trigger debuffs refresh for _Character - _Victim pairs
 // Victim moved
