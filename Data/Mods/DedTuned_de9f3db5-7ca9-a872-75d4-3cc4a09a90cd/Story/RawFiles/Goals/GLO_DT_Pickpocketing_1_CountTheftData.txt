@@ -9,6 +9,8 @@ IF
 CharacterPickpocketSuccess(_Thief, _Victim, _, _, _, _Gold)
 AND
 DB_PartyMembers(_Thief)  // not sure if this triggers for non-party thieves somewhere
+AND
+NOT DB_PartyMembers(_Victim)  // exclude party members because I don't want to have AOE Sleight Of Hand debuff in party
 THEN
 PROC_DT_CountTheftData(_Victim, _Gold);
 //END_REGION
