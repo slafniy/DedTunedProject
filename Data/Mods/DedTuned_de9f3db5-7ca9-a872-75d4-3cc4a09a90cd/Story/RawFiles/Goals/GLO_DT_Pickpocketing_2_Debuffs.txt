@@ -167,67 +167,21 @@ THEN
 NOT DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _DebuffString, _VictimStr);
 //END_REGION
 
-/*
-//REGION // PROC_DT_Pickpocketing_SuccessHandler 
-PROC
-PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
-AND
-DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld)  // have record, increment counter
-AND
-IntegerSum(_TheftCountOld, 1, _TheftCountNew)
-AND
-IntegerSum(_GoldOld, _Gold, _GoldNew)
-THEN
-PROC_DT_Pickpocketing_StolenCounterReplace(_Victim, _TheftCountNew, _GoldNew);
 
-PROC
-PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
+//REGION  // DEBUG command "oe dtstolen"
+IF
+TextEvent("dtstolen")
 AND
-NOT DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)  // have no records yet, add
-THEN
-DB_DT_Pickpocketing_StolenCounter(_Victim, 1, _Gold);
-
-PROC
-PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
-THEN
-PROC_DT_Pickpocketing_RefreshDebuffs();
-
-PROC
-PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _Gold)
 AND
-HasAppliedStatus(_Victim, "DT_PICKPOCKETING_VICTIM", 0)
-THEN
-ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM", -1.0, 1, _Victim);
-//END_REGION
-
-
-//REGION  // PROC_DT_Pickpocketing_StolenCounterReplace - replace values in db
-PROC
-PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
+ConcatenateInteger("Theft Rolls count: ", _TheftCount, _msg1)
 AND
-DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld)
-THEN
-NOT DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld);  // remove old
-
-PROC
-PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
-THEN
-DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountNew, _GoldNew);  // add new
-
-
-// only for debugging, works on 2nd+ theft
-PROC
-PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
+Concatenate(_msg1, ", Gold sum: ", _msg2)
 AND
-ConcatenateInteger("Stolen: ", _TheftCountNew, _msg1)
-AND
-Concatenate(_msg1, ", Gold: ", _msg2)
-AND
-ConcatenateInteger(_msg2, _GoldNew, _msg)
+ConcatenateInteger(_msg2, _Gold, _msg)
 THEN
 DebugText(_Victim, _msg);
 //END_REGION
-*/
 EXITSECTION
 
 ENDEXITSECTION
