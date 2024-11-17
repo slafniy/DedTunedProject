@@ -182,6 +182,22 @@ ConcatenateInteger(_msg2, _Gold, _msg)
 THEN
 DebugText(_Victim, _msg);
 //END_REGION
+
+
+//REGION  // DEBUG command "oe dtsohdebuffs"
+IF
+TextEvent("dtsohdebuffs")
+AND
+DB_DT_PickpocketingDebuffsTracker(_Character, _Victim, _DebuffString, _)
+AND
+ConcatenateGUID("From ", _Victim, _msg1)
+AND
+Concatenate(_msg1, ": ", _msg2)
+AND
+Concatenate(_msg2, _DebuffString, _msg)
+THEN
+DebugText(_Character, _msg);
+//END_REGION
 EXITSECTION
 
 ENDEXITSECTION
