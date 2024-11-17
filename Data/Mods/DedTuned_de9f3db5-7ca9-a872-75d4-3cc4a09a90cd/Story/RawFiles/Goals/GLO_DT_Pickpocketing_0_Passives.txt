@@ -1,0 +1,38 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// Store info about pickpockets this day, (CHARACTER)_Victim, (INTEGER)_TheftCount, (INTEGER)_Gold
+NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0, 0);
+
+// Character - Victim
+//NOT DB_DT_Pickpocketing_DefuffsTracker((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
+
+// Store SleightOfHandDebuff debuff string and ID (use _VictimStr) - _DebuffString, _VictimStr
+//NOT DB_DT_Pickpocketing_SleightOfHandDebuffs("", "");
+
+// [how many items should be stolen for -1] - [how many gold should be stolen for -1]
+// DON'T SET TO ZERO OR GAME WILL CRASH
+//DB_DT_Pickpocketing_Breakpoints(5, 250);
+KBSECTION
+//REGION  // Add DT_MoveEventGeneratorPassive to each party member 
+IF
+DB_PartyMembers(_Character)
+AND
+HasPassive(_Character, "DT_MoveEventGeneratorPassive", 0)
+THEN
+AddPassive(_Character, "DT_MoveEventGeneratorPassive");
+//END_REGION
+
+
+//REGION  // Add DT_MoveEventGeneratorPassive to each Victim
+IF
+DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)
+AND
+HasPassive(_Victim, "DT_MoveEventGeneratorPassive", 0)
+THEN
+AddPassive(_Victim, "DT_MoveEventGeneratorPassive");
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"

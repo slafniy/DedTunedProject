@@ -1,0 +1,75 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+/*//REGION  // PROC_DT_Pickpocketing_RefreshDebuffs - check distance between victims and characters and call handler
+PROC
+PROC_DT_Pickpocketing_RefreshDebuffs()
+AND
+DB_PartyMembers(_Character)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)
+AND
+_Character != _Victim
+AND
+GetDistanceTo(_Character, _Victim, _Distance)
+THEN
+PROC_DT_PickpocketingHandleDistance(_Character, _Victim, _Distance);
+//END_REGION
+
+
+//REGION  // PROC_DT_PickpocketingHandleDistance - check distance threshold between character and victim and add/remove debuffs
+PROC
+PROC_DT_PickpocketingHandleDistance((CHARACTER)_Character, (CHARACTER)_Victim, (REAL)_Distance)
+AND
+_Distance < 3.0
+AND
+NOT DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim)
+THEN
+DebugText(_Victim, "thief is near, apply debuff!");
+PROC_DT_Pickpocketing_AddDebuff(_Character, _Victim);
+
+PROC
+PROC_DT_PickpocketingHandleDistance((CHARACTER)_Character, (CHARACTER)_Victim, (REAL)_Distance)
+AND
+_Distance > 3.1
+AND
+DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim)
+THEN
+DebugText(_Victim, "thief is gone, remove debuff!");
+PROC_DT_Pickpocketing_RemoveDebuff(_Character, _Victim);
+//END_REGION
+
+
+//REGION  // PROC_DT_Pickpocketing_AddDebuff - apply debuff and store info about it in DB
+PROC
+PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+THEN
+DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
+
+PROC
+PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+THEN
+ApplyStatus(_Character, "DT_PICKPOCKETING_DEBUFF", -1.0, 1, _Victim);
+//END_REGION
+
+
+//REGION  // PROC_DT_Pickpocketing_RemoveDebuff - remove debuff and erase info about it from DB
+PROC
+PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+HasAppliedStatus(_Character, "DT_PICKPOCKETING_DEBUFF", 1)
+THEN
+RemoveStatus(_Character, "DT_PICKPOCKETING_DEBUFF", _Victim);
+
+PROC
+PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+THEN
+NOT DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
+//END_REGION
+*/
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"

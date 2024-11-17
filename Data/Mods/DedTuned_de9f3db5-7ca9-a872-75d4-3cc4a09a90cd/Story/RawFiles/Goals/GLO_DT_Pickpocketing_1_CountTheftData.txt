@@ -1,0 +1,18 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+//REGION // >>> event CharacterPickpocketSuccess - call PROC_DT_Pickpocketing_SuccessHandler
+IF
+CharacterPickpocketSuccess(_Thief, _Victim, _, _, _, _Gold)
+AND
+DB_PartyMembers(_Thief)  // not sure if this triggers for non-party thieves somewhere
+THEN
+PROC_DT_Pickpocketing_SuccessHandler(_Victim, _Gold);
+//END_REGION
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
