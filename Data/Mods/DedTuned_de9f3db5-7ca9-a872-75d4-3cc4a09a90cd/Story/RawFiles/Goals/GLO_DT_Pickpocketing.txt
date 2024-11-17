@@ -7,10 +7,25 @@ NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-00
 // Character - Victim
 NOT DB_DT_Pickpocketing_DefuffsTracker((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
 KBSECTION
+//REGION  // Add DT_MoveEventGeneratorPassive to each party member 
 IF
-TextEvent("dtrefresh")
+DB_PartyMembers(_Character)
+AND
+HasPassive(_Character, "DT_MoveEventGeneratorPassive", 0)
 THEN
-PROC_DT_Pickpocketing_RefreshDebuffs();
+AddPassive(_Character, "DT_MoveEventGeneratorPassive");
+//END_REGION
+
+
+//REGION  // Add DT_MoveEventGeneratorPassive to each Victim
+IF
+DB_DT_Pickpocketing_DefuffsTracker(_, _Victim)
+AND
+HasPassive(_Victim, "DT_MoveEventGeneratorPassive", 0)
+THEN
+AddPassive(_Victim, "DT_MoveEventGeneratorPassive");
+//END_REGION
+
 
 //REGION // >>> event StatusApplied - on DT_PICKPOCKETING_JUST_MOVED try refresh debuffs
 IF
