@@ -28,8 +28,6 @@ AddPassive(_Victim, "DT_MoveEventGeneratorPassive");
 
 
 //REGION  // PROC_DT_Pickpocketing_RefreshDebuffs - check distance between victims and characters and call handler
-
-
 PROC
 PROC_DT_Pickpocketing_RefreshDebuffs()
 AND
@@ -78,6 +76,13 @@ PROC
 PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 THEN
 ApplyStatus(_Character, "DT_PICKPOCKETING_DEBUFF", -1.0, 1, _Victim);
+
+PROC
+PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+GUIDToString(_Victim, _VictimStr)
+THEN
+AddBoosts(_Character, "Skill(SleightOfHand, -10)", _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
 //END_REGION
 
 
@@ -88,6 +93,13 @@ AND
 HasAppliedStatus(_Character, "DT_PICKPOCKETING_DEBUFF", 1)
 THEN
 RemoveStatus(_Character, "DT_PICKPOCKETING_DEBUFF", _Victim);
+
+PROC
+PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+GUIDToString(_Victim, _VictimStr)
+THEN
+RemoveBoosts(_Character, "Skill(SleightOfHand, -10)", 1, _VictimStr, NULL_00000000-0000-0000-0000-000000000000);
 
 PROC
 PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
