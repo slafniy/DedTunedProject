@@ -90,7 +90,7 @@ DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
 PROC
 PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 THEN
-ApplyStatus(_Character, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", -1.0, 1, _Victim);
+ApplyStatus(_Character, "DT_PICKPOCKETING_DEBUFF", -1.0, 1, _Victim);
 //AddBoosts(_Thief, "Skill(SleightOfHand, -10)", _BoostID, _Victim);
 //END_REGION
 
@@ -99,9 +99,9 @@ ApplyStatus(_Character, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", -1.
 PROC
 PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 AND
-HasAppliedStatus(_Character, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", 1)
+HasAppliedStatus(_Character, "DT_PICKPOCKETING_DEBUFF", 1)
 THEN
-RemoveStatus(_Character, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", _Victim);
+RemoveStatus(_Character, "DT_PICKPOCKETING_DEBUFF", _Victim);
 //RemoveBoosts(_Thief, "Skill(SleightOfHand, -10)", 1, _BoostID, _Victim);
 
 PROC

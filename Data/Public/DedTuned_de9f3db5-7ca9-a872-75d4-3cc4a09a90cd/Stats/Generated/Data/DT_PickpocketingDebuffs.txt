@@ -1,25 +1,12 @@
-# Gives -1 to SleightOfHand checks, stackable
-new entry "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE"
+# Indicates that owner is near pickpocketing victim and will have SleightOfHand debuff
+new entry "DT_PICKPOCKETING_DEBUFF"
 type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" ";1"
 data "Description" ";1"
 data "DescriptionParams" "3"
-data "Icon" "Status_Surprised"
+data "Icon" "statIcons_GOB_GoblinPriest_Chains"
 data "StatusPropertyFlags" "IgnoreResting"
-data "Boosts" "Skill(SleightOfHand, -1)"
-
-
-## Applies by DT_PICKPOCKETING_VICTIM_AURA, indicated that you are in close range to pickpocketing victim
-#new entry "DT_PICKPOCKETING_VICTIM_IS_NEAR"
-#type "StatusData"
-#data "StatusType" "BOOST"
-#data "DisplayName" ";1"
-#data "Description" ";1"
-#data "Icon" "Status_ArcaneWard"
-##data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-#data "StatusPropertyFlags" ""
-
 
 
 # Just an indicator in game that it is the theft victim
@@ -33,7 +20,10 @@ data "Icon" "statIcons_Madness"
 data "StatusPropertyFlags" "IgnoreResting"
 
 
-# Track movements to trigger event on character move
+# Tracks movement to trigger StatusApplied event.
+# I cannot find another way to handle that pickpocketing window closed,
+# so logic works basing on distance between Thief and Victim, and the game does not provide (or I cannot find)
+# an event to track movements
 new entry "DT_MoveEventGeneratorPassive"
 type "PassiveData"
 data "Properties" "IsHidden"
