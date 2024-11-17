@@ -144,6 +144,13 @@ PROC
 PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
 THEN
 PROC_DT_Pickpocketing_RefreshDebuffs();
+
+PROC
+PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
+AND
+HasAppliedStatus(_Victim, "DT_PICKPOCKETING_VICTIM", 0)
+THEN
+ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM", -1.0, 1, _Victim);
 //END_REGION
 
 

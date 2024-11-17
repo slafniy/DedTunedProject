@@ -22,15 +22,15 @@ data "Boosts" "Skill(SleightOfHand, -1)"
 
 
 
-#new entry "DT_PICKPOCKETING_VICTIM"
-#type "StatusData"
-#data "StackId" "DT_PICKPOCKETING_VICTIM"
-#data "StatusType" "BOOST"
-#data "DisplayName" ";1"
-#data "Description" ";1"
-#data "DescriptionParams" "3"
-#data "Icon" "Action_Paladin_AuraOfWarding"
-#data "StatusPropertyFlags" "IgnoreResting"
+# Just an indicator in game that it is the theft victim
+new entry "DT_PICKPOCKETING_VICTIM"
+type "StatusData"
+data "StackId" "DT_PICKPOCKETING_VICTIM"
+data "StatusType" "BOOST"
+data "DisplayName" ";1"
+data "Description" ";1"
+data "Icon" "statIcons_Madness"
+data "StatusPropertyFlags" "IgnoreResting"
 
 
 # Track movements to trigger event on character move
