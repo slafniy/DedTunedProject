@@ -12,6 +12,14 @@ TextEvent("dtrefresh")
 THEN
 PROC_DT_Pickpocketing_RefreshDebuffs();
 
+//REGION // >>> event StatusApplied - on DT_PICKPOCKETING_JUST_MOVED try refresh debuffs
+IF
+StatusApplied(_,"DT_PICKPOCKETING_JUST_MOVED",_,_)
+THEN
+PROC_DT_Pickpocketing_RefreshDebuffs();
+//END_REGION
+
+
 //REGION  // PROC_DT_Pickpocketing_RefreshDebuffs - check distance between victims and characters and call handler
 PROC
 PROC_DT_Pickpocketing_RefreshDebuffs()
