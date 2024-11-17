@@ -30,7 +30,7 @@ AND
 NOT DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim)
 THEN
 DebugText(_Victim, "thief is near, apply debuff!");
-DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
+PROC_DT_Pickpocketing_AddDebuff(_Character, _Victim);
 
 PROC
 PROC_DT_PickpocketingHandleDistance((CHARACTER)_Character, (CHARACTER)_Victim, (REAL)_Distance)
@@ -40,7 +40,7 @@ AND
 DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim)
 THEN
 DebugText(_Victim, "thief is gone, remove debuff!");
-NOT DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
+PROC_DT_Pickpocketing_RemoveDebuff(_Character, _Victim);
 //END_REGION
 
 
@@ -117,30 +117,34 @@ PROC_DT_Pickpocketing_RemoveDebuff(_Thief, _Victim, _BoostID);
 //END_REGION*/
 
 
-/*//REGION
+//REGION
 PROC
-PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Thief, (CHARACTER)_Victim, (STRING)_BoostID)
+PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 THEN
-DB_DT_Pickpocketing_VictimToThiefMap(_Victim, _Thief);
+DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
 
 PROC
-PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Thief, (CHARACTER)_Victim, (STRING)_BoostID)
+PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 THEN
-AddBoosts(_Thief, "Skill(SleightOfHand, -10)", _BoostID, _Victim);
+ApplyStatus(_Character, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", -1.0, 1, _Victim);
+//AddBoosts(_Thief, "Skill(SleightOfHand, -10)", _BoostID, _Victim);
 //END_REGION
 
 
 //REGION
 PROC
-PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Thief, (CHARACTER)_Victim, (STRING)_BoostID)
+PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
+AND
+HasAppliedStatus(_Character, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", 1)
 THEN
-RemoveBoosts(_Thief, "Skill(SleightOfHand, -10)", 1, _BoostID, _Victim);
+RemoveStatus(_Character, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", _Victim);
+//RemoveBoosts(_Thief, "Skill(SleightOfHand, -10)", 1, _BoostID, _Victim);
 
 PROC
-PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Thief, (CHARACTER)_Victim, (STRING)_BoostID)
+PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 THEN
-NOT DB_DT_Pickpocketing_VictimToThiefMap(_Victim, _Thief);
-//END_REGION*/
+NOT DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
+//END_REGION
 
 
 //REGION // Handle Pickpocket Success
