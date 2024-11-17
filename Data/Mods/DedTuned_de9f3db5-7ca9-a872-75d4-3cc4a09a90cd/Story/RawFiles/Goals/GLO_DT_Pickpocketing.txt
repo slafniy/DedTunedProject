@@ -3,6 +3,10 @@ SubGoalCombiner SGC_AND
 INITSECTION
 // Store info about pickpockets this day, (CHARACTER)_Victim, (INTEGER)_TheftCount, (INTEGER)_Gold
 NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0, 0);
+
+// store DT_PICKPOCKETING_VICTIM_IS_NEAR IDs from aura to be able to match the owner later
+// Victim - Thief - StoryActionID
+NOT DB_DT_Pickpocketing_VictimNear_StoryActionID((CHARACTER)NULL_00000000-0000-0000-0000-000000000000,(CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0);
 KBSECTION
 //REGION // Handle Pickpocket Started - apply aura to make range checks with it
 IF
@@ -13,27 +17,90 @@ THEN
 ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM_AURA", -1.0, 1, _Victim);
 //END_REGION
 
-
-//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR - apply/remove SleightOfHand debuff if needed
+//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR - store who is responsible for this status
 IF
 StatusApplied((CHARACTER)_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", (CHARACTER)_Victim, _StoryActionID)
 AND
 DB_PartyMembers(_Thief)
-AND
-DB_DT_Pickpocketing_StolenCounter(_Victim, _NumberOfItems, _)
-AND
-ConcatenateInteger("DT_Pickpocketing_ActionID_", _StoryActionID, _BoostID)
 THEN
-AddBoosts(_Thief, "Skill(SleightOfHand, -10)", _BoostID, (GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000);
+DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _Thief, _StoryActionID);
 
 IF
 StatusRemoved((CHARACTER)_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", _, _StoryActionID)
 AND
+DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _Thief, _StoryActionID)
+THEN
+NOT DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _Thief, _StoryActionID);
+//END_REGION
+
+
+/*//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR - apply/remove SleightOfHand debuff if needed
+IF
+DB_PartyMembers(_Thief)
+AND
+HasAppliedStatus(_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", 1)
+AND
+DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _StoryActionID)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _NumberOfItems, _)
+AND
+NOT DB_DT_Pickpocketing_VictimToThiefMap(_Victim, _Thief)
+AND
 ConcatenateInteger("DT_Pickpocketing_ActionID_", _StoryActionID, _BoostID)
 THEN
-RemoveBoosts(_Thief, "Skill(SleightOfHand, -10)", 1, _BoostID, (GUIDSTRING)NULL_00000000-0000-0000-0000-000000000000);
-DebugText(_Thief, "should remove debuff here");
+PROC_DT_Pickpocketing_AddDebuff(_Thief, _Victim, _BoostID);
+
+
+IF
+DB_PartyMembers(_Thief)
+AND
+HasAppliedStatus(_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", 0)
+AND
+DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _StoryActionID)
+AND
+ConcatenateInteger("DT_Pickpocketing_ActionID_", _StoryActionID, _BoostID)
+THEN
+PROC_DT_Pickpocketing_RemoveDebuff(_Thief, _Victim, _BoostID);
+
+IF
+DB_PartyMembers(_Thief)
+AND
+HasAppliedStatus(_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", 1)
+AND
+NOT DB_DT_Pickpocketing_VictimToThiefMap(_, _Thief)
+AND
+DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _StoryActionID)
+AND
+ConcatenateInteger("DT_Pickpocketing_ActionID_", _StoryActionID, _BoostID)
+THEN
+PROC_DT_Pickpocketing_RemoveDebuff(_Thief, _Victim, _BoostID);
+//END_REGION*/
+
+
+/*//REGION
+PROC
+PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Thief, (CHARACTER)_Victim, (STRING)_BoostID)
+THEN
+DB_DT_Pickpocketing_VictimToThiefMap(_Victim, _Thief);
+
+PROC
+PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Thief, (CHARACTER)_Victim, (STRING)_BoostID)
+THEN
+AddBoosts(_Thief, "Skill(SleightOfHand, -10)", _BoostID, _Victim);
 //END_REGION
+
+
+//REGION
+PROC
+PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Thief, (CHARACTER)_Victim, (STRING)_BoostID)
+THEN
+RemoveBoosts(_Thief, "Skill(SleightOfHand, -10)", 1, _BoostID, _Victim);
+
+PROC
+PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Thief, (CHARACTER)_Victim, (STRING)_BoostID)
+THEN
+NOT DB_DT_Pickpocketing_VictimToThiefMap(_Victim, _Thief);
+//END_REGION*/
 
 
 //REGION // Handle Pickpocket Success
@@ -93,6 +160,20 @@ ConcatenateInteger(_msg2, _GoldNew, _msg)
 THEN
 DebugText(_Victim, _msg);
 //END_REGION
+
+
+IF
+TextEvent("dtwho")
+AND
+DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _Thief, _ActionID)
+AND
+ConcatenateGUID("", _Thief, _str1)
+AND
+Concatenate(_str1, ": ", _str2)
+AND
+ConcatenateInteger(_str2, _ActionID, _msg)
+THEN
+DebugText(_Victim, _msg);
 EXITSECTION
 
 ENDEXITSECTION
