@@ -1,17 +1,67 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-
+// Store info about pickpockets this day, (CHARACTER)_Victim, (INTEGER)_TheftCount, (INTEGER)_Gold
+NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0, 0);
 KBSECTION
-//REGION // >>> event CharacterPickpocketSuccess - call PROC_DT_Pickpocketing_SuccessHandler
+//REGION // >>> event CharacterPickpocketSuccess - call PROC_DT_CountTheftData
 IF
 CharacterPickpocketSuccess(_Thief, _Victim, _, _, _, _Gold)
 AND
 DB_PartyMembers(_Thief)  // not sure if this triggers for non-party thieves somewhere
 THEN
-PROC_DT_Pickpocketing_SuccessHandler(_Victim, _Gold);
+PROC_DT_CountTheftData(_Victim, _Gold);
 //END_REGION
 
+//REGION  // PROC_DT_CountTheftData
+// case we have record
+PROC
+PROC_DT_CountTheftData((CHARACTER)_Victim, (INTEGER)_Gold)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld)  // have record, increment counter
+AND
+IntegerSum(_TheftCountOld, 1, _TheftCountNew)
+AND
+IntegerSum(_GoldOld, _Gold, _GoldNew)
+THEN
+PROC_DT_Pickpocketing_StolenCounterReplace(_Victim, _TheftCountNew, _GoldNew);
+
+// case we have no records
+PROC
+PROC_DT_CountTheftData((CHARACTER)_Victim, (INTEGER)_Gold)
+AND
+NOT DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)  // have no records
+THEN
+DB_DT_Pickpocketing_StolenCounter(_Victim, 1, _Gold);  // add new
+
+// For debugging output only
+PROC
+PROC_DT_CountTheftData((CHARACTER)_Victim, _)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _Gold)
+AND
+ConcatenateInteger("Stolen: ", _TheftCount, _msg1)
+AND
+Concatenate(_msg1, ", Gold: ", _msg2)
+AND
+ConcatenateInteger(_msg2, _Gold, _msg)
+THEN
+DebugText(_Victim, _msg);
+//END_REGION
+
+//REGION  // PROC_DT_Pickpocketing_StolenCounterReplace - replace record in db
+PROC
+PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld)
+THEN
+NOT DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountOld, _GoldOld);  // remove old
+
+PROC
+PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
+THEN
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCountNew, _GoldNew);  // add new
+//END_REGION
 EXITSECTION
 
 ENDEXITSECTION
