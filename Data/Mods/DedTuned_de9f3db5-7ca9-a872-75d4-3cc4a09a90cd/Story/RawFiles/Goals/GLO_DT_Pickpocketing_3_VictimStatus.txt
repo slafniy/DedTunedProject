@@ -1,0 +1,35 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// Store info about pickpockets this day, (CHARACTER)_Victim, (INTEGER)_TheftCount, (INTEGER)_Gold
+//NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, 0, 0);
+KBSECTION
+//REGION // Apply DT_PICKPOCKETING_VICTIM status on every victim from DB_DT_Pickpocketing_StolenCounter list
+IF
+DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)
+AND
+HasAppliedStatus(_Victim, "DT_PICKPOCKETING_VICTIM", 0)
+THEN
+ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM", -1.0, 1, _Victim);
+//END_REGION
+
+
+//REGION // >>> event LongRestFinished - clear statuses and DB_DT_Pickpocketing_StolenCounter
+IF
+LongRestFinished()
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _Gold)
+THEN
+RemoveStatus(_Victim, "DT_PICKPOCKETING_VICTIM", _Victim);
+
+IF
+LongRestFinished()
+AND
+DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _Gold)
+THEN
+NOT DB_DT_Pickpocketing_StolenCounter(_Victim, _TheftCount, _Gold);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"

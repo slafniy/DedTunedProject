@@ -1,15 +1,4 @@
-# Indicates that owner is near pickpocketing victim and will have SleightOfHand debuff
-new entry "DT_PICKPOCKETING_DEBUFF"
-type "StatusData"
-data "StatusType" "BOOST"
-data "DisplayName" ";1"
-data "Description" ";1"
-data "DescriptionParams" "3"
-data "Icon" "statIcons_GOB_GoblinPriest_Chains"
-data "StatusPropertyFlags" "IgnoreResting"
-
-
-# Just an indicator in game that it is the theft victim
+# Indicates that it is the theft victim, and it's on alert
 new entry "DT_PICKPOCKETING_VICTIM"
 type "StatusData"
 data "StackId" "DT_PICKPOCKETING_VICTIM"
