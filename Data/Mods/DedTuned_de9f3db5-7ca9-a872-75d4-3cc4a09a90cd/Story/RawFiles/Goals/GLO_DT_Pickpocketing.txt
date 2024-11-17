@@ -8,7 +8,13 @@ NOT DB_DT_Pickpocketing_StolenCounter((CHARACTER)NULL_00000000-0000-0000-0000-00
 NOT DB_DT_Pickpocketing_DefuffsTracker((CHARACTER)NULL_00000000-0000-0000-0000-000000000000, (CHARACTER)NULL_00000000-0000-0000-0000-000000000000);
 KBSECTION
 IF
-TextEvent("dtdist")
+TextEvent("dtrefresh")
+THEN
+PROC_DT_Pickpocketing_RefreshDebuffs();
+
+//REGION  // PROC_DT_Pickpocketing_RefreshDebuffs - check distance between victims and characters and call handler
+PROC
+PROC_DT_Pickpocketing_RefreshDebuffs()
 AND
 DB_PartyMembers(_Character)
 AND
@@ -19,9 +25,9 @@ AND
 GetDistanceTo(_Character, _Victim, _Distance)
 THEN
 PROC_DT_PickpocketingHandleDistance(_Character, _Victim, _Distance);
+//END_REGION
 
-
-//REGION  // PROC_DT_PickpocketingHandleDistance
+//REGION  // PROC_DT_PickpocketingHandleDistance - check distance threshold between character and victim and add/remove debuffs
 PROC
 PROC_DT_PickpocketingHandleDistance((CHARACTER)_Character, (CHARACTER)_Victim, (REAL)_Distance)
 AND
@@ -44,80 +50,15 @@ PROC_DT_Pickpocketing_RemoveDebuff(_Character, _Victim);
 //END_REGION
 
 
-
-/*//REGION // Handle Pickpocket Started - apply aura to make range checks with it
+//REGION // >>> event RequestPickpocket - try refresh debuffs
 IF
-RequestPickpocket(_Thief, _Victim)
-AND
-DB_PartyMembers(_Thief)  // not sure if this triggers for non-party thieves somewhere
+RequestPickpocket(_, _)
 THEN
-ApplyStatus(_Victim, "DT_PICKPOCKETING_VICTIM_AURA", -1.0, 1, _Victim);
-//END_REGION*/
-
-/*//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR - store who is responsible for this status
-IF
-StatusApplied((CHARACTER)_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", (CHARACTER)_Victim, _StoryActionID)
-AND
-DB_PartyMembers(_Thief)
-AND
-ConcatenateInteger("DT_PICKPOCKETING_VICTIM_IS_NEAR applied with ID: ", _StoryActionID, _msg)
-THEN
-DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _Thief, _StoryActionID);
-DebugText(_Thief, _msg);
-
-IF
-StatusRemoved((CHARACTER)_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", _, _StoryActionID)
-AND
-DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _Thief, _StoryActionID)
-THEN
-NOT DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _Thief, _StoryActionID);
-//END_REGION*/
+PROC_DT_Pickpocketing_RefreshDebuffs();
+//END_REGION
 
 
-/*//REGION // Handle status DT_PICKPOCKETING_VICTIM_IS_NEAR - apply/remove SleightOfHand debuff if needed
-IF
-DB_PartyMembers(_Thief)
-AND
-HasAppliedStatus(_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", 1)
-AND
-DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _StoryActionID)
-AND
-DB_DT_Pickpocketing_StolenCounter(_Victim, _NumberOfItems, _)
-AND
-NOT DB_DT_Pickpocketing_VictimToThiefMap(_Victim, _Thief)
-AND
-ConcatenateInteger("DT_Pickpocketing_ActionID_", _StoryActionID, _BoostID)
-THEN
-PROC_DT_Pickpocketing_AddDebuff(_Thief, _Victim, _BoostID);
-
-
-IF
-DB_PartyMembers(_Thief)
-AND
-HasAppliedStatus(_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", 0)
-AND
-DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _StoryActionID)
-AND
-ConcatenateInteger("DT_Pickpocketing_ActionID_", _StoryActionID, _BoostID)
-THEN
-PROC_DT_Pickpocketing_RemoveDebuff(_Thief, _Victim, _BoostID);
-
-IF
-DB_PartyMembers(_Thief)
-AND
-HasAppliedStatus(_Thief, "DT_PICKPOCKETING_VICTIM_IS_NEAR", 1)
-AND
-NOT DB_DT_Pickpocketing_VictimToThiefMap(_, _Thief)
-AND
-DB_DT_Pickpocketing_VictimNear_StoryActionID(_Victim, _StoryActionID)
-AND
-ConcatenateInteger("DT_Pickpocketing_ActionID_", _StoryActionID, _BoostID)
-THEN
-PROC_DT_Pickpocketing_RemoveDebuff(_Thief, _Victim, _BoostID);
-//END_REGION*/
-
-
-//REGION
+//REGION  // PROC_DT_Pickpocketing_AddDebuff - apply debuff and store info about it in DB
 PROC
 PROC_DT_Pickpocketing_AddDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 THEN
@@ -131,7 +72,7 @@ ApplyStatus(_Character, "DT_PICKPOCKETING_SLEIGHT_OF_HAND_DEBUFF_MINUS_ONE", -1.
 //END_REGION
 
 
-//REGION
+//REGION  // PROC_DT_Pickpocketing_RemoveDebuff - remove debuff and erase info about it from DB
 PROC
 PROC_DT_Pickpocketing_RemoveDebuff((CHARACTER)_Character, (CHARACTER)_Victim)
 AND
@@ -147,7 +88,7 @@ NOT DB_DT_Pickpocketing_DefuffsTracker(_Character, _Victim);
 //END_REGION
 
 
-//REGION // Handle Pickpocket Success
+//REGION // >>> event CharacterPickpocketSuccess - call PROC_DT_Pickpocketing_SuccessHandler
 IF
 CharacterPickpocketSuccess(_Thief, _Victim, _, _, _, _Gold)
 AND
@@ -175,10 +116,15 @@ AND
 NOT DB_DT_Pickpocketing_StolenCounter(_Victim, _, _)  // have no records yet, add
 THEN
 DB_DT_Pickpocketing_StolenCounter(_Victim, 1, _Gold);
+
+PROC
+PROC_DT_Pickpocketing_SuccessHandler((CHARACTER)_Victim, (INTEGER)_Gold)
+THEN
+PROC_DT_Pickpocketing_RefreshDebuffs();
 //END_REGION
 
 
-//REGION  // replace values in db
+//REGION  // PROC_DT_Pickpocketing_StolenCounterReplace - replace values in db
 PROC
 PROC_DT_Pickpocketing_StolenCounterReplace((CHARACTER)_Victim, (INTEGER)_TheftCountNew, (INTEGER)_GoldNew)
 AND
@@ -204,28 +150,6 @@ ConcatenateInteger(_msg2, _GoldNew, _msg)
 THEN
 DebugText(_Victim, _msg);
 //END_REGION
-
-
-/*IF
-TextEvent("dtdist")
-AND
-DB_PartyMembers(_Character)
-AND
-DB_PartyMembers(_Other)
-AND
-GUIDToString(_Character, _CharacterStr)
-AND
-GUIDToString(_Other, _OtherStr)
-AND
-GetDistanceTo(_Character, _Other, _Distance)
-AND
-Concatenate("Distance to ", _OtherStr, _msg1)
-AND
-Concatenate(_msg1, ": ", _msg2)
-AND
-ConcatenateReal(_msg2, _Distance, _msg)
-THEN
-DebugText(_Character, _msg);*/
 EXITSECTION
 
 ENDEXITSECTION
