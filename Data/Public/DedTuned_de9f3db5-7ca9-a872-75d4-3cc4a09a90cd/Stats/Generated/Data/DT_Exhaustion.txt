@@ -1,28 +1,28 @@
-# Apply Exhaustion mechanics for all possible player-controlled characters
-new entry "_Hero"
-type "Character"
-using "_Hero"
-data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;EXHAUSTION_ADD_STACK_IN_COMBAT;EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
-
-new entry "ORIGIN_Karlach"
-type "Character"
-using "ORIGIN_Karlach"
-data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;ORI_Karlach_SweatImmune;EXHAUSTION_ADD_STACK_IN_COMBAT;EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
+## Apply Exhaustion mechanics for all possible player-controlled characters
+#new entry "_Hero"
+#type "Character"
+#using "_Hero"
+#data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;EXHAUSTION_ADD_STACK_IN_COMBAT;EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
+#
+#new entry "ORIGIN_Karlach"
+#type "Character"
+#using "ORIGIN_Karlach"
+#data "Passives" "ShortResting;NonLethal;WeaponThrow;Perform;AttackOfOpportunity;DarknessRules;CombatStartAttack;ORI_Karlach_SweatImmune;EXHAUSTION_ADD_STACK_IN_COMBAT;EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
 
 
 
 # DEBUFF: shows current level of Exhaustion and applies debuffs on certain breakpoints
-new entry "EXHAUSTION_DEBUFF_STACKS"
+new entry "DT_EXHAUSTION_STACKS"
 type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "h34f7d8d7gc6b8g4fa2g81f5g7636c1a91f99;1"
 data "Description" "h2c80a44eg9020g4d93gbdebg50abf17df167;1"
 data "Icon" "Status_Exhaustion"
-data "StackId" "EXHAUSTION_DEBUFF_STACKS"
+data "StackId" "DT_EXHAUSTION_STACKS"
 data "StackType" "Additive"
 data "StatusPropertyFlags" "FreezeDuration;MultiplyEffectsByDuration;ApplyToDead;DisableCombatlog;DisableOverhead"
 data "TickType" "EndTurn"
-data "TickFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'EXHAUSTION_DEBUFF_STACKS',15) and not HasStatus('EXHAUSTION_DEBUFF_LIGHT')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_LIGHT,100,-1);IF(StatusDurationLessThan(SELF,'EXHAUSTION_DEBUFF_STACKS',15) and HasStatus('EXHAUSTION_DEBUFF_LIGHT')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_LIGHT);IF(StatusDurationEqualOrMoreThan(SELF,'EXHAUSTION_DEBUFF_STACKS',25) and not HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP') and not HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE') and not HasStatus('SLEEPING')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP,100,1);IF(StatusDurationLessThan(SELF,'EXHAUSTION_DEBUFF_STACKS',25) and HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP);IF(StatusDurationEqualOrMoreThan(SELF,'EXHAUSTION_DEBUFF_STACKS',40) and not HasStatus('EXHAUSTION_DEBUFF_DEATH')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_DEATH,100,-1);IF(StatusDurationLessThan(SELF,'EXHAUSTION_DEBUFF_STACKS',40) and HasStatus('EXHAUSTION_DEBUFF_DEATH')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH)"
+data "TickFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',15) and not HasStatus('EXHAUSTION_DEBUFF_LIGHT')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_LIGHT,100,-1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',15) and HasStatus('EXHAUSTION_DEBUFF_LIGHT')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_LIGHT);IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',25) and not HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP') and not HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE') and not HasStatus('SLEEPING')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP,100,1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',25) and HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP);IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',40) and not HasStatus('EXHAUSTION_DEBUFF_DEATH')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_DEATH,100,-1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',40) and HasStatus('EXHAUSTION_DEBUFF_DEATH')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH)"
 
 # DEBUFF: Exhaustion level 1 - SLIGHT FATIGUE
 # Light penalty on ability checks, attack rolls, spell DC and saving throws
@@ -66,7 +66,7 @@ data "Icon" "Status_Dying"
 data "StillAnimationType" "Weakened"
 data "StillAnimationPriority" "Weakened"
 data "TickType" "EndTurn"
-data "TickFunctors" "RemoveStatus(SELF,DOWNED);Kill();RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH);SetStatusDuration(EXHAUSTION_DEBUFF_STACKS,30,ForceSet)"
+data "TickFunctors" "RemoveStatus(SELF,DOWNED);Kill();RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH);SetStatusDuration(DT_EXHAUSTION_STACKS,30,ForceSet)"
 
 # DEBUFF: Exhaustion sleep resistance
 # If passed CON save - cannot fall asleep from EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP for 3 turns
@@ -80,17 +80,51 @@ data "Icon" "Status_Positive"
 
 
 
-# PASSIVE: Adds +1 stack of Exhaustion every time when character turn starts in combat
-new entry "EXHAUSTION_ADD_STACK_IN_COMBAT"
-type "PassiveData"
-data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnTurn"
-data "Conditions" "Combat()"
-data "StatsFunctors" "ApplyStatus(SELF,EXHAUSTION_DEBUFF_STACKS,100,1)"
+## PASSIVE: Adds +1 stack of Exhaustion every time when character turn starts in combat
+#new entry "EXHAUSTION_ADD_STACK_IN_COMBAT"
+#type "PassiveData"
+#data "Properties" "IsHidden"
+#data "StatsFunctorContext" "OnTurn"
+#data "Conditions" "Combat()"
+#data "StatsFunctors" "ApplyStatus(SELF,DT_EXHAUSTION_STACKS,100,1)"
+#
+## PASSIVE: Removes N stacks of Exhaustion on Short Rest
+#new entry "EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
+#type "PassiveData"
+#data "Properties" "IsHidden"
+#data "StatsFunctorContext" "OnShortRest"
+#data "StatsFunctors" "IF(StatusDurationEqualOrMoreThan('DT_EXHAUSTION_STACKS',10)):ApplyStatus(DT_EXHAUSTION_STACKS,100,-10);IF(StatusDurationLessThan('DT_EXHAUSTION_STACKS',10)):SetStatusDuration(DT_EXHAUSTION_STACKS,0,ForceSet)"
 
-# PASSIVE: Removes N stacks of Exhaustion on Short Rest
-new entry "EXHAUSTION_REMOVE_STACKS_ON_SHORT_REST"
-type "PassiveData"
-data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnShortRest"
-data "StatsFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'EXHAUSTION_DEBUFF_STACKS',10)):ApplyStatus(SELF,EXHAUSTION_DEBUFF_STACKS,100,-10);IF(StatusDurationLessThan(SELF,'EXHAUSTION_DEBUFF_STACKS',10)):SetStatusDuration(EXHAUSTION_DEBUFF_STACKS,0,ForceSet)"
+
+# Bard's Rest
+# Does not remove Exhaustion
+#new entry "Shout_SongOfRest"
+#type "SpellData"
+#using "Shout_SongOfRest"
+#data "SpellProperties" "ShortRest();ApplyStatus(DT_SONG_OF_REST_RESTORATION,100,1)"
+#data "AreaRadius" "Infinity"
+#data "TargetConditions" "Ally() and not Tagged('UNDEAD') and not Tagged('CONSTRUCT') and not Item()"
+#
+#
+#new entry "DT_SONG_OF_REST_RESTORATION"
+#type "StatusData"
+#data "StatusType" "BOOST"
+#data "DisplayName" "h6664033bge8b7g48c8g8fc6g18986baa0bae;1"
+#data "Icon" "Action_Bard_SongOfRest"
+#data "StackId" "DT_SONG_OF_REST_RESTORATION"
+##data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+#data "OnApplyFunctors" "IF(HasPassive('FontOfInspiration')):RestoreResource(BardicInspiration,100%,0);IF(not HasPassive('Durable')):RegainHitPoints(MaxHP/2);IF(HasPassive('Durable')):RegainHitPoints(MaxHP);RestoreResource(ChannelDivinity,100%,0);RestoreResource(SuperiorityDie,100%,0);RestoreResource(KiPoint,100%,0);RestoreResource(WarlockSpellSlot,100%,1);RestoreResource(WarlockSpellSlot,100%,2);RestoreResource(WarlockSpellSlot,100%,3);RestoreResource(WarlockSpellSlot,100%,4);RestoreResource(WarlockSpellSlot,100%,5);RestoreResource(WarlockSpellSlot,100%,6);RestoreResource(WildShape,100%,0);RestoreResource(WeaponActionPoint,100%,0);RestoreResource(TidesOfChaos,100%,0);RestoreResource(ChannelOath,100%,0)"
+#data "ApplyEffect" "4019eeae-d4e3-449b-ba4a-6d7422ec6807"
+#data "TickType" "EndTurn"
+#data "TickFunctors" "ApplyStatus(DT_SONG_OF_REST_RESTORATION_RESET_SHOT_REST_COOLDOWNS,100,1)"
+#
+#
+#new entry "DT_SONG_OF_REST_RESTORATION_RESET_SHOT_REST_COOLDOWNS"
+#type "StatusData"
+#data "StatusType" "BOOST"
+#data "DisplayName" "h6664033bge8b7g48c8g8fc6g18986baa0bae;1"
+#data "Icon" "Action_Bard_SongOfRest"
+#data "StackId" "DT_SONG_OF_REST_RESTORATION_RESET_SHOT_REST_COOLDOWNS"
+##data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+#data "OnApplyFunctors" "ResetCooldowns(UntilShortRest)"
+#data "ApplyEffect" "4019eeae-d4e3-449b-ba4a-6d7422ec6807"
