@@ -22,11 +22,11 @@ data "StackId" "DT_EXHAUSTION_STACKS"
 data "StackType" "Additive"
 data "StatusPropertyFlags" "FreezeDuration;MultiplyEffectsByDuration;ApplyToDead;DisableCombatlog;DisableOverhead"
 data "TickType" "EndTurn"
-data "TickFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',15) and not HasStatus('EXHAUSTION_DEBUFF_LIGHT')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_LIGHT,100,-1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',15) and HasStatus('EXHAUSTION_DEBUFF_LIGHT')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_LIGHT);IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',25) and not HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP') and not HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE') and not HasStatus('SLEEPING')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP,100,1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',25) and HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP);IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',40) and not HasStatus('EXHAUSTION_DEBUFF_DEATH')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_DEATH,100,-1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',40) and HasStatus('EXHAUSTION_DEBUFF_DEATH')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH)"
+data "TickFunctors" "IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',15) and not HasStatus('DT_EXHAUSTION_DEBUFF_LIGHT')):ApplyStatus(SELF,DT_EXHAUSTION_DEBUFF_LIGHT,100,-1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',15) and HasStatus('DT_EXHAUSTION_DEBUFF_LIGHT')):RemoveStatus(SELF,DT_EXHAUSTION_DEBUFF_LIGHT);IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',25) and not HasStatus('DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP') and not HasStatus('EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE') and not HasStatus('SLEEPING')):ApplyStatus(SELF,DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP,100,1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',25) and HasStatus('DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP')):RemoveStatus(SELF,DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP);IF(StatusDurationEqualOrMoreThan(SELF,'DT_EXHAUSTION_STACKS',40) and not HasStatus('EXHAUSTION_DEBUFF_DEATH')):ApplyStatus(SELF,EXHAUSTION_DEBUFF_DEATH,100,-1);IF(StatusDurationLessThan(SELF,'DT_EXHAUSTION_STACKS',40) and HasStatus('EXHAUSTION_DEBUFF_DEATH')):RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH)"
 
 # DEBUFF: Exhaustion level 1 - SLIGHT FATIGUE
 # Light penalty on ability checks, attack rolls, spell DC and saving throws
-new entry "EXHAUSTION_DEBUFF_LIGHT"
+new entry "DT_EXHAUSTION_DEBUFF_LIGHT"
 type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "h3ba53e30g3696g4b88ga0fbg9384a90f24bd;1"
@@ -40,7 +40,7 @@ data "StatusGroups" "SG_Condition"
 
 # DEBUFF: Exhaustion level 2 - SLEEP
 # If not passed CON save falls asleep
-new entry "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP"
+new entry "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP"
 type "StatusData"
 data "StatusType" "BOOST"
 data "DisplayName" "h366f465ag287ag4ffbgb155gb3e2eae42575;1"
@@ -69,7 +69,7 @@ data "TickType" "EndTurn"
 data "TickFunctors" "RemoveStatus(SELF,DOWNED);Kill();RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH);SetStatusDuration(DT_EXHAUSTION_STACKS,30,ForceSet)"
 
 # DEBUFF: Exhaustion sleep resistance
-# If passed CON save - cannot fall asleep from EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP for 3 turns
+# If passed CON save - cannot fall asleep from DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP for 3 turns
 new entry "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE"
 type "StatusData"
 data "StatusType" "BOOST"

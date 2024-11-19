@@ -1,14 +1,37 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-
+DB_DT_Exhaustion_RemoveStacksOnShortRest(10);
 KBSECTION
+//REGION // Apply +1 Exhaustion stack on new turn in combat 
 IF
-TurnStarted((CHARACTER)_Character)
+TurnStarted((CHARACTER)_Character)  // works in combat
 AND
 DB_PartyMembers(_Character)
 THEN
 ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", 6.0, 1, _Character);  // 6 sec is 1 turn/stack, duration is freezed
+//END_REGION
+
+//REGION // On short rest remove some stacks
+IF
+ShortRested(_Character)
+AND
+GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
+AND
+DB_DT_Exhaustion_RemoveStacksOnShortRest(_StacksToRemoveOnShortRestConst)
+AND
+IntegerSubtract(_Stacks, _StacksToRemoveOnShortRestConst, _DesiredStacks)
+AND
+IntegerMax(_DesiredStacks, 0, _DesiredStacksMax)  // to avoid negative Exhaustion duration
+AND
+IntegerSubtract(_Stacks, _DesiredStacksMax, _StacksToRemove)
+AND
+IntegerToReal(_StacksToRemove, _StacksToRemoveReal)
+AND
+RealProduct(_StacksToRemoveReal, -6.0, _DurationToApplySec)  // get negative duration in seconds to apply to status
+THEN
+ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", _DurationToApplySec, 1, _Character);
+//END_REGION
 EXITSECTION
 
 ENDEXITSECTION
