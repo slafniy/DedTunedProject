@@ -2,6 +2,9 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 DB_DT_Exhaustion_RemoveStacksOnShortRest(10);
+
+DB_DT_Exhaustion_Stage(5, "DT_EXHAUSTION_DEBUFF_LIGHT");
+DB_DT_Exhaustion_Stage(15, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP");
 KBSECTION
 //REGION // Apply +1 Exhaustion stack on new turn in combat 
 IF
@@ -11,6 +14,7 @@ DB_PartyMembers(_Character)
 THEN
 ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", 6.0, 1, _Character);  // 6 sec is 1 turn/stack, duration is freezed
 //END_REGION
+
 
 //REGION // On short rest remove some stacks
 IF
@@ -32,6 +36,42 @@ RealProduct(_StacksToRemoveReal, -6.0, _DurationToApplySec)  // get negative dur
 THEN
 ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", _DurationToApplySec, 1, _Character);
 //END_REGION
+
+
+//REGION // Apply/Remove debuffs on DT_EXHAUSTION_STACKS change
+IF
+StatusApplied((CHARACTER)_Character, "DT_EXHAUSTION_STACKS", _, _)
+AND
+GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
+THEN
+PROC_DT_ExhaustionRefreshDebuffs(_Character, _Stacks);
+//END_REGION
+
+
+//REGION // PROC_DT_ExhaustionRefreshDebuffs
+PROC
+PROC_DT_ExhaustionRefreshDebuffs((CHARACTER)_Character, (INTEGER)_Stacks)
+AND
+DB_DT_Exhaustion_Stage(_Breakpoint, _Debuff)
+AND
+_Stacks >= _Breakpoint
+AND
+HasAppliedStatus(_Character, _Debuff, 0)
+THEN
+ApplyStatus(_Character, _Debuff, -1.0, 1, _Character);
+
+PROC
+PROC_DT_ExhaustionRefreshDebuffs((CHARACTER)_Character, (INTEGER)_Stacks)
+AND
+DB_DT_Exhaustion_Stage(_Breakpoint, _Debuff)
+AND
+_Stacks < _Breakpoint
+AND
+HasAppliedStatus(_Character, _Debuff, 1)
+THEN
+RemoveStatus(_Character, _Debuff, _Character);
+//END_REGION
+
 EXITSECTION
 
 ENDEXITSECTION
