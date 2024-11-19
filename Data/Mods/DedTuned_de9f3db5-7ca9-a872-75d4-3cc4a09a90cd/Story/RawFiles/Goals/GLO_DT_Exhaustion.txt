@@ -3,8 +3,8 @@ SubGoalCombiner SGC_AND
 INITSECTION
 DB_DT_Exhaustion_RemoveStacksOnShortRest(10);
 
-DB_DT_Exhaustion_Stage(5, "DT_EXHAUSTION_DEBUFF_LIGHT");
-DB_DT_Exhaustion_Stage(15, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP");
+DB_DT_Exhaustion_Stage(15, "DT_EXHAUSTION_DEBUFF_LIGHT");
+DB_DT_Exhaustion_Stage(25, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP");
 KBSECTION
 //REGION // Apply +1 Exhaustion stack on new turn in combat 
 IF
