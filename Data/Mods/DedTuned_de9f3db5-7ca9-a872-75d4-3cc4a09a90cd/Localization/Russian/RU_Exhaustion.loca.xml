@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contentList>
     <content contentuid="h34f7d8d7gc6b8g4fa2g81f5g7636c1a91f99" version="1">Усталость</content>
-    <content contentuid="h2c80a44eg9020g4d93gbdebg50abf17df167" version="1">Каждый ход, проведенный в бою, вызывает накопление усталости. По мере накопления этот эффект будет вызывать всё более тяжелые последствия, вплоть до смерти.&lt;br&gt;Короткий привал ослабляет эффект, долгий отдых полностью от него избавляет</content>
+    <content contentuid="h2c80a44eg9020g4d93gbdebg50abf17df167" version="1">Каждый ход, проведенный в бою, вызывает накопление усталости. По мере накопления этот эффект будет вызывать всё более тяжелые последствия, вплоть до смерти.&lt;br&gt;Дважды в день короткий привал ослабляет эффект, долгий отдых полностью от него избавляет</content>
     <content contentuid="h4568bcf8g51b7g42c3gb7a5g259d2b0d12f4" version="1">Смертельное истощение</content>
     <content contentuid="h9a276103g3eb8g4a50g90aeg5828c7d4aad6" version="1">Это существо умрёт в конце своего хода.</content>
     <content contentuid="h366f465ag287ag4ffbgb155gb3e2eae42575" version="1">Депривация сна</content>

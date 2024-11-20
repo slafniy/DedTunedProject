@@ -38,13 +38,11 @@ THEN
 DB_DT_ExhaustionShortRestCount(_Character, 1);
 
 IF
-ShortRested(_Character)
+LongRestFinished()
 AND
 DB_DT_ExhaustionShortRestCount(_Character, _Count)
-AND
-ConcatenateInteger("Short rests: ", _Count, _msg)
 THEN
-DebugText(_Character, _msg);
+NOT DB_DT_ExhaustionShortRestCount(_Character, _Count);
 //END_REGION
 
 
