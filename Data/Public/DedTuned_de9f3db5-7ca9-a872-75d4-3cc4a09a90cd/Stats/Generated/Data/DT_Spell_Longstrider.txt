@@ -1,0 +1,10 @@
+# Remade it from Target to Shout just for QOL
+new entry "Target_Longstrider"
+type "SpellData"
+using "Target_Longstrider"
+data "SpellType" "Shout"
+#data "TargetRadius" ""
+data "TargetConditions" "Ally()"
+data "AreaRadius" "9"
+data "Description" "h86400eefg99a0g4316g9acfgc486581d976d;1"
+data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
