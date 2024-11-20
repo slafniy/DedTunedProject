@@ -5,6 +5,7 @@ DB_DT_Exhaustion_RemoveStacksOnShortRest(10);
 
 DB_DT_Exhaustion_Stage(15, "DT_EXHAUSTION_DEBUFF_LIGHT");
 DB_DT_Exhaustion_Stage(25, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP");
+DB_DT_Exhaustion_Stage(40, "EXHAUSTION_DEBUFF_DEATH");
 KBSECTION
 //REGION // Apply +1 Exhaustion stack on new turn in combat 
 IF
@@ -38,13 +39,24 @@ ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", _DurationToApplySec, 1, _Charact
 //END_REGION
 
 
-//REGION // Apply/Remove debuffs on DT_EXHAUSTION_STACKS change
+//REGION // Apply/Remove debuffs on particular events
 IF
 StatusApplied((CHARACTER)_Character, "DT_EXHAUSTION_STACKS", _, _)
 AND
 GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
 THEN
 PROC_DT_ExhaustionRefreshDebuffs(_Character, _Stacks);
+
+IF
+Resurrected(_Character)
+AND
+GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
+AND
+DB_DT_Exhaustion_Stage(_DeathStacks, "EXHAUSTION_DEBUFF_DEATH")
+AND
+_Stacks >= _DeathStacks
+THEN
+ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", -18.0, 1, _Character);  // -3 stacks to give a chance
 //END_REGION
 
 
@@ -70,6 +82,43 @@ AND
 HasAppliedStatus(_Character, _Debuff, 1)
 THEN
 RemoveStatus(_Character, _Debuff, _Character);
+//END_REGION
+
+
+//REGION  // handle StatusApplied DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_TECHNICAL and call PROC_DT_ExhaustionRefreshSleeping
+IF
+StatusApplied((CHARACTER)_Character, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_TECHNICAL", _, _)
+AND
+HasAppliedStatus(_Character, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP", 1)
+THEN
+PROC_DT_ExhaustionRefreshSleeping(_Character);
+//END_REGION
+
+
+//REGION  // PROC_DT_ExhaustionRefreshSleeping
+PROC
+PROC_DT_ExhaustionRefreshSleeping((CHARACTER)_Character)
+AND
+HasAppliedStatus(_Character, "SLEEPING", 0)
+AND
+HasAppliedStatus(_Character, "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE", 0)
+THEN
+// DC 15
+RequestPassiveRoll(_Character, _Character, "SavingThrow", "Constitution", (DIFFICULTYCLASS)Act1_Hard_831e1fbe-428d-4f4d-bd17-4206d6efea35, 0, "DT_ExhaustionSleepSavingRoll");
+
+IF
+RollResult("DT_ExhaustionSleepSavingRoll", _Character, _, _Result, _, _)
+AND
+_Result != 1
+THEN
+ApplyStatus(_Character, "SLEEPING", 12.0, 1, _Character);
+
+IF
+RollResult("DT_ExhaustionSleepSavingRoll", _Character, _, _Result, _, _)
+AND
+_Result == 1
+THEN
+ApplyStatus(_Character, "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE", 12.0, 1, _Character);
 //END_REGION
 
 EXITSECTION

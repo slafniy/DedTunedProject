@@ -26,6 +26,7 @@ data "StatusGroups" "SG_Condition"
 
 # DEBUFF: Exhaustion level 2 - SLEEP
 # If not passed CON save falls asleep
+# Sleep applies from Osiris!
 new entry "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -37,12 +38,23 @@ data "StackId" "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP"
 data "StillAnimationType" "Weakened"
 data "StillAnimationPriority" "Weakened"
 data "TickType" "EndTurn"
-data "OnTickRoll" "not SavingThrow(Ability.Constitution, 15)"
-data "OnTickSuccess" "ApplyStatus(SLEEPING,100,2)"
-data "OnTickFail" "ApplyStatus(EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE,100,2)"
+data "OnTickRoll" ""
 data "TooltipSave" "Constitution"
+data "OnTickSuccess" "ApplyStatus(DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_TECHNICAL,100,1)"
 
-# DEBUFF: Exhaustion level 3 - DEATH, also set exhaustion stacks to level 2 to give a chance after resurrection
+
+# indicates to Osiris that it's time to check Sleeping conditions
+new entry "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_TECHNICAL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h366f465ag287ag4ffbgb155gb3e2eae42575;1"
+data "Icon" "Status_SleepDeprivation"
+data "StackId" "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_TECHNICAL"
+data "RemoveEvents" "OnAttacked;OnStatusRemoved;OnStatusApplied;OnCombatEnded;OnTurn"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
+
+
+# DEBUFF: Exhaustion level 3 - DEATH
 # Removes "DOWNED" first to be sure of instant death
 new entry "EXHAUSTION_DEBUFF_DEATH"
 type "StatusData"
@@ -54,10 +66,10 @@ data "StackId" "EXHAUSTION_DEBUFF_DEATH"
 data "StillAnimationType" "Weakened"
 data "StillAnimationPriority" "Weakened"
 data "TickType" "EndTurn"
-data "TickFunctors" "RemoveStatus(SELF,DOWNED);Kill();RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH);ApplyStatus(DT_EXHAUSTION_STACKS,100,-2)"
+data "TickFunctors" "RemoveStatus(SELF,DOWNED);Kill();RemoveStatus(SELF,EXHAUSTION_DEBUFF_DEATH)"
 
 # DEBUFF: Exhaustion sleep resistance
-# If passed CON save - cannot fall asleep from DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP for 3 turns
+# OSIRIS: If passed CON save - cannot fall asleep from DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP for 2 turns
 new entry "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE"
 type "StatusData"
 data "StatusType" "BOOST"
