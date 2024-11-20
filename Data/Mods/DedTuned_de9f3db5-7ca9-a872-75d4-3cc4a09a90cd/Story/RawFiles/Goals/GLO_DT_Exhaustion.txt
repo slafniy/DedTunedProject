@@ -52,6 +52,10 @@ DebugText(_Character, _msg);
 IF
 ShortRested(_Character)
 AND
+DB_DT_ExhaustionShortRestCount(_Character, _ShortRestCount)
+AND
+_ShortRestCount <= 2
+AND
 GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
 AND
 DB_DT_Exhaustion_RemoveStacksOnShortRest(_StacksToRemoveOnShortRestConst)
