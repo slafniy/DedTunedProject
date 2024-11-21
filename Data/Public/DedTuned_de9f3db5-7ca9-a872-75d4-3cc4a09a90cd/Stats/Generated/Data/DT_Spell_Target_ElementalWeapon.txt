@@ -1,0 +1,12 @@
+# Removed IsConcentration flag
+
+new entry "Target_ElementalWeapon"
+type "SpellData"
+using "Target_ElementalWeapon"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee;IsLinkedSpellContainer"
+
+new entry "Target_ElementalWeapon_Acid"
+type "SpellData"
+using "Target_ElementalWeapon_Acid"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"
+
