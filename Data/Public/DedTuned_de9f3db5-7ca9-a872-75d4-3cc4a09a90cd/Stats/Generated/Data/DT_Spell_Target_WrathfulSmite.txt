@@ -4,7 +4,7 @@ using "Target_Smite_Wrathful"
 data "SpellFlags" "IsSpell;HasVerbalComponent;IsMelee;IsHarmful"
 data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand); ApplyStatus(FRIGHTENED,100,2, , , ,not SavingThrow(Ability.Wisdom, SourceSpellDC(), AdvantageOnFrightened(), DisadvantageOnFrightened()));DealDamage(2d8,Psychic,Magical)"
 data "TooltipDamageList" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);DealDamage(2d8,Psychic)"
-data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+data "TooltipOnMiss" "cb4a8564-ab26-405e-a635-5f88a21f9a5f"
 data "TooltipUpcastDescription" "81d5554a-e990-4737-9072-78104cd4bbda"
 data "TooltipUpcastDescriptionParams" "DealDamage(1d8, Psychic)"
 
