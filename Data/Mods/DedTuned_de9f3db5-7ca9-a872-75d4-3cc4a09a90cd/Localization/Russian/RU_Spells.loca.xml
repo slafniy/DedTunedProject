@@ -2,6 +2,7 @@
 <contentList>
     <content contentuid="h06784476g3a18g473ag86fag6e20c9e57e89" version="1">Стрела Рикошета</content>
     <content contentuid="h0b80a0c0g7281g431egb624g3c496b59ce67" version="1">Стрела Рикошета</content>
+    <content contentuid="he87db6e3ga0bdg4afcga384gf735fe8c0918" version="1">Не расходует &lt;LSTag Tooltip="SpellSlot"&gt;ячейку заклинания&lt;/LSTag&gt; и &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;бонусное действие&lt;/LSTag&gt;.</content>
     <content contentuid="hb7ad154eg6ce4g4da6g8f42ga9396530dcbe" version="4">Нанести нормальный урон цели и дополнительно половину урона второй цели в радиусе девяти метров. Применяет специальные эффекты оружия к обеим целям.</content>
     <content contentuid="h86400eefg99a0g4316g9acfgc486581d976d" version="1">Вы и ближайшие союзники получаете увеличенную на [1] &lt;LSTag Tooltip="MovementSpeed"&gt;Скорость перемещения&lt;/LSTag&gt;.</content>
 </contentList>
