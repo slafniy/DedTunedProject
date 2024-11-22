@@ -72,6 +72,33 @@ ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", _DurationToApplySec, 1, _Charact
 //END_REGION
 
 
+//REGION  // clear Exhaustion stacks on first WLD_Main_A load
+IF
+LevelLoaded("WLD_Main_A")
+AND
+NOT DB_LevelLoadedOnce("WLD_Main_A")
+AND
+DB_Origins(_Origin)
+AND
+DB_DT_Exhaustion_Stage(_, _Status)
+THEN
+RemoveStatus(_Origin, "DT_EXHAUSTION_STACKS", NULL_00000000-0000-0000-0000-000000000000);
+RemoveStatus(_Origin, _Status, NULL_00000000-0000-0000-0000-000000000000);
+
+IF
+LevelLoaded("WLD_Main_A")
+AND
+NOT DB_LevelLoadedOnce("WLD_Main_A")
+AND
+DB_PartyMembers(_Character)
+AND
+DB_DT_Exhaustion_Stage(_, _Status)
+THEN
+RemoveStatus(_Character, "DT_EXHAUSTION_STACKS", NULL_00000000-0000-0000-0000-000000000000);
+RemoveStatus(_Character, _Status, NULL_00000000-0000-0000-0000-000000000000);
+//END_REGION
+
+
 //REGION // Apply/Remove debuffs on particular events
 IF
 StatusApplied((CHARACTER)_Character, "DT_EXHAUSTION_STACKS", _, _)
