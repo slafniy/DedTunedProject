@@ -1,0 +1,5 @@
+# Fix tooltip - mention CHA modifier
+new entry "Target_InquisitorsMight"
+type "SpellData"
+using "Target_InquisitorsMight"
+data "Description" "h6c1632dcgb093g439bga652g4851cb30d128;1"

@@ -5,4 +5,5 @@
     <content contentuid="he87db6e3ga0bdg4afcga384gf735fe8c0918" version="1">Не расходует &lt;LSTag Tooltip="SpellSlot"&gt;ячейку заклинания&lt;/LSTag&gt; и &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;бонусное действие&lt;/LSTag&gt;.</content>
     <content contentuid="hb7ad154eg6ce4g4da6g8f42ga9396530dcbe" version="4">Нанести нормальный урон цели и дополнительно половину урона второй цели в радиусе девяти метров. Применяет специальные эффекты оружия к обеим целям.</content>
     <content contentuid="h86400eefg99a0g4316g9acfgc486581d976d" version="1">Вы и ближайшие союзники получаете увеличенную на [1] &lt;LSTag Tooltip="MovementSpeed"&gt;Скорость перемещения&lt;/LSTag&gt;.</content>
+    <content contentuid="h6c1632dcgb093g439bga652g4851cb30d128" version="1">Ваши атаки оружием или атаки оружием союзника дополнительно наносят лучистый урон в размере &lt;LSTag Tooltip="AbilityModifier"&gt;модификатора&lt;/LSTag&gt; вашей &lt;LSTag Tooltip="Charisma"&gt;харизмы&lt;/LSTag&gt; и могут на 1 ход &lt;LSTag Type="Status" Tooltip="DAZED"&gt;дезориентировать&lt;/LSTag&gt; врагов.</content>
 </contentList>

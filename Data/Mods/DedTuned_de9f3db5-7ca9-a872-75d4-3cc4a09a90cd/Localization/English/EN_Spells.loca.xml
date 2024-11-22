@@ -5,4 +5,5 @@
     <content contentuid="he87db6e3ga0bdg4afcga384gf735fe8c0918" version="1">Does not spend a &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt; and a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.</content>
     <content contentuid="hb7ad154eg6ce4g4da6g8f42ga9396530dcbe" version="4">Deal normal damage to target and an additional half damage to the second target in 9 meters. Applies special weapon effects to both targets.</content>
     <content contentuid="h86400eefg99a0g4316g9acfgc486581d976d" version="1">You and nearby allies gain &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; increased by [1].</content>
+    <content contentuid="h6c1632dcgb093g439bga652g4851cb30d128" version="1">You or an ally's weapon attacks deal an additional radiant damage equal to your &lt;LSTag Tooltip="Charisma"&gt;charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;modifier&lt;/LSTag&gt; and can &lt;LSTag Type="Status" Tooltip="DAZED"&gt;Daze&lt;/LSTag&gt; enemies for 1 turn.</content>
 </contentList>
