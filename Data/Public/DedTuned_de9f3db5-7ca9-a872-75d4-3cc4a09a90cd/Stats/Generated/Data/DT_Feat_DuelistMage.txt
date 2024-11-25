@@ -16,3 +16,5 @@ data "Boosts" "UnlockSpellVariant(DuelistMageCantripCheck(), ModifyIconGlow(), M
 data "RemoveConditions" "DuelistMageCantripCheck()"
 data "RemoveEvents" "OnSpellCast"
 data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;DisableOverhead;ApplyToDead"
+data "DisplayName" "ha1c3f1f7g3904g4e66ga910g6003c567e2b4;1"
+data "Description" "hd12457e0g63beg4d9eg8b74g2805c20185fd;1"
