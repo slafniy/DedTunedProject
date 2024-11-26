@@ -1,11 +1,10 @@
 # Overrides default hardcore boost
-# x2.5 hp instead of x1.3, and +1 roll and spell dc
 new entry "HEALTHBOOST_HARDCORE"
 type "StatusData"
 data "StatusType" "BOOST"
 using "DIFFICULTY"
 data "StackId" "HEALTHBOOST_HARDCORE"
-data "Boosts" "IncreaseMaxHP(150%);RollBonus(Attack,3);SpellSaveDC(3)"
+data "Boosts" "IF(CreatureLevelBetween(1,3)):IncreaseMaxHP(100%);IF(CreatureLevelBetween(4,5)):IncreaseMaxHP(125%);IF(CreatureLevelBetween(6,7)):IncreaseMaxHP(150%);IF(CreatureLevelBetween(8,10)):IncreaseMaxHP(175%);IF(CharacterLevelGreaterThan(10)):IncreaseMaxHP(200%);IF(CreatureLevelBetween(1,5)):RollBonus(Attack,2);IF(CreatureLevelBetween(1,5)):SpellSaveDC(2);IF(CharacterLevelGreaterThan(5)):RollBonus(Attack,3);IF(CharacterLevelGreaterThan(5)):SpellSaveDC(3)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead"
 
 # Does not boost HP. Use this to set exact Vitality values

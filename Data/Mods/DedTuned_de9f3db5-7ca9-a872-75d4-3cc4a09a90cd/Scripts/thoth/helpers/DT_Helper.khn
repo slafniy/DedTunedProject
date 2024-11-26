@@ -41,3 +41,10 @@ function IsMainHandRangedWeaponAttack()
     entity = context.Source
     return HasUseCosts('ActionPoint',false) & HasStringInSpellRoll('RangedWeaponAttack') & WieldingWeapon('Ammunition', false, true, entity) & WieldingWeapon('Twohanded', false, true, entity)
 end
+
+
+-- Check level within bounds, including
+function CreatureLevelBetween(valueFrom, valueTo, entity)
+    entity = entity or context.Source
+    return ConditionResult(entity.Level >= valueFrom) & ConditionResult(entity.Level <= valueTo)
+end
