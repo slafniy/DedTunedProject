@@ -15,6 +15,7 @@ every cheesy mechanics they found and I have to wait when they use EVERY buff fr
 So this is an attempt to make the game ideal for me. I have no goal to do it for vast audience,
 if it's even possible, but I would appreciate if you guys try it and share your opinion in comments.
 
+Mod page: https://mod.io/g/baldursgate3/m/dedtuned
 
 ## Changelist
 ### Exhaustion - new mechanics (WIP)
