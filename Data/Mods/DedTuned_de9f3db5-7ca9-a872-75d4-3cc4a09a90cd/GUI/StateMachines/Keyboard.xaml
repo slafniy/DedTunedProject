@@ -18,8 +18,7 @@
                 <ls:StateWidget Filename="/MainUI;component/Pages/CombatLog.xaml" Layer="HUD"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/CombatantsOverlay.xaml" Layer="HUD"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/CursorText.xaml" Layer="PopupPanels"/>
-                <ls:StateWidget Filename="/MainUI;component/Pages/DragAndDropPreview.xaml" Layer="DragAndDrop"
-                                IgnoreHitTest="True"/>
+                <ls:StateWidget Filename="PPMeter_DragAndDropPreview.xaml" Layer="DragAndDrop" IgnoreHitTest="True"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/PassiveRoll.xaml" Layer="PopupPanels"/>
                 <ls:StateWidget Filename="/MainUI;component/Pages/AlwaysOnTopOverlay.xaml" Layer="PopupPanels"/>
             </ls:State.Widgets>
