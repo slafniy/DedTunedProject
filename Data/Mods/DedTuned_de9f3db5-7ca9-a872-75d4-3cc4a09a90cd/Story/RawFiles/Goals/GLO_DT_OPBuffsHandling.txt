@@ -3,7 +3,7 @@ SubGoalCombiner SGC_AND
 INITSECTION
 //REGION Overpowered buffs (without concentration) which have to be removed if its caster left the party OR changed spec
 DB_DT_OPBuffs_List("LONGSTRIDER");
-DB_DT_OPBuffs_List("WARDING_BOND");  // TODO: fix WARDING_BOND_CASTER left on caster
+DB_DT_OPBuffs_List("WARDING_BOND");
 DB_DT_OPBuffs_List("PROTECTION_FROM_POISON");
 DB_DT_OPBuffs_List("FREEDOM_OF_MOVEMENT");
 DB_DT_OPBuffs_List("DEATH_WARD");
@@ -66,7 +66,7 @@ HasAppliedStatus(_Target, _Status, 1)
 AND
 Concatenate("Removing ", _Status, _msg1)
 THEN
-RemoveStatus(_Target, _Status, DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
+PROC_DT_RemoveOPBuff(_Target, _Caster, _Status);
 
 
 // Target in party, caster leaves
@@ -81,7 +81,7 @@ DB_PartyMembers(_Target)
 AND
 HasAppliedStatus(_Target, _Status, 1)
 THEN
-RemoveStatus(_Target, _Status, DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
+PROC_DT_RemoveOPBuff(_Target, _Caster, _Status);
 //END_REGION
 
 
@@ -96,6 +96,22 @@ AND
 HasAppliedStatus(_Target, _Status, 1)
 THEN
 RemoveStatus(_Target, _Status, DT_OPBuffRemovingRespec_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
+//END_REGION
+
+
+//REGION
+PROC
+PROC_DT_RemoveOPBuff((CHARACTER)_Target, (CHARACTER)_Caster, (STRING)_Status)
+THEN
+RemoveStatus(_Target, _Status, DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
+
+// Special handling for WARDING_BOND - also remove WARDING_BOND_CASTER from caster
+PROC
+PROC_DT_RemoveOPBuff((CHARACTER)_Target, (CHARACTER)_Caster, (STRING)_Status)
+AND
+_Status == "WARDING_BOND"
+THEN
+RemoveStatus(_Caster, "WARDING_BOND_CASTER", DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
 //END_REGION
 EXITSECTION
 
