@@ -1,0 +1,9 @@
+new entry "Target_Fly"
+type "SpellData"
+using "Target_Fly"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsMelee;IsSpell"
+
+new entry "Target_Fly_4"
+type "SpellData"
+using "Target_Fly_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsMelee;IsSpell"
