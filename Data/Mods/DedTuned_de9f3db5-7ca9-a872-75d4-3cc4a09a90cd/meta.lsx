@@ -21,7 +21,7 @@
                     <attribute id="Author" type="LSString" value="slafniy"/>
                     <attribute id="CharacterCreationLevelName" type="FixedString" value=""/>
                     <attribute id="Description" type="LSString" value="Makes Honor mode slightly harder: adds new Exhaustion mechanics, removes Partial Rest, makes Long Rest expensive, nerfs some OP Feats/Abilities/Ammunition etc and buffs the weak ones (WIP)"/>
-                    <attribute id="FileSize" type="uint64" value="1452803"/>
+                    <attribute id="FileSize" type="uint64" value="0"/>
                     <attribute id="Folder" type="LSString" value="DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
                     <attribute id="MD5" type="LSString" value="ac67ef4f526528a4a7206db2274c28ca"/>
