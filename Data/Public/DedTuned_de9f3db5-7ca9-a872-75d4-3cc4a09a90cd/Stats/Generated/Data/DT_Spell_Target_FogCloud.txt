@@ -1,0 +1,30 @@
+new entry "Target_FogCloud"
+type "SpellData"
+using "Target_FogCloud"
+data "SpellProperties" "GROUND:CreateSurface(4,3,FogCloud,true)"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold"
+
+new entry "Target_FogCloud_2"
+type "SpellData"
+using "Target_FogCloud_2"
+data "SpellProperties" "GROUND:CreateSurface(6,3,FogCloud,true)"
+
+new entry "Target_FogCloud_3"
+type "SpellData"
+using "Target_FogCloud_3"
+data "SpellProperties" "GROUND:CreateSurface(8,3,FogCloud,true)"
+
+new entry "Target_FogCloud_4"
+type "SpellData"
+using "Target_FogCloud_4"
+data "SpellProperties" "GROUND:CreateSurface(10,3,FogCloud,true)"
+
+new entry "Target_FogCloud_5"
+type "SpellData"
+using "Target_FogCloud_5"
+data "SpellProperties" "GROUND:CreateSurface(12,3,FogCloud,true)"
+
+new entry "Target_FogCloud_6"
+type "SpellData"
+using "Target_FogCloud_6"
+data "SpellProperties" "GROUND:CreateSurface(14,3,FogCloud,true)"
