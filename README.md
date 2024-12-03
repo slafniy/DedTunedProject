@@ -45,8 +45,8 @@ Expected levels:
 
 
 ### Respec
-- The first respec of each party member costs only 1 gold
-- The second and all other respecs cost 1000 gold
+- Respec cost is 1000 gold
+- Every origin character has one-time free respec button
 
 Note: I made this mainly to avoid exploiting of (almost free) resource regeneration after respec.
 
