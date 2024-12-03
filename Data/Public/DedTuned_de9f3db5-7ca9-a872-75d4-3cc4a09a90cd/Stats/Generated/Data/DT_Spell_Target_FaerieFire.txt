@@ -1,0 +1,6 @@
+new entry "Target_FaerieFire"
+type "SpellData"
+using "Target_FaerieFire"
+data "SpellSuccess" "ApplyStatus(FAERIE_FIRE, 100, 3)"
+data "TooltipStatusApply" "ApplyStatus(FAERIE_FIRE, 100, 3)"
+data "SpellFlags" "IsSpell;HasVerbalComponent;IsHarmful;RangeIgnoreVerticalThreshold"
