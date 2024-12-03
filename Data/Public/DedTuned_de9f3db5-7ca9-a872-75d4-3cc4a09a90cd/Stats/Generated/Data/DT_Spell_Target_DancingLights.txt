@@ -1,0 +1,4 @@
+new entry "Target_DancingLights"
+type "SpellData"
+using "Target_DancingLights"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
