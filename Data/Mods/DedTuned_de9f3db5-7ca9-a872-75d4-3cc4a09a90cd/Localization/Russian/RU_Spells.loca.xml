@@ -9,4 +9,5 @@
     <content contentuid="h11c99864g9865g4990gb0e1g5c835cef51d1" version="1">Смена класса</content>
     <content contentuid="h186f09bcg218bg4598g966ag2fe841df9a8d" version="1">Изменить класс персонажа. Может быть использовано только один раз.</content>
     <content contentuid="hcd4b1357g5e72g470ag9053g31207acfe7c1" version="1">Длится дольше.</content>
+    <content contentuid="h54893a11gd384g40cbgba7fg16ab0ec7692f" version="1">Нанести урон и ослабить врага: он наносит только половину урона при атаках оружием с использованием &lt;LSTag Tooltip="Strength"&gt;силы&lt;/LSTag&gt;.</content>
 </contentList>
