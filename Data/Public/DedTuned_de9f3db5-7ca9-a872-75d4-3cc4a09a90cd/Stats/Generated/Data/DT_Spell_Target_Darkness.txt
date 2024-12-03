@@ -1,0 +1,26 @@
+new entry "Target_Darkness"
+type "SpellData"
+using "Target_Darkness"
+data "SpellFlags" "HasVerbalComponent;IsSpell;Stealth;Invisible"
+data "SpellProperties" "GROUND:CreateSurface(4,5,DarknessCloud,true)"
+data "TooltipUpcastDescription" "fcc00846-6526-4d5d-9933-7f3e0bd7e2ef"
+
+new entry "Target_Darkness_3"
+type "SpellData"
+using "Target_Darkness_3"
+data "SpellProperties" "GROUND:CreateSurface(6,5,DarknessCloud,true)"
+
+new entry "Target_Darkness_4"
+type "SpellData"
+using "Target_Darkness_4"
+data "SpellProperties" "GROUND:CreateSurface(8,5,DarknessCloud,true)"
+
+new entry "Target_Darkness_5"
+type "SpellData"
+using "Target_Darkness_5"
+data "SpellProperties" "GROUND:CreateSurface(10,5,DarknessCloud,true)"
+
+new entry "Target_Darkness_6"
+type "SpellData"
+using "Target_Darkness_6"
+data "SpellProperties" "GROUND:CreateSurface(12,5,DarknessCloud,true)"
