@@ -179,6 +179,14 @@ This feat is an option for those who wants to have extra protection and don't wa
 - Conjure Elemental - lasts only 10 turns
 - Planar Ally - lasts only 10 turns
 - Longstrider is now an AOE spell
+- Protection From Energy - does not require concentration
+- Grant Flight - does not require concentration
+- Fog Cloud - does not require concentration, lasts 3 turns
+- Faerie Fire - does not require concentration, lasts 3 turns
+- Darkness - does not require concentration, lasts 5 turns, upcast increases area
+- Dancing Lights - does not require concentration
+- Blur - does not require concentration, lasts 2 turns, upcast increases duration by 1 turn
+- Ray Of Enfeeblement - does not require concentration, lasts 5 turns, deals initial 2d8 necrotic damage, upcast increases damage by 1d8
 
 
 ### Classes
