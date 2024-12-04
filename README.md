@@ -198,6 +198,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - **Dispel Evil And Good**: no concentration, lasts until long rest
 - **True Strike**: no concentration
 - **Friends**: no concentration
+- **Entangle**: no concentration
 
 
 ### Classes

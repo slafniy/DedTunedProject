@@ -1,0 +1,4 @@
+new entry "Target_Entangle"
+type "SpellData"
+using "Target_Entangle"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful"
