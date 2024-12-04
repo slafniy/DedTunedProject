@@ -1,0 +1,6 @@
+new entry "Shout_ExpeditiousRetreat"
+type "SpellData"
+using "Shout_ExpeditiousRetreat"
+data "SpellProperties" "IF(HasStatus('DASH')):ApplyStatus(DASH_STACKED,100,1);IF(not HasStatus('DASH')):ApplyStatus(DASH,100,1);ApplyStatus(EXPEDITIOUS_RETREAT,100,10)"
+data "TooltipStatusApply" "ApplyStatus(EXPEDITIOUS_RETREAT,100,10);ApplyStatus(DASH,100,1)"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
