@@ -1,0 +1,4 @@
+new entry "Target_CompelledDuel"
+type "SpellData"
+using "Target_CompelledDuel"
+data "SpellFlags" "HasVerbalComponent;IsSpell;IsHarmful"

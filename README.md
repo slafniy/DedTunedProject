@@ -199,6 +199,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - **True Strike**: no concentration
 - **Friends**: no concentration
 - **Entangle**: no concentration
+- **Compelled Duel**: no concentration
 
 
 ### Classes
