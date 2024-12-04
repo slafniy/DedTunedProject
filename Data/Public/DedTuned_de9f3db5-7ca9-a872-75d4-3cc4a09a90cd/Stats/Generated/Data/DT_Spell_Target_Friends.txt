@@ -1,0 +1,4 @@
+new entry "Target_Friends"
+type "SpellData"
+using "Target_Friends"
+data "SpellFlags" "IsSpell;HasSomaticComponent"

@@ -197,6 +197,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - **Guidance**: no concentration, lasts 3 turns
 - **Dispel Evil And Good**: no concentration, lasts until long rest
 - **True Strike**: no concentration
+- **Friends**: no concentration
 
 
 ### Classes
