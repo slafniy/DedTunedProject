@@ -200,6 +200,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - **Friends**: no concentration
 - **Entangle**: no concentration
 - **Compelled Duel**: no concentration
+- **Ensnaring Strike**: no concentration, lasts 3 turns
 
 
 ### Classes
