@@ -1,0 +1,6 @@
+new entry "Target_Guidance"
+type "SpellData"
+using "Target_Guidance"
+data "SpellProperties" "ApplyStatus(GUIDANCE, 100, 3)"
+data "TooltipStatusApply" "ApplyStatus(GUIDANCE, 100, 3)"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"
