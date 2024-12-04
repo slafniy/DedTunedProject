@@ -10,4 +10,5 @@
     <content contentuid="h186f09bcg218bg4598g966ag2fe841df9a8d" version="1">Изменить класс персонажа. Может быть использовано только один раз.</content>
     <content contentuid="hcd4b1357g5e72g470ag9053g31207acfe7c1" version="1">Длится дольше.</content>
     <content contentuid="h54893a11gd384g40cbgba7fg16ab0ec7692f" version="1">Нанести урон и ослабить врага: он наносит только половину урона при атаках оружием с использованием &lt;LSTag Tooltip="Strength"&gt;силы&lt;/LSTag&gt;.</content>
+    <content contentuid="hb68df2a0g48c9g47f7g92a8g06b5a58ff8df" version="1">Защищает союзников от атак и способностей аберраций, небожителей, элементалей, фей, бестий и нежити.</content>
 </contentList>

@@ -10,4 +10,5 @@
     <content contentuid="h186f09bcg218bg4598g966ag2fe841df9a8d" version="1">Change character class. Can be used only once.</content>
     <content contentuid="hcd4b1357g5e72g470ag9053g31207acfe7c1" version="1">Lasts longer.</content>
     <content contentuid="h54893a11gd384g40cbgba7fg16ab0ec7692f" version="1">Deal damage and weaken a foe: they deal half damage with weapon attacks using &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;.</content>
+    <content contentuid="hb68df2a0g48c9g47f7g92a8g06b5a58ff8df" version="1">Protect allies against the attacks and powers of aberrations, celestials, elementals, fey, fiends, and undead.</content>
 </contentList>

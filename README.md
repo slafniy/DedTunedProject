@@ -189,6 +189,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - Ray Of Enfeeblement - does not require concentration, lasts 5 turns, deals initial 2d8 necrotic damage, upcast increases damage by 1d8
 - Stoneskin - does not require concentration, lasts 10 turns
 - Bestow Curse - does not require concentration
+- Protection From Evil And Good - no concentration, lasts 10 turns, applies in AOE
 
 
 ### Classes
