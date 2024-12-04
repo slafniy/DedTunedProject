@@ -1,0 +1,21 @@
+new entry "Shout_BeaconOfHope"
+type "SpellData"
+using "Shout_BeaconOfHope"
+data "AreaRadius" "6"
+data "TooltipUpcastDescription" "fcc00846-6526-4d5d-9933-7f3e0bd7e2ef"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
+
+new entry "Shout_BeaconOfHope_4"
+type "SpellData"
+using "Shout_BeaconOfHope_4"
+data "AreaRadius" "9"
+
+new entry "Shout_BeaconOfHope_5"
+type "SpellData"
+using "Shout_BeaconOfHope_5"
+data "AreaRadius" "12"
+
+new entry "Shout_BeaconOfHope_6"
+type "SpellData"
+using "Shout_BeaconOfHope_6"
+data "AreaRadius" "15"
