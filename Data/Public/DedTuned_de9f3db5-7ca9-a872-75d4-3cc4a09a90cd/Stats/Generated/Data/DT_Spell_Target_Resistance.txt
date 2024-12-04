@@ -1,0 +1,6 @@
+new entry "Target_Resistance"
+type "SpellData"
+using "Target_Resistance"
+data "SpellProperties" "ApplyStatus(RESISTANCE,100,3)"
+data "TooltipStatusApply" "ApplyStatus(RESISTANCE,100,3)"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"

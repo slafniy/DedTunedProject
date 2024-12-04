@@ -193,6 +193,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - **Bless**: no concentration, lasts 3 turns
 - **Bane**: no concentration, lasts 3 turns
 - **Beacon Of Hope**: no concentration, upcast increases area
+- **Resistance**: no concentration, lasts 3 turns
 
 
 ### Classes
