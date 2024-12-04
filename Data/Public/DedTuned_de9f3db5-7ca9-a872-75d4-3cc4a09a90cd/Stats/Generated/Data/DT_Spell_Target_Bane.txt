@@ -1,0 +1,6 @@
+new entry "Target_Bane"
+type "SpellData"
+using "Target_Bane"
+data "SpellSuccess" "ApplyStatus(BANE, 100, 3)"
+data "TooltipStatusApply" "ApplyStatus(BANE, 100, 3)"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IgnorePreviouslyPickedEntities"

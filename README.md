@@ -191,6 +191,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - **Bestow Curse**: does not require concentration
 - **Protection From Evil And Good**: no concentration, lasts 10 turns, applies in AOE
 - **Bless**: no concentration, lasts 3 turns
+- **Bane**: no concentration, lasts 3 turns
 
 
 ### Classes
