@@ -1,6 +1,4 @@
 new entry "Shout_DivineFavor"
 type "SpellData"
 using "Shout_DivineFavor"
-data "SpellProperties" "ApplyStatus(DIVINE_FAVOR, 100, 2)"
-data "TooltipStatusApply" "ApplyStatus(DIVINE_FAVOR, 100, 2)"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
