@@ -1,0 +1,4 @@
+new entry "Target_TrueStrike"
+type "SpellData"
+using "Target_TrueStrike"
+data "SpellFlags" "HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;IsHarmful"
