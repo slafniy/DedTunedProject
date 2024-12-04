@@ -195,6 +195,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - **Beacon Of Hope**: no concentration, upcast increases area
 - **Resistance**: no concentration, lasts 3 turns
 - **Guidance**: no concentration, lasts 3 turns
+- **Dispel Evil And Good**: no concentration, lasts until long rest
 
 
 ### Classes

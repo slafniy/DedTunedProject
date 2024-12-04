@@ -1,0 +1,6 @@
+new entry "Shout_DispelEvilAndGood"
+type "SpellData"
+using "Shout_DispelEvilAndGood"
+data "SpellProperties" "ApplyStatus(DISPEL_EVIL_AND_GOOD,100,-1)"
+data "TooltipStatusApply" "ApplyStatus(DISPEL_EVIL_AND_GOOD,100,-1)"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
