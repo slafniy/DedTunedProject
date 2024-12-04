@@ -188,6 +188,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - Blur - does not require concentration, lasts 2 turns, upcast increases duration by 1 turn
 - Ray Of Enfeeblement - does not require concentration, lasts 5 turns, deals initial 2d8 necrotic damage, upcast increases damage by 1d8
 - Stoneskin - does not require concentration, lasts 10 turns
+- Bestow Curse - does not require concentration
 
 
 ### Classes

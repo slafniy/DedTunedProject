@@ -1,0 +1,49 @@
+new entry "Target_BestowCurse"
+type "SpellData"
+using "Target_BestowCurse"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee;IsLinkedSpellContainer"
+
+new entry "Target_BestowCurse_Ability_Strength_4"
+type "SpellData"
+using "Target_BestowCurse_Ability_Strength_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
+
+new entry "Target_BestowCurse_Ability_Dexterity_4"
+type "SpellData"
+using "Target_BestowCurse_Ability_Dexterity_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
+
+new entry "Target_BestowCurse_Ability_Constitution_4"
+type "SpellData"
+using "Target_BestowCurse_Ability_Constitution_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
+
+new entry "Target_BestowCurse_Ability_Intelligence_4"
+type "SpellData"
+using "Target_BestowCurse_Ability_Intelligence_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
+
+new entry "Target_BestowCurse_Ability_Wisdom_4"
+type "SpellData"
+using "Target_BestowCurse_Ability_Wisdom_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
+
+new entry "Target_BestowCurse_Ability_Charisma_4"
+type "SpellData"
+using "Target_BestowCurse_Ability_Charisma_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
+
+new entry "Target_BestowCurse_Attack_4"
+type "SpellData"
+using "Target_BestowCurse_Attack_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
+
+new entry "Target_BestowCurse_ExtraDamage_4"
+type "SpellData"
+using "Target_BestowCurse_ExtraDamage_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
+
+new entry "Target_BestowCurse_SkipTurn_4"
+type "SpellData"
+using "Target_BestowCurse_SkipTurn_4"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
