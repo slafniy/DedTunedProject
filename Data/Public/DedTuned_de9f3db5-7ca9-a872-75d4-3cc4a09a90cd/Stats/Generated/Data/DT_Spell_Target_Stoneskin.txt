@@ -1,0 +1,6 @@
+new entry "Target_Stoneskin"
+type "SpellData"
+using "Target_Stoneskin"
+data "SpellProperties" "ApplyStatus(STONESKIN,100,10)"
+data "TooltipStatusApply" "ApplyStatus(STONESKIN,100,10)"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"
