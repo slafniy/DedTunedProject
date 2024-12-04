@@ -1,0 +1,11 @@
+new entry "Target_ProtectionFromEnergy"
+type "SpellData"
+using "Target_ProtectionFromEnergy"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsLinkedSpellContainer;IsMelee"
+
+new entry "Target_ProtectionFromEnergy_Acid"
+type "SpellData"
+using "Target_ProtectionFromEnergy_Acid"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"
+
+# All other spell variants are using Target_ProtectionFromEnergy_Acid
