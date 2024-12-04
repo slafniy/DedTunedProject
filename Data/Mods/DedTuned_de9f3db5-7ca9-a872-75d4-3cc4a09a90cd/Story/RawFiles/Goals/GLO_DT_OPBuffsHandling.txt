@@ -1,83 +1,86 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-//REGION Overpowered buffs (without concentration) which have to be removed if its caster left the party OR changed spec
-DB_DT_OPBuffs_List("LONGSTRIDER");
-DB_DT_OPBuffs_List("WARDING_BOND");
-DB_DT_OPBuffs_List("PROTECTION_FROM_POISON");
-DB_DT_OPBuffs_List("FREEDOM_OF_MOVEMENT");
-DB_DT_OPBuffs_List("DEATH_WARD");
-DB_DT_OPBuffs_List("HEROES_FEAST");
-DB_DT_OPBuffs_List("AID");
-DB_DT_OPBuffs_List("AID_3");
-DB_DT_OPBuffs_List("AID_4");
-DB_DT_OPBuffs_List("AID_5");
-DB_DT_OPBuffs_List("AID_6");
-DB_DT_OPBuffs_List("DARKVISION");
-DB_DT_OPBuffs_List("MAGE_ARMOR");
-DB_DT_OPBuffs_List("BARDIC_INSPIRATION");
-DB_DT_OPBuffs_List("BARDIC_INSPIRATION_D8");
-DB_DT_OPBuffs_List("BARDIC_INSPIRATION_D10");
-DB_DT_OPBuffs_List("BARDIC_INSPIRATION_COMBAT");
-DB_DT_OPBuffs_List("BARDIC_INSPIRATION_COMBAT_D8");
-DB_DT_OPBuffs_List("BARDIC_INSPIRATION_COMBAT_D10");
-DB_DT_OPBuffs_List("BARKSKIN");
-//END_REGION
+// DB_DT_OPBuffs_Casted((GUIDSTRING)_Target,(STRING)_Status,(CHARACTER)_Caster) - to store applied buffs
+
+/*DB_DT_OPBuffs_WeaponSlot("Melee Main Weapon");
+DB_DT_OPBuffs_WeaponSlot("Melee Offhand Weapon");
+DB_DT_OPBuffs_WeaponSlot("Ranged Main Weapon");
+DB_DT_OPBuffs_WeaponSlot("Ranged Offhand Weapon");*/
 KBSECTION
-//REGION OP Cast event handler
-// Store casted spells info to check if some OP spell is casted on teammate
+// Store casted spells info to check if some OP spell is casted on teammate or on item
 // data to store: TARGET, STATUS, CASTER
-// override it every new status application (buffs replace each other not stack)
+//REGION StatusApplied event handler
 
-// Status is re-applied and we have a record about this cast type remove information about old caster
+// Status is re-applied and we have a record about this cast type remove information about old caster. 
+// This case DIFFERS from just remove+apply, because status applies FIRST and only then the old one removes
 IF
-StatusApplied((CHARACTER)_Target,_Status,(CHARACTER)_Caster,_)
+StatusApplied((GUIDSTRING)_Target,_Status,(CHARACTER)_Caster,_)
 AND
-DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_OldCaster)
+DB_DT_OPBuffs_Casted((GUIDSTRING)_Target,(STRING)_Status,(CHARACTER)_OldCaster)
 THEN
-NOT DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_OldCaster);
+NOT DB_DT_OPBuffs_Casted((GUIDSTRING)_Target,(STRING)_Status,(CHARACTER)_OldCaster);
 
-// If status applied within teammates and cast is in DB_DT_OPBuffs_List - store info about it
+// If status applied on teammates and cast is Until Long Rest
 IF
-StatusApplied((CHARACTER)_Target,_Status,(CHARACTER)_Caster,_)
+StatusApplied((GUIDSTRING)_Target, _Status, (CHARACTER)_Caster, _)
+AND
+_Target != _Caster  // do not save self-applied statuses
+AND
+GetStatusTurns(_Target, _Status, -1)  // Until Long Rest
+AND
+Substring(_Status, 1, 7, _Prefix)
+AND
+_Prefix != "PPMeter"  // Exclude PPMeter technical statuses
 AND
 DB_PartOfTheTeam(_Caster)
 AND
-DB_PartOfTheTeam(_Target)
-AND
-DB_DT_OPBuffs_List(_Status)
+DB_PartOfTheTeam((CHARACTER)_Target)
 THEN
-DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Caster);
+DB_DT_OPBuffs_Casted((GUIDSTRING)_Target,(STRING)_Status,(CHARACTER)_Caster);
+
+// If status applied on item
+IF
+StatusApplied((GUIDSTRING)_Item, _Status, (CHARACTER)_Caster, _)
+AND
+GetStatusTurns(_Item, _Status, -1)  // Until Long Rest
+AND
+Substring(_Status, 1, 7, _Prefix)
+AND
+_Prefix != "PPMeter"  // Exclude PPMeter technical statuses
+AND
+DB_PartOfTheTeam(_Caster)
+AND
+IsItem(_Item, 1)
+THEN
+DB_DT_OPBuffs_Casted((GUIDSTRING)_Item,(STRING)_Status,(CHARACTER)_Caster);
+
+// If status REALLY removed, not replaced - clear DB
+IF
+StatusRemoved(_Target, _Status, _, _)
+AND
+HasAppliedStatus(_Target, _Status, 0)  // really no such status
+AND
+DB_DT_OPBuffs_Casted(_Target, _Status, _Caster)
+THEN
+NOT DB_DT_OPBuffs_Casted(_Target, _Status, _Caster);
 //END_REGION
 
 
-//REGION Party buffs handler
-// Caster in party, target leaves
+//REGION CharacterLeftParty event handler
 IF
-DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Caster)
+CharacterLeftParty(_Leaver)
 AND
-_Target != _Caster  // allow to keep buff on self
-AND
-DB_PartyMembers(_Caster)
-AND
-NOT DB_PartyMembers(_Target)
-AND
-HasAppliedStatus(_Target, _Status, 1)
-AND
-Concatenate("Removing ", _Status, _msg1)
+DB_PartyMembers(_PartyMember)
 THEN
-PROC_DT_RemoveOPBuff(_Target, _Caster, _Status);
+PROC_DT_RemoveBuffs(_PartyMember, _Leaver);
+PROC_DT_RemoveBuffs(_Leaver, _PartyMember);
+PROC_DT_RemoveWeaponBuffIfNeeded();
 
-
-// Target in party, caster leaves
-IF
-DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Caster)
+PROC
+PROC_DT_RemoveBuffs((CHARACTER)_Target, (CHARACTER)_Caster)
 AND
-_Target != _Caster  // allow to keep buff on self
-AND
-NOT DB_PartyMembers(_Caster)
-AND
-DB_PartyMembers(_Target)
+DB_DT_OPBuffs_Casted((GUIDSTRING)_Target, _Status, _Caster)
 AND
 HasAppliedStatus(_Target, _Status, 1)
 THEN
@@ -85,13 +88,13 @@ PROC_DT_RemoveOPBuff(_Target, _Caster, _Status);
 //END_REGION
 
 
-//REGION Respec buffs bugfix  
+//REGION Respec buffs bugfix - handle RespecCompleted event
 // https://github.com/slafniy/DedTuned/issues/13
 // Original game bug/feature but is has to be fixed
 IF
 RespecCompleted(_Player)
 AND
-DB_DT_OPBuffs_Casted((CHARACTER)_Target,(STRING)_Status,(CHARACTER)_Player)
+DB_DT_OPBuffs_Casted((GUIDSTRING)_Target,(STRING)_Status,(CHARACTER)_Player)
 AND
 HasAppliedStatus(_Target, _Status, 1)
 THEN
@@ -99,19 +102,88 @@ RemoveStatus(_Target, _Status, DT_OPBuffRemovingRespec_4af7efc8-ab80-4ac3-bbe6-c
 //END_REGION
 
 
-//REGION
+//REGION PROC_DT_RemoveOPBuff
 PROC
-PROC_DT_RemoveOPBuff((CHARACTER)_Target, (CHARACTER)_Caster, (STRING)_Status)
+PROC_DT_RemoveOPBuff((GUIDSTRING)_Target, (CHARACTER)_Caster, (STRING)_Status)
 THEN
 RemoveStatus(_Target, _Status, DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
 
 // Special handling for WARDING_BOND - also remove WARDING_BOND_CASTER from caster
 PROC
-PROC_DT_RemoveOPBuff((CHARACTER)_Target, (CHARACTER)_Caster, (STRING)_Status)
+PROC_DT_RemoveOPBuff((GUIDSTRING)_Target, (CHARACTER)_Caster, (STRING)_Status)
 AND
 _Status == "WARDING_BOND"
 THEN
 RemoveStatus(_Caster, "WARDING_BOND_CASTER", DT_OPBuffRemoving_4af7efc8-ab80-4ac3-bbe6-ce448f36f5f6);
+//END_REGION
+
+
+//REGION Weapon queries
+QRY
+QRY_DT_ItemIsInParty((ITEM)_Item)
+AND
+IsItem(_Item, 1)
+AND
+DB_PartyMembers(_Player)
+AND
+ItemIsInUserInventory(_Item, _Player, 0, 1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_DT_CasterIsInParty((CHARACTER)_Caster)
+AND
+DB_PartyMembers(_Caster)
+THEN
+DB_NOOP(1);
+//END_REGION
+
+
+//REGION Handle weapon buffs
+IF
+RemovedFrom(_Item, _)
+AND
+DB_DT_OPBuffs_Casted((GUIDSTRING)_Item, _, _)
+THEN
+PROC_DT_RemoveWeaponBuffIfNeeded();
+
+IF
+AddedTo(_Item, _, _)
+AND
+DB_DT_OPBuffs_Casted((GUIDSTRING)_Item, _, _)
+THEN
+PROC_DT_RemoveWeaponBuffIfNeeded();
+
+
+PROC
+PROC_DT_RemoveWeaponBuffIfNeeded()
+AND
+DB_DT_OPBuffs_Casted((GUIDSTRING)_Item,(STRING)_Status,(CHARACTER)_Caster)
+AND
+QRY_DT_ItemIsInParty((ITEM)_Item)
+AND
+NOT QRY_DT_CasterIsInParty((CHARACTER)_Caster)
+THEN
+PROC_DT_RemoveOPBuff(_Item, _Caster, _Status);
+DebugText(_Caster, "Removing weapon buff");
+//END_REGION
+
+
+//REGION // DEBUG
+IF
+TextEvent("dtopbuffs")
+AND
+DB_DT_OPBuffs_Casted(_Target, _Status, _Caster)
+AND
+GUIDToString(_Target, _TargetStr)
+AND
+Concatenate("Casted ", _Status, _msg1)
+AND
+Concatenate(_msg1, " on ", _msg2)
+AND
+Concatenate(_msg2, _TargetStr, _msg)
+THEN
+DebugText(_Caster, _msg);
 //END_REGION
 EXITSECTION
 
