@@ -3,10 +3,6 @@ SubGoalCombiner SGC_AND
 INITSECTION
 // DB_DT_OPBuffs_Casted((GUIDSTRING)_Target,(STRING)_Status,(CHARACTER)_Caster) - to store applied buffs
 
-/*DB_DT_OPBuffs_WeaponSlot("Melee Main Weapon");
-DB_DT_OPBuffs_WeaponSlot("Melee Offhand Weapon");
-DB_DT_OPBuffs_WeaponSlot("Ranged Main Weapon");
-DB_DT_OPBuffs_WeaponSlot("Ranged Offhand Weapon");*/
 KBSECTION
 // Store casted spells info to check if some OP spell is casted on teammate or on item
 // data to store: TARGET, STATUS, CASTER

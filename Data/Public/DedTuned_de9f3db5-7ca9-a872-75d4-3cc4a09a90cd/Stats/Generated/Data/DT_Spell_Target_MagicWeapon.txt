@@ -1,0 +1,4 @@
+new entry "Target_MagicWeapon"
+type "SpellData"
+using "Target_MagicWeapon"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;IsMelee"

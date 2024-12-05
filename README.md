@@ -83,21 +83,13 @@ Known issue: It is currently working by disabling "Long Rest" button if you have
 don't destroy them if you already triggered end of the day :)
 
 
-### Buffs from camp 
-Most common until-long-rest buffs now works only if Caster and Target are in one party. Buff disappears if caster and target aren't the same person and aren't in party. Affected buffs:
-- Bardic Inspiration (all versions)
-- Longstrider
-- Warding Bond (known issue: buff remains active on caster but paired person correctly loses it)
-- Mage Armor
-- Darkvision
-- Freedom of Movement
-- Aid
-- Heroes Feast (Thoroughly Stuffed)
-- Protection From Poison
-- Barkskin
+### Buffs outside of party
+All until-long-rest buffs now works only if Caster and Target are in one party. 
+Buff disappears if caster and target aren't the same person and aren't in party.
 
 Also fixed vanilla "feature" that such buffs remains after re-spec on any person except caster itself - now re-spec removes them from everyone.
 
+Weapon buffs disappear if caster left party and weapon is in party inventory.
 
 ### Feats
 Feats do not provide Ability increase bonus anymore. 
@@ -202,6 +194,7 @@ This feat is an option for those who wants to have extra protection and don't wa
 - **Compelled Duel**: no concentration
 - **Ensnaring Strike**: no concentration, lasts 3 turns
 - **Expeditious Retreat**: no concentration, lasts 10 turns
+- **Magic Weapon**: no concentration
 
 
 ### Classes
