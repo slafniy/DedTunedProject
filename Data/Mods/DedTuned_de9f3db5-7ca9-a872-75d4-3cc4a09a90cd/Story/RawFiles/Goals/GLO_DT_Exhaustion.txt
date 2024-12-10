@@ -101,6 +101,13 @@ RemoveStatus(_Character, _Status, NULL_00000000-0000-0000-0000-000000000000);
 
 //REGION // Apply/Remove debuffs on particular events
 IF
+StatusRemoved((CHARACTER)_Character, "DT_EXHAUSTION_STACKS", _, _)
+AND
+GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
+THEN
+PROC_DT_ExhaustionRefreshDebuffs(_Character, _Stacks);
+
+IF
 StatusApplied((CHARACTER)_Character, "DT_EXHAUSTION_STACKS", _, _)
 AND
 GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
