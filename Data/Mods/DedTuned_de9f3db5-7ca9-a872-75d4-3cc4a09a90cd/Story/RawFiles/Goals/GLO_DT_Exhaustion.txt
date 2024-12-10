@@ -46,13 +46,26 @@ NOT DB_DT_ExhaustionShortRestCount(_Character, _Count);
 //END_REGION
 
 
-//REGION // On short rest remove some stacks
+//REGION // On short rest or lesser alch sleep potion remove some stacks
 IF
 ShortRested(_Character)
 AND
 DB_DT_ExhaustionShortRestCount(_Character, _ShortRestCount)
 AND
 _ShortRestCount <= 2
+THEN
+PROC_DT_Exhaustion_RemoveNStacks((CHARACTER)_Character);
+
+IF
+StatusApplied((CHARACTER)_Character, "ALCH_POTION_REST_SLEEP_LESSER_RESTORATION", _, _)
+THEN
+PROC_DT_Exhaustion_RemoveNStacks((CHARACTER)_Character);
+//END_REGION
+
+
+//REGION // PROC_DT_Exhaustion_RemoveNStacks((CHARACTER)_Character)
+PROC
+PROC_DT_Exhaustion_RemoveNStacks((CHARACTER)_Character)
 AND
 GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
 AND
