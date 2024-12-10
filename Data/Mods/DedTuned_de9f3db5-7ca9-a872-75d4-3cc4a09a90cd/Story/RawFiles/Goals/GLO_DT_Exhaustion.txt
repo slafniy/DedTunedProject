@@ -3,8 +3,8 @@ SubGoalCombiner SGC_AND
 INITSECTION
 DB_DT_Exhaustion_RemoveStacksOnShortRest(10);
 
-DB_DT_Exhaustion_Stage(15, "DT_EXHAUSTION_DEBUFF_LIGHT");
-DB_DT_Exhaustion_Stage(25, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP");
+DB_DT_Exhaustion_Stage(16, "DT_EXHAUSTION_DEBUFF_LIGHT");
+DB_DT_Exhaustion_Stage(24, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP");
 DB_DT_Exhaustion_Stage(40, "EXHAUSTION_DEBUFF_DEATH");
 
 NOT DB_DT_ExhaustionShortRestCount(NULL_00000000-0000-0000-0000-000000000000, 0);
@@ -71,7 +71,13 @@ GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
 AND
 DB_DT_Exhaustion_RemoveStacksOnShortRest(_StacksToRemoveOnShortRestConst)
 AND
-IntegerSubtract(_Stacks, _StacksToRemoveOnShortRestConst, _DesiredStacks)
+GetLevel((GUIDSTRING)_Character, _Level)
+AND
+IntegerDivide(_Level, 2, _HalfLevel)
+AND
+IntegerSum(_StacksToRemoveOnShortRestConst, _HalfLevel, _StacksToRemoveLevelAdjusted)
+AND
+IntegerSubtract(_Stacks, _StacksToRemoveLevelAdjusted, _DesiredStacks)
 AND
 IntegerMax(_DesiredStacks, 0, _DesiredStacksMax)  // to avoid negative Exhaustion duration
 AND
@@ -201,6 +207,19 @@ THEN
 ApplyStatus(_Character, "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE", 12.0, 1, _Character);
 //END_REGION
 
+
+IF
+TextEvent("dthalflevel")
+AND
+DB_PartyMembers(_Character)
+AND
+GetLevel((GUIDSTRING)_Character, _Level)
+AND
+IntegerDivide(_Level, 2, _HalfLevel)
+AND
+ConcatenateInteger("My half-level: ", _HalfLevel, _msg)
+THEN
+DebugText(_Character, _msg);
 EXITSECTION
 
 ENDEXITSECTION
