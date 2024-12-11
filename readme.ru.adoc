@@ -1,32 +1,32 @@
-= DedTuned balance mod for Larian's Baldur's Gate 3 [ENG]
+= DedTuned баланс мод для Baldur's Gate 3 от Larian [RUS]
 
-link:readme.ru.adoc[Версия на русском / Russian version]
+link:readme.adoc[Версия на английском / English version]
 
 :toc:
-:toc-title: Contents
+:toc-title: Содержание
 :screenshots-dir: screenshots
 
-== About the mod
-This mod is a result of my 1400+ hours in BG3, big part of which was played with friends in my party.
+== Об этом моде
+Этот мод - результат мох 1400+ часов в BG3, значительная часть которых была сыграна с друзьями.
 
-Vanilla Honor is too simple IMO (I got Honor achievement with first try, knowing almost nothing about DnD), and also I'm a little bit annoyed that some of my buddies overuse every cheesy mechanics they found and I have to wait when they use EVERY buff from camp :)
+По моему мнению, оригинальная ванильная Доблесть слишком простая: я получил ачивку за прохождение с первого раза, почти ничего не зная про DnD. Еще меня слегка раздражало, что некоторые приятели использовали каждую абузную механику и любой возможный сыр который они только нашли, а мне приходилось ждать когда они повесят КАЖДЫЙ возможный бафф из лагеря ))
 
-The goals of this mod:
+Цели данного мода:
 
-- Make Honor mode slightly harder
-- Eliminate as many abuses as possible
-- Make too weak abilities stronger
-- Make too strong abilities weaker
-- Balance out need of resting for different classes
+- Сделать режим Доблести слегка сложнее
+- Убрать так много абузов как только я смогу
+- Сделать слишком слабые способности сильнее
+- Сделать слишком сильные способности слабее
+- Сбалансировать необходимость отдыха для разных классов
 
-So this is an attempt to make the game ideal *for me*, so every change I made reflects my own impressions about game mechanics. +
-I have no goal to make this mod suitable for everyone, but if you interested I would appreciate if you share your opinion in comments.
+Короче говоря, это попытка сделать игру идеальной *для меня*, так что каждое изменение которое я сделал отркжает мои собственные впечатления об игровых механиках. +
+У меня нет цели сделать этот мод подходящим для каждого, но если вы заинтересовались то я буду благодарен если вы поделитесь своим мнением в комментариях.
 
-https://mod.io/g/baldursgate3/m/dedtuned[Mod page on mod.io]
+https://mod.io/g/baldursgate3/m/dedtuned[Страница мода на mod.io]
 
-== Changelist
+== Список изменений
 
-=== Exhaustion - new mechanics
+=== Усталость - новая механика
 A new mechanics which forces party to rest more often.
 [%collapsible]
 ====
@@ -47,7 +47,7 @@ Note: Not a direct adaptation of dnd5e Exhaustion and I'm not going to make a di
 TBH I invented it in my head first and found that dnd already has something like that second.
 ====
 
-=== Experience reward
+=== Получаемый опыт
 Required XP per level increased.
 [%collapsible]
 ====
@@ -66,26 +66,26 @@ Expected levels:
 ====
 
 
-=== Respec
+=== Смена класса
 - Respec cost is 1000 gold
 - Every origin character has one-time free respec button (via my integrated https://mod.io/g/baldursgate3/m/free-one-time-respec-button-for-origins[Free one-time respec button for Origins] mod)
 
 Note: I made this mainly to avoid exploiting of (almost free) resource regeneration after respec.
 
-=== Pickpocketing
+=== Карманные кражи
 - You cannot pickpocket Volo and Jergal anymore
 - You cannot endlessly pickpocket one person, you will get a Sleight of Hand debuff (resets on Long Rest)
 
 Vanilla pickpocketing is too easy, and to pickpocket a camp members is nonsense.
 
-=== Honor mode boost
+=== Усиление режима Доблесть
 - HP boost increased from +30% to range +100-200% (more for high level creatures)
 - Honor attack roll bonus for high level enemies increased from 2 to 3
 - HP for some bosses is increased manually
 
 HP boost should give a chance for enemies to use their abilities and not being slain on first turn.
 
-=== Multiclassing
+=== Мультикласс
 Multiclassing is forbidden
 [%collapsible]
 ====
@@ -98,7 +98,7 @@ BG3.
 BUT, if you do not care about my attempts to make things more balanced you can use my https://mod.io/g/baldursgate3/m/dedtuned-multiclass-enabler[DedTuned - Multiclass Enabler] mod.
 ====
 
-=== Resting
+=== Отдых
 - Long rest cost increased to 250
 - You cannot use Partial Rest
 
@@ -106,7 +106,7 @@ CAUTION: Known issue: It is currently working by disabling "Long Rest" button if
 "Partial Rest" button is removed, you just cannot rest if you do not choose enough supplies, so be careful and
 don't destroy them if you already triggered end of the day :)
 
-=== Buffs outside of party
+=== Баффы вне отряда
 Only your current party members can buff each other. No more buffs from camp hirelings.
 [%collapsible]
 ====
