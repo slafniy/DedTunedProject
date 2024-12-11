@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contentList>
     <content contentuid="h34f7d8d7gc6b8g4fa2g81f5g7636c1a91f99" version="1">Exhaustion</content>
-    <content contentuid="h2c80a44eg9020g4d93gbdebg50abf17df167" version="1">Every turn in combat makes you more exhausted. More the effect accumulates more severe consequences it causes, until death.&lt;br&gt;Twice a day Short Rest weakens the effect, Long Rest removes it completely.</content>
-    <content contentuid="h4568bcf8g51b7g42c3gb7a5g259d2b0d12f4" version="1">Fatal exhaustion</content>
-    <content contentuid="h9a276103g3eb8g4a50g90aeg5828c7d4aad6" version="1">This creature will die at the end of his turn.</content>
-    <content contentuid="h366f465ag287ag4ffbgb155gb3e2eae42575" version="1">Sleep deprivation</content>
+    <content contentuid="h2c80a44eg9020g4d93gbdebg50abf17df167" version="1">Every turn in combat makes you more exhausted. More the effect accumulates more severe consequences it causes, until death.&lt;br&gt;Twice a day Short Rest weakens the effect, Long Rest removes it completely.&lt;br&gt;&lt;br&gt; Exhaustion levels: 16 - Slight Fatigue, 24 - Sleep Deprivation, 40 - Death.</content>
+    <content contentuid="h4568bcf8g51b7g42c3gb7a5g259d2b0d12f4" version="1">Fatal Exhaustion</content>
+    <content contentuid="h9a276103g3eb8g4a50g90aeg5828c7d4aad6" version="1">This creature will die at the end of its turn.</content>
+    <content contentuid="h366f465ag287ag4ffbgb155gb3e2eae42575" version="1">Sleep Deprivation</content>
     <content contentuid="h5a57a63cg3578g4cd0gb895g5b16a105eb23" version="1">This creature should pass constitution &lt;LSTag Tooltip="SavingThrow"&gt;saving throw&lt;/LSTag&gt; DC [1] every turn or fall asleep.</content>
-    <content contentuid="h3ba53e30g3696g4b88ga0fbg9384a90f24bd" version="1">Slight fatigue</content>
+    <content contentuid="h3ba53e30g3696g4b88ga0fbg9384a90f24bd" version="1">Slight Fatigue</content>
     <content contentuid="h2ca02a2eg8501g4bd1gb598ge5c396b52493" version="1">This creature fought for a long time and exhausted its strength. It takes [1] penalty on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;, &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;, &lt;LSTag Tooltip="SkillCheck"&gt;Skill Checks&lt;/LSTag&gt;, &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; and spell &lt;LSTag Tooltip="DifficultyClass"&gt;Difficulty Class&lt;/LSTag&gt;.</content>
     <content contentuid="h81842d9eg5a97g4d31ga85aged127ace8dd3" version="1">Resistance to sleep deprivation</content>
     <content contentuid="h7d01f311ge446g4f72g839age36ec4763782" version="1">This creature has successfully passed constitution check and became temporarily immune to effects of sleep deprivation.</content>
-    <content contentuid="h5f8707edgc150g4445gaefeg8fe0236fca03" version="1">Twice a day, you can restore 50% of your &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;. Warlocks restore their &lt;LSTag Tooltip="SpellSlot"&gt;spell slots&lt;/LSTag&gt;. Also weakens the Exhaustion effect.</content>
-    <content contentuid="h1832d529g6a51g4289g9ba1gd200debcdabb" version="5">Drink to fall into a 2-turn slumber. Unless interrupted, you gain the benefits of a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt; and regain all 1st and 2nd Level &lt;LSTag Tooltip="SpellSlot"&gt;spell slots&lt;/LSTag&gt;. Partially removes Exhaustion effects. &lt;br&gt;&lt;br&gt;If you are awoken before the duration expires, the effects will not apply.</content>
+    <content contentuid="h5f8707edgc150g4445gaefeg8fe0236fca03" version="1">Twice a day, you can restore 50% of your &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;. Warlocks restore their &lt;LSTag Tooltip="SpellSlot"&gt;spell slots&lt;/LSTag&gt;. Twice a day also reduces Exhaustion by 10 plus half of your character level, rounded down.</content>
+    <content contentuid="h1832d529g6a51g4289g9ba1gd200debcdabb" version="5">Drink to fall into a 2-turn slumber. Unless interrupted, you gain the benefits of a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt; and regain all 1st and 2nd Level &lt;LSTag Tooltip="SpellSlot"&gt;spell slots&lt;/LSTag&gt;. Reduces Exhaustion by 10 plus half of your character level, rounded down. &lt;br&gt;&lt;br&gt;If you are awoken before the duration expires, the effects will not apply.</content>
     <content contentuid="h59f09350g03d7g4a05ga6aag79592cd7ed13" version="4">Drink to fall into a 2-turn slumber. Unless interrupted, you gain the benefits of a &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;. Removes Exhaustion effects completely. &lt;br&gt;&lt;br&gt;If you are awoken before the duration expires, the effects will not apply.</content>
 </contentList>
