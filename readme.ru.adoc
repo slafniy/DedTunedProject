@@ -7,7 +7,7 @@ link:readme.adoc[Версия на английском / English version]
 :screenshots-dir: screenshots
 
 == Об этом моде
-Этот мод - результат мох 1400+ часов в BG3, значительная часть которых была сыграна с друзьями.
+Этот мод - результат моих 1400+ часов в BG3, значительная часть которых была сыграна с друзьями.
 
 По моему мнению, оригинальная ванильная Доблесть слишком простая: я получил ачивку за прохождение с первого раза, почти ничего не зная про DnD. Еще меня слегка раздражало, что некоторые приятели использовали каждую абузную механику и любой возможный сыр который они только нашли, а мне приходилось ждать когда они повесят КАЖДЫЙ возможный бафф из лагеря ))
 
@@ -27,24 +27,21 @@ https://mod.io/g/baldursgate3/m/dedtuned[Страница мода на mod.io]
 == Список изменений
 
 === Усталость - новая механика
-A new mechanics which forces party to rest more often.
+Новая механика которая заставляет отряд отдыхать чаще.
 [%collapsible]
 ====
 image::{screenshots-dir}/exhaustion_stacks.PNG[Exhaustion tooltip]
 
-In a combat characters will get Exhaustion stacks, which on some point lead to various consequences:
+В бою персонажи получают стаки Усталости, и с определенного момента это начинает вызывать различныые последствия:
 
-- Level 1 (16+ stacks): slight fatigue. A penalty to attack rolls, saving throws, ability checks, skill checks and spell
-  DC
-- Level 2 (24+ stacks): Uncontrollable sleep. Every turn character must perform CON saving throw or will fall asleep for
-  2 turns
-- Level 3 (40+ stacks): Death.
+- Уровень 1 (16+ стаков): легкая усталость. Штраф к броскам атаки, спасброскам, просеркам характеристик и способностей и к КС заклинаний.
+- Уровень 2 (24+ стака): Неконтролируемый сон. Каждый ход персонаж должен пройти испытание выносливости или уснуть на 2 хода.
+- Уровень 3 (40+ стаков): Смерть.
 
-Long Rest (with supplies) removes all Exhaustion stacks, Short Rest twice a day (you cannot abuse Bard's rest) removes 10 + a halved character level (
-rounded down). Potions of Angelic Reprieve/Slumber has no artificial limitations and always remove stacks.
+Долгий Отдых (с припасами) убирает все стаки Усталости, Короткий Отдых дважды в день (вы не можете абузить бардовский отдых) убирает 10 + половину уровня персонажа (с округлением вниз). Зелья ангельского сна работают без дневных лимитов и убирают стаки всегда.
 
-Note: Not a direct adaptation of dnd5e Exhaustion and I'm not going to make a direct replica.
-TBH I invented it in my head first and found that dnd already has something like that second.
+Заметка: Это не прямамя адаптация dnd5e Усталости и я не собираюсь делать прямую реплику.
+На самом деле я сначала изобрел эту механику в своей голове и только потом узнал что что-то подобное уже есть в dnd.
 ====
 
 === Получаемый опыт
