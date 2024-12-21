@@ -1,10 +1,9 @@
 = DedTuned баланс мод для Baldur's Gate 3 от Larian [RUS]
-
-link:readme.adoc[Версия на английском / English version]
-
 :toc:
 :toc-title: Содержание
 :screenshots-dir: screenshots
+
+link:readme.adoc[Версия на английском / English version]
 
 == Об этом моде
 Этот мод - результат моих 1400+ часов в BG3, значительная часть которых была сыграна с друзьями.

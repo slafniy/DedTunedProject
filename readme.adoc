@@ -1,10 +1,9 @@
 = DedTuned balance mod for Larian's Baldur's Gate 3 [ENG]
-
-link:readme.ru.adoc[Версия на русском / Russian version]
-
 :toc:
 :toc-title: Contents
 :screenshots-dir: screenshots
+
+link:readme.ru.adoc[Версия на русском / Russian version]
 
 == About the mod
 This mod is a result of my 1400+ hours in BG3, big part of which was played with friends in my party.
