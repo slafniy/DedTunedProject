@@ -134,18 +134,12 @@ The number you need to roll a Critical Hit reduces by 1 every time you hit the s
 melee. You should not use Two-Handed or Versatile weapon holding it in two hands. The effect
 lasts until you roll Critical Hit or your turn ends. Stacks up to 5 times.
 
-Note: This is an option for one-handed and dual builds to compete against GWM.
-
 ==== Ambidextrous - NEW FEAT
 Once per turn after making an offhand melee attack can make an additional one for free.
-
-Note: this is a decent buff for Dual builds.
 
 ==== Duelist Mage - NEW FEAT
 You can cast a cantrip (except Eldritch Blast) as a bonus action after making a melee attack
 with weapon you are proficient with. Your left hand should be free.
-
-Note: this is a boost for Arcane Trickster, Warlock and anyone else who has a cantrip and use single-handed weapon without a shield.
 
 ==== Tavern Brawler
 - Does not add attack roll bonus
@@ -167,7 +161,7 @@ Note: it is still strong damage boost, but not imbalanced.
 
 Note: now it's not a copy-paste of GWM, and cannot be abused with one-handed crossbows.
 
-===== Durable
+==== Durable
 - Protects from critical hits
 
 Note: critical hit mechanics forces you to use anti-crit equipment, but it is limited.
@@ -211,7 +205,7 @@ Many spells not do not require concentration, some became stronger.
 - *True Strike*: no concentration
 - *Friends*: no concentration
 - *Entangle*: no concentration
-- *Compelled Due**: no concentration
+- *Compelled Duel**: no concentration
 - *Ensnaring Strike*: no concentration, lasts 3 turns
 - *Expeditious Retreat*: no concentration, lasts 10 turns
 - *Magic Weapon*: no concentration

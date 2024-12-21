@@ -19,8 +19,8 @@ link:readme.adoc[Версия на английском / English version]
 - Сделать слишком сильные способности слабее
 - Сбалансировать необходимость отдыха для разных классов
 
-Короче говоря, это попытка сделать игру идеальной *для меня*, так что каждое изменение которое я сделал отркжает мои собственные впечатления об игровых механиках. +
-У меня нет цели сделать этот мод подходящим для каждого, но если вы заинтересовались то я буду благодарен если вы поделитесь своим мнением в комментариях.
+Короче говоря, это попытка сделать игру идеальной *для меня*, так что каждое изменение, которое я сделал, отражает мои собственные впечатления об игровых механиках. +
+У меня нет цели сделать данный мод подходящим для каждого, но если вы заинтересовались то я буду благодарен если вы поделитесь своим мнением в комментариях.
 
 https://mod.io/g/baldursgate3/m/dedtuned[Страница мода на mod.io]
 
@@ -28,227 +28,224 @@ https://mod.io/g/baldursgate3/m/dedtuned[Страница мода на mod.io]
 
 === Усталость - новая механика
 Новая механика которая заставляет отряд отдыхать чаще.
+
+.Детали
 [%collapsible]
 ====
-image::{screenshots-dir}/exhaustion_stacks.PNG[Exhaustion tooltip]
+image::{screenshots-dir}/exhaustion_stacks_RUS.PNG[Exhaustion tooltip]
 
-В бою персонажи получают стаки Усталости, и с определенного момента это начинает вызывать различныые последствия:
+В бою персонажи получают стаки Усталости, и с определенного момента это начинает вызывать различные последствия:
 
-- Уровень 1 (16+ стаков): легкая усталость. Штраф к броскам атаки, спасброскам, просеркам характеристик и способностей и к КС заклинаний.
+- Уровень 1 (16+ стаков): легкая усталость. Штраф к броскам атаки, спасброскам, проверкам характеристик и способностей и к КС заклинаний.
 - Уровень 2 (24+ стака): Неконтролируемый сон. Каждый ход персонаж должен пройти испытание выносливости или уснуть на 2 хода.
 - Уровень 3 (40+ стаков): Смерть.
 
 Долгий Отдых (с припасами) убирает все стаки Усталости, Короткий Отдых дважды в день (вы не можете абузить бардовский отдых) убирает 10 + половину уровня персонажа (с округлением вниз). Зелья ангельского сна работают без дневных лимитов и убирают стаки всегда.
 
-Заметка: Это не прямамя адаптация dnd5e Усталости и я не собираюсь делать прямую реплику.
+Заметка: Это не прямая адаптация dnd5e Усталости и я не собираюсь делать прямую реплику.
 На самом деле я сначала изобрел эту механику в своей голове и только потом узнал что что-то подобное уже есть в dnd.
 ====
 
 === Получаемый опыт
-Required XP per level increased.
+Требуемое количество опыта для всех уровней увеличено.
+
+.Детали
 [%collapsible]
 ====
-Motivation:
+Мотивация:
 
-- Do not let player to over-level enemies too much
-- Bring more sense to XP rewards in Act III (in stock game player reaches level 12 at the beginning of Act III and
-  progress stops)
+- Не давать игроку слишком сильно обгонять врагов по уровню.
+- Привнести больше смысла в получение опыта в 3ем акте (в стандартной игре 12й уровень получается в начале 3 акта, и прогресс останавливается).
 
-Expected levels:
+Ожидаемые уровни:
 
-- 5 at the Act I before Rosymorn Monastery
-- 6 at the end of Act I
-- 8 at the end of Act II
-- 12 at the end of Act III
+- 5 в конце Акта I перед Обителью Розиморн
+- 6 в конце Акта I
+- 8 в конце Акта II
+- 12 в конце Акта III
 ====
 
 
 === Смена класса
-- Respec cost is 1000 gold
-- Every origin character has one-time free respec button (via my integrated https://mod.io/g/baldursgate3/m/free-one-time-respec-button-for-origins[Free one-time respec button for Origins] mod)
+- Смена класса стоит 1000 золота.
+- Каждый персонаж с историей имеет одноразовую кнопку смены класса (интегрирован мой мод https://mod.io/g/baldursgate3/m/free-one-time-respec-button-for-origins[Free one-time respec button for Origins])
 
-Note: I made this mainly to avoid exploiting of (almost free) resource regeneration after respec.
+Заметка: Я сделал это в основном чтобы убрать абуз с почти бесплатным восстановлением ресурсов после смены класса.
 
 === Карманные кражи
-- You cannot pickpocket Volo and Jergal anymore
-- You cannot endlessly pickpocket one person, you will get a Sleight of Hand debuff (resets on Long Rest)
+- Нельзя грабить Воло и Джергала.
+- Нельзя бесконечно обворовывать одного и того же персонажа, вы будете получать усиливающийся штраф на ловкость рук (сбрасывается долгим отдыхом).
 
-Vanilla pickpocketing is too easy, and to pickpocket a camp members is nonsense.
+Карманные кражи в базовой игре слишком простые, а грабить никак не реагирующих друзей в лагере вообще нонсенс.
 
 === Усиление режима Доблесть
-- HP boost increased from +30% to range +100-200% (more for high level creatures)
-- Honor attack roll bonus for high level enemies increased from 2 to 3
-- HP for some bosses is increased manually
+- Буст здоровья увеличен с +30% до +100-200% (больше для существ высокого уровня).
+- Бонус к броску атаки для врагов высокого уровня увеличен с 2 до 3.
+- Здоровье некоторых боссов увеличено ручками отдельно.
 
-HP boost should give a chance for enemies to use their abilities and not being slain on first turn.
+Буст здоровья должен дать шанс врагу использовать свои способности, а не быть уничтоженным за первый ход.
 
 === Мультикласс
-Multiclassing is forbidden
+Мультиклассинг запрещен.
+
+.Детали
 [%collapsible]
 ====
-First, it's impossible to balance out Multiclassing with my experience, knowledge and tools.
-Second, I personally don't like it as a concept because it looks like an abusing combination of too strong low-level
-features which are essential for pure class and could not be nerfed too much.
-Proper multiclassing should include some lore limitations, karma mechanics of something else, which is not the case in
-BG3.
+Во-первых, нереально сбалансировать мультиклассинг с моим опытом, знаниями и инструментарием.
+Во-вторых, я не люблю мультикласс как концепт потому что выглядит это как абуз комбинаций слишком мощных способностей которые появляются на ранних уровнях, и не могут быть особо порезаны, так как они необходимы для чистых классов.
+Правильный мультикласс должен включать какие-то ограничения по лору, механику кармы или что-то еще, что в BG3 отсутствует.
 
-BUT, if you do not care about my attempts to make things more balanced you can use my https://mod.io/g/baldursgate3/m/dedtuned-multiclass-enabler[DedTuned - Multiclass Enabler] mod.
+НО, если вас не волнуют мои попытки сделать механику более сбалансированной, вы можете использовать мой https://mod.io/g/baldursgate3/m/dedtuned-multiclass-enabler[DedTuned - Multiclass Enabler] мод.
 ====
 
 === Отдых
-- Long rest cost increased to 250
-- You cannot use Partial Rest
+- Стоимость Долгого Отдыха увеличена до 250.
+- Вы не можете использовать Частичный Отдых.
 
-CAUTION: Known issue: It is currently working by disabling "Long Rest" button if you have less than 250 supplies.
-"Partial Rest" button is removed, you just cannot rest if you do not choose enough supplies, so be careful and
-don't destroy them if you already triggered end of the day :)
+CAUTION: Известная проблема: ограничение сейчас работает через блокировку кнопки "Долгий отдых" если у вас менее 250 припасов.
+Кнопка "Частичный Отдых" удалена, вы просто не можете отдыхать если у вас не хватает припасов, так что будьте осторожны и не уничтожьте их если вы уже закончили день и сидите вечером в лагере около костра :)
 
 === Баффы вне отряда
-Only your current party members can buff each other. No more buffs from camp hirelings.
+Баффы работают только между членами отряда. Никаких больше баффов от наёмников из лагеря.
+
+.Детали
 [%collapsible]
 ====
-All until-long-rest buffs now works only if Caster and Target are in one party.
-Buff disappears if Caster and Target aren't in party simultaneously, but Caster always keeps its own buff on itself.
+Все баффы которые действуют "до долгого отдыха" теперь работают только если заклинатель и цель в одном отряде.
+Бафф исчезает если заклинатель и цель не находятся в отряде одновременно, но заклинатель всегда сохраняет свой собственный бафф на себе.
 
-Weapon buffs disappear if caster left party and weapon is in party inventory.
+Баффы на оружии исчезают если заклинатель покинул отряд, а оружие находится в инвентаре члена отряда.
 
-Also fixed vanilla "feature" that such buffs remains after re-spec on any person except caster itself - now re-spec
-removes them from everyone.
+Также починил "фичу" базовой игры из-за которой некоторые баффы оставались на членах отряда после того как заклинатель сменил класс, и снимались только с самого заклинателя. Теперь корректно снимаются со всех.
 ====
 
-=== Feats
-Feats do not provide Ability increase bonus anymore.
-Instead, you have Ability +1 on level 7 and +2 on level 11.
+=== Черты
+Черты теперь не дают бонус к характеристикам.
+Вместо этого вы получаете +1 к характеристике на уровне 7 и +2 на уровне 11.
 
-I added new and changed some old feats to make different weapon build viable.
-Duals and single-handed weapon builds are stronger than in vanilla.
+Я добавил новые и поменял некоторые старые черты, чтобы сделать все существующие варианты оружия рабочими.
+Билды через два оружия и через одноручное оружие сильнее, чем в базовой игре.
 
-==== Ability Improvement
-- Removed from the game.
+==== Улучшение характеристики
+- Удалено из игры.
 
-==== Abnormal Obstinacy - NEW FEAT
-The number you need to roll a Critical Hit reduces by 1 every time you hit the same target in
-melee. You should not use Two-Handed or Versatile weapon holding it in two hands. The effect
-lasts until you roll Critical Hit or your turn ends. Stacks up to 5 times.
+==== Ненормальное Упорство - НОВАЯ ЧЕРТА
+Число которое вам нужно выбросить для совершения критического удара уменьшается на 1 каждый раз когда вы атакуете одну и ту же цель в ближнем бою. Эффект длится пока вы не совершите критический удар или ваш ход не закончится. Складывается до 5 раз. Не работает для полуторного оружия, если вы держите его двумя руками, и не работает для двуручного оружия.
 
-Note: This is an option for one-handed and dual builds to compete against GWM.
+==== Амбидекстр - НОВАЯ ЧЕРТА
+Один раз за ход после атаки левой рукой в ближнем бою вы можете еще раз атаковать с левой бесплатно.
 
-==== Ambidextrous - NEW FEAT
-Once per turn after making an offhand melee attack can make an additional one for free.
+==== Маг-Дуэлянт - НОВАЯ ЧЕРТА
+Вы можете сотворить фокус (кроме Потустороннего Разряда) в качестве бонусного действия, если вы совершили атаку в ближнем бою и у вас свободна левая рука.
 
-Note: this is a decent buff for Dual builds.
+==== Трактирный забияка
+- Больше не дает бонус к броску атаки.
 
-==== Duelist Mage - NEW FEAT
-You can cast a cantrip (except Eldritch Blast) as a bonus action after making a melee attack
-with weapon you are proficient with. Your left hand should be free.
+Заметка: это и так хороший буст урона для одной черты, а безумный бонус к броску атаки делает его совсем несбалансированным.
 
-Note: this is a boost for Arcane Trickster, Warlock and anyone else who has a cantrip and use single-handed weapon without a shield.
+==== Мастер Двуручного Оружия
+- Штраф к броску атаки уменьшен до -3
+- Бонус к урону уменьшен до 6
+- Дополнительная атака доступна только один раз за бой
 
-==== Tavern Brawler
-- Does not add attack roll bonus
+Заметка: это по-прежнему сильный буст урона, но не имбалансный.
 
-Note: it`s pretty strong damage boost for one feat, an attack roll bonus makes it imbalanced.
+==== Меткий стрелок
+- Штраф к броску атаки удален
+- Работает только для оружия в основной руке
+- Бонус к урону это модификатор ловкости
+- Стоит 4 метра передвижения на каждый выстрел
 
-==== Great Weapon Master
-- Attack roll penalty reduced to -3
-- Damage bonus reduced to 6
-- You can use additional attack only once per combat
+Заметка: теперь это не копирка GWM, и не может использоваться для абуза с одноручными арбалетами. Ну и как бонус - "меткий" в названии теперь логически не конфликтует со штрафом на попадание.
 
-Note: it is still strong damage boost, but not imbalanced.
+==== Выносливый
+- Защищает от критических ударов
 
-==== Sharpshooter
-- Attack roll penalty removed
-- Works only for weapon in main hand
-- Damage bonus is your DEX modifier
-- Costs 4m of Movement for every shot
+Заметка: механика критических ударов заставляет собирать снаряжение на анти-крит, но оно очень ограничено в игре.
+Эта черта - опция для тех, кому нужна дополнительная защита и кто не хочет или не может использовать анти-крит снаряжение.
 
-Note: now it's not a copy-paste of GWM, and cannot be abused with one-handed crossbows.
+=== Заклинания
+Многие заклинаний больше не требуют концентрации, некоторые усилены.
 
-===== Durable
-- Protects from critical hits
-
-Note: critical hit mechanics forces you to use anti-crit equipment, but it is limited.
-This feat is an option for those who wants to have extra protection and don't want to use anti-crit equipment.
-
-=== Spells
-Many spells not do not require concentration, some became stronger.
+.Детали
 [%collapsible]
 ====
-- *Smite spells*: do not require concentration, can be upcasted and deal more damage (except Divine)
-- *Divine Favour*: does not require concentration
-- *Flame Blade*: does not require concentration and lasts until Long Rest
-- *Shadow Blade (from item)*: does not require concentration
-- *Barkskin*: does not require concentration (but works only for party members)
-- *Heroism*: does not require concentration but lasts only 3 turns
-- *Phantasmal Force*: does not require concentration but lasts only 5 turns
-- *Flaming Sphere*: does not require concentration
-- *Web*: does not require concentration
-- *Sleep, Color Spray, Power Word Kill*: maximum total target HP increased (x1.5) (because enemies have more HP)
-- *Animate Dead*: lasts only 10 turns
-- *Conjure Elemental*: lasts only 10 turns
-- *Planar Ally*: lasts only 10 turns
-- *Longstrider*: now an AOE spell
-- *Protection From Energy*: does not require concentration
-- *Grant Flight*: does not require concentration
-- *Fog Cloud*: does not require concentration, lasts 3 turns
-- *Faerie Fire*: does not require concentration, lasts 3 turns
-- *Darkness*: does not require concentration, lasts 5 turns, upcast increases area
-- *Dancing Lights*: does not require concentration
-- *Blur*: does not require concentration, lasts 2 turns, upcast increases duration by 1 turn
-- *Ray Of Enfeeblement*: does not require concentration, lasts 5 turns, deals initial 2d8 necrotic damage, upcast increases damage by 1d8
-- *Stoneskin*: does not require concentration, lasts 10 turns
-- *Bestow Curse*: does not require concentration
-- *Protection From Evil And Good*: no concentration, lasts 10 turns, applies in AOE
-- *Bless*: no concentration, lasts 3 turns
-- *Bane*: no concentration, lasts 3 turns
-- *Beacon Of Hope*: no concentration, upcast increases area
-- *Resistance*: no concentration, lasts 3 turns
-- *Guidance*: no concentration, lasts 3 turns
-- *Dispel Evil And Good*: no concentration, lasts until long rest
-- *True Strike*: no concentration
-- *Friends*: no concentration
-- *Entangle*: no concentration
-- *Compelled Due**: no concentration
-- *Ensnaring Strike*: no concentration, lasts 3 turns
-- *Expeditious Retreat*: no concentration, lasts 10 turns
-- *Magic Weapon*: no concentration
+- *Заклинания кары*: не требуют концентрации, добавлен апкаст и усилен урон (кроме Божественной Кары)
+- *Божественная благодать*: не требует концентрации
+- *Огненный клинок*: не требует концентрации и длится до Долгого Отдыха
+- *Клинок теней (предмет)*: не требует концентрации
+- *Дубовая кожа*: не требует концентрации, но работает только для членов отряда
+- *Героизм*: не требует концентрации, но длится только 3 хода
+- *Сила фантазма*: не требует концентрации, но длится только 5 ходов
+- *Пылающая сфера*: не требует концентрации
+- *Паутина*: не требует концентрации
+- *Сон, Цветные брызги, Слово силы: смерть*: максимальное общее здоровье целей увеличено (x1.5), потому что у врагов теперь больше здоровья
+- *Оживление мертвеца*: длится только 10 ходов
+- *Призыв элементаля*: длится только 10 ходов
+- *Планарный союзник*: длится только 10 ходов
+- *Скороход*: теперь применяется сразу на всех в определенном радиусе
+- *Защита от энергии*: не требует концентрации
+- *Даровать полёт*: не требует концентрации
+- *Облако тумана*: не требует концентрации, длится 3 хода
+- *Фейское сияние*: не требует концентрации, длится 3 хода
+- *Тьма*: не требует концентрации, длится 5 ходов, апкаст увеличивает радиус эффекта
+- *Пляшущие огоньки*: не требует концентрации
+- *Расплывчатость*: не требует концентрации, длится 2 хода, апкаст увеличивает длительность на 1 ход
+- *Ослабляющий луч*: не требует концентрации, длится 5 ходов, наносит 2d8 некротического урона, апкаст увеличивает урон еще на 1d8
+- *Каменная кожа*: не требует концентрации, длится 10 ходов
+- *Наложить проклятие*: не требует концентрации
+- *Защита от зла и добра*: не требует концентрации, длится 10 ходов, применяется на область
+- *Благословение*: не требует концентрации, длится 3 хода
+- *Порча*: не требует концентрации, длится 3 хода
+- *Светоч надежды*: не требует концентрации, апкаст увеличивает радиус
+- *Устойчивость*: не требует концентрации, длится 3 хода
+- *Наставление*: не требует концентрации, длится 3 хода
+- *Рассеивание добра и зла*: не требует концентрации, длится до долгого отдыха
+- *Верный удар*: не требует концентрации
+- *Дружба*: не требует концентрации
+- *Опутывание*: не требует концентрации
+- *Вызов на дуэль*: не требует концентрации
+- *Опутывающий удар*: не требует концентрации, длится 3 хода
+- *Поспешное отступление*: не требует концентрации, длится 10 ходов
+- *Магическое оружие*: не требует концентрации
 ====
 
-=== Classes
+=== Классы
 
-==== Fighter Champion
-- Improved Critical passive gives -2 critical threshold instead of -1
+==== Воин Чемпион
+- Улучшенный критический удар теперь снижает порог критического удара на 2 вместо 1
 
-Note: this subclass is too weak comparing to Battle Master, so I bring him this buff.
+Заметка: этот подкласс слишком слаб в сравнении с Мастером Битвы, поэтому я его немного усилил.
 
-==== Barbarian
-- Rage and End Rage does not consume Bonus Action
-- Enraged Throw now gives stack of Frenzied Strain as Frenzied Strike always does.
+==== Варвар
+- Ярость и Окончить ярость больше не тратят бонусное действие
+- Яростный бросок теперь дает эффект Бешеного напряжения точно так же как Яростный удар.
 
-Note: throwing build for Berserker was insanely strong, this change alongside of Tavern Brawler nerf should calm down it a little.
+Заметка: метательный билд для Берсерка был безумно сильным, это изменение вместе с ослаблением Трактирного забияки должно слегка его успокоить.
 
-==== Cleric War Domain
-- War Priest Action Points reset on Short Rest instead of Long Rest
-  Note: additional attack as bonus action isn't THAT strong.
+==== Жрец Домена Войны
+- Очки жреца войны восстанавливаются на коротком отдыхе вместо долгого
 
-=== Equipment
+Заметка: дополнительная атака за бонусное действие не настолько сильная штука.
 
-==== Potions
-- Elixir of Hill Giant Strength now gives +2 STR up to 22
-- Elixir of Cloud Giant Strength now gives +6 STR up to 26
-- All healing potions take an Action for use and could not be thrown to an ally,
-  but you can use it on ally in melee range
+=== Снаряжение
 
-==== Arrow of Many Targets
-- Renamed to Arrow of Ricochet
-- Now only affects one additional target in 9 meters range
+==== Зелья и эликсиры
+- Эликсир холмового великана теперь дает +2 силы до максимума 22
+- Эликсир облачного великана теперь дает +6 силы до максимума 26
+- Все исцеляющие зелья тратят Действие и не могут быть брошены в союзника,
+  но вы можете применять их на союзников на дистанции ближнего боя.
 
-Note: it was insanely strong.
+==== Стрела Множества Целей
+- Переименована в Стрелу рикошета
+- Теперь поражает только одну дополнительную цель в радиусе 9 метров от основной
 
-==== Hat of Fire Acuity
-- Now stacks buff only up to 5 stacks (was 10)
+Заметка: она была безумно сильной.
 
-==== Enraging Heart Garb
-Now works :)
+==== Шляпа Огневого Чутья
+- Теперь накапливает эффект максимум до 5 зарядов (было 10)
+
+==== Одеяние Ярости Сердца
+Теперь работает :)
 
 
