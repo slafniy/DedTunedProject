@@ -1,78 +1,21 @@
 /.idea/
-/Data/.idea/
-/Data/.gitignore
-
-# Another mod projects
-/Data/Projects/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/
-/Data/Mods/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/
-/Data/Public/PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30/
-/Data/Projects/OneTimeRespecButton_7b25dc8f-1c89-cc43-c6da-bb21007a53a2/
-/Data/Mods/OneTimeRespecButton_7b25dc8f-1c89-cc43-c6da-bb21007a53a2/
-/Data/Public/OneTimeRespecButton_7b25dc8f-1c89-cc43-c6da-bb21007a53a2/
-/Data/Projects/DedTunedMulticlass_d3b80736-ca6e-0bb1-1f52-80c0d1159ad8/
-/Data/Mods/DedTunedMulticlass_d3b80736-ca6e-0bb1-1f52-80c0d1159ad8/
-/Data/Public/DedTunedMulticlass_d3b80736-ca6e-0bb1-1f52-80c0d1159ad8/
+__pycache__/
 
 # some strange binary file
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/GUI/metadata.lsf
+Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/GUI/metadata.lsf
 
-# BG3 stock files and folders
-/Data/*.pak
-/Data/Video/
-/Data/Mods/Gustav/
-/Data/Mods/GustavDev/
-/Data/Mods/Shared/
-/Data/Mods/SharedDev/
-/Data/Editor/Mods/DiceSet_01/
-/Data/Editor/Mods/DiceSet_02/
-/Data/Editor/Mods/DiceSet_03/
-/Data/Editor/Mods/DiceSet_06/
-/Data/Editor/Mods/Engine/
-/Data/Editor/Mods/Gustav/
-/Data/Editor/Mods/GustavDev/
-/Data/Editor/Mods/MainUI/
-/Data/Editor/Mods/ModBrowser/
-/Data/Editor/Mods/Shared/
-/Data/Editor/Mods/SharedDev/
-/Data/Editor/MEIEditor/
-/Data/Editor/Hints/
-/Data/Editor/Help/
-/Data/Editor/Gizmos/
-/Data/Editor/Config/
-/Data/Editor/Preview/
-/Data/Editor/Shared/
-/Data/Editor/Temp/
-/Data/Editor/Textures/
-/Data/Editor/Triggers/
-/Data/Generated/Public/Engine/
-/Data/Public/Engine/
-/Data/Public/Shared/
-/Data/Public/UserTemp/
-/Data/Projects/GustavDev/
-/Data/Localization/Russian/
-/Data/Localization/English.pak
-/Data/Localization/English_Animations.pak
-/Data/Localization/language.lsx
-/Data/Localization/Voice.pak
-/Data/Localization/VoiceMeta.pak
-/Data/_dbcache_/loca.db
-/Data/Projects/CommonUtility/get_all_bindings.py
-/Data/Projects/CommonUtility/XAMLBindings.txt
-/Data/Projects/CommonUtility/damage_calc/*.log
-/Data/Projects/CommonUtility/damage_calc/.ipynb_checkpoints/
-__pycache__/
 
 # BG3 story generated files which are safe to remove to decrease mod pak size
 # SAFETOREMOVE_START
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/goals.raw
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/log.txt
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story.div
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story.div.osi
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_ac.dat
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/RawFiles/story_definitions.div
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/RawFiles/story_header.div
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_found.txt
-/Data/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_ignore.txt
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/goals.raw
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/log.txt
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story.div
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story.div.osi
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_ac.dat
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/RawFiles/story_definitions.div
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/RawFiles/story_header.div
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_found.txt
+/Mods/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Story/story_orphanqueries_ignore.txt
 # SAFETOREMOVE_END
 
 
