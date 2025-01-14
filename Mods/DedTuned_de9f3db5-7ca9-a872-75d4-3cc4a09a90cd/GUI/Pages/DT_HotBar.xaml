@@ -1292,8 +1292,7 @@
 
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <!-- PPMeter mod starts here -->
-                                            <Grid x:Name="HotBarStatusEffect" ToolTip="{StaticResource ManagedTooltip}" ToolTipService.Placement="Right" >
+                                            <Grid ToolTip="{StaticResource ManagedTooltip}" ToolTipService.Placement="Right" >
                                                 <Image Source="{StaticResource StatusBg}" Stretch="None"/>
                                                 <Ellipse Width="48" Height="48" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="{Binding Icon}" />
                                                 <ls:LSPie x:Name="Progression" Value="{Binding RemainingPercentage}" SweepDirection="Clockwise" RenderTransformOrigin="0.5 0.5">
@@ -1301,12 +1300,6 @@
                                                 </ls:LSPie>
                                                 <Label VerticalAlignment="Bottom" HorizontalAlignment="Center" IsHitTestVisible="False" Content="{Binding Duration}" Margin="0,0,0,-8" Foreground="{StaticResource LS_tint100}" FontWeight="Bold" FontSize="{StaticResource SmallFontSize}" noesis:Text.Stroke="Black" noesis:Text.StrokeThickness="4" Visibility="{Binding Duration, Converter={StaticResource CountToVisibilityConverter}}"/>
                                             </Grid>
-                                            <DataTemplate.Triggers>
-                                                <DataTrigger Binding="{Binding Duration, Converter={StaticResource LessThanConverter}, ConverterParameter={StaticResource MinimalDurationToShow}}" Value="True">
-                                                    <Setter  TargetName="HotBarStatusEffect" Property="Visibility" Value="Collapsed"/>
-                                                </DataTrigger>
-                                            </DataTemplate.Triggers>
-                                            <!-- PPMeter mod end here -->
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>

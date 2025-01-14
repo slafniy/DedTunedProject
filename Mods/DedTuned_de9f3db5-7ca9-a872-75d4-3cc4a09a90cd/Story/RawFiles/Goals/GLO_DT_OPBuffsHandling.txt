@@ -25,10 +25,6 @@ _Target != _Caster  // do not save self-applied statuses
 AND
 GetStatusTurns(_Target, _Status, -1)  // Until Long Rest
 AND
-Substring(_Status, 1, 7, _Prefix)
-AND
-_Prefix != "PPMeter"  // Exclude PPMeter technical statuses
-AND
 DB_PartOfTheTeam(_Caster)
 AND
 DB_PartOfTheTeam((CHARACTER)_Target)
@@ -40,10 +36,6 @@ IF
 StatusApplied((GUIDSTRING)_Item, _Status, (CHARACTER)_Caster, _)
 AND
 GetStatusTurns(_Item, _Status, -1)  // Until Long Rest
-AND
-Substring(_Status, 1, 7, _Prefix)
-AND
-_Prefix != "PPMeter"  // Exclude PPMeter technical statuses
 AND
 DB_PartOfTheTeam(_Caster)
 AND
