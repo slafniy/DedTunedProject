@@ -21,7 +21,7 @@
                             <attribute id="Name" type="LSString" value="PPMeter damage meter and combat statistics"/>
                             <attribute id="PublishHandle" type="uint64" value="4407001"/>
                             <attribute id="UUID" type="guid" value="d2481ff8-5c74-cd1c-8709-6d8314bd1c30"/>
-                            <attribute id="Version64" type="int64" value="72339071162122285"/>
+                            <attribute id="Version64" type="int64" value="72339073309605935"/>
                         </node>
                     </children>
                 </node>
