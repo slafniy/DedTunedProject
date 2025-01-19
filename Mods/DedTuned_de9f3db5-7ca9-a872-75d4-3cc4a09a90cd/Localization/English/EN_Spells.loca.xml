@@ -6,8 +6,6 @@
     <content contentuid="hb7ad154eg6ce4g4da6g8f42ga9396530dcbe" version="4">Deal normal damage to target and an additional half damage to the second target in 9 meters. Applies special weapon effects to both targets.</content>
     <content contentuid="h86400eefg99a0g4316g9acfgc486581d976d" version="1">You and nearby allies gain &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; increased by [1].</content>
     <content contentuid="h6c1632dcgb093g439bga652g4851cb30d128" version="1">You or an ally's weapon attacks deal an additional radiant damage equal to your &lt;LSTag Tooltip="Charisma"&gt;charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;modifier&lt;/LSTag&gt; and can &lt;LSTag Type="Status" Tooltip="DAZED"&gt;Daze&lt;/LSTag&gt; enemies for 1 turn.</content>
-    <content contentuid="h11c99864g9865g4990gb0e1g5c835cef51d1" version="1">Change class</content>
-    <content contentuid="h186f09bcg218bg4598g966ag2fe841df9a8d" version="1">Change character class. Can be used only once.</content>
     <content contentuid="hcd4b1357g5e72g470ag9053g31207acfe7c1" version="1">Lasts longer.</content>
     <content contentuid="h54893a11gd384g40cbgba7fg16ab0ec7692f" version="1">Deal damage and weaken a foe: they deal half damage with weapon attacks using &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;.</content>
     <content contentuid="hb68df2a0g48c9g47f7g92a8g06b5a58ff8df" version="1">Protect allies against the attacks and powers of aberrations, celestials, elementals, fey, fiends, and undead.</content>
