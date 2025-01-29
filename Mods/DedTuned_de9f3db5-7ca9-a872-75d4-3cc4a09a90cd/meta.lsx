@@ -17,11 +17,11 @@
                         </node>
                         <node id="ModuleShortDesc">
                             <attribute id="Folder" type="LSString" value="PPMeter_d2481ff8-5c74-cd1c-8709-6d8314bd1c30"/>
-                            <attribute id="MD5" type="LSString" value="cb03dc629f3fd43284b8cbe0e1af12a1"/>
+                            <attribute id="MD5" type="LSString" value="43b333b632775659a2926b5dc8710d63"/>
                             <attribute id="Name" type="LSString" value="PPMeter damage meter and combat statistics"/>
                             <attribute id="PublishHandle" type="uint64" value="4407001"/>
                             <attribute id="UUID" type="guid" value="d2481ff8-5c74-cd1c-8709-6d8314bd1c30"/>
-                            <attribute id="Version64" type="int64" value="72339073309605935"/>
+                            <attribute id="Version64" type="int64" value="72479817240412228"/>
                         </node>
                         <node id="ModuleShortDesc">
                             <attribute id="Folder" type="LSString" value="OneTimeRespecButton_7b25dc8f-1c89-cc43-c6da-bb21007a53a2"/>
