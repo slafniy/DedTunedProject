@@ -4,6 +4,7 @@
     <region id="ActionResourceDefinitions">
         <node id="root">
             <children>
+                <!-- WarPriestActionPoint - changed ReplenishType from LongRest to ShortRest -->
                 <node id="ActionResourceDefinition">
                     <attribute id="Description" type="TranslatedString" handle="h1839885agdd92g42a6gac45gf96f9ea0eda0" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="h8cc0935fg68b5g47f8ga3b5gca464609021c" version="2"/>
@@ -12,6 +13,16 @@
                     <attribute id="ReplenishType" type="FixedString" value="ShortRest"/>
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
                     <attribute id="UUID" type="guid" value="30cca4c5-a808-4c96-bd1c-f57bbb92dc1d"/>
+                </node>
+
+                <!-- SneakAttack_Charge - set ShowOnActionResourcePanel to true -->
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hae559bcdg709eg44abg848dg0673b4428547" version="3"/>
+                    <attribute id="IsHidden" type="bool" value="true"/>
+                    <attribute id="Name" type="FixedString" value="SneakAttack_Charge"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="1531b6ec-4ba8-4b0d-8411-422d8f51855f"/>
                 </node>
             </children>
         </node>
