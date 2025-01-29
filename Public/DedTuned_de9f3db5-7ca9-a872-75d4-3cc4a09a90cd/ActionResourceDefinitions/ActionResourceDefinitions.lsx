@@ -15,7 +15,7 @@
                     <attribute id="UUID" type="guid" value="30cca4c5-a808-4c96-bd1c-f57bbb92dc1d"/>
                 </node>
 
-                <!-- SneakAttack_Charge - set ShowOnActionResourcePanel to true -->
+                <!-- Set ShowOnActionResourcePanel to true -->
                 <node id="ActionResourceDefinition">
                     <attribute id="DisplayName" type="TranslatedString" handle="hae559bcdg709eg44abg848dg0673b4428547" version="3"/>
                     <attribute id="IsHidden" type="bool" value="true"/>
@@ -23,6 +23,15 @@
                     <attribute id="ReplenishType" type="FixedString" value="Turn"/>
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
                     <attribute id="UUID" type="guid" value="1531b6ec-4ba8-4b0d-8411-422d8f51855f"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="Description" type="TranslatedString" handle="hb8abe274g41c8g481dgbd39g8a1c1c692457" version="3"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h43f4dbfeg0d62g49eegbecagad62630e032d" version="2"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="Name" type="FixedString" value="ReactionActionPoint"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="45ff0f48-b210-4024-972f-b64a44dc6985"/>
                 </node>
             </children>
         </node>
