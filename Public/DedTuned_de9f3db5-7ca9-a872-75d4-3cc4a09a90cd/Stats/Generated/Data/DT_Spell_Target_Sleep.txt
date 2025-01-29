@@ -1,31 +1,45 @@
+# creature levels HP boosts are 100% for 1-3, 125% 4-5, 150% 6-7, 8-10 175%, 11+ 200%
+# Public/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/Stats/Generated/Data/DT_HonorBoost.txt
+# So base value for character levels 1-3 is 9, for 4-5 is 10, for 6-7 is 11, for 8-10 is 12, for 11-12 is 13
+# Base multiplier is 3, +1 every spell level
+
+# mp 3, char level 9, result 27
 new entry "Target_Sleep"
 type "SpellData"
 using "Target_Sleep"
+data "TargetConditions" "not HasHPMoreThan(27) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
+data "DescriptionParams" "RegainHitPoints(27)"
+data "MaximumTotalTargetHP" "27"
+
+# available from character level 3
+# mp 4 * base 9 = 36
+new entry "Target_Sleep_2"
+type "SpellData"
+using "Target_Sleep_2"
 data "TargetConditions" "not HasHPMoreThan(36) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
 data "DescriptionParams" "RegainHitPoints(36)"
 data "MaximumTotalTargetHP" "36"
 
-new entry "Target_Sleep_2"
-type "SpellData"
-using "Target_Sleep_2"
-data "TargetConditions" "not HasHPMoreThan(48) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
-data "DescriptionParams" "RegainHitPoints(48)"
-data "MaximumTotalTargetHP" "48"
-
+# available from character level 5
+# mp 5 * base 10 = 50
 new entry "Target_Sleep_3"
 type "SpellData"
 using "Target_Sleep_3"
-data "TargetConditions" "not HasHPMoreThan(60) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
-data "DescriptionParams" "RegainHitPoints(60)"
-data "MaximumTotalTargetHP" "60"
+data "TargetConditions" "not HasHPMoreThan(50) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
+data "DescriptionParams" "RegainHitPoints(50)"
+data "MaximumTotalTargetHP" "50"
 
+# available from character level 7
+# mp 6 * base 11 = 66
 new entry "Target_Sleep_4"
 type "SpellData"
 using "Target_Sleep_4"
-data "TargetConditions" "not HasHPMoreThan(72) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
-data "DescriptionParams" "RegainHitPoints(72)"
-data "MaximumTotalTargetHP" "72"
+data "TargetConditions" "not HasHPMoreThan(66) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
+data "DescriptionParams" "RegainHitPoints(66)"
+data "MaximumTotalTargetHP" "66"
 
+# available from character level 9
+# mp 7 * base 12 = 84
 new entry "Target_Sleep_5"
 type "SpellData"
 using "Target_Sleep_5"
@@ -33,9 +47,11 @@ data "TargetConditions" "not HasHPMoreThan(84) and not HasStatus('SG_Unconscious
 data "DescriptionParams" "RegainHitPoints(84)"
 data "MaximumTotalTargetHP" "84"
 
+# available from character level 11
+# mp 8 * base 13 = 104
 new entry "Target_Sleep_6"
 type "SpellData"
 using "Target_Sleep_6"
-data "TargetConditions" "not HasHPMoreThan(96) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
-data "DescriptionParams" "RegainHitPoints(96)"
-data "MaximumTotalTargetHP" "96"
+data "TargetConditions" "not HasHPMoreThan(104) and not HasStatus('SG_Unconscious') and not Dead() and Character() and not Ally() and not Tagged('UNDEAD') and not (not Player(context.Source) and IsCrowdControlled(context.Target)) and not IsImmuneToStatus('SLEEP')"
+data "DescriptionParams" "RegainHitPoints(104)"
+data "MaximumTotalTargetHP" "104"
