@@ -1,35 +1,44 @@
+# Vanilla is 33 + 11 for each spell slot level, so its base * 3 where base = 11 + level
+# Modded version increases base by 1 every level, base for level 1 is 12
+
+# 12 * 3 = 36
 new entry "Zone_ColorSpray"
 type "SpellData"
 using "Zone_ColorSpray"
-data "DescriptionParams" "RegainHitPoints(48)"
-data "MaximumTotalTargetHP" "48"
+data "DescriptionParams" "RegainHitPoints(36)"
+data "MaximumTotalTargetHP" "36"
 
+# 13 * 4 = 52
 new entry "Zone_ColorSpray_2"
 type "SpellData"
 using "Zone_ColorSpray_2"
-data "DescriptionParams" "RegainHitPoints(64)"
-data "MaximumTotalTargetHP" "64"
+data "DescriptionParams" "RegainHitPoints(52)"
+data "MaximumTotalTargetHP" "52"
 
+# 14 * 5 = 70
 new entry "Zone_ColorSpray_3"
 type "SpellData"
 using "Zone_ColorSpray_3"
-data "DescriptionParams" "RegainHitPoints(80)"
-data "MaximumTotalTargetHP" "80"
+data "DescriptionParams" "RegainHitPoints(70)"
+data "MaximumTotalTargetHP" "70"
 
+# 15 * 6 = 90
 new entry "Zone_ColorSpray_4"
 type "SpellData"
 using "Zone_ColorSpray_4"
-data "DescriptionParams" "RegainHitPoints(96)"
-data "MaximumTotalTargetHP" "96"
+data "DescriptionParams" "RegainHitPoints(90)"
+data "MaximumTotalTargetHP" "90"
 
+# 16 * 7 = 112
 new entry "Zone_ColorSpray_5"
 type "SpellData"
 using "Zone_ColorSpray_5"
 data "DescriptionParams" "RegainHitPoints(112)"
 data "MaximumTotalTargetHP" "112"
 
+# 17 * 8 = 136
 new entry "Zone_ColorSpray_6"
 type "SpellData"
 using "Zone_ColorSpray_6"
-data "DescriptionParams" "RegainHitPoints(128)"
-data "MaximumTotalTargetHP" "128"
+data "DescriptionParams" "RegainHitPoints(136)"
+data "MaximumTotalTargetHP" "136"
