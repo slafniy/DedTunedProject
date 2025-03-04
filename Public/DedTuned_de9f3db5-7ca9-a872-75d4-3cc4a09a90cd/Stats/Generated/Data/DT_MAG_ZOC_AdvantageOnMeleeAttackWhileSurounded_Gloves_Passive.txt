@@ -1,0 +1,6 @@
+# Underdog's Bravery from Gloves of the Growling Underdog
+# Now gives +1 roll bonus for melee attack rolls (instead of advantage)
+new entry "MAG_ZOC_AdvantageOnMeleeAttackWhileSurounded_Gloves_Passive"
+type "PassiveData"
+using "MAG_ZOC_AdvantageOnMeleeAttackWhileSurounded_Gloves_Passive"
+data "Boosts" "IF(IsMeleeAttack() and DT_IsSurroundedByTwoOrMoreEnemies(context.Target, context.Source)):RollBonus(Attack, 1);"

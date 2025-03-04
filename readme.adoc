@@ -247,4 +247,8 @@ Note: it was insanely strong.
 ==== Enraging Heart Garb
 Now works :)
 
+==== Gloves of the Growling Underdog
+- Gives +1 melee attack roll bonus instead of Advantage
+- Always does not count incapacitated enemies (fixed bug)
+- Applies no only to melee weapon attacks, but also to unarmed melee and melee spells as the description says
 

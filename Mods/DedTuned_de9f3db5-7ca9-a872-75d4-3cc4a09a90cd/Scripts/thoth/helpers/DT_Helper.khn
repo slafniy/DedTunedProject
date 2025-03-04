@@ -15,31 +15,26 @@ function DT_AbnormalObstinacyWeaponCondition(entity)
     return ~FightingStyle_GreatWeapon(entity)
 end
 
-
 function OffhandExtraAttackCheck()
-    return HasStringInSpellRoll('WeaponAttack') & HasUseCosts('BonusActionPoint',false)
+    return HasStringInSpellRoll('WeaponAttack') & HasUseCosts('BonusActionPoint', false)
 end
-
 
 function IsMeleeOffHandAttack()
     result = context.HitDescription.AttackType == AttackType.MeleeOffHandWeaponAttack
-	return ConditionResult(result)
+    return ConditionResult(result)
 end
-
 
 function DuelistMageCantripCheck()
     return IsCantrip() & HasUseCosts('ActionPoint') & HasSpellFlag(SpellFlags.Spell) & ~SpellId('Projectile_EldritchBlast')
 end
 
-
 function DT_DuelistMageWeaponCondition(entity)
     return FightingStyle_Dueling(entity) & ~HasShieldEquipped(entity)
 end
 
-
 function IsMainHandRangedWeaponAttack()
     entity = context.Source
-    return HasUseCosts('ActionPoint',false) & HasStringInSpellRoll('RangedWeaponAttack') & WieldingWeapon('Ammunition', false, true, entity) & WieldingWeapon('Twohanded', false, true, entity)
+    return HasUseCosts('ActionPoint', false) & HasStringInSpellRoll('RangedWeaponAttack') & WieldingWeapon('Ammunition', false, true, entity) & WieldingWeapon('Twohanded', false, true, entity)
 end
 
 
@@ -47,4 +42,30 @@ end
 function CreatureLevelBetween(valueFrom, valueTo, entity)
     entity = entity or context.Source
     return ConditionResult(entity.Level >= valueFrom) & ConditionResult(entity.Level <= valueTo)
+end
+
+function DT_IsSurroundedByTwoOrMoreEnemies(target, source)
+    local distance = 3
+    local NumberOfEnemy = 2
+    local exclusionStatus = "SG_Incapacitated"
+
+    local enemies = GetEnemiesWithinRange(distance, target, source)
+
+    -- return false if not enough enemies around
+    if enemies == nil or #enemies.Enemies < NumberOfEnemy then
+        return ConditionResult(false)
+    end
+
+    local enemiesWithoutExclusionStatus = 0
+
+    -- ensure enemy does not have the excluded status
+    for _, enemy in ipairs(enemies.Enemies) do
+        noExcludedStatus = ~HasStatus(exclusionStatus, enemy)
+
+        if noExcludedStatus.Result then
+            enemiesWithoutExclusionStatus = enemiesWithoutExclusionStatus + 1
+        end
+    end
+
+    return ConditionResult(enemiesWithoutExclusionStatus >= NumberOfEnemy)
 end
