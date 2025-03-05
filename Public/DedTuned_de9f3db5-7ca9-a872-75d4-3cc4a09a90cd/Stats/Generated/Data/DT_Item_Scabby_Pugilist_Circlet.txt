@@ -1,0 +1,4 @@
+new entry "MAG_MartialBravery_Passive"
+type "PassiveData"
+using "MAG_MartialBravery_Passive"
+data "Boosts" "IF((IsUnarmedAttack() or IsWeaponAttack()) and DT_IsSurroundedByTwoOrMoreEnemies(context.Target, context.Source)):DamageBonus(2)"
