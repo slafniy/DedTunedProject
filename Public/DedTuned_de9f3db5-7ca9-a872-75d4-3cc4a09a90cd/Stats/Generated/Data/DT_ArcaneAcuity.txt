@@ -1,0 +1,12 @@
+# Limit Arcane Acuity max stacks to 3
+new entry "MAG_GISH_ARCANE_ACUITY_DURATION_TECHNICAL"
+type "StatusData"
+using "MAG_GISH_ARCANE_ACUITY_DURATION_TECHNICAL"
+data "OnApplyFunctors" "IF(DT_HasStacksOverLimit(context.Target, 'MAG_GISH_ARCANE_ACUITY', 3)):SetStatusDuration(MAG_GISH_ARCANE_ACUITY, 3, ForceSet) "
+
+# Fix description - show max stacks info
+new entry "MAG_GISH_ARCANE_ACUITY"
+type "StatusData"
+using "MAG_GISH_ARCANE_ACUITY"
+data "Description" "h07cccf55g0c8fg46acg8de7g4418a722b8e9;1"
+data "DescriptionParams" "1;2;3"

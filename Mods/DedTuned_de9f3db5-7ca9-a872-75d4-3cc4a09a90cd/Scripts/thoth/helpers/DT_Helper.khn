@@ -1,3 +1,4 @@
+-- TODO: remove. It isn't used but due to some reason it breaks Fire hat if removed
 function DT_HatApplyAcuityHowMuchToAdd()
     -- Apply Arcane Acuity stacks up to threshold
     local stringStatusName = 'MAG_GISH_ARCANE_ACUITY'
@@ -68,4 +69,10 @@ function DT_IsSurroundedByTwoOrMoreEnemies(target, source)
     end
 
     return ConditionResult(enemiesWithoutExclusionStatus >= NumberOfEnemy)
+end
+
+
+-- for MAG_GISH_ARCANE_ACUITY_DURATION_TECHNICAL
+function DT_HasStacksOverLimit(entity, status, stacks)
+    return ConditionResult(GetStatusDuration(status, entity) > stacks)
 end

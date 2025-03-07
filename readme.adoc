@@ -241,9 +241,6 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
 
 Note: it was insanely strong.
 
-==== Hat of Fire Acuity
-- Now stacks buff only up to 5 stacks (was 10)
-
 ==== Enraging Heart Garb
 Now works :)
 
@@ -252,3 +249,5 @@ Now works :)
 - Always does not count incapacitated enemies (fixed bug)
 - Applies no only to melee weapon attacks, but also to unarmed melee and melee spells as the description says
 
+==== Hat of Fire Acuity, Hat of Storm Scion's Power, Helmet of Arcane Acuity
+- Maximum Arcane Acuity stacks are limited to 3
