@@ -1,16 +1,3 @@
--- TODO: remove. It isn't used but due to some reason it breaks Fire hat if removed
-function DT_HatApplyAcuityHowMuchToAdd()
-    -- Apply Arcane Acuity stacks up to threshold
-    local stringStatusName = 'MAG_GISH_ARCANE_ACUITY'
-    local threshold = 5
-    local diff = threshold - GetStatusDuration(stringStatusName, context.Source)
-    if diff <= 0 then
-        return 0  -- we already have 5+ stacks
-    end
-    return math.min(diff, 2)  -- add up to 2 stacks
-end
-
-
 -- check entity uses not two-handed and not versatile weapon in both hands
 function DT_AbnormalObstinacyWeaponCondition(entity)
     return ~FightingStyle_GreatWeapon(entity)
