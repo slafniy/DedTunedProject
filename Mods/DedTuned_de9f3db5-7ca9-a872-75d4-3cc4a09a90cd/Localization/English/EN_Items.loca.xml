@@ -6,4 +6,5 @@
     <content contentuid="h7dce670cga078g4776g81d3ga4574b38ab80" version="1">&lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; increased by 6.</content>
     <content contentuid="h924148a4gc14ag4b1egb8dcg47f47a5ea62a" version="4">The wearer gains +1 to &lt;LSTag Tooltip="AttackRoll"&gt;melee attack rolls&lt;/LSTag&gt; while surrounded by [1] or more foes.</content>
     <content contentuid="h07cccf55g0c8fg46acg8de7g4418a722b8e9" version="1">Affected entity has a +[1] bonus to its spell &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; and spell &lt;LSTag Tooltip="DifficultyClass"&gt;Difficulty Class&lt;/LSTag&gt; for each remaining turn.&lt;br&gt;&lt;br&gt;Reduce the duration by [2] each time the entity takes damage. Maximum duration is [3] turns.</content>
+    <content contentuid="h46301903g03b3g4d18g9074g3c9df02e5f77" version="1">Whenever you deal damage with a weapon attack, you gain &lt;LSTag Type="Status" Tooltip="MAG_GISH_ARCANE_ACUITY"&gt;Arcane Acuity&lt;/LSTag&gt; for 2 turns.</content>
 </contentList>
