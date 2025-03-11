@@ -1,8 +1,0 @@
-# Now works like helmet - gives Arcane Acuity on weapon damage
-new entry "MAG_Gish_ArcaneAcuity_Gloves_Passive"
-type "PassiveData"
-using "MAG_Gish_ArcaneAcuity_Gloves_Passive"
-data "Description" "h46301903g03b3g4d18g9074g3c9df02e5f77;1"
-data "StatsFunctorContext" "OnDamage"
-data "Conditions" "IsWeaponAttack()"
-data "StatsFunctors" "ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY, 100, 2);ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY_DURATION_TECHNICAL, 100, 1)"

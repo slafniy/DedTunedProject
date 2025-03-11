@@ -57,9 +57,3 @@ function DT_IsSurroundedByTwoOrMoreEnemies(target, source)
 
     return ConditionResult(enemiesWithoutExclusionStatus >= NumberOfEnemy)
 end
-
-
--- for MAG_GISH_ARCANE_ACUITY_DURATION_TECHNICAL
-function DT_HasStacksOverLimit(entity, status, stacks)
-    return ConditionResult(GetStatusDuration(status, entity) > stacks)
-end
