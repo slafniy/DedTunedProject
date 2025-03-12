@@ -1,4 +1,5 @@
 # This passive limits MAG_GISH_ARCANE_ACUITY stacks
+# Needed in case if you have TWO or more item adding this stacks at the same time
 new entry "DT_ArcaneAcuityLimiterPassive"
 type "PassiveData"
 data "DisplayName" "h9bc07343g3a8fg43eega9abgdd66e38e3edf;1"
@@ -6,30 +7,12 @@ data "StatsFunctorContext" "OnCastResolved;OnStatusApplied;OnStatusRemoved"
 data "StatsFunctors" "IF(StatusDurationMoreThan(SELF, 'MAG_GISH_ARCANE_ACUITY', 4)):SetStatusDuration(MAG_GISH_ARCANE_ACUITY, 4, ForceSet)"
 
 
+# Add max stacks to description
 new entry "MAG_GISH_ARCANE_ACUITY"
 type "StatusData"
 using "MAG_GISH_ARCANE_ACUITY"
 data "Description" "h07cccf55g0c8fg46acg8de7g4418a722b8e9;1"
 data "DescriptionParams" "1;2;4"
-
-
-# For Gloves of Battlemage's Power
-new entry "DT_ArcaneAcuity_OnWeaponDamage_Gloves_Passive"
-type "PassiveData"
-data "DisplayName" "haab50542gb3f3g41c5g9ee9gefb50accc757;3"
-data "Description" "h46301903g03b3g4d18g9074g3c9df02e5f77;1"
-data "Properties" "OncePerAttack"
-data "StatsFunctorContext" "OnDamage"
-data "Conditions" "IsWeaponAttack()"
-data "StatsFunctors" "ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY, 100, 2)"
-
-
-# For Helmet of Arcane Acuity
-new entry "DT_ArcaneAcuity_OnWeaponDamage_Helmet_Passive"
-type "PassiveData"
-using "DT_ArcaneAcuity_OnWeaponDamage_Gloves_Passive"
-data "DisplayName" "haab50542gb3f3g41c5g9ee9gefb50accc757;3"
-data "Description" "h46301903g03b3g4d18g9074g3c9df02e5f77;1"
 
 
 # For Hat of Fire Acuity
@@ -40,16 +23,33 @@ data "Description" "h0aed5e4cg1abfg4408g9647g1e14388b2533;4"
 data "Properties" "OncePerAttack"
 data "StatsFunctorContext" "OnDamage"
 data "Conditions" "IsDamageTypeFire() and not Self()"
-data "StatsFunctors" "ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY, 100, 2)"
+data "StatsFunctors" "IF(ConditionResult(DT_ArcaneAcuityHowMuchToAdd(2,4) == 2)):ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY, 100, 2);IF(ConditionResult(DT_ArcaneAcuityHowMuchToAdd(2,4) == 1)):ApplyStatus(SELF, MAG_GISH_ARCANE_ACUITY, 100, 1);"
 
 
-# For Hat of Fire Acuity
+# For Hat of Storm Scion's Power
 new entry "DT_ArcaneAcuityOnThunderDamage_Passive"
 type "PassiveData"
 using "DT_ArcaneAcuityOnFireDamage_Passive"
 data "DisplayName" "haaee7c0ege543g42dcg9feeg152a030daf77;2"
 data "Description" "h0aed5e4cg1abfg4408g9647g1e14388b2533;4"
 data "Conditions" "IsDamageTypeThunder() and not Self()"
+
+
+# For Gloves of Battlemage's Power
+new entry "DT_ArcaneAcuity_OnWeaponDamage_Gloves_Passive"
+type "PassiveData"
+using "DT_ArcaneAcuityOnFireDamage_Passive"
+data "DisplayName" "haab50542gb3f3g41c5g9ee9gefb50accc757;3"
+data "Description" "h46301903g03b3g4d18g9074g3c9df02e5f77;1"
+data "Conditions" "IsWeaponAttack()"
+
+
+# For Helmet of Arcane Acuity
+new entry "DT_ArcaneAcuity_OnWeaponDamage_Helmet_Passive"
+type "PassiveData"
+using "DT_ArcaneAcuity_OnWeaponDamage_Gloves_Passive"
+data "DisplayName" "haab50542gb3f3g41c5g9ee9gefb50accc757;3"
+data "Description" "h46301903g03b3g4d18g9074g3c9df02e5f77;1"
 
 
 new entry "MAG_Gish_ArcaneAcuity_Gloves"

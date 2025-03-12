@@ -57,3 +57,25 @@ function DT_IsSurroundedByTwoOrMoreEnemies(target, source)
 
     return ConditionResult(enemiesWithoutExclusionStatus >= NumberOfEnemy)
 end
+
+function DT_ArcaneAcuityHowMuchToAdd(desiredAddAmount, maxAmount)
+    -- return max Arcane Acuity stacks we can add not overflowing threshold
+    local stringStatusName = 'MAG_GISH_ARCANE_ACUITY'
+
+    local maxAvailableStacksToAdd = maxAmount - GetStatusDuration(stringStatusName, context.Source)
+
+    if maxAvailableStacksToAdd <= 0 then
+        -- we cannot add anything because we're above threshold
+        return 0
+    end
+
+    local diff = maxAvailableStacksToAdd - desiredAddAmount
+
+    -- we can add full amount
+    if diff >= 0 then
+        return desiredAddAmount
+    end
+
+    -- we can only add this amount
+    return maxAvailableStacksToAdd
+end
