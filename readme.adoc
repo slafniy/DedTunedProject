@@ -204,10 +204,11 @@ Many spells not do not require concentration, some became stronger.
 - *True Strike*: no concentration
 - *Friends*: no concentration
 - *Entangle*: no concentration
-- *Compelled Duel**: no concentration
+- *Compelled Duel*: no concentration
 - *Ensnaring Strike*: no concentration, lasts 3 turns
 - *Expeditious Retreat*: no concentration, lasts 10 turns
 - *Magic Weapon*: no concentration
+- *Spike Growth*: upcast (larger area), lasts 10 turns
 ====
 
 === Classes
