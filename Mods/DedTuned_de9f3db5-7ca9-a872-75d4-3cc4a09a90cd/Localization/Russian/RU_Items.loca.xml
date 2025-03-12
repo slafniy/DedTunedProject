@@ -2,9 +2,9 @@
 <contentList>
     <content contentuid="h3c6eae5bg5105g40bcg855agfa0686f36ae0" version="4">Увеличивает &lt;LSTag Tooltip="Strength"&gt;силу&lt;/LSTag&gt; на 6 с пределом в 26. Этот эликсир можно метнуть в цель, чтобы применить его эффекты на 10 ходов.</content>
     <content contentuid="hf8dbc1d6gae25g4265g99c4gcc422d88cdce" version="3">Увеличивает &lt;LSTag Tooltip="Strength"&gt;силу&lt;/LSTag&gt; на 2 с пределом в 22. Этот эликсир можно метнуть в цель, чтобы применить его эффекты на 10 ходов.</content>
-    <content contentuid="habd4b0b9gceb6g43deg987eg8864b04b94aa" version="1">&lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; increased by 2.</content>
-    <content contentuid="h7dce670cga078g4776g81d3ga4574b38ab80" version="1">&lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; increased by 6.</content>
+    <content contentuid="habd4b0b9gceb6g43deg987eg8864b04b94aa" version="1">&lt;LSTag Tooltip="Strength"&gt;Сила&lt;/LSTag&gt; увеличена на 2.</content>
+    <content contentuid="h7dce670cga078g4776g81d3ga4574b38ab80" version="1">&lt;LSTag Tooltip="Strength"&gt;Сила&lt;/LSTag&gt; увеличена на 6.</content>
     <content contentuid="h924148a4gc14ag4b1egb8dcg47f47a5ea62a" version="4">Владелец получает +1 к &lt;LSTag Tooltip="AttackRoll"&gt;броскам атаки ближнего боя&lt;/LSTag&gt;, если его окружают враги числом не менее [1].</content>
-    <content contentuid="h98740ecdg7b6ag49feg8616g1d025bf32624" version="5">Существо получает бонус +[1] к своим &lt;LSTag Tooltip="AttackRoll"&gt;броскам атаки&lt;/LSTag&gt; и &lt;LSTag Tooltip="DifficultyClass"&gt;классу сложности&lt;/LSTag&gt; заклинаний в каждом оставшемся ходу.&lt;br&gt;&lt;br&gt;Каждый раз, когда существо получает урон, длительность снижается на [2]. Максимальная длительность - [3] хода.</content>
+    <content contentuid="h07cccf55g0c8fg46acg8de7g4418a722b8e9" version="1">Существо получает бонус +[1] к своим &lt;LSTag Tooltip="AttackRoll"&gt;броскам атаки&lt;/LSTag&gt; и &lt;LSTag Tooltip="DifficultyClass"&gt;классу сложности&lt;/LSTag&gt; заклинаний в каждом оставшемся ходу.&lt;br&gt;&lt;br&gt;Каждый раз, когда существо получает урон, длительность снижается на [2]. Максимальная длительность - [3] хода.</content>
     <content contentuid="h46301903g03b3g4d18g9074g3c9df02e5f77" version="1">Всякий раз, когда вы наносите урон атакой оружием, вы получаете &lt;LSTag Type="Status" Tooltip="MAG_GISH_ARCANE_ACUITY"&gt;магическую интуицию&lt;/LSTag&gt; на 2 хода.</content>
 </contentList>

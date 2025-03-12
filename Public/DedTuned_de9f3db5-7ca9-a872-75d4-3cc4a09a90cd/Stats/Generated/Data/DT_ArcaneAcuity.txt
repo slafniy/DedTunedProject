@@ -5,6 +5,7 @@ type "PassiveData"
 data "DisplayName" "h9bc07343g3a8fg43eega9abgdd66e38e3edf;1"
 data "StatsFunctorContext" "OnCastResolved;OnStatusApplied;OnStatusRemoved"
 data "StatsFunctors" "IF(StatusDurationMoreThan(SELF, 'MAG_GISH_ARCANE_ACUITY', 4)):SetStatusDuration(MAG_GISH_ARCANE_ACUITY, 4, ForceSet)"
+data "Properties" "IsHidden"
 
 
 # Add max stacks to description
@@ -30,8 +31,8 @@ data "StatsFunctors" "IF(ConditionResult(DT_ArcaneAcuityHowMuchToAdd(2,4) == 2))
 new entry "DT_ArcaneAcuityOnThunderDamage_Passive"
 type "PassiveData"
 using "DT_ArcaneAcuityOnFireDamage_Passive"
-data "DisplayName" "haaee7c0ege543g42dcg9feeg152a030daf77;2"
-data "Description" "h0aed5e4cg1abfg4408g9647g1e14388b2533;4"
+data "DisplayName" "h427b53ccgf9dbg45b9gb081gf11c93739b85;2"
+data "Description" "hd49505ddgcd93g4a25ga7edgdcea8965e792;4"
 data "Conditions" "IsDamageTypeThunder() and not Self()"
 
 
@@ -48,8 +49,7 @@ data "Conditions" "IsWeaponAttack()"
 new entry "DT_ArcaneAcuity_OnWeaponDamage_Helmet_Passive"
 type "PassiveData"
 using "DT_ArcaneAcuity_OnWeaponDamage_Gloves_Passive"
-data "DisplayName" "haab50542gb3f3g41c5g9ee9gefb50accc757;3"
-data "Description" "h46301903g03b3g4d18g9074g3c9df02e5f77;1"
+data "DisplayName" "he07ba98dgc5f3g479cg831fg55efe9aa49eb;3"
 
 
 new entry "MAG_Gish_ArcaneAcuity_Gloves"
