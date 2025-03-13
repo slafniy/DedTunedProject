@@ -1,0 +1,11 @@
+new entry "OBJ_Scroll_Revivify"
+type "Object"
+using "OBJ_Scroll_Revivify"
+data "Rarity" "VeryRare"
+data "ValueOverride" "500"
+
+new entry "OBJ_Scroll_Revivify_TrueResurrection"
+type "Object"
+using "OBJ_Scroll_Revivify_TrueResurrection"
+data "Rarity" "Legendary"
+data "ValueOverride" "1000"
