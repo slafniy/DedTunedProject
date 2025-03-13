@@ -4,7 +4,7 @@ new entry "DT_SPIKE_GROWTH_TECHNICAL"
 type "StatusData"
 data "StatusType" "BOOST"
 data "Description" ""
-data "OnApplyFunctors" "ApplyStatus(GAPING_WOUND,100,1);ApplyStatus(BLEEDING,100,1);RemoveStatus(DT_SPIKE_GROWTH_TECHNICAL)"
+data "OnApplyFunctors" "IF(HasStatus('GAPING_WOUND')):SetStatusDuration(GAPING_WOUND,1,Add);IF(HasStatus('BLEEDING')):SetStatusDuration(BLEEDING,1,Add);IF(not HasStatus('GAPING_WOUND')):ApplyStatus(GAPING_WOUND,100,2);IF(not HasStatus('BLEEDING')):ApplyStatus(BLEEDING,100,2);RemoveStatus(DT_SPIKE_GROWTH_TECHNICAL)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
 new entry "SPIKE_GROWTH"

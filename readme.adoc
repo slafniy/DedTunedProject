@@ -208,7 +208,7 @@ Many spells not do not require concentration, some became stronger.
 - *Ensnaring Strike*: no concentration, lasts 3 turns
 - *Expeditious Retreat*: no concentration, lasts 10 turns
 - *Magic Weapon*: no concentration
-- *Spike Growth*: upcast (larger area), lasts 10 turns
+- *Spike Growth*: upcast (larger area), lasts 10 turns, gives Bleeding and Gaping Wounds instead of direct damage
 ====
 
 === Classes
