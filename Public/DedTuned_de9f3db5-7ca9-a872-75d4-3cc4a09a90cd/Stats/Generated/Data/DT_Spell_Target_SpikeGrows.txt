@@ -1,3 +1,12 @@
+# This intermediate status is needed because statuses applied by SPIKE_GROWTH disappear
+# when Target_SpikeGrowth concentration breaks
+new entry "DT_SPIKE_GROWTH_TECHNICAL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Description" ""
+data "OnApplyFunctors" "ApplyStatus(GAPING_WOUND,100,1);ApplyStatus(BLEEDING,100,1);RemoveStatus(DT_SPIKE_GROWTH_TECHNICAL)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
 new entry "SPIKE_GROWTH"
 type "StatusData"
 using "SPIKE_GROWTH"
@@ -5,7 +14,7 @@ data "Description" "haf04bca8g382dg4023gac6bg9ae60681e236;4"
 data "DescriptionParams" ""
 data "OnApplyFunctors" ""
 data "OnApplyRoll" "not SavingThrow(Ability.Dexterity,CalculateSpellDC(context.PreferredCastingAbility, GetSummoner(context.Source)))"
-data "OnApplySuccess" "ApplyStatus(GAPING_WOUND,100,1);ApplyStatus(BLEEDING,100,1)"
+data "OnApplySuccess" "ApplyStatus(DT_SPIKE_GROWTH_TECHNICAL,100,1)"
 data "StatusPropertyFlags" "InitiateCombat;DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
 
