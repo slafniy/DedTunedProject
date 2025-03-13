@@ -9,4 +9,6 @@
     <content contentuid="hcd4b1357g5e72g470ag9053g31207acfe7c1" version="1">Lasts longer.</content>
     <content contentuid="h54893a11gd384g40cbgba7fg16ab0ec7692f" version="1">Deal damage and weaken a foe: they deal half damage with weapon attacks using &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt;.</content>
     <content contentuid="hb68df2a0g48c9g47f7g92a8g06b5a58ff8df" version="1">Protect allies against the attacks and powers of aberrations, celestials, elementals, fey, fiends, and undead.</content>
+    <content contentuid="haf04bca8g382dg4023gac6bg9ae60681e236" version="4">A creature walking on the spikes must succeed a Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or receive &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;Bleeding&lt;/LSTag&gt; and &lt;LSTag Type="Status" Tooltip="GAPING_WOUND"&gt;Gaping Wounds&lt;/LSTag&gt;.</content>
+    <content contentuid="h773bc297g6dcdg4452ga03cg2ddf400ae3eb" version="1">Shape a piece of ground into hard spikes. Movement is halved. A creature walking on the spikes must succeed a Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or receive &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;Bleeding&lt;/LSTag&gt; and &lt;LSTag Type="Status" Tooltip="GAPING_WOUND"&gt;Gaping Wounds&lt;/LSTag&gt;.</content>
 </contentList>
