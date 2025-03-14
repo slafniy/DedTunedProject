@@ -1,0 +1,16 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+// Patch the resurrection price variable - remove old, add new
+IF
+DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 200)
+THEN
+DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 500);
+NOT DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 200);
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
