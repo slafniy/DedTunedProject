@@ -5,3 +5,48 @@ new treasuretable "DEN_Entrance_Trade"
 CanMerge 1
 new subtable "1,1"
 object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "PLA_Tollhouse_SuppliesTrader"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "GOB_Festivities_Trader"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "GOB_ZhentQuarters"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "UND_SocietyOfBrilliance_Hobgoblin"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "LOW_StormshoreTabernacle_Guardian"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "END_CircusTrader"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "EquipmentTrader_Scrolls"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "EquipmentTrader_RevivifyScrolls"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
+
+new treasuretable "TEST_Scrolls"
+CanMerge 1
+new subtable "1,1"
+object category "I_OBJ_Scroll_BattleRes",1,0,0,0,0,0,0,0
