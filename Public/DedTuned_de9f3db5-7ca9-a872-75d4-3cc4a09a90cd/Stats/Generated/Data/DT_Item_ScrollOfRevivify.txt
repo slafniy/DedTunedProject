@@ -3,6 +3,7 @@ type "Object"
 using "OBJ_Scroll_Revivify"
 data "Rarity" "VeryRare"
 data "ValueOverride" "500"
+data "Unique" "1"
 
 new entry "OBJ_Scroll_Revivify_TrueResurrection"
 type "Object"

@@ -1,4 +1,0 @@
-treasure itemtypes "Common","Uncommon","Rare","Epic","Legendary","Divine","Unique"
-new treasuretable "DEN_Entrance_Trade"
-new subtable "1,1"
-object category "I_MAG_Monk_Fire_Gloves",1,0,0,0,0,0,0,0
