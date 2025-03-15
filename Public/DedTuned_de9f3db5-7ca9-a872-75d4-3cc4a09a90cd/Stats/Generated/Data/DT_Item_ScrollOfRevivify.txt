@@ -14,6 +14,7 @@ new entry "Teleportation_Revivify_Scroll"
 type "SpellData"
 using "Teleportation_Revivify_Scroll"
 data "Requirements" "!Combat"
+data "Description" "h13b33db6gfd1dg4dc2g957bgfaca434636a1;1"
 
 
 # New scroll - resurrection in combat
@@ -28,4 +29,5 @@ new entry "Teleportation_BattleRes_Scroll"
 type "SpellData"
 using "Teleportation_Resurrection"
 data "Requirements" ""
-
+data "Description" "h95fd7361gc0c7g4e42g85d7g7ba50401476f;1"
+data "OriginSpellProperties" "RegainHitPoints(1);Resurrect(100,50);RestoreResource(Movement, 100%, 0);UseActionResource(ActionPoint,100%,0);UseActionResource(BonusActionPoint,100%,0);ApplyStatus(RESURRECTING, 100, 1)"

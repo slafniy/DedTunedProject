@@ -11,4 +11,7 @@
     <content contentuid="hb68df2a0g48c9g47f7g92a8g06b5a58ff8df" version="1">Protect allies against the attacks and powers of aberrations, celestials, elementals, fey, fiends, and undead.</content>
     <content contentuid="haf04bca8g382dg4023gac6bg9ae60681e236" version="4">A creature walking on the spikes must succeed a Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or receive &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;Bleeding&lt;/LSTag&gt; and &lt;LSTag Type="Status" Tooltip="GAPING_WOUND"&gt;Gaping Wounds&lt;/LSTag&gt;.</content>
     <content contentuid="h773bc297g6dcdg4452ga03cg2ddf400ae3eb" version="1">Shape a piece of ground into hard spikes. Movement is halved. A creature walking on the spikes must succeed a Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or receive &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;Bleeding&lt;/LSTag&gt; and &lt;LSTag Type="Status" Tooltip="GAPING_WOUND"&gt;Gaping Wounds&lt;/LSTag&gt;.</content>
+
+    <content contentuid="h13b33db6gfd1dg4dc2g957bgfaca434636a1" version="1">Revive a companion. They return to life with 1 hit point. Cannot be used in combat.</content>
+    <content contentuid="h95fd7361gc0c7g4e42g85d7g7ba50401476f" version="1">Revive a companion. They return to life and restore a half of their hit points.</content>
 </contentList>

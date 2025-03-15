@@ -7,4 +7,6 @@
     <content contentuid="h924148a4gc14ag4b1egb8dcg47f47a5ea62a" version="4">Владелец получает +1 к &lt;LSTag Tooltip="AttackRoll"&gt;броскам атаки ближнего боя&lt;/LSTag&gt;, если его окружают враги числом не менее [1].</content>
     <content contentuid="h07cccf55g0c8fg46acg8de7g4418a722b8e9" version="1">Существо получает бонус +[1] к своим &lt;LSTag Tooltip="AttackRoll"&gt;броскам атаки&lt;/LSTag&gt; и &lt;LSTag Tooltip="DifficultyClass"&gt;классу сложности&lt;/LSTag&gt; заклинаний в каждом оставшемся ходу.&lt;br&gt;&lt;br&gt;Каждый раз, когда существо получает урон, длительность снижается на [2]. Максимальная длительность - [3] хода.</content>
     <content contentuid="h46301903g03b3g4d18g9074g3c9df02e5f77" version="1">Всякий раз, когда вы наносите урон атакой оружием, вы получаете &lt;LSTag Type="Status" Tooltip="MAG_GISH_ARCANE_ACUITY"&gt;магическую интуицию&lt;/LSTag&gt; на 2 хода.</content>
+
+    <content contentuid="h709bd8cag7008g4b2bgaf47g68abd70b2d0b" version="1">Свиток воскрешения в бою</content>
 </contentList>

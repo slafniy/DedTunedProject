@@ -11,4 +11,7 @@
     <content contentuid="hb68df2a0g48c9g47f7g92a8g06b5a58ff8df" version="1">Защищает союзников от атак и способностей аберраций, небожителей, элементалей, фей, бестий и нежити.</content>
     <content contentuid="haf04bca8g382dg4023gac6bg9ae60681e236" version="4">Любое ступающее по шипам существо должно пройти &lt;LSTag Tooltip="SavingThrow"&gt;проверку&lt;/LSTag&gt; ловкости или получить &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;кровотечение&lt;/LSTag&gt; и &lt;LSTag Type="Status" Tooltip="GAPING_WOUND"&gt;глубокие раны&lt;/LSTag&gt;.</content>
     <content contentuid="h773bc297g6dcdg4452ga03cg2ddf400ae3eb" version="1">Заставить кусок земли покрыться жесткими шипами. Скорость перемещения снижается вдвое. Любое ступающее по ним существо должно пройти &lt;LSTag Tooltip="SavingThrow"&gt;проверку&lt;/LSTag&gt; ловкости или получить &lt;LSTag Type="Status" Tooltip="BLEEDING"&gt;кровотечение&lt;/LSTag&gt; и &lt;LSTag Type="Status" Tooltip="GAPING_WOUND"&gt;глубокие раны&lt;/LSTag&gt;.</content>
+
+    <content contentuid="h13b33db6gfd1dg4dc2g957bgfaca434636a1" version="1">Оживить спутника. Он возвращается к жизни с 1 очком здоровья. Нельзя использовать в бою.</content>
+    <content contentuid="h95fd7361gc0c7g4e42g85d7g7ba50401476f" version="1">Оживить спутника. Он возвращается к жизни и восстанавливает половину очков здоровья.</content>
 </contentList>
