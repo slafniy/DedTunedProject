@@ -1,0 +1,6 @@
+# Band of the Mystic Scoundrel
+# Added a cooldown - once per short rest
+new entry "MAG_ArcaneTrickster_Ring_Passive"
+type "PassiveData"
+using "MAG_ArcaneTrickster_Ring_Passive"
+data "Properties" "OncePerShortRest"
