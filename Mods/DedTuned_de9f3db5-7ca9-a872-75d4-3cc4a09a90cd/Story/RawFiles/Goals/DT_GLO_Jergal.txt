@@ -10,6 +10,23 @@ THEN
 DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 500);
 NOT DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 200);
 
+
+// Remove Revivify scroll from the initial hireling inventory
+IF
+TemplateAddedTo(LOOT_SCROLL_Revivify_c1c3e4fb-d68c-4e10-afdc-d4550238d50e, _Object, _Holder, "Regular")
+AND
+DB_Hirelings_HACK_Classes(_, _Hireling, _)
+AND
+_Holder == _Hireling
+AND
+ConcatenateGUID("DT_OnlyOnce_DeleteRevivifyScroll_", _Hireling, _OnlyOnceString)
+AND
+QRY_OnlyOnce(_OnlyOnceString)
+THEN
+RequestDelete((ITEM)_Object);
+DebugText(_Holder, "scroll removed!!");
+DebugLog("Scroll removed!!!");
+
 EXITSECTION
 
 ENDEXITSECTION
