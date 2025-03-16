@@ -65,11 +65,11 @@ Expected levels:
 ====
 
 
-=== Respec
-- Respec cost is 1000 gold
-- Every origin character has one-time free respec button (via my integrated https://mod.io/g/baldursgate3/m/free-one-time-respec-button-for-origins[Free one-time respec button for Origins] mod)
-
-Note: I made this mainly to avoid exploiting of (almost free) resource regeneration after respec.
+=== Withers services: Respec, Resurrection and Hirelings
+- Respec price is 1000 gold.
+- Every origin character has one-time free respec button (via dependency mod https://mod.io/g/baldursgate3/m/free-one-time-respec-button-for-origins[Free one-time respec button for Origins] mod). I made this mainly to avoid exploiting of (almost free) resource regeneration after respec.
+- Resurrection price is 500 gold.
+- Hirelings does not have a free Revivify scroll anymore.
 
 === Pickpocketing
 - You cannot pickpocket Volo and Jergal anymore
@@ -235,6 +235,10 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
 - Elixir of Cloud Giant Strength now gives +6 STR up to 26
 - All healing potions take an Action for use and could not be thrown to an ally,
   but you can use it on ally in melee range
+
+==== Scrolls
+- Scroll of Revivify: price is 500, not usable in combat
+- Scroll of Battle Resurrection: a new scroll, very rare, price is 1000, could be used in combat
 
 ==== Arrow of Many Targets
 - Renamed to Arrow of Ricochet
