@@ -1,0 +1,3 @@
+key "ExhaustedRest_HealthPercent","10"
+
+key "ExhaustedRest_ResourcePercent","0"
