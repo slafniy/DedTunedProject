@@ -7,7 +7,7 @@ data "Description" "h2c80a44eg9020g4d93gbdebg50abf17df167;1"
 data "Icon" "Status_Exhaustion"
 data "StackId" "DT_EXHAUSTION_STACKS"
 data "StackType" "Additive"
-data "StatusPropertyFlags" "FreezeDuration;MultiplyEffectsByDuration;ApplyToDead;DisableCombatlog;DisableOverhead"
+data "StatusPropertyFlags" "FreezeDuration;MultiplyEffectsByDuration;ApplyToDead;DisableCombatlog;DisableOverhead;IgnoreResting"
 
 # DEBUFF: Exhaustion level 1 - SLIGHT FATIGUE
 # Light penalty on ability checks, attack rolls, spell DC and saving throws
