@@ -1,0 +1,12 @@
+# Restrict usage after Partial Rest
+# UND_MonkAmulet_Amulet - Rare version before combat
+new entry "Shout_MAG_Monk_Restore_Ki_Lesser"
+type "SpellData"
+using "Shout_MAG_Monk_Restore_Ki_Lesser"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
+
+# WYR_MonkAmulet_Amulet_AfterCombat - Very Rare version after combat
+new entry "Shout_MAG_Monk_Restore_Ki"
+type "SpellData"
+using "Shout_MAG_Monk_Restore_Ki"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
