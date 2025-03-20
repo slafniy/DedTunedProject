@@ -3,5 +3,4 @@
 new entry "Target_GOB_CureWounds_SeluneAmulet"
 type "SpellData"
 using "Target_GOB_CureWounds_SeluneAmulet"
-data "RequirementConditions" "not HasStatus('DT_PARTIAL_RESTED')"
-data "Description" "h86f1423bg620ag42c0g9dadgccb30b7bef2a;1"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"

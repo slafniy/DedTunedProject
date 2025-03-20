@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="4" revision="0" build="200"/>
+    <region id="ConditionErrors">
+        <node id="root">
+            <children>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h1262c2dbg80ecg4f1bg991dgd488e9b3916b" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="DT_PartiallyRested"/>
+                    <attribute id="UUID" type="guid" value="25d4b9e5-53d4-4402-b0e2-cc1ddcafa7f8"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

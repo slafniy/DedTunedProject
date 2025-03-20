@@ -4,11 +4,9 @@
 new entry "Target_MAG_HealingWord"
 type "SpellData"
 using "Target_MAG_HealingWord"
-data "RequirementConditions" "not HasStatus('DT_PARTIAL_RESTED')"
-data "Description" "h99557117ga860g46e0g9edegb796950b82ae;1"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
 
 new entry "Shout_MAG_HealingWord_Mass"
 type "SpellData"
 using "Shout_MAG_HealingWord_Mass"
-data "RequirementConditions" "not HasStatus('DT_PARTIAL_RESTED')"
-data "Description" "hb1039ed1ge4f7g4532gb19bgf2fcf48e1888;1"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"

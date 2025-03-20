@@ -79,3 +79,8 @@ function DT_ArcaneAcuityHowMuchToAdd(desiredAddAmount, maxAmount)
     -- we can only add this amount
     return maxAvailableStacksToAdd
 end
+
+function DT_IsNotPartiallyRested()
+    local hasPartiRestedStatus = HasStatus('DT_PARTIAL_RESTED', context.Source)
+    return ConditionResult((~hasPartiRestedStatus).Result, {ConditionError("DT_PartiallyRested")})
+end

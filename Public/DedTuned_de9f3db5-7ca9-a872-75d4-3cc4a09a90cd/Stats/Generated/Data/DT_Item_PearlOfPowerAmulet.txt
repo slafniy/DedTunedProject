@@ -4,5 +4,4 @@
 new entry "Shout_MAG_SpellSlotRestoration_PearlOfPower"
 type "SpellData"
 using "Shout_MAG_SpellSlotRestoration_PearlOfPower"
-data "RequirementConditions" "not HasStatus('DT_PARTIAL_RESTED')"
-data "Description" "hcdfc6449g0b43g4e93g80f2g8f1db1d414a3;1"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"

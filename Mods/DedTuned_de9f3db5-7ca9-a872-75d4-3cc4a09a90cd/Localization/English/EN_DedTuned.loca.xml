@@ -24,4 +24,5 @@
     <content contentuid="h496d198dg0f94g457egaa37g14398d907905" version="1">End your Rage.</content>
     <content contentuid="hdb73e460g84cag4fe9gbe79g29129091f8ef" version="1">Robbery Victim</content>
     <content contentuid="h47959f17g754dg4129gbedcgf7b049151ac1" version="1">This creature was recently pickpocketed, so it’s now on guard. You receive a penalty to your &lt;LSTag Tooltip="SleightOfHand"&gt;Sleight Of Hand&lt;/LSTag&gt; checks if you are close to it.</content>
+    <content contentuid="h1262c2dbg80ecg4f1bg991dgd488e9b3916b" version="1">Cannot be used after Partial Rest.</content>
 </contentList>
