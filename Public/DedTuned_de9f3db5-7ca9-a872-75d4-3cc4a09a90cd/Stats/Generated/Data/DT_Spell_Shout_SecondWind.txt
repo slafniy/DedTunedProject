@@ -1,0 +1,5 @@
+# Don't allow to use it after Partial Rest
+new entry "Shout_SecondWind"
+type "SpellData"
+using "Shout_SecondWind"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
