@@ -2,5 +2,4 @@
 new entry "Shout_SongOfRest"
 type "SpellData"
 using "Shout_SongOfRest"
-data "RequirementConditions" "CanShortRest('NotEnoughResources') and not HasStatus('DT_PARTIAL_RESTED')"
-data "Description" "h93563867gc273g4c81g9549gfdaf373ea065;1"
+data "RequirementConditions" "CanShortRest('NotEnoughResources') and DT_IsNotPartiallyRested()"

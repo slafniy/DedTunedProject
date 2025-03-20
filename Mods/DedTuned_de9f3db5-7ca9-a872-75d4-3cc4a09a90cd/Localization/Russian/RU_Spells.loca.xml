@@ -17,6 +17,4 @@
 
     <content contentuid="h4862c7bag8b64g4cfdg8f3fga878e9aad7b6" version="1">Частично отдохнувший</content>
     <content contentuid="h1d969533g2a3bg4c53gb515g19a66a10e2bb" version="1">Вы отдыхали, не использовав припасов, и не можете использовать некоторые заклинания и предметы.</content>
-
-    <content contentuid="h93563867gc273g4c81g9549gfdaf373ea065" version="1">Вы и ваши союзники восстанавливаетесь, как если бы вы сделали &lt;LSTag Tooltip="ShortRest"&gt;короткий привал&lt;/LSTag&gt;. Нельзя использовать после Частичного отдыха.</content>
 </contentList>
