@@ -1,0 +1,6 @@
+# Don't allow to use it after Partial Rest
+# MAG_Bard_RefreshBardicInspirationSlot_Shoes
+new entry "Shout_MAG_Restore_BardicInspiration"
+type "SpellData"
+using "Shout_MAG_Restore_BardicInspiration"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
