@@ -98,12 +98,8 @@ BUT, if you do not care about my attempts to make things more balanced you can u
 ====
 
 === Resting
-- Long rest cost increased to 250
-- You cannot use Partial Rest
-
-CAUTION: Known issue: It is currently working by disabling "Long Rest" button if you have less than 250 supplies.
-"Partial Rest" button is removed, you just cannot rest if you do not choose enough supplies, so be careful and
-don't destroy them if you already triggered end of the day :)
+- Long rest cost increased to 240.
+- Partial Rest only resets cooldowns (except exploitable abilities and items) and restores 10% HP.
 
 === Buffs outside of party
 Only your current party members can buff each other. No more buffs from camp hirelings.
