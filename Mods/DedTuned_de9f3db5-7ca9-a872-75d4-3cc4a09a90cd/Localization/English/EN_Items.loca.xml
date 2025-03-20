@@ -9,4 +9,6 @@
     <content contentuid="h46301903g03b3g4d18g9074g3c9df02e5f77" version="1">Whenever you deal damage with a weapon attack, you gain &lt;LSTag Type="Status" Tooltip="MAG_GISH_ARCANE_ACUITY"&gt;Arcane Acuity&lt;/LSTag&gt; for 2 turns.</content>
 
     <content contentuid="h709bd8cag7008g4b2bgaf47g68abd70b2d0b" version="1">Scroll of Battle Resurrection</content>
+
+    <content contentuid="h61304cd4gd92eg45f1ga129g8ecccd811eb0" version="1">Replenish an expended &lt;LSTag Tooltip="SpellSlot"&gt;spell slot&lt;/LSTag&gt; of any level. Cannot be used after Partial Rest.</content>
 </contentList>
