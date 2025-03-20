@@ -14,4 +14,9 @@
 
     <content contentuid="h13b33db6gfd1dg4dc2g957bgfaca434636a1" version="1">Revive a companion. They return to life with 1 hit point. Cannot be used in combat.</content>
     <content contentuid="h95fd7361gc0c7g4e42g85d7g7ba50401476f" version="1">Revive a companion. They return to life and restore a half of their hit points.</content>
+
+    <content contentuid="h4862c7bag8b64g4cfdg8f3fga878e9aad7b6" version="1">Partially Rested</content>
+    <content contentuid="h1d969533g2a3bg4c53gb515g19a66a10e2bb" version="1">You've rested without supplies and cannot use some spells and items.</content>
+
+    <content contentuid="h93563867gc273g4c81g9549gfdaf373ea065" version="1">You and your allies are revitalised as though you would have taken a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt;. Cannot be used after Partial Rest.</content>
 </contentList>
