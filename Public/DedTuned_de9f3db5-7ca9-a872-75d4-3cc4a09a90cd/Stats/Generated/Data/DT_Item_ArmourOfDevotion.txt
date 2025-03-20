@@ -1,0 +1,6 @@
+# Armour of Devotion MAG_Paladin_RestoreChannelDivinity_Armor
+# Restrict its usage after Partial Rest
+new entry "Shout_MAG_Restore_ChannelDivinity"
+type "SpellData"
+using "Shout_MAG_Restore_ChannelDivinity"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
