@@ -11,4 +11,5 @@
     <content contentuid="h709bd8cag7008g4b2bgaf47g68abd70b2d0b" version="1">Scroll of Battle Resurrection</content>
 
     <content contentuid="h61304cd4gd92eg45f1ga129g8ecccd811eb0" version="1">Replenish an expended &lt;LSTag Tooltip="SpellSlot"&gt;spell slot&lt;/LSTag&gt; of any level. Cannot be used after Partial Rest.</content>
+    <content contentuid="h86f1423bg620ag42c0g9dadgccb30b7bef2a" version="1">An ally you touch regains hit points, but possibly falls &lt;LSTag Type="Status" Tooltip="SLEEP"&gt;Asleep&lt;/LSTag&gt;. Cannot be used after Partial Rest.</content>
 </contentList>
