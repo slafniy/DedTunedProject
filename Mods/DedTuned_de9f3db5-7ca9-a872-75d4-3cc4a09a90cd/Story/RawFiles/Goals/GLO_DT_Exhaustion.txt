@@ -100,6 +100,27 @@ RemoveStatus(_Character, "DT_EXHAUSTION_STACKS", NULL_00000000-0000-0000-0000-00
 RemoveStatus(_Character, _Status, NULL_00000000-0000-0000-0000-000000000000);
 //END_REGION
 
+//REGION // PROC_DT_Exhaustion_RemoveExhaustionOverSecondStage((CHARACTER)_Character)
+PROC
+PROC_DT_Exhaustion_RemoveExhaustionOverSecondStage((CHARACTER)_Character)
+AND
+GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _CurrentStacks)
+AND
+DB_DT_Exhaustion_Stage(_SecondStageStacks, "DT_EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP")  // this is a second stage
+AND
+IntegerSubtract(_SecondStageStacks, 2, _PreSecondStageStacks)  // 2 stacks to give some minimal room
+AND
+_CurrentStacks > _PreSecondStageStacks
+AND
+IntegerSubtract(_CurrentStacks, _PreSecondStageStacks, _StacksToRemove)
+AND
+IntegerToReal(_StacksToRemove, _StacksToRemoveReal)
+AND
+RealProduct(_StacksToRemoveReal, -6.0, _DurationToApplySec)  // get negative duration in seconds to apply to status
+THEN
+ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", _DurationToApplySec, 1, _Character);
+//END_REGION
+
 //REGION  // clear Exhaustion stacks on first WLD_Main_A load from party members and origins
 IF
 LevelLoaded("WLD_Main_A")
@@ -222,6 +243,7 @@ AND
 _IsFullRest == 0  // partial rest was used
 THEN
 ApplyStatus(_Character, "DT_PARTIAL_RESTED", -1.0, 1, _Character);
+PROC_DT_Exhaustion_RemoveExhaustionOverSecondStage(_Character);
 
 IF
 UserCharacterLongRested(_Character, _IsFullRest)
@@ -230,6 +252,13 @@ _IsFullRest == 1  // full rest was used
 THEN
 RemoveStatus(_Character, "DT_PARTIAL_RESTED", NULL_00000000-0000-0000-0000-000000000000);
 PROC_DT_Exhaustion_RemoveAllStacks(_Character);
+
+IF
+UserCharacterLongRested(_Character, _)
+AND
+GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
+THEN
+PROC_DT_ExhaustionRefreshDebuffs(_Character, _Stacks);
 //END_REGION
 
 
