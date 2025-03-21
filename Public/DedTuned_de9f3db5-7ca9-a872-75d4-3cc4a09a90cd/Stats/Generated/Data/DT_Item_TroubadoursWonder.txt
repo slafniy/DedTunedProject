@@ -1,0 +1,6 @@
+# Troubadour's Wonder MAG_BG_Wondrous_Gloves
+# Restrict usage after Partial Rest
+new entry "MAG_WONDROUS_GLOVES_BARDIC_INSPIRATION"
+type "StatusData"
+using "MAG_WONDROUS_GLOVES_BARDIC_INSPIRATION"
+data "Boosts" "IF(not HasStatus('DT_PARTIAL_RESTED',context.Source)):ActionResource(BardicInspiration,1,0)"
