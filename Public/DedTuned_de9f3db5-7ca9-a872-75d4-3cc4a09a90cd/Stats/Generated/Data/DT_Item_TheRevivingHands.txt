@@ -1,0 +1,6 @@
+# The Reviving Hands - MAG_OfRevivify_Gloves
+# Restrict usage after Partial Rest
+new entry "Teleportation_MAG_Revivify"
+type "SpellData"
+using "Teleportation_MAG_Revivify"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
