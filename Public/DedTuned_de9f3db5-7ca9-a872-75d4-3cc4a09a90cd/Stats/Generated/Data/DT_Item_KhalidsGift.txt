@@ -1,0 +1,6 @@
+# Khalid's Gift - SCE_KhalidsGift
+# Restrict usage after Partial Rest
+new entry "Shout_MAG_Aid3_KhalidsGift_Self"
+type "SpellData"
+using "Shout_MAG_Aid3_KhalidsGift_Self"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
