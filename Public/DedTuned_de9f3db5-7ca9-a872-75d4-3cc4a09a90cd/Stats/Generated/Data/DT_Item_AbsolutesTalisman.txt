@@ -1,0 +1,6 @@
+# Absolute's Talisman - GOB_Priest_Amulet
+# Restrict usage after Partial Rest
+new entry "Shout_MAG_Aid_Self"
+type "SpellData"
+using "Shout_MAG_Aid_Self"
+data "RequirementConditions" "DT_IsNotPartiallyRested()"
