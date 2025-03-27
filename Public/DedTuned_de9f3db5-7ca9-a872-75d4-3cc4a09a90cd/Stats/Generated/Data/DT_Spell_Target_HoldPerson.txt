@@ -1,0 +1,21 @@
+# Remove automatic critical strike
+# Instead, remove AC bonus from Dexterity
+# Allow to use on friends :)
+
+new entry "HOLD_PERSON"
+type "StatusData"
+using "HOLD_PERSON"
+data "Description" "hd4085e94g0deag411fgb0adgd9907c3910ec;1"
+data "Boosts" "AbilityFailedSavingThrow(Strength);AbilityFailedSavingThrow(Dexterity);Advantage(AttackTarget);ActionResourceBlock(Movement);DetectDisturbancesBlock(true);BlockAbilityModifierFromAC(Dexterity)"
+
+new entry "Target_HoldPerson"
+type "SpellData"
+using "Target_HoldPerson"
+data "Description" "hb65cb48cg54c2g44b8ga49bg7bf9c583ea33;1"
+data "TargetConditions" "not Item() and not Self() and Character() and Tagged('HUMANOID') and not Tagged('UNDEAD') and not IsDowned() and not Dead() and not (not Player(context.Source) and IsCrowdControlled(context.Target))"
+
+# Fix description because it isn't inherited from Target_HoldPerson
+new entry "Target_HoldPerson_Monk"
+type "SpellData"
+using "Target_HoldPerson_Monk"
+data "Description" "hb65cb48cg54c2g44b8ga49bg7bf9c583ea33;1"
