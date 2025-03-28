@@ -25,4 +25,6 @@
     <content contentuid="hdb73e460g84cag4fe9gbe79g29129091f8ef" version="1">Robbery Victim</content>
     <content contentuid="h47959f17g754dg4129gbedcgf7b049151ac1" version="1">This creature was recently pickpocketed, so it’s now on guard. You receive a penalty to your &lt;LSTag Tooltip="SleightOfHand"&gt;Sleight Of Hand&lt;/LSTag&gt; checks if you are close to it.</content>
     <content contentuid="h1262c2dbg80ecg4f1bg991dgd488e9b3916b" version="1">Cannot be used after Partial Rest.</content>
+
+    <content contentuid="h93038852g92bag4c56gac19geb884b629209" version="1">You have honed your body and magic for war. After you cast a &lt;LSTag Tooltip="Spell"&gt;spell&lt;/LSTag&gt;, you can make a weapon attack using a bonus action.</content>
 </contentList>

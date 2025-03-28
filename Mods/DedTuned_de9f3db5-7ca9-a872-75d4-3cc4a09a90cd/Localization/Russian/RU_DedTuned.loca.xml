@@ -25,4 +25,6 @@
     <content contentuid="hdb73e460g84cag4fe9gbe79g29129091f8ef" version="1">Жертва ограбления</content>
     <content contentuid="h47959f17g754dg4129gbedcgf7b049151ac1" version="1">Этому существу недавно обчистили карманы, и теперь оно на страже. Вы получите штраф к проверкам &lt;LSTag Tooltip="SleightOfHand"&gt;Ловкости Рук&lt;/LSTag&gt; если будете находиться рядом с ним.</content>
     <content contentuid="h1262c2dbg80ecg4f1bg991dgd488e9b3916b" version="1">Не может использоваться после Частичного отдыха.</content>
+
+    <content contentuid="h93038852g92bag4c56gac19geb884b629209" version="1">Ваше тело и магия привычны к войне. Сотворив &lt;LSTag Tooltip="Spell"&gt;заклинание&lt;/LSTag&gt;, вы можете в качестве бонусного действия атаковать оружием.</content>
 </contentList>

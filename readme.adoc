@@ -215,6 +215,10 @@ Many spells not do not require concentration, some became stronger.
 
 Note: this subclass is too weak comparing to Battle Master, so I bring him this buff.
 
+==== Fighter Eldritch Knight
+- War Magic passive now works on any spell, not only Cantrip
+
+
 ==== Barbarian
 - Rage and End Rage does not consume Bonus Action
 - Enraged Throw now gives stack of Frenzied Strain as Frenzied Strike always does.

@@ -1,0 +1,6 @@
+# Allow to use after any spell, not only cantrip
+new entry "WarMagic"
+type "PassiveData"
+using "WarMagic"
+data "Description" "h93038852g92bag4c56gac19geb884b629209;1"
+data "Conditions" "(not context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and IsSpell() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_WAR_MAGIC_TECHNICAL') and TurnBased()) and HasActionResource('BonusActionPoint', 1, 0, false, false, context.Source)"
