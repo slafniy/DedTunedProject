@@ -14,6 +14,8 @@
 
     <content contentuid="h4b9baac4gbf43g4e9dg897fg71d5d6d216da" version="1">Воскрешающие руки: Возрождение</content>
     <content contentuid="h7791a6b8g3676g4381g80ffg4da440cce8a1" version="1">Когда вы &lt;LSTag Type="Spell" Tooltip="Teleportation_Revivify"&gt;возрождаете&lt;/LSTag&gt; существо, оно получает эффект &lt;LSTag Type="Status" Tooltip="DEATH_WARD"&gt;«Защиты от смерти»&lt;/LSTag&gt;.</content>
+    <content contentuid="he83cf850g6776g4326g88f4g64a96dfb4f0a" version="1">Улучшенный оберег от оружия</content>
+    <content contentuid="h3eb7fe19g1b7bg42e1g84cfg3a325ac69a49" version="1">Дать &lt;LSTag Type="Status" Tooltip="BLADE_WARD"&gt;Оберег от оружия&lt;/LSTag&gt; союзнику на 2 хода.</content>
 
     <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">Когда вы исцеляете существо, вы проходите проверку КС [1] на &lt;LSTag Tooltip="SkillCheck"&gt;религию&lt;/LSTag&gt;, при успехе существо получает &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Благословение&lt;/LSTag&gt; на 2 хода.</content>
 </contentList>

@@ -7,10 +7,27 @@ using "Teleportation_MAG_Revivify"
 data "DisplayName" "h4b9baac4gbf43g4e9dg897fg71d5d6d216da;1"
 data "RequirementConditions" "DT_IsNotPartiallyRested()"
 
-# Do not apply blade ward on heal, fix Death Ward on dead character
+# Do not apply blade ward on heal
+# Fix Death Ward - should apply on dead character
 new entry "MAG_Revivify_Gloves_Passive"
 type "PassiveData"
 using "MAG_Revivify_Gloves_Passive"
 data "Description" "h7791a6b8g3676g4381g80ffg4da440cce8a1;1"
 data "StatsFunctorContext" "OnAttack"
 data "StatsFunctors" "IF(IsRevivifySpell()):ApplyStatus(MAG_DEATH_WARD_ON_DEAD,100,2)"
+
+# Blade ward which could be applied on allies from 18m range
+new entry "DT_Target_ImprovedBladeWard"
+type "SpellData"
+using "Shout_BladeWard"
+data "SpellType" "Target"
+data "TargetConditions" "Ally() and not Dead()"
+data "DisplayName" "he83cf850g6776g4326g88f4g64a96dfb4f0a;1"
+data "Description" "h3eb7fe19g1b7bg42e1g84cfg3a325ac69a49;1"
+data "UseCosts" "BonusActionPoint:1"
+
+# Also unlock special Improved Blade Ward spell
+new entry "MAG_OfRevivify_Gloves"
+type "Armor"
+using "MAG_OfRevivify_Gloves"
+data "Boosts" "RollBonus(SavingThrow, 1, Strength);UnlockSpell(Teleportation_MAG_Revivify);UnlockSpell(DT_Target_ImprovedBladeWard)"
