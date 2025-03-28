@@ -15,7 +15,7 @@
     <content contentuid="h4b9baac4gbf43g4e9dg897fg71d5d6d216da" version="1">The Reviving Hands: Revivify</content>
     <content contentuid="h7791a6b8g3676g4381g80ffg4da440cce8a1" version="1">When you &lt;LSTag Type="Spell" Tooltip="Teleportation_Revivify"&gt;Revive&lt;/LSTag&gt; a creature it gains the effect of &lt;LSTag Type="Status" Tooltip="DEATH_WARD"&gt;Death Ward&lt;/LSTag&gt;.</content>
     <content contentuid="he83cf850g6776g4326g88f4g64a96dfb4f0a" version="1">Improved Blade Ward</content>
-    <content contentuid="h3eb7fe19g1b7bg42e1g84cfg3a325ac69a49" version="1">Grant &lt;LSTag Type="Status" Tooltip="BLADE_WARD"&gt;Blade Ward&lt;/LSTag&gt; to an ally for 2 turns.</content>
+    <content contentuid="h3eb7fe19g1b7bg42e1g84cfg3a325ac69a49" version="1">Protect an ally: it will take only half the damage from Bludgeoning, Piercing, and Slashing attacks.</content>
 
     <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">When you heal a creature, you make a DC [1] &lt;LSTag Tooltip="SkillCheck"&gt;Religion Check&lt;/LSTag&gt;, success granting it &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Bless&lt;/LSTag&gt; for 2 turns.</content>
 </contentList>
