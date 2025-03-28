@@ -1,0 +1,8 @@
+# Hellrider's Pride - DEN_HellridersPride
+# Do not give a passive Blade Ward from healing
+# Give an active DT_Target_ImprovedBladeWard_Melee spell instead
+new entry "DEN_HellridersPride"
+type "Armor"
+using "DEN_HellridersPride"
+data "PassivesOnEquip" ""
+data "Boosts" "UnlockSpell(DT_Target_ImprovedBladeWard_Melee)"

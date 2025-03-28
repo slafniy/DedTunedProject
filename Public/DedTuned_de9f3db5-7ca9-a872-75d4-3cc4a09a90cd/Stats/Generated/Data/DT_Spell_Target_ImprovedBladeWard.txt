@@ -1,0 +1,27 @@
+# Blade ward which could be applied on allies from 18m range for a bonus action
+new entry "DT_Target_ImprovedBladeWard"
+type "SpellData"
+using "Shout_BladeWard"
+data "SpellType" "Target"
+data "TargetRadius" "18"
+data "TargetConditions" "Ally() and not Dead()"
+data "DisplayName" "he83cf850g6776g4326g88f4g64a96dfb4f0a;1"
+data "Description" "h3eb7fe19g1b7bg42e1g84cfg3a325ac69a49;1"
+data "UseCosts" "BonusActionPoint:1"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+
+data "PrepareSound" "Spell_Prepare_Damage_Radiant_Gen_L1to3"
+data "PrepareLoopSound" "Spell_Prepare_Damage_Radiant_Gen_L1to3_Loop"
+data "CastSound" "Spell_Cast_Buff_BladeWard_L1to3"
+data "TargetSound" "Spell_Impact_Buff_BladeWard_L1to3"
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;2f5d8e0b-35f3-416f-99e9-1cc9d942204e,,;f2ec369f-4a3b-451e-b954-2ab0a53d51d6,,"
+data "PrepareEffect" "c238f860-37c1-47b1-8030-14fa6a1bdfa1"
+data "CastEffect" "bcd66fb0-b0bc-41d0-abba-ad443d63dd72"
+data "TargetEffect" "fb919edf-4dce-45d8-9338-91f26bccec31"
+
+# Same but melee range
+new entry "DT_Target_ImprovedBladeWard_Melee"
+type "SpellData"
+using "DT_Target_ImprovedBladeWard"
+data "TargetRadius" "1.5"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"
