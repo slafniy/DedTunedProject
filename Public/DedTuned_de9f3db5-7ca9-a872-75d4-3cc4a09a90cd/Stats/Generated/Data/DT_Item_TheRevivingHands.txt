@@ -1,7 +1,16 @@
 # The Reviving Hands - MAG_OfRevivify_Gloves
+
 # Restrict usage after Partial Rest
 new entry "Teleportation_MAG_Revivify"
 type "SpellData"
 using "Teleportation_MAG_Revivify"
 data "DisplayName" "h4b9baac4gbf43g4e9dg897fg71d5d6d216da;1"
 data "RequirementConditions" "DT_IsNotPartiallyRested()"
+
+# Do not apply blade ward on heal, fix Death Ward on dead character
+new entry "MAG_Revivify_Gloves_Passive"
+type "PassiveData"
+using "MAG_Revivify_Gloves_Passive"
+data "Description" "h7791a6b8g3676g4381g80ffg4da440cce8a1;1"
+data "StatsFunctorContext" "OnAttack"
+data "StatsFunctors" "IF(IsRevivifySpell()):ApplyStatus(MAG_DEATH_WARD_ON_DEAD,100,2)"
