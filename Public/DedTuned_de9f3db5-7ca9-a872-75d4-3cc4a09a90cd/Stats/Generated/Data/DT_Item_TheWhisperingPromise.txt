@@ -1,0 +1,9 @@
+# The Whispering Promise - UNI_MassHealRing
+# Remove 100% bless: instead, make a Religion skill check
+new entry "UNI_MassHealRing_Passive"
+type "PassiveData"
+using "UNI_MassHealRing_Passive"
+data "Description" "hb99c1527ga933g4c48g84f9g42818fc9e50d;1"
+data "DescriptionParams" "10"
+data "StatsFunctorContext" "OnHeal"
+data "StatsFunctors" "IF(ReligionCheck(10)):ApplyStatus(BLESS,100,2)"

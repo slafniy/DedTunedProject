@@ -82,5 +82,10 @@ end
 
 function DT_IsNotPartiallyRested()
     local hasPartiRestedStatus = HasStatus('DT_PARTIAL_RESTED', context.Source)
-    return ConditionResult((~hasPartiRestedStatus).Result, {ConditionError("DT_PartiallyRested")})
+    return ConditionResult((~hasPartiRestedStatus).Result, { ConditionError("DT_PartiallyRested") })
+end
+
+function ReligionCheck(DC)
+    local skillCheck = SkillCheck(Skill.Religion, DC)
+    return ConditionResult(skillCheck.Result, {}, {}, skillCheck.Chance)
 end

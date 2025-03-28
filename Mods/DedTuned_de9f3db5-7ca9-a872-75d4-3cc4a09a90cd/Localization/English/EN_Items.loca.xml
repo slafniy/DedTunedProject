@@ -12,4 +12,6 @@
     <content contentuid="h3687788egb67cg48dega91agdb35b8f2bbdb" version="1">Godswill</content>
     <content contentuid="hee3768b3gadc8g4fadg9d7dg8fadafc2200f" version="1">Restore one &lt;LSTag Type="ActionResource" Tooltip="ChannelDivinity"&gt;Channel Divinity&lt;/LSTag&gt; charge.</content>
     <content contentuid="h4b9baac4gbf43g4e9dg897fg71d5d6d216da" version="1">The Reviving Hands: Revivify</content>
+
+    <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">When you heal a creature, you make a DC [1] &lt;LSTag Tooltip="SkillCheck"&gt;Religion Check&lt;/LSTag&gt;, success granting it &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Bless&lt;/LSTag&gt; for 2 turns.</content>
 </contentList>

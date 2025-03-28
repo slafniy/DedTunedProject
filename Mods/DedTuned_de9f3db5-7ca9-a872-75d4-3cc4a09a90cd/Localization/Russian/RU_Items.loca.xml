@@ -12,4 +12,6 @@
     <content contentuid="h3687788egb67cg48dega91agdb35b8f2bbdb" version="1">Божественная воля</content>
     <content contentuid="hee3768b3gadc8g4fadg9d7dg8fadafc2200f" version="1">Восстановить один заряд &lt;LSTag Type="ActionResource" Tooltip="ChannelDivinity"&gt;Проведения энергии&lt;/LSTag&gt;.</content>
     <content contentuid="h4b9baac4gbf43g4e9dg897fg71d5d6d216da" version="1">Воскрешающие руки: Возрождение</content>
+
+    <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">Когда вы исцеляете существо, вы проходите проверку КС [1] на &lt;LSTag Tooltip="SkillCheck"&gt;религию&lt;/LSTag&gt;, при успехе существо получает &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Благословение&lt;/LSTag&gt; на 2 хода.</content>
 </contentList>

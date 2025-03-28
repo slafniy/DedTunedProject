@@ -254,3 +254,6 @@ Now works :)
 ==== Hat of Fire Acuity, Hat of Storm Scion's Power, Helmet of Arcane Acuity, Gloves of Battlemage's Power
 - Maximum Arcane Acuity stacks are limited to 4
 - Gloves of Battlemage's Power now work exactly like Helmet of Arcane Acuity (give 2 stacks on weapon damage dealt). Original version do not work, and looks weak anyway.
+
+=== The Whispering Promise
+- Now gives target Bless only if you succeeded DC 10 Religion check
