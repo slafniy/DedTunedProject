@@ -1,6 +1,6 @@
 new entry "Target_Bless"
 type "SpellData"
 using "Target_Bless"
-data "SpellProperties" "ApplyStatus(BLESS, 100, 3)"
-data "TooltipStatusApply" "ApplyStatus(BLESS, 100, 3)"
+data "SpellProperties" "ApplyStatus(BLESS, 100, 5)"
+data "TooltipStatusApply" "ApplyStatus(BLESS, 100, 5)"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IgnorePreviouslyPickedEntities"

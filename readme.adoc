@@ -191,7 +191,7 @@ Many spells not do not require concentration, some became stronger.
 - *Stoneskin*: does not require concentration, lasts 10 turns
 - *Bestow Curse*: does not require concentration
 - *Protection From Evil And Good*: no concentration, lasts 10 turns, applies in AOE
-- *Bless*: no concentration, lasts 3 turns
+- *Bless*: no concentration, lasts 5 turns
 - *Bane*: no concentration, lasts 3 turns
 - *Beacon Of Hope*: no concentration, upcast increases area
 - *Resistance*: no concentration, lasts 3 turns
