@@ -205,6 +205,7 @@ Many spells not do not require concentration, some became stronger.
 - *Expeditious Retreat*: no concentration, lasts 10 turns
 - *Magic Weapon*: no concentration
 - *Spike Growth*: upcast (larger area), lasts 10 turns, gives Bleeding and Gaping Wounds instead of direct damage
+- *Hold Monster* and *Hold Person* (and its monk version): do not grant 100% crit, instead remove target AC bonus from DEX
 ====
 
 === Classes
