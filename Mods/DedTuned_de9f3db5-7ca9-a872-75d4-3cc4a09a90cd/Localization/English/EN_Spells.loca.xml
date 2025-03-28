@@ -18,6 +18,7 @@
     <content contentuid="h4862c7bag8b64g4cfdg8f3fga878e9aad7b6" version="1">Partially Rested</content>
     <content contentuid="h1d969533g2a3bg4c53gb515g19a66a10e2bb" version="1">You've rested without supplies and cannot use some spells and items.</content>
 
-    <content contentuid="hb65cb48cg54c2g44b8ga49bg7bf9c583ea33" version="1">&lt;LSTag Type="Status" Tooltip="HOLD_PERSON"&gt;Hold&lt;/LSTag&gt; a humanoid still. They can't move, act or react and loses the Dexterity bonus to their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt;.</content>
-    <content contentuid="hd4085e94g0deag411fgb0adgd9907c3910ec" version="1">Affected entity can't move or take actions, bonus actions, reactions and loses the Dexterity bonus to their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt;.</content>
+    <content contentuid="hb65cb48cg54c2g44b8ga49bg7bf9c583ea33" version="1">&lt;LSTag Type="Status" Tooltip="HOLD_PERSON"&gt;Paralyse&lt;/LSTag&gt; a humanoid. It can't move, act or react and loses the Dexterity bonus to their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt;.</content>
+    <content contentuid="h1023fd35gb805g4f7dg91a5g3d2803d997d5" version="1">&lt;LSTag Type="Status" Tooltip="HOLD_MONSTER"&gt;Paralyse&lt;/LSTag&gt; a creature. It can't move, act or react and loses the Dexterity bonus to their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt;.</content>
+    <content contentuid="hd4085e94g0deag411fgb0adgd9907c3910ec" version="1">Affected entity is &lt;LSTag Type="Status" Tooltip="PARALYZED"&gt;Paralysed&lt;/LSTag&gt;. It can't move or take actions, bonus actions, reactions and loses the Dexterity bonus to their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt;.</content>
 </contentList>
