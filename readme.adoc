@@ -261,3 +261,10 @@ Now works :)
 
 === The Whispering Promise
 - Now gives target Bless only if you succeeded DC 10 Religion check
+
+=== Hellrider's Pride
+- Does not give passive Blade Ward on healed targets, instead grants a new Improved Blade Ward cantrip
+
+=== The Reviving Hands
+- Does not give passive Blade Ward on healed targets, instead grants a new Improved Blade Ward cantrip with 18m range
+- Fixed a bug: Revivify spells now correctly apply Death Ward on revived target
