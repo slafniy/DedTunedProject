@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency"/>
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="CanBePickedUp" type="bool" value="False" />
+                    <attribute id="CanShootThrough" type="bool" value="False"/>
+                    <attribute id="Description" type="TranslatedString" handle="h662b1a5bg8409g44f1gb128ge3f3634b8ad1" version="2"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h324843f2g3875g46e8g9d0cg8de4c02a9d76" version="1"/>
+                    <attribute id="Flag" type="int32" value="0"/>
+                    <attribute id="Hostile" type="bool" value="False"/>
+                    <attribute id="Icon" type="FixedString" value="Item_CONT_Barrel_Smokepowder_A"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="9c875b66-4024-487f-b67c-0c175538eb5c"/>
+                    <attribute id="Name" type="LSString" value="CONT_Barrel_Smokepowder_A"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="253b6d64-91f4-46a2-b05a-a606b0d7b342"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="9c8f2431-6d0a-e061-b431-b66e9d722811"/>
+                    <attribute id="ReadinessFlags" type="uint32" value="16"/>
+                    <attribute id="RecieveDecal" type="bool" value="False"/>
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True"/>
+                    <attribute id="Stats" type="FixedString" value="OBJ_Barrel_Filled_Smokepowder"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="4fc22ad3-973d-2946-efa1-91c653d9b92a"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209014"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1.32607"/>
+                                    <attribute id="Max" type="fvec3" value="0.4 1.33442 0.4"/>
+                                    <attribute id="Min" type="fvec3" value="-0.4 0.00834632 -0.4"/>
+                                    <attribute id="Radius" type="float" value="0.507822"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1.32607"/>
+                                    <attribute id="Max" type="fvec3" value="0.4 1.33442 0.4"/>
+                                    <attribute id="Min" type="fvec3" value="-0.4 0.00834632 -0.4"/>
+                                    <attribute id="Radius" type="float" value="0.507822"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1.32607"/>
+                                    <attribute id="Max" type="fvec3" value="0.2 1.33442 0.2"/>
+                                    <attribute id="Min" type="fvec3" value="-0.2 0.00834632 -0.2"/>
+                                    <attribute id="Radius" type="float" value="0.253911"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="InventoryList">
+                            <children>
+                                <node id="InventoryItem">
+                                    <attribute id="Object" type="FixedString" value="Empty"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="5"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="ExplodeFX" type="FixedString" value="351d97e9-277f-31d1-80b9-bb6801b2ce2d"/>
+                                            <attribute id="FadeOutDelay" type="float" value="0"/>
+                                            <attribute id="FadeOutFX" type="FixedString" value=""/>
+                                            <attribute id="SnapToGround" type="bool" value="True"/>
+                                            <attribute id="TargetItemState" type="uint8" value="0"/>
+                                            <attribute id="VisualWithDynamicPhysics" type="FixedString" value="1ffe41e7-3207-150e-09cc-48a42cf62c6d"/>
+                                            <attribute id="templateAfterDestruction" type="FixedString" value="51a0eca5-bc4c-411f-991d-fc661152a563"/>
+                                            <attribute id="visualDestruction" type="FixedString" value=""/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="10"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="ApplyDeathTypeBloodCheck" type="bool" value="True"/>
+                                            <attribute id="CellAtGrow" type="int32" value="50"/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="ExternalCauseAsSurfaceOwner" type="bool" value="True"/>
+                                            <attribute id="GrowTimer" type="float" value="0.02"/>
+                                            <attribute id="LifeTime" type="float" value="-1"/>
+                                            <attribute id="SurfaceType" type="FixedString" value="SurfaceBlackPowder"/>
+                                            <attribute id="Timeout" type="float" value="0"/>
+                                            <attribute id="TotalCells" type="int32" value="120"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="Scripts">
+                            <children>
+                                <node id="Script">
+                                    <attribute id="UUID" type="FixedString" value="3250732e-6269-4ebb-b9dd-556c237f687d"/>
+                                    <children>
+                                        <node id="Parameters">
+                                            <children>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="ExplosionProjectile"/>
+                                                    <attribute id="Type" type="int32" value="9"/>
+                                                    <attribute id="Value" type="LSString" value="Projectile_Barrel_Explosion_Smokepowder"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
+                                                    <attribute id="Type" type="int32" value="1"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                            </children>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="Tags">
+                            <children>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="f6e89388-0e91-4e9d-b5b7-1d4938dda540"/>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>
