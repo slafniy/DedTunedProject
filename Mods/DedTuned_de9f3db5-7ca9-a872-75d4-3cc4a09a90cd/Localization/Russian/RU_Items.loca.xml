@@ -17,5 +17,5 @@
     <content contentuid="he83cf850g6776g4326g88f4g64a96dfb4f0a" version="1">Улучшенный оберег от оружия</content>
     <content contentuid="h3eb7fe19g1b7bg42e1g84cfg3a325ac69a49" version="1">Защитить союзника: он будет получать только половину урона от дробящих, колющих и режущих атак.</content>
 
-    <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">Когда вы исцеляете существо, вы проходите проверку КС [1] на &lt;LSTag Tooltip="SkillCheck"&gt;религию&lt;/LSTag&gt;, при успехе существо получает &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Благословение&lt;/LSTag&gt; на 2 хода.</content>
+    <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">Когда вы исцеляете существо, вы проходите проверку КС [1] на &lt;LSTag Tooltip="SkillCheck"&gt;религию&lt;/LSTag&gt;, при успехе существо получает &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Благословение&lt;/LSTag&gt; на 2 хода. Если цель уже &lt;LSTag Type="Status" Tooltip="BLESS"&gt;благословлена&lt;/LSTag&gt;, то длительность эффекта будет увеличена на 2 хода.</content>
 </contentList>
