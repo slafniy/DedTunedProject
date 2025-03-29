@@ -268,3 +268,6 @@ Now works :)
 === The Reviving Hands
 - Does not give passive Blade Ward on healed targets, instead grants a new Improved Blade Ward cantrip with 18m range
 - Fixed a bug: Revivify spells now correctly apply Death Ward on revived target
+
+=== Armour of Persistence
+- Gives Blade Ward as a bonus action cantrip instead of permanent status

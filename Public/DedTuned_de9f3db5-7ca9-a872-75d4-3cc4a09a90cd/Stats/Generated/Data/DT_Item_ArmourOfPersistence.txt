@@ -1,0 +1,16 @@
+# Armour of Persistence - MAG_EndGame_Plate_Armor
+
+# Remove passive Blade Ward status
+new entry "MAG_MAG_EndGame_Plate_Armor_Passive"
+type "PassiveData"
+using "MAG_MAG_EndGame_Plate_Armor_Passive"
+data "Description" "h06a4fd77g1e04g4b3agbfbcg4df7bcae96f1;1"
+
+# Add an active Improved Blade Ward spell
+new entry "MAG_EndGame_Plate_Armor"
+type "Armor"
+using "MAG_EndGame_Plate_Armor"
+data "StatusOnEquip" "MAG_END_GAME_RESISTANCE"
+data "Boosts" "UnlockSpell(DT_Target_ImprovedBladeWard_Self)"
+
+

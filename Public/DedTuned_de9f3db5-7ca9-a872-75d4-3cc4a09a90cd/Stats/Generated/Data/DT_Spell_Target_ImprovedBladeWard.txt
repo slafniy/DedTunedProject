@@ -25,3 +25,13 @@ type "SpellData"
 using "DT_Target_ImprovedBladeWard"
 data "TargetRadius" "1.5"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"
+
+# On self for 3 turns as a bonus action
+new entry "DT_Target_ImprovedBladeWard_Self"
+type "SpellData"
+using "DT_Target_ImprovedBladeWard"
+data "SpellType" "Shout"
+data "TargetConditions" "Self()"
+data "Description" "h44d589a1g7e6dg4975g9ebcgaa2e193d44e1;6"
+data "SpellProperties" "ApplyStatus(BLADE_WARD,100,3)"
+data "TooltipStatusApply" "ApplyStatus(BLADE_WARD,100,3)"

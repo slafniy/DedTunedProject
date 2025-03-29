@@ -18,4 +18,6 @@
     <content contentuid="h3eb7fe19g1b7bg42e1g84cfg3a325ac69a49" version="1">Защитить союзника: он будет получать только половину урона от дробящих, колющих и режущих атак.</content>
 
     <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">Когда вы исцеляете существо, вы проходите проверку КС [1] на &lt;LSTag Tooltip="SkillCheck"&gt;религию&lt;/LSTag&gt;, при успехе существо получает &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Благословение&lt;/LSTag&gt; на 2 хода. Если цель уже &lt;LSTag Type="Status" Tooltip="BLESS"&gt;благословлена&lt;/LSTag&gt;, то длительность эффекта будет увеличена на 2 хода.</content>
+
+    <content contentuid="h06a4fd77g1e04g4b3agbfbcg4df7bcae96f1" version="1">Вы получаете постоянную &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Устойчивость&lt;/LSTag&gt;.</content>
 </contentList>
