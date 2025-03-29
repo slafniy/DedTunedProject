@@ -109,29 +109,6 @@
                                 </node>
                             </children>
                         </node>
-                        <node id="Scripts">
-                            <children>
-                                <node id="Script">
-                                    <attribute id="UUID" type="FixedString" value="3250732e-6269-4ebb-b9dd-556c237f687d"/>
-                                    <children>
-                                        <node id="Parameters">
-                                            <children>
-                                                <node id="Parameter">
-                                                    <attribute id="MapKey" type="FixedString" value="ExplosionProjectile"/>
-                                                    <attribute id="Type" type="int32" value="9"/>
-                                                    <attribute id="Value" type="LSString" value="Projectile_Barrel_Explosion_Smokepowder"/>
-                                                </node>
-                                                <node id="Parameter">
-                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
-                                                    <attribute id="Type" type="int32" value="1"/>
-                                                    <attribute id="Value" type="LSString" value="0"/>
-                                                </node>
-                                            </children>
-                                        </node>
-                                    </children>
-                                </node>
-                            </children>
-                        </node>
                         <node id="Tags">
                             <children>
                                 <node id="Tag">
