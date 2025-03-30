@@ -229,7 +229,7 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
 - War Priest Action Points reset on Short Rest instead of Long Rest
   Note: additional attack as bonus action isn't THAT strong.
 
-=== Equipment
+=== Equipment and other items
 
 ==== Potions
 - Elixir of Hill Giant Strength now gives +2 STR up to 22
@@ -259,15 +259,18 @@ Now works :)
 - Maximum Arcane Acuity stacks are limited to 4
 - Gloves of Battlemage's Power now work exactly like Helmet of Arcane Acuity (give 2 stacks on weapon damage dealt). Original version do not work, and looks weak anyway.
 
-=== The Whispering Promise
+==== The Whispering Promise
 - Now gives target Bless only if you succeeded DC 10 Religion check
 
-=== Hellrider's Pride
+==== Hellrider's Pride
 - Does not give passive Blade Ward on healed targets, instead grants a new Improved Blade Ward cantrip
 
-=== The Reviving Hands
+==== The Reviving Hands
 - Does not give passive Blade Ward on healed targets, instead grants a new Improved Blade Ward cantrip with 18m range
 - Fixed a bug: Revivify spells now correctly apply Death Ward on revived target
 
-=== Armour of Persistence
+==== Armour of Persistence
 - Gives Blade Ward as a bonus action cantrip instead of permanent status
+
+==== Barrels
+- Cannot be picked up
