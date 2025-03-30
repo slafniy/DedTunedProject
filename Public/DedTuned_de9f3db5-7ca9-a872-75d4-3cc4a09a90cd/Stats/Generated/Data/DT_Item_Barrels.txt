@@ -1,9 +1,25 @@
-# Increase weight, remove throwable params
-# CONT_Barrel_Smokepowder_A_9c875b66-4024-487f-b67c-0c175538eb5c
-new entry "OBJ_Barrel_Filled_Smokepowder"
-type "Object"
-using "OBJ_Barrel_Filled_Smokepowder"
-data "Weight" "230"
-data "UseCosts" ""
-data "ItemUseType" ""
-data "UseConditions" ""
+# Barrels list
+
+# Nautiloid barrel
+# OBJ_VolatileBladder
+# 24e01b77-0a74-410d-869f-919918f20278
+
+# Oil
+# OBJ_Barrel_Filled_Oil
+# 72e3f454-5a68-4bb2-acef-7b8d595b5015
+
+# Acid
+# OBJ_Barrel_Filled
+# 77cfc9e7-02ca-4be8-8e01-51ae3f873d60
+
+# Alcohol
+# OBJ_Barrel_Filled_Alcohol
+# 79050068-7ce3-43f9-a9a3-1646f5eb39c3
+
+# Smokepowder
+# OBJ_Barrel_Filled_Smokepowder
+# 9c875b66-4024-487f-b67c-0c175538eb5c
+
+# Brine barrel
+# Stats - from water?
+# d6806561-2bd3-4333-ba90-dfbaf9474307
