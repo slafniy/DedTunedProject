@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency" />
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="ConstellationConfigName" type="FixedString" value="Grenade"/>
+                    <attribute id="Description" type="TranslatedString" handle="he117b420gc3bfg4d26ga959g51c0118e887c" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h6dd6a5c1g2708g4368g8667g88eb37ff277a" version="2"/>
+                    <attribute id="DropSound" type="FixedString" value="0b725a7f-e7bf-8cc1-5d16-d1c9d2d4cc5e"/>
+                    <attribute id="Flag" type="int32" value="0"/>
+                    <attribute id="Icon" type="FixedString" value="Item_GRN_Bomb_A"/>
+                    <attribute id="InventoryMoveSound" type="FixedString" value="0b725a7f-e7bf-8cc1-5d16-d1c9d2d4cc5e"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="278271f9-3fbc-4cf7-a5dc-b36527f521b2"/>
+                    <attribute id="Name" type="LSString" value="GRN_Bomb_A"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="8e5f1e8b-102a-4105-9d81-2220648814e9"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="2e77b806-6a48-491c-63b0-59934239f881"/>
+                    <attribute id="PickupSound" type="FixedString" value="cc7eb57d-7a7f-bffb-5e6f-e1d082e9b5b0"/>
+                    <attribute id="Stats" type="FixedString" value="OBJ_Bomb"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="d62137b0-b469-a3fd-6377-75a6c1445d6b"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209034"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.5428302"/>
+                                    <attribute id="Max" type="fvec3" value="0.12756065 0.33529574 0.12756065"/>
+                                    <attribute id="Min" type="fvec3" value="-0.12756065 -0.00012940168 -0.12756065"/>
+                                    <attribute id="Radius" type="float" value="0.18389116"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.5428302"/>
+                                    <attribute id="Max" type="fvec3" value="0.12756065 0.33529574 0.12756065"/>
+                                    <attribute id="Min" type="fvec3" value="-0.12756065 -0.00012940168 -0.12756065"/>
+                                    <attribute id="Radius" type="float" value="0.18389116"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.3354251"/>
+                                    <attribute id="Max" type="fvec3" value="0.12756065 0.3352957 0.12756065"/>
+                                    <attribute id="Min" type="fvec3" value="-0.12756065 -0.00012940168 -0.12756065"/>
+                                    <attribute id="Radius" type="float" value="0.12315735"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="ConstellationConfigGlobalParameters"/>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="5"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="ExplodeFX" type="FixedString" value="00000000-0000-0000-0000-000000000000"/>
+                                            <attribute id="FadeOutDelay" type="float" value="0"/>
+                                            <attribute id="FadeOutFX" type="FixedString" value=""/>
+                                            <attribute id="SnapToGround" type="bool" value="True"/>
+                                            <attribute id="TargetItemState" type="uint8" value="0"/>
+                                            <attribute id="VisualWithDynamicPhysics" type="FixedString" value=""/>
+                                            <attribute id="templateAfterDestruction" type="FixedString" value=""/>
+                                            <attribute id="visualDestruction" type="FixedString" value=""/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="Tags">
+                            <children>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="f6e89388-0e91-4e9d-b5b7-1d4938dda540"/>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>
+
+
+

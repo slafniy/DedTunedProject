@@ -20,4 +20,6 @@
     <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">When you heal a creature, you make a DC [1] &lt;LSTag Tooltip="SkillCheck"&gt;Religion Check&lt;/LSTag&gt;, success granting it &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Bless&lt;/LSTag&gt; for 2 turns. If the target is already &lt;LSTag Type="Status" Tooltip="BLESS"&gt;blessed&lt;/LSTag&gt; the effect duration will be increased by 2 turns.</content>
 
     <content contentuid="h06a4fd77g1e04g4b3agbfbcg4df7bcae96f1" version="1">You gain permanent &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt;.</content>
+
+    <content contentuid="he117b420gc3bfg4d26ga959g51c0118e887c" version="1">Grenade test description.</content>
 </contentList>
