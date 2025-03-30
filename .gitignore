@@ -1,6 +1,9 @@
 /.idea/
 __pycache__/
 
+# No not push generated binary files
+/Public/DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd/RootTemplates/*.lsf
+
 
 # BG3 story generated files which are safe to remove to decrease mod pak size
 # SAFETOREMOVE_START
