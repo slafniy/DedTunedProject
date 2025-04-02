@@ -125,13 +125,17 @@
                             <children>
 
                                 <!-- From base BASE_LOOT_Throwable-->
+                                <!-- GRENADE - has no additional description :( -->
                                 <node id="Tag">
                                     <attribute id="Object" type="guid" value="fe0d86c3-a562-430e-a633-d8bf9bb27284"/>
                                 </node>
+
+                                <!-- SHOPTRIGGER_FOR_SALE  Set on roots that should be for sale by default in shop triggers. E.g. weapons, armor, ... -->
                                 <node id="Tag">
                                     <attribute id="Object" type="guid" value="b148cfca-53d8-4b73-b052-de08394a235e"/>
                                 </node>
 
+                                <!-- Tag EXPLOSIVES Used to track all the smokepowder, runepowder and other explosive items. -->
                                 <node id="Tag">
                                     <attribute id="Object" type="guid" value="f6e89388-0e91-4e9d-b5b7-1d4938dda540"/>
                                 </node>
