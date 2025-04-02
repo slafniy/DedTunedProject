@@ -13,7 +13,7 @@
 new entry "DT_OBJ_Bomb"
 type "Object"
 using "_Loot"
-data "RootTemplate" "278271f9-3fbc-4cf7-a5dc-b36527f521b2"
+data "RootTemplate" "899b8097-fbe1-40b2-afe3-d1cba5d9a11f"
 data "ValueUUID" "903e4dee-a3d5-4f72-8b72-c81541fd29aa"
 data "ValueLevel" "3"
 data "ObjectCategory" "MagicScroll"

@@ -13,14 +13,14 @@
                     <attribute id="Icon" type="FixedString" value="Item_GRN_Bomb_A"/>
                     <attribute id="InventoryMoveSound" type="FixedString" value="0b725a7f-e7bf-8cc1-5d16-d1c9d2d4cc5e"/>
                     <attribute id="LevelName" type="FixedString" value=""/>
-                    <attribute id="MapKey" type="FixedString" value="278271f9-3fbc-4cf7-a5dc-b36527f521b2"/>
+<!--                    <attribute id="MapKey" type="FixedString" value="278271f9-3fbc-4cf7-a5dc-b36527f521b2"/>-->
+                    <attribute id="MapKey" type="FixedString" value="899b8097-fbe1-40b2-afe3-d1cba5d9a11f"/>
                     <attribute id="Name" type="LSString" value="GRN_Bomb_A"/>
                     <!--                    <attribute id="ParentTemplateId" type="FixedString" value="8e5f1e8b-102a-4105-9d81-2220648814e9"/>-->
                     <attribute id="ParentTemplateId" type="FixedString" value=""/>
                     <attribute id="PhysicsTemplate" type="FixedString" value="2e77b806-6a48-491c-63b0-59934239f881"/>
                     <attribute id="PickupSound" type="FixedString" value="cc7eb57d-7a7f-bffb-5e6f-e1d082e9b5b0"/>
                     <attribute id="Stats" type="FixedString" value="DT_OBJ_Bomb"/>
-                    <attribute id="Type" type="FixedString" value="item"/>
                     <attribute id="VisualTemplate" type="FixedString" value="d62137b0-b469-a3fd-6377-75a6c1445d6b"/>
                     <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209034"/>
 
@@ -29,7 +29,6 @@
                     <attribute id="OnUseDescription" type="TranslatedString" handle="hd387c21cgd5eag4d31gb01egada48e5759e0" version="1"/>
                     <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True"/>
                     <attribute id="Tooltip" type="uint8" value="2"/>
-                    <attribute id="Type" type="FixedString" value="item"/>
 
                     <!-- From BASE_LOOT -->
                     <attribute id="AiHint" type="guid" value="00000000-0000-0000-0000-000000000000"/>
