@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <save>
-    <version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency" />
+    <version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids,lsf_adjacency"/>
     <region id="Templates">
         <node id="Templates">
             <children>
@@ -15,13 +15,47 @@
                     <attribute id="LevelName" type="FixedString" value=""/>
                     <attribute id="MapKey" type="FixedString" value="278271f9-3fbc-4cf7-a5dc-b36527f521b2"/>
                     <attribute id="Name" type="LSString" value="GRN_Bomb_A"/>
-                    <attribute id="ParentTemplateId" type="FixedString" value="8e5f1e8b-102a-4105-9d81-2220648814e9"/>
+                    <!--                    <attribute id="ParentTemplateId" type="FixedString" value="8e5f1e8b-102a-4105-9d81-2220648814e9"/>-->
+                    <attribute id="ParentTemplateId" type="FixedString" value=""/>
                     <attribute id="PhysicsTemplate" type="FixedString" value="2e77b806-6a48-491c-63b0-59934239f881"/>
                     <attribute id="PickupSound" type="FixedString" value="cc7eb57d-7a7f-bffb-5e6f-e1d082e9b5b0"/>
                     <attribute id="Stats" type="FixedString" value="DT_OBJ_Bomb"/>
                     <attribute id="Type" type="FixedString" value="item"/>
                     <attribute id="VisualTemplate" type="FixedString" value="d62137b0-b469-a3fd-6377-75a6c1445d6b"/>
                     <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209034"/>
+
+                    <!-- From base BASE_LOOT_Throwable-->
+                    <attribute id="CanShootThrough" type="bool" value="False"/>
+                    <attribute id="OnUseDescription" type="TranslatedString" handle="hd387c21cgd5eag4d31gb01egada48e5759e0" version="1"/>
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True"/>
+                    <attribute id="Tooltip" type="uint8" value="2"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+
+                    <!-- From BASE_LOOT -->
+                    <attribute id="AiHint" type="guid" value="00000000-0000-0000-0000-000000000000"/>
+                    <attribute id="Archetype" type="FixedString" value="base"/>
+                    <attribute id="AttackableWhenClickThrough" type="bool" value="False"/>
+                    <attribute id="BloodSurfaceType" type="FixedString" value="SurfaceNone"/>
+                    <attribute id="CameraOffset" type="fvec3" value="0 0 0"/>
+                    <attribute id="CanBeMoved" type="bool" value="True"/>
+                    <attribute id="CanBePickedUp" type="bool" value="True"/>
+                    <attribute id="CoverAmount" type="uint8" value="0"/>
+                    <attribute id="ExamineRotation" type="fvec3" value="-35 0 0"/>
+                    <attribute id="Faction" type="guid" value="376e33c4-dd15-4c46-a586-87d8b421a0c7"/>
+                    <attribute id="Fadeable" type="bool" value="True"/>
+                    <attribute id="GroupID" type="uint32" value="0"/>
+                    <attribute id="HierarchyOnlyFade" type="bool" value="True"/>
+                    <attribute id="IsInspector" type="bool" value="True"/>
+                    <attribute id="IsPortal" type="bool" value="False"/>
+                    <attribute id="PhysicsOpenTemplate" type="FixedString" value=""/>
+                    <attribute id="ReadinessFlags" type="uint32" value="63"/>
+                    <attribute id="RecieveDecal" type="bool" value="False"/>
+                    <attribute id="TreasureOnDestroy" type="bool" value="False"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="WadableSurfaceType" type="FixedString" value="SurfaceDeepWater"/>
+                    <attribute id="WalkThrough" type="bool" value="True"/>
+                    <attribute id="maxStackAmount" type="int32" value="20"/>
+
                     <children>
                         <node id="Bounds">
                             <children>
@@ -55,17 +89,6 @@
                         <node id="OnDestroyActions">
                             <children>
                                 <node id="Action">
-                                    <attribute id="ActionType" type="int32" value="26"/>
-                                    <children>
-                                        <node id="Attributes">
-                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
-                                            <attribute id="Animation" type="FixedString" value=""/>
-                                            <attribute id="Conditions" type="LSString" value=""/>
-                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
-                                        </node>
-                                    </children>
-                                </node>
-                                <node id="Action">
                                     <attribute id="ActionType" type="int32" value="5"/>
                                     <children>
                                         <node id="Attributes">
@@ -82,15 +105,73 @@
                                         </node>
                                     </children>
                                 </node>
+
+                                <!-- From BASE_LOOT -->
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
+                                        </node>
+                                    </children>
+                                </node>
+
                             </children>
                         </node>
                         <node id="Tags">
                             <children>
+
+                                <!-- From base BASE_LOOT_Throwable-->
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="fe0d86c3-a562-430e-a633-d8bf9bb27284"/>
+                                </node>
+                                <node id="Tag">
+                                    <attribute id="Object" type="guid" value="b148cfca-53d8-4b73-b052-de08394a235e"/>
+                                </node>
+
                                 <node id="Tag">
                                     <attribute id="Object" type="guid" value="f6e89388-0e91-4e9d-b5b7-1d4938dda540"/>
                                 </node>
                             </children>
                         </node>
+
+                        <!-- From base BASE_LOOT_Throwable-->
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="32"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="FallbackPreviewRadius" type="float" value="0"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+
+                        <!-- From BASE_LOOT -->
+                        <node id="InventoryList">
+                            <children>
+                                <node id="InventoryItem">
+                                    <attribute id="Object" type="FixedString" value="Empty"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="ItemList"/>
+                        <node id="ExcludeInDifficulty"/>
+
+                        <node id="OnlyInDifficulty"/>
+                        <node id="ScriptOverrides">
+                            <children>
+                                <node id="ScriptOverrides"/>
+                            </children>
+                        </node>
+                        <node id="Scripts"/>
+                        <node id="StatusList"/>
                     </children>
                 </node>
             </children>
