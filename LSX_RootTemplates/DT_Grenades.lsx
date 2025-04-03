@@ -8,8 +8,8 @@
                     <!-- This parameter makes grenade to explode -->
                     <!--                    <attribute id="ConstellationConfigName" type="FixedString" value="DT_Grenade"/>-->
 
-                    <attribute id="Description" type="TranslatedString" handle="he117b420gc3bfg4d26ga959g51c0118e887c" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="h6dd6a5c1g2708g4368g8667g88eb37ff277a" version="2"/>
+                    <attribute id="Description" type="TranslatedString" handle="hb12bfcdcg8f62g44afgb228g064d1c5f438f" version="3" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h6dd6a5c1g2708g4368g8667g88eb37ff277a" version="2" />
                     <attribute id="DropSound" type="FixedString" value="0b725a7f-e7bf-8cc1-5d16-d1c9d2d4cc5e"/>
                     <attribute id="Flag" type="int32" value="0"/>
                     <attribute id="Icon" type="FixedString" value="Item_GRN_Bomb_A"/>
