@@ -155,14 +155,14 @@
                                         <node id="Attributes">
                                             <attribute id="Animation" type="FixedString" value=""/>
                                             <attribute id="ApplyDeathTypeBloodCheck" type="bool" value="True"/>
-                                            <attribute id="CellAtGrow" type="int32" value="50"/>
+                                            <attribute id="CellAtGrow" type="int32" value="3"/>
                                             <attribute id="Conditions" type="LSString" value=""/>
                                             <attribute id="ExternalCauseAsSurfaceOwner" type="bool" value="True"/>
                                             <attribute id="GrowTimer" type="float" value="0.02"/>
                                             <attribute id="LifeTime" type="float" value="-1"/>
                                             <attribute id="SurfaceType" type="FixedString" value="SurfaceBlackPowder"/>
                                             <attribute id="Timeout" type="float" value="0"/>
-                                            <attribute id="TotalCells" type="int32" value="120"/>
+                                            <attribute id="TotalCells" type="int32" value="9"/>
                                         </node>
                                     </children>
                                 </node>
