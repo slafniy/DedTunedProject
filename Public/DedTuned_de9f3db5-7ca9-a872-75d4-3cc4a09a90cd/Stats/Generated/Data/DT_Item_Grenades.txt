@@ -51,7 +51,7 @@ data "SpellSuccess" "TARGET:DealDamage(1d10,Force);TARGET:AOE:IF(not SavingThrow
 data "SpellFail" "TARGET:AOE:IF(not SavingThrow(Ability.Dexterity, SourceSpellDC())):DealDamage(2d6, Force,Magical)"
 data "TargetConditions" "not Self() and not Dead()"
 data "ProjectileCount" "1"
-data "Trajectories" "9a2a98bc-91aa-44fe-8c20-bc63264547a2"
+data "Trajectories" "rules:861d0046-1858-401e-b97b-28f7b3e3e89a,d5e54f29-f80f-4105-96b2-23b5af9321c7,bac38aab-dfa7-4a5a-9c2a-552b0b626ee3"
 data "Icon" "Spell_Conjuration_IceKnife"
 data "DisplayName" "hce555882g1381g4fe1g90dfg569927f23ab5;2"
 data "Description" "h31b243f6g8e59g49d0gbba8gb4dc25dfde2c;5"
