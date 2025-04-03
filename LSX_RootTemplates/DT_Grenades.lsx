@@ -6,7 +6,7 @@
             <children>
                 <node id="GameObjects">
                     <!-- This parameter makes grenade to explode -->
-                    <attribute id="ConstellationConfigName" type="FixedString" value="DT_Grenade"/>
+<!--                    <attribute id="ConstellationConfigName" type="FixedString" value="DT_Grenade"/>-->
 
                     <attribute id="Description" type="TranslatedString" handle="he117b420gc3bfg4d26ga959g51c0118e887c" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="h6dd6a5c1g2708g4368g8667g88eb37ff277a" version="2"/>
@@ -147,14 +147,37 @@
                         <node id="OnUsePeaceActions">
                             <children>
                                 <node id="Action">
-                                    <attribute id="ActionType" type="int32" value="32"/>
+                                    <attribute id="ActionType" type="int32" value="12"/>
                                     <children>
                                         <node id="Attributes">
                                             <attribute id="Animation" type="FixedString" value=""/>
-                                            <attribute id="FallbackPreviewRadius" type="float" value="0"/>
+                                            <attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09"/>
+                                            <attribute id="Conditions" type="LSString" value="CanUseSpellScroll(&quot;DT_Projectile_Bomb&quot;)"/>
+                                            <attribute id="Consume" type="bool" value="True"/>
+                                            <attribute id="SkillID" type="FixedString" value="DT_Projectile_Bomb"/>
                                         </node>
                                     </children>
                                 </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="33"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="Consume" type="bool" value="True"/>
+                                            <attribute id="SpellId" type="FixedString" value="DT_Projectile_Bomb"/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <!--                                <node id="Action">-->
+                                <!--                                    <attribute id="ActionType" type="int32" value="32"/>-->
+                                <!--                                    <children>-->
+                                <!--                                        <node id="Attributes">-->
+                                <!--                                            <attribute id="Animation" type="FixedString" value=""/>-->
+                                <!--                                            <attribute id="FallbackPreviewRadius" type="float" value="0"/>-->
+                                <!--                                        </node>-->
+                                <!--                                    </children>-->
+                                <!--                                </node>-->
                             </children>
                         </node>
 
