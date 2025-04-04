@@ -59,7 +59,8 @@ data "CastEffect" "d99f8787-7eee-4216-b7b0-bcfe97144b40"
 data "CastSound" "Proj_Arr_Cast_ArrowOfDetonation"
 data "SpellFlags" "HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;AddFallDamageOnLand;DisplayInItemTooltip"
 data "TargetFloor" "-1"
-# TODO: make dynamic
+# TODO: make dynamic ?
+# data "AddRangeFromAbility" "Strength,2"
 data "TargetRadius" "18"
 data "TargetConditions" "not Self() and not Dead()"
 data "ProjectileCount" "1"
