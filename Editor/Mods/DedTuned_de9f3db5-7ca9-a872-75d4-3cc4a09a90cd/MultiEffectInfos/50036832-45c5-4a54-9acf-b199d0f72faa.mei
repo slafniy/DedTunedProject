@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="50036832-45c5-4a54-9acf-b199d0f72faa" OwnerUUID="00000000-0000-0000-0000-000000000000" Name="VFX_Action_DT_Prepare_SmokepowderBomb">
+  <EffectInfo UUID="9b9b3e73-b0a6-4607-ac2c-35828b364d9f" EffectResourceGuid="6e2371da-af32-5ffe-c7e3-97e193e5956a" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="false" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" SourceCheckEquipmentTagConditions="true" TargetCheckEquipmentTagConditions="true" />
+</MultiEffectInfos>
