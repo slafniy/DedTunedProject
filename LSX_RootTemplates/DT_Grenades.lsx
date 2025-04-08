@@ -258,6 +258,130 @@
                     </children>
                 </node>
 
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h18bd38c7g4d67g472egad9agc56b86ecbc83" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h31eadf73g464bg495eg8114g9fbea3beaf3c" version="2"/>
+                    <attribute id="Icon" type="FixedString" value="Item_DEC_GEN_Fireworks_Rocket_B"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <!--                    <attribute id="MapKey" type="FixedString" value="8cc1c07f-398c-42fb-9cdf-76ef052bdaa6"/>-->
+                    <attribute id="MapKey" type="FixedString" value="ec3bc35f-2a57-4bb7-9090-a5ca8f93a2cc"/>
+                    <attribute id="Name" type="LSString" value="DEC_GEN_Fireworks_Rocket_B"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="d07e3114-69c4-4cb7-b148-cc4f04040f2f"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="876ae4a0-fd20-255f-06b1-dea5697126c9"/>
+                    <attribute id="Stats" type="FixedString" value="OBJ_Fireworks_Rocket_B"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="2f263361-ff03-aa84-6d49-59a7923f9484"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.058578037"/>
+                                    <attribute id="Max" type="fvec3" value="0.31310853 0.15421832 1.0311505"/>
+                                    <attribute id="Min" type="fvec3" value="-0.32380947 -0.1338883 -0.23577511"/>
+                                    <attribute id="Radius" type="float" value="0.039346717"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.058578037"/>
+                                    <attribute id="Max" type="fvec3" value="0.318459 0.15421832 1.0311505"/>
+                                    <attribute id="Min" type="fvec3" value="-0.318459 -0.1338883 -0.23577511"/>
+                                    <attribute id="Radius" type="float" value="0.078693435"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.058578037"/>
+                                    <attribute id="Max" type="fvec3" value="0.318459 0.15421832 1.0311505"/>
+                                    <attribute id="Min" type="fvec3" value="-0.318459 -0.1338883 -0.23577511"/>
+                                    <attribute id="Radius" type="float" value="0.078693435"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="12"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09"/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="Consume" type="bool" value="True"/>
+                                            <attribute id="SkillID" type="FixedString" value="Projectile_Fireworks_Rocket_B"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
+                <node id="GameObjects">
+                    <attribute id="Description" type="TranslatedString" handle="h143d23eeg590eg48dbg881dgddfd67d3690a" version="2"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h8014daa6g2a95g406bg8a02gb20ca1ff2e80" version="2"/>
+                    <attribute id="Icon" type="FixedString" value="Item_DEC_GEN_Fireworks_Rocket_C"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <!--					<attribute id="MapKey" type="FixedString" value="2f900203-cbe9-4b6c-8d63-1a9a873a13ff" />-->
+                    <attribute id="MapKey" type="FixedString" value="5f2d9430-f6f6-4c76-857e-14b48c9506c2"/>
+                    <attribute id="Name" type="LSString" value="DEC_GEN_Fireworks_Rocket_C"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="d07e3114-69c4-4cb7-b148-cc4f04040f2f"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="83d64f96-6eb6-5f22-d8e4-4c72b0b92c6a"/>
+                    <attribute id="Stats" type="FixedString" value="OBJ_Fireworks_Rocket_C"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="80be7564-8a2e-3808-dfaf-10e248f65215"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209027"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.058578037"/>
+                                    <attribute id="Max" type="fvec3" value="0.1099086 0.07483305 0.6688129"/>
+                                    <attribute id="Min" type="fvec3" value="-0.10702918 -0.10281764 -0.3058064"/>
+                                    <attribute id="Radius" type="float" value="0.039346717"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.058578037"/>
+                                    <attribute id="Max" type="fvec3" value="0.10990861 0.074833065 0.6688129"/>
+                                    <attribute id="Min" type="fvec3" value="-0.107029185 -0.10281764 -0.3058064"/>
+                                    <attribute id="Radius" type="float" value="0.078693435"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="0.058578037"/>
+                                    <attribute id="Max" type="fvec3" value="0.10990861 0.074833065 0.6688129"/>
+                                    <attribute id="Min" type="fvec3" value="-0.107029185 -0.10281764 -0.3058064"/>
+                                    <attribute id="Radius" type="float" value="0.078693435"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnUsePeaceActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="12"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="ClassId" type="guid" value="a865965f-501b-46e9-9eaa-7748e8c04d09"/>
+                                            <attribute id="Conditions" type="LSString" value=""/>
+                                            <attribute id="Consume" type="bool" value="True"/>
+                                            <attribute id="SkillID" type="FixedString" value="Projectile_Fireworks_Rocket_C"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
             </children>
         </node>
     </region>

@@ -50,25 +50,23 @@ data "SpellSoundMagnitude" "None"
 
 new entry "OBJ_Fireworks_Rocket_A"
 type "Object"
-using "_Grenade"
+using "OBJ_Fireworks_Rocket_A"
 data "RootTemplate" "d07e3114-69c4-4cb7-b148-cc4f04040f2f"
-data "ValueLevel" "5"
+
+new entry "OBJ_Fireworks_Rocket_B"
+type "Object"
+using "OBJ_Fireworks_Rocket_B"
+data "RootTemplate" "ec3bc35f-2a57-4bb7-9090-a5ca8f93a2cc"
+
+new entry "OBJ_Fireworks_Rocket_C"
+type "Object"
+using "OBJ_Fireworks_Rocket_C"
+data "RootTemplate" "5f2d9430-f6f6-4c76-857e-14b48c9506c2"
 
 
+# Added visual target radius
 new entry "Projectile_Fireworks_Rocket_A"
 type "SpellData"
 using "Projectile_Fireworks_Rocket_A"
 data "TargetRadius" "18"
 
-
-# TODO grenades and other abusable stuff
-# Acid Vial - OBJ_AcidBottle
-# Alchemist's Fire
-# Holy Water - OBJ_HolyWaterFlask
-# Ochre Jelly Slime
-# Sanguine Explosive
-# Orthon Explosive - OBJ_Bomb_Orthon, QUEST_HAV_InfernalGrenade ?
-# UNI_BrilliantRetort
-# OBJ_Bomb_Sunflash
-# Popdrakes - OBJ_Fireworks_Rocket_A, OBJ_Fireworks_Rocket_B, OBJ_Fireworks_Rocket_C
-#
