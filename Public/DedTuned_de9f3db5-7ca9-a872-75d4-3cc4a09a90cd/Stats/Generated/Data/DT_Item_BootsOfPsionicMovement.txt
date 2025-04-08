@@ -1,0 +1,13 @@
+# Boots of Psionic Movement - MAG_Githborn_PsionicMovement_Boots
+
+# Add once per turn cooldown
+new entry "MAG_Githborn_PsionicMovement_Boots_Passive"
+type "PassiveData"
+using "MAG_Githborn_PsionicMovement_Boots_Passive"
+data "Properties" "OncePerTurn"
+
+# Changed cooldown from Long Rest to Short Rest
+new entry "Shout_MAG_Shout_Fly"
+type "SpellData"
+using "Shout_MAG_Shout_Fly"
+data "Cooldown" "OncePerShortRestPerItem"

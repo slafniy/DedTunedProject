@@ -290,5 +290,9 @@ Now works :)
 - Fixed a bug: a passive now correctly gives Advantage instead of +5 bonus
 - Fixed a bug: Grasp Essence status should not disappear on taking damage
 
+==== Boots of Psionic Movement
+- Fly cooldown changed from Long Rest to Short Rest
+- Damage bonus after fly works only once per turn
+
 === Barrels
 - Cannot be picked up
