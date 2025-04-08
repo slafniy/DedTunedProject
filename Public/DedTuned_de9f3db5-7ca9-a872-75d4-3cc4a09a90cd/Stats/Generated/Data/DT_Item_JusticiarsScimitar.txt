@@ -1,0 +1,11 @@
+# MAG_Justiciar_Scimitar
+
+# Fix parent's passive (MAG_Blindside_Shortsword did not work in Honour mode)
+new entry "MAG_Blindside_Shortsword_Passive"
+type "PassiveData"
+using "MAG_Blindside_Shortsword_Passive"
+data "StatsFunctorContext" "OnDamage"
+data "Conditions" "AttackedWithPassiveSourceWeapon() and HasAdvantage() and not HasDisadvantage()"
+data "StatsFunctors" "DealDamage(1d8, Psychic,Magical)"
+
+
