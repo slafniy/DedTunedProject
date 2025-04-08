@@ -9,3 +9,18 @@ data "Conditions" "AttackedWithPassiveSourceWeapon() and HasAdvantage() and not 
 data "StatsFunctors" "DealDamage(1d8, Psychic,Magical)"
 
 
+# Use ShadowBlade_Passive instead of MAG_IllusionBlade_Passive
+new entry "MAG_Justiciar_Scimitar"
+type "Weapon"
+using "MAG_Justiciar_Scimitar"
+data "PassivesOnEquip" "MAG_ShadowBlinding_Weapon_Passive;DT_ShadowBlade_Passive"
+
+
+#
+new entry "DT_ShadowBlade_Passive"
+type "PassiveData"
+data "DisplayName" "h0160e9efg8974g43d6gb3fcg8d4e9d200a3c;4"
+data "Description" "ha672fd65g0fe4g4596g9529gce372c013ca1;6"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "AttackedWithPassiveSourceWeapon() and not HasObscuredState(ObscuredState.Clear)"
+data "Boosts" "Advantage(AttackRoll)"
