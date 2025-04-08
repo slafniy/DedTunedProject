@@ -1,0 +1,8 @@
+# MAG_Mobility_ExplosionOnJump_Maul
+
+# Add a cooldown - once per turn
+new entry "MAG_Mobility_ExplosionOnJump_Passive"
+type "PassiveData"
+using "MAG_Mobility_ExplosionOnJump_Passive"
+data "Properties" "OncePerTurn;IsToggled;Temporary"
+data "Description" "hb3ef55a8g6e7dg4c49gbfa4gb062aee378f0;3"

@@ -282,5 +282,8 @@ Now works :)
 ==== Armour of Persistence
 - Gives Blade Ward as a bonus action cantrip instead of permanent status
 
-==== Barrels
+==== Hamarhraft
+- Passive has a once per turn cooldown
+
+=== Barrels
 - Cannot be picked up
