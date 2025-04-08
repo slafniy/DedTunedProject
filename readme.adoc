@@ -286,7 +286,8 @@ Now works :)
 - Passive has a once per turn cooldown
 
 ==== Gloves of Soul Catching
-- Passive works only when you hit non-dead enemies
+- Passive now works only when you hit non-dead enemies
+- Fixed a bug: a passive now correctly gives Advantage instead of +5 bonus
 - Fixed a bug: Grasp Essence status should not disappear on taking damage
 
 === Barrels

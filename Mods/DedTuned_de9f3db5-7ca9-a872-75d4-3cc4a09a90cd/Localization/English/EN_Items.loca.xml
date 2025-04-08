@@ -22,4 +22,7 @@
     <content contentuid="h06a4fd77g1e04g4b3agbfbcg4df7bcae96f1" version="1">You gain permanent &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt;.</content>
 
     <content contentuid="h3c47e891gab87g4addga259g82dc7a4fa6f8" version="1">Throw a bomb that explodes on impact, pushing the target back [1].</content>
+
+    <content contentuid="h0e8c73dbg5e09g44bega503ge967804e72eb" version="1">You can regain [1] or gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on attack roll or &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; as a reaction.</content>
+    <content contentuid="h6a309c06g93f6g4bf2g9323g200646f91b62" version="1">Once per turn, when you hit the enemy with unarmed attack, you receive &lt;LSTag Type="Status" Tooltip="DT_MAG_SOUL_CATCHING"&gt;Grasp Essence&lt;/LSTag&gt; for 2 turns.</content>
 </contentList>

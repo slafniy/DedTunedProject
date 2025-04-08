@@ -22,4 +22,7 @@
     <content contentuid="h06a4fd77g1e04g4b3agbfbcg4df7bcae96f1" version="1">Вы получаете постоянную &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Устойчивость&lt;/LSTag&gt;.</content>
 
     <content contentuid="h3c47e891gab87g4addga259g82dc7a4fa6f8" version="1">Бросить взрывающуюся в месте падения бомбу, расталкивающую цели на [1].</content>
+
+    <content contentuid="h0e8c73dbg5e09g44bega503ge967804e72eb" version="1">Вы можете восстановить [1] или получить &lt;LSTag Tooltip="Advantage"&gt;преимущество&lt;/LSTag&gt; при бросках атаки или &lt;LSTag Tooltip="SavingThrow"&gt;испытаниях&lt;/LSTag&gt; в качестве реакции.</content>
+    <content contentuid="h6a309c06g93f6g4bf2g9323g200646f91b62" version="1">Один раз за ход, когда вы попадаете по врагу атакой без оружия, вы получаете &lt;LSTag Type="Status" Tooltip="DT_MAG_SOUL_CATCHING"&gt;Захват эссенции&lt;/LSTag&gt; на 2 хода.</content>
 </contentList>
