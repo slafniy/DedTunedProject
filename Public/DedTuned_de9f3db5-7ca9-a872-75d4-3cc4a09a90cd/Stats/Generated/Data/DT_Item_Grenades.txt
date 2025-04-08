@@ -15,7 +15,7 @@ new entry "DT_Projectile_Bomb"
 type "SpellData"
 data "SpellType" "Projectile"
 data "DisplayName" "h6dd6a5c1g2708g4368g8667g88eb37ff277a;2"
-data "Description" "h6f11d81bg9353g4988gba19ge50d5af4edfa;4"
+data "Description" "h3c47e891gab87g4addga259g82dc7a4fa6f8;1"
 data "DescriptionParams" "Distance(3)"
 data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)"
 # Increased from default 4!

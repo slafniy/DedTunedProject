@@ -1,0 +1,6 @@
+new entry "Projectile_ArrowOfSmokepowder"
+type "SpellData"
+using "Projectile_ArrowOfSmokepowder"
+data "SpellSuccess" "DealDamage(1d4,Fire,Magical);DealDamage(3d4+9,Force);Force(3,TargetToEntity)"
+data "SpellFail" "DealDamage(1d4/2,Fire,Magical);DealDamage((3d4+9)/2,Force)"
+data "TooltipDamageList" "DealDamage(1d4,Fire,Magical);DealDamage(3d4+9,Force)"

@@ -245,9 +245,15 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
 - Renamed to Arrow of Ricochet
 - Now only affects one additional target in 9 meters range
 
+==== Стрела из дымного пороха
+- Damage changed to 3d4+9 Force + 1d4 Fire (now is identical to Smokepowder bomb)
+
 ==== Smokepowder Bomb and Fireworks
 - Should be USED to make expected effect
 - If thrown with "Throw" spell it just left smokepowder surface
+- Uses the entire Action
+- Added 1d4 fire damage
+- Added 3m push effect (same as smokepowder arrow does)
 
 === Equipment
 
