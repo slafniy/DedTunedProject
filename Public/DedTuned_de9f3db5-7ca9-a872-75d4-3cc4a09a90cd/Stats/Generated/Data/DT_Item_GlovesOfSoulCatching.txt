@@ -1,0 +1,7 @@
+# Gloves of Soul Catching - MAG_PHB_OfSoulCatching_Gloves
+
+new entry "MAG_PHB_SoulCatching_ExtraEffect_Passive"
+type "PassiveData"
+using "MAG_PHB_SoulCatching_ExtraEffect_Passive"
+data "Description" "hcf8b49ceg8a03g49aegab8bgfb7d29ccddf0;4"
+data "Conditions" "IsUnarmedAttack() and not Self() and Character() and Enemy() and not Dead()"

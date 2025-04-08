@@ -285,5 +285,8 @@ Now works :)
 ==== Hamarhraft
 - Passive has a once per turn cooldown
 
+==== Gloves of Soul Catching
+- Passive works only when you hit non-dead enemies
+
 === Barrels
 - Cannot be picked up
