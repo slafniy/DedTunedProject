@@ -229,7 +229,7 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
 - War Priest Action Points reset on Short Rest instead of Long Rest
   Note: additional attack as bonus action isn't THAT strong.
 
-=== Equipment and other items
+=== Consumables
 
 ==== Potions
 - Elixir of Hill Giant Strength now gives +2 STR up to 22
@@ -245,7 +245,11 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
 - Renamed to Arrow of Ricochet
 - Now only affects one additional target in 9 meters range
 
-Note: it was insanely strong.
+==== Smokepowder Bomb and Fireworks
+- Should be USED to make expected effect
+- If thrown with "Throw" spell it just left smokepowder surface
+
+=== Equipment
 
 ==== Enraging Heart Garb
 Now works :)
