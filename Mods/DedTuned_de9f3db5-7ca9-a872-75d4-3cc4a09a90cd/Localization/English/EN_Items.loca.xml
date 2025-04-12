@@ -25,4 +25,6 @@
 
     <content contentuid="h0e8c73dbg5e09g44bega503ge967804e72eb" version="1">You can regain [1] or gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on attack roll or &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; as a reaction.</content>
     <content contentuid="h6a309c06g93f6g4bf2g9323g200646f91b62" version="1">Once per turn, when you hit the enemy with unarmed attack, you receive &lt;LSTag Type="Status" Tooltip="DT_MAG_SOUL_CATCHING"&gt;Grasp Essence&lt;/LSTag&gt; for 2 turns.</content>
+
+    <content contentuid="hb24ea2fegcb12g4a0eg856dg6ea8010a8a68" version="1">You have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against Lightly or Heavily Obscured targets when using this blade.</content>
 </contentList>
