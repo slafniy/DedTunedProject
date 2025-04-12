@@ -19,8 +19,8 @@ data "PassivesOnEquip" "MAG_ShadowBlinding_Weapon_Passive;DT_ShadowBlade_Passive
 new entry "DT_ShadowBlade_Passive"
 type "PassiveData"
 data "DisplayName" "h0160e9efg8974g43d6gb3fcg8d4e9d200a3c;4"
+data "Description" "hb24ea2fegcb12g4a0eg856dg6ea8010a8a68;1"
 data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear, context.Target) and HasStatus('DT_SHADOW_BLADE_TRACKER_TECHNICAL', GetAttackWeapon())):Advantage(AttackRoll)"
-data "Properties" "IsHidden"
 
 
 # This status applies via Osiris and needed only to track ShadowBlade passive source weapon to
@@ -29,9 +29,6 @@ data "Properties" "IsHidden"
 new entry "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
 type "StatusData"
 data "StatusType" "BOOST"
-data "DisplayName" "h0160e9efg8974g43d6gb3fcg8d4e9d200a3c;4"
-data "Description" "hb24ea2fegcb12g4a0eg856dg6ea8010a8a68;1"
-#data "Icon" "GenericIcon_Intent_Utility"
 data "StackId" "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
 data "StackType" "Ignore"
-data "StatusPropertyFlags" "IgnoreResting;DisableOverhead;DisableCombatlog"
+data "StatusPropertyFlags" "IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
