@@ -294,5 +294,11 @@ Now works :)
 - Fly cooldown changed from Long Rest to Short Rest
 - Damage bonus after fly works only once per turn
 
+==== Shadow Blade, Knife of the Undermountain King, Justiciar's Scimitar
+- Shadow Blade passive fixed and now works as described
+
+==== Justiciar's Scimitar
+- Fixed Shadow-Blinding - now works in Honour mode
+
 === Barrels
 - Cannot be picked up
