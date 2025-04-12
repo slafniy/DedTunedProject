@@ -19,12 +19,12 @@ data "PassivesOnEquip" "MAG_ShadowBlinding_Weapon_Passive;DT_ShadowBlade_Passive
 new entry "DT_ShadowBlade_Passive"
 type "PassiveData"
 data "DisplayName" "h0160e9efg8974g43d6gb3fcg8d4e9d200a3c;4"
-data "Description" "ha672fd65g0fe4g4596g9529gce372c013ca1;6"
-#data "StatsFunctorContext" "OnEquip"
-#data "Conditions" "AttackedWithPassiveSourceWeapon()"
-#data "StatsFunctors" "ApplyStatus(GetAttackWeapon(), DT_TEST,100,1)"
+data "Description" ";1"
+data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear, context.Target) and HasStatus('DT_SHADOW_BLADE_TRACKER_TECHNICAL', GetAttackWeapon())):Advantage(AttackRoll)"
 
 
+# This status applies via Osiris and needed only to track ShadowBlade passive source weapon to
+# limit its effect only to that particular weapon and not any attack
 new entry "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
 type "StatusData"
 data "StatusType" "BOOST"
