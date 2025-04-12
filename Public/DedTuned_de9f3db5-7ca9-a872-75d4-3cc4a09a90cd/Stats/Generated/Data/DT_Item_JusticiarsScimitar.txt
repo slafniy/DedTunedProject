@@ -15,17 +15,18 @@ type "Weapon"
 using "MAG_Justiciar_Scimitar"
 data "PassivesOnEquip" "MAG_ShadowBlinding_Weapon_Passive;DT_ShadowBlade_Passive"
 
-
 #
 new entry "DT_ShadowBlade_Passive"
 type "PassiveData"
 data "DisplayName" "h0160e9efg8974g43d6gb3fcg8d4e9d200a3c;4"
 data "Description" "ha672fd65g0fe4g4596g9529gce372c013ca1;6"
-data "StatsFunctorContext" "OnAttack"
-data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear, context.Target)):Advantage(AttackRoll)"
-
-#data "BoostContext" "OnCreate"
-#data "StatsFunctorContext" "OnAttack"
+#data "StatsFunctorContext" "OnEquip"
 #data "Conditions" "AttackedWithPassiveSourceWeapon()"
-#data "BoostConditions" ""
-#data "Boosts" "Advantage(AttackRoll)"
+#data "StatsFunctors" "ApplyStatus(GetAttackWeapon(), DT_TEST,100,1)"
+
+
+new entry "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "Icon" "GenericIcon_Intent_Utility"
+data "StackType" "Overwrite"

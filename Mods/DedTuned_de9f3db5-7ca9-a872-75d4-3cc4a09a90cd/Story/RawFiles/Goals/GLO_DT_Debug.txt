@@ -37,6 +37,42 @@ SetFaction(_Enemy,(FACTION)Evil_4be9261a-e481-8d9d-3528-f36956a19b17);
 PROC_MakeNPCHostile((CHARACTER)_Enemy,_Player);
 ApplyStatus(_Enemy, "DT_DEBUG_CANNOT_MOVE", -1.0, 1, _Enemy);
 ApplyStatus(_Enemy, "DT_DEBUG_HP_BOOST_1000", -1.0, 1, _Enemy);
+
+
+/*
+// Spawn a weapon
+IF
+TextEvent("dtweapon")
+AND
+GetHostCharacter(_Player)
+AND
+GetPosition(_Player,_X,_Y,_Z)
+AND
+RealSum(_X, 2.0, _XOffset)
+AND
+CreateAt((ITEMROOT)MAG_Justiciar_Scimitar_74ecc6e4-ee5d-4cd8-96cb-dd677a4acc82, _XOffset, _Y, _Z, 1, 0, "", _)
+AND
+CreateAt((ITEMROOT)MAG_Blindside_Shortsword_f06c0554-bba8-4036-ac92-1b225a578f57, _XOffset, _Y, _Z, 1, 0, "", _)
+THEN
+DB_NOOP(1);
+*/
+
+/* Spawn weapon on level start
+IF
+LevelLoaded("WLD_Main_A")
+AND
+GetHostCharacter(_Player)
+AND
+GetPosition(_Player,_X,_Y,_Z)
+AND
+RealSum(_X, 2.0, _XOffset)
+AND
+CreateAt((ITEMROOT)MAG_Justiciar_Scimitar_74ecc6e4-ee5d-4cd8-96cb-dd677a4acc82, _XOffset, _Y, _Z, 1, 0, "", _)
+AND
+CreateAt((ITEMROOT)MAG_Blindside_Shortsword_f06c0554-bba8-4036-ac92-1b225a578f57, _XOffset, _Y, _Z, 1, 0, "", _)
+THEN
+DB_NOOP(1);
+*/
 EXITSECTION
 
 ENDEXITSECTION

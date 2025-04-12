@@ -1,0 +1,24 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// This is needed to track items with DT_ShadowBlade_Passive, because BoostConditions does not work in this case
+// So I put this hidden status when weapon from the list is equipped (it could be done via RootTemplates, but this requires less LOCs in Git)
+DB_DT_ShadowBladeStatus("DT_SHADOW_BLADE_TRACKER_TECHNICAL");
+
+// Justiciar's Scimitar - MAG_Justiciar_Scimitar
+DB_DT_ShadowBladeItemTemplate((GUIDSTRING)MAG_Justiciar_Scimitar_74ecc6e4-ee5d-4cd8-96cb-dd677a4acc82);
+KBSECTION
+IF
+Equipped(_Item, _)
+AND
+GetTemplate(_Item, _Template)
+AND
+DB_DT_ShadowBladeItemTemplate(_Template)
+AND
+DB_DT_ShadowBladeStatus(_Status)
+THEN
+ApplyStatus(_Item, _Status, -6.0, 1, _Item);
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
