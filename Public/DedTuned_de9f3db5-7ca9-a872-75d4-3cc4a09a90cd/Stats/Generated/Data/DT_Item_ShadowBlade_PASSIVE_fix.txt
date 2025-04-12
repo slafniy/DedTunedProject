@@ -1,0 +1,18 @@
+# This passive depends on DT_SHADOW_BLADE_TRACKER_TECHNICAL status, which applies from Osiris
+# It fixes a vanilla bug
+new entry "ShadowBlade_Passive"
+type "PassiveData"
+using "ShadowBlade_Passive"
+data "BoostContext" ""
+data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear, context.Target) and HasStatus('DT_SHADOW_BLADE_TRACKER_TECHNICAL', GetAttackWeapon())):Advantage(AttackRoll)"
+
+
+# This status applies via Osiris and needed only to track ShadowBlade passive source weapon to
+# limit its effect only to that particular weapon and not any attack,
+# and also it contains a description, but hidden ShadowBlade_Passive does an actual work
+new entry "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
+data "StackType" "Ignore"
+data "StatusPropertyFlags" "IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator"

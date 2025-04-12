@@ -1,4 +1,5 @@
 # MAG_Justiciar_Scimitar
+# Fixed vanilla bug
 
 # Fix parent's passive (MAG_Blindside_Shortsword did not work in Honour mode)
 new entry "MAG_Blindside_Shortsword_Passive"
@@ -9,26 +10,15 @@ data "Conditions" "AttackedWithPassiveSourceWeapon() and HasAdvantage() and not 
 data "StatsFunctors" "DealDamage(1d8, Psychic,Magical)"
 
 
-# Use ShadowBlade_Passive instead of MAG_IllusionBlade_Passive
+# Fix description - add "only with this weapon" info
+new entry "MAG_ShadowBlinding_Weapon_Passive"
+type "PassiveData"
+using "MAG_ShadowBlinding_Weapon_Passive"
+data "Description" "heab8437bgf117g4d10g87bcg6b40a9e6a395;1"
+
+
+# Use ShadowBlade_Passive instead of MAG_IllusionBlade_Passive because the second one does nothing
 new entry "MAG_Justiciar_Scimitar"
 type "Weapon"
 using "MAG_Justiciar_Scimitar"
-data "PassivesOnEquip" "MAG_ShadowBlinding_Weapon_Passive;DT_ShadowBlade_Passive"
-
-# This passive is
-new entry "DT_ShadowBlade_Passive"
-type "PassiveData"
-data "DisplayName" "h0160e9efg8974g43d6gb3fcg8d4e9d200a3c;4"
-data "Description" "hb24ea2fegcb12g4a0eg856dg6ea8010a8a68;1"
-data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear, context.Target) and HasStatus('DT_SHADOW_BLADE_TRACKER_TECHNICAL', GetAttackWeapon())):Advantage(AttackRoll)"
-
-
-# This status applies via Osiris and needed only to track ShadowBlade passive source weapon to
-# limit its effect only to that particular weapon and not any attack,
-# and also it contains a description, but hidden DT_ShadowBlade_Passive does an actual work
-new entry "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
-type "StatusData"
-data "StatusType" "BOOST"
-data "StackId" "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
-data "StackType" "Ignore"
-data "StatusPropertyFlags" "IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "PassivesOnEquip" "MAG_ShadowBlinding_Weapon_Passive;ShadowBlade_Passive"

@@ -26,5 +26,5 @@
     <content contentuid="h0e8c73dbg5e09g44bega503ge967804e72eb" version="1">Вы можете восстановить [1] или получить &lt;LSTag Tooltip="Advantage"&gt;преимущество&lt;/LSTag&gt; при бросках атаки или &lt;LSTag Tooltip="SavingThrow"&gt;испытаниях&lt;/LSTag&gt; в качестве реакции.</content>
     <content contentuid="h6a309c06g93f6g4bf2g9323g200646f91b62" version="1">Один раз за ход, когда вы попадаете по врагу атакой без оружия, вы получаете &lt;LSTag Type="Status" Tooltip="DT_MAG_SOUL_CATCHING"&gt;Захват эссенции&lt;/LSTag&gt; на 2 хода.</content>
 
-    <content contentuid="hb24ea2fegcb12g4a0eg856dg6ea8010a8a68" version="1">С этим оружием в руках вы имеете &lt;LSTag Tooltip="Advantage"&gt;преимущество&lt;/LSTag&gt; при &lt;LSTag Tooltip="AttackRoll"&gt;бросках атаки&lt;/LSTag&gt; против существ, которые находятся в лёгком или сильном затемнении.</content>
+    <content contentuid="heab8437bgf117g4d10g87bcg6b40a9e6a395" version="1">Если вы атакуете этим клинком с &lt;LSTag Tooltip="Advantage"&gt;преимуществом&lt;/LSTag&gt;, у вас есть шанс &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;ослепить&lt;/LSTag&gt; цель.</content>
 </contentList>
