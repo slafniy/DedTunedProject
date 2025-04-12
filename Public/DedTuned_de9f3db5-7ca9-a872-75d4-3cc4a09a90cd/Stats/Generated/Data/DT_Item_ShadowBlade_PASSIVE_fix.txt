@@ -1,5 +1,7 @@
 # This passive depends on DT_SHADOW_BLADE_TRACKER_TECHNICAL status, which applies from Osiris
-# It fixes a vanilla bug
+# It fixes a vanilla bug.
+# Fixes MAG_Duergar_Sword_KingsKnife, WPN_ShadowBlade and MAG_Justiciar_Scimitar
+# NOTE: see GLO_DT_ShadowBladeTracker.txt - it should apply a technical status or this fix wouldn't work!
 new entry "ShadowBlade_Passive"
 type "PassiveData"
 using "ShadowBlade_Passive"
@@ -7,9 +9,8 @@ data "BoostContext" ""
 data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear, context.Target) and HasStatus('DT_SHADOW_BLADE_TRACKER_TECHNICAL', GetAttackWeapon())):Advantage(AttackRoll)"
 
 
-# This status applies via Osiris and needed only to track ShadowBlade passive source weapon to
-# limit its effect only to that particular weapon and not any attack,
-# and also it contains a description, but hidden ShadowBlade_Passive does an actual work
+# This status applies via Osiris and needed only to track DT_ShadowBlade_Passive source weapon to
+# limit its effect only to that particular weapon and not any attack
 new entry "DT_SHADOW_BLADE_TRACKER_TECHNICAL"
 type "StatusData"
 data "StatusType" "BOOST"

@@ -1,12 +1,18 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-// This is needed to track items with DT_ShadowBlade_Passive, because BoostConditions does not work in this case
+// This is needed to track items with ShadowBlade_Passive, because BoostConditions does not work in this case
 // So I put this hidden status when weapon from the list is equipped (it could be done via RootTemplates, but this requires less LOCs in Git)
 DB_DT_ShadowBladeStatus("DT_SHADOW_BLADE_TRACKER_TECHNICAL");
 
 // Justiciar's Scimitar - MAG_Justiciar_Scimitar
 DB_DT_ShadowBladeItemTemplate((GUIDSTRING)MAG_Justiciar_Scimitar_74ecc6e4-ee5d-4cd8-96cb-dd677a4acc82);
+// Knife of the Undermountain King
+DB_DT_ShadowBladeItemTemplate((GUIDSTRING)MAG_Duergar_Sword_KingsKnife_025e162a-45ec-4f4c-89da-04d8e8dfe606);
+// Shadow Blade
+DB_DT_ShadowBladeItemTemplate((GUIDSTRING)UNI_HUM_ShadowBlade_66d6cbd5-c231-4fc4-a3b7-80f781b579f7);
+
+
 KBSECTION
 IF
 Equipped(_Item, _)

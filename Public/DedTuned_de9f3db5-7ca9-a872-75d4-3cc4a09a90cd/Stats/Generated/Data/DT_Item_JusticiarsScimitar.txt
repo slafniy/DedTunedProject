@@ -17,7 +17,7 @@ using "MAG_ShadowBlinding_Weapon_Passive"
 data "Description" "heab8437bgf117g4d10g87bcg6b40a9e6a395;1"
 
 
-# Use ShadowBlade_Passive instead of MAG_IllusionBlade_Passive because the second one does nothing
+# Use fixed ShadowBlade_Passive instead of MAG_IllusionBlade_Passive
 new entry "MAG_Justiciar_Scimitar"
 type "Weapon"
 using "MAG_Justiciar_Scimitar"
