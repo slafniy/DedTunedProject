@@ -35,7 +35,6 @@ data "TargetFloor" "-1"
 # TODO: make dynamic ?
 # data "AddRangeFromAbility" "Strength,2"
 data "TargetRadius" "18"
-data "TargetConditions" "not Self() and not Dead()"
 data "ProjectileCount" "1"
 data "PreviewCursor" "Cast"
 data "CastTextEvent" "Cast"
