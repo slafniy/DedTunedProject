@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <save>
-    <version major="4" minor="7" revision="1" build="3"/>
+    <version major="4" minor="8" revision="0" build="10"/>
     <region id="MetaData">
         <node id="root">
             <attribute id="GameProject" type="LSString" value=""/>
             <attribute id="Module" type="LSString" value="de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
             <attribute id="Name" type="LSString" value="DedTuned"/>
             <attribute id="UUID" type="LSString" value="2f0739ff-2fa3-dea2-f24d-7b734c7ba9b2"/>
+            <attribute id="UpdatedDependencies" type="bool" value="true"/>
             <children>
                 <node id="Categories"/>
             </children>
