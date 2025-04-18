@@ -1,13 +1,15 @@
 new entry "OBJ_Scroll_Revivify"
 type "Object"
 using "OBJ_Scroll_Revivify"
-data "ValueOverride" "500"
+# With 0% discount it will be 520 (x2.6)
+data "ValueOverride" "200"
 
 new entry "OBJ_Scroll_Revivify_TrueResurrection"
 type "Object"
 using "OBJ_Scroll_Revivify_TrueResurrection"
 data "Rarity" "Legendary"
-data "ValueOverride" "1000"
+# With 0% discount it will be 780
+data "ValueOverride" "300"
 
 # Do not allow to use it in combat
 new entry "Teleportation_Revivify_Scroll"
@@ -23,7 +25,7 @@ type "Object"
 using "OBJ_Scroll_Revivify"
 data "RootTemplate" "47309202-1a2e-4f09-b083-e5e06d0a4e9c"
 data "Rarity" "VeryRare"
-data "ValueOverride" "1000"
+data "ValueOverride" "300"
 
 new entry "Teleportation_BattleRes_Scroll"
 type "SpellData"
