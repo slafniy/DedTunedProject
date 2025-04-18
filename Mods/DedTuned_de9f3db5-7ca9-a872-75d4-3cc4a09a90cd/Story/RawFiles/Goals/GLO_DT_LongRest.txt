@@ -1,0 +1,33 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// This tag indicates that tagged character is in a camp
+// (TAG)IN_CAMP_7fe47378-d9dc-48b4-b7be-53efbfbdca20
+KBSECTION
+// Clear DT_FULL_RESTED status on leaving camp
+IF
+TagCleared(_Character, (TAG)IN_CAMP_7fe47378-d9dc-48b4-b7be-53efbfbdca20)
+THEN
+RemoveStatus(_Character, "DT_FULL_RESTED", NULL_00000000-0000-0000-0000-000000000000);
+
+
+//REGION // Handle Partial and Full rest - set DT_PARTIAL_RESTED or DT_FULL_RESTED status
+IF
+UserCharacterLongRested(_Character, _IsFullRest)
+AND
+_IsFullRest == 0  // partial rest was used
+THEN
+ApplyStatus(_Character, "DT_PARTIAL_RESTED", -1.0, 1, _Character);
+
+IF
+UserCharacterLongRested(_Character, _IsFullRest)
+AND
+_IsFullRest == 1  // full rest was used
+THEN
+RemoveStatus(_Character, "DT_PARTIAL_RESTED", NULL_00000000-0000-0000-0000-000000000000);
+ApplyStatus(_Character, "DT_FULL_RESTED", -1.0, 1, _Character);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"

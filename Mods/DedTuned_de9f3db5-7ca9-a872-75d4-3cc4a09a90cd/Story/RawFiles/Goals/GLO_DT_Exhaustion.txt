@@ -236,13 +236,12 @@ ApplyStatus(_Character, "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE", 12.
 
 
 
-//REGION // Handle Partial and Full rest - set DT_PARTIAL_RESTED status if needed
+//REGION // Handle Partial and Full rest - remove some Exhaustion stacks
 IF
 UserCharacterLongRested(_Character, _IsFullRest)
 AND
 _IsFullRest == 0  // partial rest was used
 THEN
-ApplyStatus(_Character, "DT_PARTIAL_RESTED", -1.0, 1, _Character);
 PROC_DT_Exhaustion_RemoveExhaustionOverSecondStage(_Character);
 
 IF
@@ -250,7 +249,6 @@ UserCharacterLongRested(_Character, _IsFullRest)
 AND
 _IsFullRest == 1  // full rest was used
 THEN
-RemoveStatus(_Character, "DT_PARTIAL_RESTED", NULL_00000000-0000-0000-0000-000000000000);
 PROC_DT_Exhaustion_RemoveAllStacks(_Character);
 
 IF
@@ -262,18 +260,7 @@ PROC_DT_ExhaustionRefreshDebuffs(_Character, _Stacks);
 //END_REGION
 
 
-IF
-TextEvent("dthalflevel")
-AND
-DB_PartyMembers(_Character)
-AND
-GetLevel((GUIDSTRING)_Character, _Level)
-AND
-IntegerDivide(_Level, 2, _HalfLevel)
-AND
-ConcatenateInteger("My half-level: ", _HalfLevel, _msg)
-THEN
-DebugText(_Character, _msg);
+
 EXITSECTION
 
 ENDEXITSECTION

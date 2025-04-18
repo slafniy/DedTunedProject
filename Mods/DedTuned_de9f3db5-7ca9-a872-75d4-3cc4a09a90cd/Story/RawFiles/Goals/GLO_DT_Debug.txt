@@ -73,6 +73,19 @@ CreateAt((ITEMROOT)MAG_Blindside_Shortsword_f06c0554-bba8-4036-ac92-1b225a578f57
 THEN
 DB_NOOP(1);
 */
+
+IF
+TextEvent("dthalflevel")
+AND
+DB_PartyMembers(_Character)
+AND
+GetLevel((GUIDSTRING)_Character, _Level)
+AND
+IntegerDivide(_Level, 2, _HalfLevel)
+AND
+ConcatenateInteger("My half-level: ", _HalfLevel, _msg)
+THEN
+DebugText(_Character, _msg);
 EXITSECTION
 
 ENDEXITSECTION
