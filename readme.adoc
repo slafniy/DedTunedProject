@@ -6,7 +6,7 @@
 link:readme.ru.adoc[Версия на русском / Russian version]
 
 == About the mod
-This mod is a result of my 1400+ hours in BG3, big part of which was played with friends in my party.
+This mod is a result of my 1500+ hours in BG3, big part of which was played with friends in my party.
 
 Vanilla Honor is too simple IMO (I got Honor achievement with first try, knowing almost nothing about DnD), and also I'm a little bit annoyed that some of my buddies overuse every cheesy mechanics they found and I have to wait when they use EVERY buff from camp :)
 
@@ -66,7 +66,7 @@ Expected levels:
 
 
 === Withers services: Respec, Resurrection and Hirelings
-- Respec price is 1000 gold.
+- Respec price is 1500 gold, but only 150 after Full Rest (while you stay in camp).
 - Every origin character has one-time free respec button (via dependency mod https://mod.io/g/baldursgate3/m/free-one-time-respec-button-for-origins[Free one-time respec button for Origins] mod). I made this mainly to avoid exploiting of (almost free) resource regeneration after respec.
 - Resurrection price is 500 gold.
 - Hirelings does not have a free Revivify scroll anymore.
