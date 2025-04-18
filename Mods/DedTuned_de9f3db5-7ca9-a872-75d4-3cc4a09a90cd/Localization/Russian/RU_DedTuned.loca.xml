@@ -27,4 +27,7 @@
     <content contentuid="h1262c2dbg80ecg4f1bg991dgd488e9b3916b" version="1">Не может использоваться после Частичного отдыха.</content>
 
     <content contentuid="h93038852g92bag4c56gac19geb884b629209" version="1">Ваше тело и магия привычны к войне. Сотворив &lt;LSTag Tooltip="Spell"&gt;заклинание&lt;/LSTag&gt;, вы можете в качестве бонусного действия атаковать оружием.</content>
+
+    <content contentuid="hc399f8f7gb5fdg43a1gb6d4gdffb3588f55f" version="1">Готов к новым приключениям</content>
+    <content contentuid="he48f8c1eg4cdeg4b28g821eg123e586ee486" version="1">Вы отлично отдохнули и готовы к новым приключениям! Смена класса для вас стоит дешевле.&lt;br&gt;&lt;br&gt;Длится пока вы остаётесь в лагере.</content>
 </contentList>

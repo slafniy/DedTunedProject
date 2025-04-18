@@ -27,4 +27,7 @@
     <content contentuid="h1262c2dbg80ecg4f1bg991dgd488e9b3916b" version="1">Cannot be used after Partial Rest.</content>
 
     <content contentuid="h93038852g92bag4c56gac19geb884b629209" version="1">You have honed your body and magic for war. After you cast a &lt;LSTag Tooltip="Spell"&gt;spell&lt;/LSTag&gt;, you can make a weapon attack using a bonus action.</content>
+
+    <content contentuid="hc399f8f7gb5fdg43a1gb6d4gdffb3588f55f" version="1">Ready for new adventures</content>
+    <content contentuid="he48f8c1eg4cdeg4b28g821eg123e586ee486" version="1">You had a great rest and are ready for new adventures! You have a discounted class change price.&lt;br&gt;&lt;br&gt;Lasts as long as you remain in camp.</content>
 </contentList>
