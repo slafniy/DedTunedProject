@@ -51,27 +51,23 @@ THEN
 DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, _NewPrice);
 //END_REGION
 
-// Set intitial respec price equal to day price just once
-IF
-LevelLoaded(_)
-AND
-QRY_OnlyOnce("DT_OnlyOnce_SetInitialRespecPrice")
-AND
-DB_DT_RespecPriceDay(_Price)
-THEN
-PROC_DT_SetRespecPrice(_Price);
 
-// Set respec price for the nighttime
-PROC
-PROC_Camp_EnterNightMode()
+// Get a discount for respec if dialog initiator has a buff
+IF
+DialogStartRequested((GUIDSTRING)S_GLO_JergalAvatar_0133f2ad-e121-4590-b5f0-a79413919805, _Character)
+AND
+HasAppliedStatus(_Character, "DT_FULL_RESTED", 1)
 AND
 DB_DT_RespecPriceNight(_Price)
 THEN
 PROC_DT_SetRespecPrice(_Price);
 
-// Set respec price for the day time
+
+// Set a normal respec price if dialog initiator has no buff
 IF
-LongRestFinished()
+DialogStartRequested((GUIDSTRING)S_GLO_JergalAvatar_0133f2ad-e121-4590-b5f0-a79413919805, _Character)
+AND
+HasAppliedStatus(_Character, "DT_FULL_RESTED", 0)
 AND
 DB_DT_RespecPriceDay(_Price)
 THEN
