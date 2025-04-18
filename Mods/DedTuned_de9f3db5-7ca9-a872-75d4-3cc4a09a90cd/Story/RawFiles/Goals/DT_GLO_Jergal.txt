@@ -1,7 +1,8 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-
+DB_DT_RespecPriceDay(1500);
+DB_DT_RespecPriceNight(150);
 KBSECTION
 // Patch the resurrection price variable - remove old, add new
 IF
@@ -11,12 +12,12 @@ DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-62
 NOT DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 200);
 
 
-// Patch the respec price variable
+/*// Patch the respec price variable
 IF
 DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 100)
 THEN
 DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 1000);
-NOT DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 100);
+NOT DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 100);*/
 
 
 // Remove Revivify scroll from the initial hireling inventory
@@ -34,6 +35,47 @@ THEN
 RequestDelete((ITEM)_Object);
 DebugText(_Holder, "scroll removed!!");
 DebugLog("Scroll removed!!!");
+
+
+//REGION // PROC_DT_SetRespecPrice((INTEGER)_NewPrice) - Remove old price variable and add a new one
+PROC
+PROC_DT_SetRespecPrice((INTEGER)_NewPrice)
+AND
+DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, _OldPrice)
+THEN
+NOT DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, _OldPrice);
+
+PROC
+PROC_DT_SetRespecPrice((INTEGER)_NewPrice)
+THEN
+DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, _NewPrice);
+//END_REGION
+
+// Set intitial respec price equal to day price just once
+IF
+LevelLoaded(_)
+AND
+QRY_OnlyOnce("DT_OnlyOnce_SetInitialRespecPrice")
+AND
+DB_DT_RespecPriceDay(_Price)
+THEN
+PROC_DT_SetRespecPrice(_Price);
+
+// Set respec price for the nighttime
+PROC
+PROC_Camp_EnterNightMode()
+AND
+DB_DT_RespecPriceNight(_Price)
+THEN
+PROC_DT_SetRespecPrice(_Price);
+
+// Set respec price for the day time
+IF
+LongRestFinished()
+AND
+DB_DT_RespecPriceDay(_Price)
+THEN
+PROC_DT_SetRespecPrice(_Price);
 EXITSECTION
 
 ENDEXITSECTION
