@@ -12,14 +12,6 @@ DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-62
 NOT DB_DialogMoneyTransfer(1, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 200);
 
 
-/*// Patch the respec price variable
-IF
-DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 100)
-THEN
-DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 1000);
-NOT DB_DialogMoneyTransfer(4, (DIALOGRESOURCE)CAMP_Jergal_7f4acd9b-15c0-81fe-9409-623634ec3ed3, 100);*/
-
-
 // Remove Revivify scroll from the initial hireling inventory
 IF
 TemplateAddedTo(LOOT_SCROLL_Revivify_c1c3e4fb-d68c-4e10-afdc-d4550238d50e, _Object, _Holder, "Regular")

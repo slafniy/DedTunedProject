@@ -1,0 +1,10 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+// This file exists for backward compatibility only, and should be removed in future versions
+KBSECTION
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
