@@ -1,0 +1,107 @@
+# This affects basic callable blade and the blade you can buy
+new entry "WPN_ShadowBlade"
+type "Weapon"
+using "WPN_ShadowBlade"
+# Nerfed damage from 2d8
+data "Damage" "1d6"
+# Removed "Dippable"
+data "Weapon Properties" "Finesse;Light;Melee"
+
+
+# Class spell slot 1
+new entry "Shout_ShadowBlade_Class"
+type "SpellData"
+data "Level" "1"
+data "SpellType" "Shout"
+data "SpellSchool" "Illusion"
+data "TooltipUpcastDescription" "feb2f892-b684-442c-b22d-88a3d411a1a2"
+data "TooltipUpcastDescriptionParams" "DealDamage(1d6,Psychic);DealDamage(2d6,Psychic)"
+data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOW_BLADE);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:2;"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
+data "Icon" "Spell_Illusion_ShadowBlade"
+data "TargetConditions" "Self()"
+data "DisplayName" "h245d543eg02dfg45f5g910age84e27663e89;2"
+data "Description" "h3ce51988gc9efg482ag9b9egdabe769a9482;3"
+data "DescriptionParams" "DealDamage(1d6,Psychic);"
+data "ExtraDescription" "h7733bf81g92a2g4f0bgbc0cgf7fd1fe30eea;3"
+data "TooltipUpcastDescription" ""
+data "TooltipUpcastDescriptionParams" ""
+data "Sheathing" "Somatic"
+data "PrepareSound" "Action_Prepare_Item_ShadowBlade"
+data "PrepareLoopSound" "Action_Loop_Item_ShadowBlade"
+data "CastSound" "Action_Cast_Item_ShadowBlade"
+data "TargetSound" "Action_Impact_Item_ShadowBlade"
+data "VocalComponentSound" "Vocal_Component_EnchantWeapon"
+data "CastTextEvent" "Cast"
+data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;35b644cf-5c13-4407-9dc1-23bf4309216e,,;823e3ddf-c670-41ef-b7b4-9f4a4e38300b,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+data "VerbalIntent" "Damage"
+data "SpellAnimationIntentType" "Aggressive"
+data "PrepareEffect" "3998daf3-8dd5-4b10-b33a-5ab51bb97860"
+data "CastEffect" "514ecdc7-87b3-43f8-bd8a-69fb3b46f8da"
+data "DamageType" "Psychic"
+
+
+
+# Upcast for slot 2 - same as 1
+new entry "Shout_ShadowBlade_Class_2"
+type "SpellData"
+using "Shout_ShadowBlade_Class"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:2"
+data "RootSpellID" "Shout_ShadowBlade_Class"
+data "PowerLevel" "2"
+
+
+# Upcast for  slot 3 - change damage to 2d6
+new entry "SHADOWBLADE_TECHNICAL_1"
+type "StatusData"
+using "SHADOWBLADE_TECHNICAL_1"
+data "Boosts" "WeaponDamageDieOverride(2d6);"
+
+new entry "Shout_ShadowBlade_Class_3"
+type "SpellData"
+using "Shout_ShadowBlade_Class"
+data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOWBLADE_TECHNICAL_1);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
+data "DescriptionParams" "DealDamage(2d6,Psychic);"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:3;"
+data "RootSpellID" "Shout_ShadowBlade_Class"
+data "PowerLevel" "3"
+
+
+# Upcast for slot 4 - same as 3
+new entry "Shout_ShadowBlade_Class_4"
+type "SpellData"
+using "Shout_ShadowBlade_Class_3"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:4;"
+data "RootSpellID" "Shout_ShadowBlade_Class"
+data "PowerLevel" "4"
+
+# Upcast for slot 5 - 3d6 damage
+new entry "SHADOWBLADE_TECHNICAL_2"
+type "StatusData"
+using "SHADOWBLADE_TECHNICAL_2"
+data "Boosts" "WeaponDamageDieOverride(3d6);"
+
+new entry "Shout_ShadowBlade_Class_5"
+type "SpellData"
+using "Shout_ShadowBlade_Class"
+data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOWBLADE_TECHNICAL_2);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
+data "DescriptionParams" "DealDamage(3d6,Psychic);"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:5;"
+data "RootSpellID" "Shout_ShadowBlade_Class"
+data "PowerLevel" "5"
+
+
+# Upcast for slot 6 - same as 5
+new entry "Shout_ShadowBlade_Class_6"
+type "SpellData"
+using "Shout_ShadowBlade_Class_5"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:6;"
+data "RootSpellID" "Shout_ShadowBlade_Class"
+data "PowerLevel" "6"
+
+
+# From Shadow Blade Ring - MAG_Shadow_ShadowBlade_Ring
+#new entry "Shout_ShadowBlade"
+#type "SpellData"
+#using "Shout_ShadowBlade_Class"
