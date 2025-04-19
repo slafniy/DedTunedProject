@@ -9,6 +9,11 @@
                     <attribute id="Text" type="TranslatedString" handle="hcd4b1357g5e72g470ag9053g31207acfe7c1" version="1"/>
                     <attribute id="UUID" type="guid" value="4a379412-7891-4fd0-9b3b-c71859072f1b"/>
                 </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Shadow Blade upcast"/>
+                    <attribute id="Text" type="TranslatedString" handle="h44baa21ag5b67g4715g83a3g8b8c1ceed0a2" version="1"/>
+                    <attribute id="UUID" type="guid" value="b7c5d405-a762-42d8-8ab0-327bebc6c4f3"/>
+                </node>
             </children>
         </node>
     </region>

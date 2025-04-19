@@ -29,4 +29,5 @@
     <content contentuid="heab8437bgf117g4d10g87bcg6b40a9e6a395" version="1">Если вы атакуете этим клинком с &lt;LSTag Tooltip="Advantage"&gt;преимуществом&lt;/LSTag&gt;, у вас есть шанс &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;ослепить&lt;/LSTag&gt; цель.</content>
 
     <content contentuid="h8f14686cge337g46d6gb9c9gd18e67fdf9a5" version="1">Атакуя этим оружием, вы имеете &lt;LSTag Tooltip="Advantage"&gt;преимущество&lt;/LSTag&gt; при &lt;LSTag Tooltip="AttackRoll"&gt;бросках атаки&lt;/LSTag&gt; против существ, которые находятся в сильном затемнении.</content>
+    <content contentuid="h44baa21ag5b67g4715g83a3g8b8c1ceed0a2" version="1">Использование заклинания 3-го или 4-го круга призовёт клинок с уроном [1], а ячейки заклинания 5-го или 6-го круга с [2].</content>
 </contentList>
