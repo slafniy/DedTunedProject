@@ -22,6 +22,8 @@ AND
 DB_DT_ShadowBladeItemTemplate(_Template)
 AND
 DB_DT_ShadowBladeStatus(_Status)
+AND
+HasAppliedStatus(_Item, _Status, 0)
 THEN
 ApplyStatus(_Item, _Status, -6.0, 1, _Item);
 EXITSECTION

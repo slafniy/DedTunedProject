@@ -206,6 +206,7 @@ Many spells not do not require concentration, some became stronger.
 - *Magic Weapon*: no concentration
 - *Spike Growth*: upcast (larger area), lasts 10 turns, gives Bleeding and Gaping Wounds instead of direct damage
 - *Hold Monster* and *Hold Person* (and its monk version): do not grant 100% crit, instead remove target AC bonus from DEX
+- *Shadow Blade*: base damage 1d6, upcast on slot 4 and 6 (2d6 and 3d6)
 ====
 
 === Classes
