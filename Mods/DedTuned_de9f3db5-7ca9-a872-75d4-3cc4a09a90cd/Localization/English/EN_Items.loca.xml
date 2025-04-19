@@ -29,5 +29,5 @@
     <content contentuid="heab8437bgf117g4d10g87bcg6b40a9e6a395" version="1">If you attack with &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; using this blade, you have a chance of &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;Blinding&lt;/LSTag&gt; your target.</content>
 
     <content contentuid="h8f14686cge337g46d6gb9c9gd18e67fdf9a5" version="1">Attacks with this blade have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against Heavily Obscured targets.</content>
-    <content contentuid="h44baa21ag5b67g4715g83a3g8b8c1ceed0a2" version="1">Casting this spell using a Level 3 or 4 spell slot creates the blade with [1] damage, and casting using a Level 5 or 6 spell slot creates the blade with [2] damage.</content>
+    <content contentuid="h44baa21ag5b67g4715g83a3g8b8c1ceed0a2" version="1">Using a Level 4 spell slot creates the blade with [1] damage, and a Level 6 spell slot creates the blade with [2] damage.</content>
 </contentList>

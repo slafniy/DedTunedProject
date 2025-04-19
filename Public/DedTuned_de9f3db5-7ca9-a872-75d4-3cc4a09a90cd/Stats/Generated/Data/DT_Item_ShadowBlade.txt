@@ -8,16 +8,16 @@ data "Damage" "1d6"
 data "Weapon Properties" "Finesse;Light;Melee"
 
 
-# Class spell slot 1
+# Class spell slot 2
 new entry "Shout_ShadowBlade_Class"
 type "SpellData"
-data "Level" "1"
+data "Level" "2"
 data "SpellType" "Shout"
 data "SpellSchool" "Illusion"
 data "TooltipUpcastDescription" "b7c5d405-a762-42d8-8ab0-327bebc6c4f3"
 data "TooltipUpcastDescriptionParams" "DealDamage(2d6,Psychic);DealDamage(3d6,Psychic)"
 data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOW_BLADE);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
-data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:1;"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:2;"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
 data "Icon" "Spell_Illusion_ShadowBlade"
 data "TargetConditions" "Self()"
@@ -40,73 +40,62 @@ data "CastEffect" "514ecdc7-87b3-43f8-bd8a-69fb3b46f8da"
 data "DamageType" "Psychic"
 
 
-
-# Upcast for slot 2 - same as 1
-new entry "Shout_ShadowBlade_Class_2"
-type "SpellData"
-using "Shout_ShadowBlade_Class"
-data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:2"
-data "RootSpellID" "Shout_ShadowBlade_Class"
-data "PowerLevel" "2"
-
-
-# Upcast for  slot 3 - change damage to 2d6
-new entry "SHADOWBLADE_TECHNICAL_1"
-type "StatusData"
-using "SHADOWBLADE_TECHNICAL_1"
-data "Boosts" "WeaponDamageDieOverride(2d6);"
-
+# Upcast for slot 3 - same as 2
 new entry "Shout_ShadowBlade_Class_3"
 type "SpellData"
 using "Shout_ShadowBlade_Class"
-data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOWBLADE_TECHNICAL_1);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
-data "DescriptionParams" "DealDamage(2d6,Psychic);"
 data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:3;"
 data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "3"
 
 
-# Upcast for slot 4 - same as 3
+# Upcast for  slot 4 - change damage to 2d6
+new entry "SHADOWBLADE_TECHNICAL_1"
+type "StatusData"
+using "SHADOWBLADE_TECHNICAL_1"
+data "Boosts" "WeaponDamageDieOverride(2d6);"
+
 new entry "Shout_ShadowBlade_Class_4"
 type "SpellData"
-using "Shout_ShadowBlade_Class_3"
+using "Shout_ShadowBlade_Class"
+data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOWBLADE_TECHNICAL_1);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
+data "DescriptionParams" "DealDamage(2d6,Psychic);"
 data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:4;"
 data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "4"
 
-# Upcast for slot 5 - 3d6 damage
-new entry "SHADOWBLADE_TECHNICAL_2"
-type "StatusData"
-using "SHADOWBLADE_TECHNICAL_2"
-data "Boosts" "WeaponDamageDieOverride(3d6);"
 
+# Upcast for slot 5 - same as 4
 new entry "Shout_ShadowBlade_Class_5"
 type "SpellData"
-using "Shout_ShadowBlade_Class"
-data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOWBLADE_TECHNICAL_2);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
-data "DescriptionParams" "DealDamage(3d6,Psychic);"
+using "Shout_ShadowBlade_Class_4"
 data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:5;"
 data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "5"
 
 
-# Upcast for slot 6 - same as 5
+# Upcast for slot 6 - 3d6 damage
+new entry "SHADOWBLADE_TECHNICAL_2"
+type "StatusData"
+using "SHADOWBLADE_TECHNICAL_2"
+data "Boosts" "WeaponDamageDieOverride(3d6);"
+
 new entry "Shout_ShadowBlade_Class_6"
 type "SpellData"
-using "Shout_ShadowBlade_Class_5"
+using "Shout_ShadowBlade_Class"
+data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOWBLADE_TECHNICAL_2);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
+data "DescriptionParams" "DealDamage(3d6,Psychic);"
 data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:6;"
 data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "6"
 
 
 
-# Shadow Blade Ring
-# Give level 1 spell
+# Shadow Blade Ring - Give level 2 spell
 new entry "Shout_DT_ShadowBlade_ForRing"
 type "SpellData"
 using "Shout_ShadowBlade_Class"
 data "Cooldown" "OncePerShortRestPerItem"
-
 
 new entry "MAG_Shadow_ShadowBlade_Ring"
 type "Armor"
