@@ -2,11 +2,13 @@
 # It fixes a vanilla bug.
 # Fixes MAG_Duergar_Sword_KingsKnife, WPN_ShadowBlade and MAG_Justiciar_Scimitar
 # NOTE: see GLO_DT_ShadowBladeTracker.txt - it should apply a technical status or this fix wouldn't work!
+# Also nerfed passive: should work only on heavily obscured targets
 new entry "ShadowBlade_Passive"
 type "PassiveData"
 using "ShadowBlade_Passive"
+data "Description" "h8f14686cge337g46d6gb9c9gd18e67fdf9a5;1"
 data "BoostContext" ""
-data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear, context.Target) and HasStatus('DT_SHADOW_BLADE_TRACKER_TECHNICAL', GetAttackWeapon())):Advantage(AttackRoll)"
+data "Boosts" "IF(HasObscuredState(ObscuredState.HeavilyObscured, context.Target) and HasStatus('DT_SHADOW_BLADE_TRACKER_TECHNICAL', GetAttackWeapon())):Advantage(AttackRoll)"
 
 
 # This status applies via Osiris and needed only to track DT_ShadowBlade_Passive source weapon to

@@ -27,4 +27,6 @@
     <content contentuid="h6a309c06g93f6g4bf2g9323g200646f91b62" version="1">Once per turn, when you hit the enemy with unarmed attack, you receive &lt;LSTag Type="Status" Tooltip="DT_MAG_SOUL_CATCHING"&gt;Grasp Essence&lt;/LSTag&gt; for 2 turns.</content>
 
     <content contentuid="heab8437bgf117g4d10g87bcg6b40a9e6a395" version="1">If you attack with &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; using this blade, you have a chance of &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;Blinding&lt;/LSTag&gt; your target.</content>
+
+    <content contentuid="h8f14686cge337g46d6gb9c9gd18e67fdf9a5" version="1">Attacks with this blade have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against Heavily Obscured targets.</content>
 </contentList>

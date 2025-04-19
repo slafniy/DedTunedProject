@@ -295,7 +295,7 @@ Now works :)
 - Damage bonus after fly works only once per turn
 
 ==== Shadow Blade, Knife of the Undermountain King, Justiciar's Scimitar
-- Shadow Blade passive fixed and now works as described
+- Shadow Blade passive now works only on heavily obscured targets
 
 ==== Justiciar's Scimitar
 - Fixed Shadow-Blinding - now works in Honour mode
