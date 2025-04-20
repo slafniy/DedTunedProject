@@ -3,9 +3,20 @@ new entry "WPN_ShadowBlade"
 type "Weapon"
 using "WPN_ShadowBlade"
 # Nerfed damage from 2d8
-data "Damage" "1d6"
-# Removed "Dippable"
+data "Damage" "1d8"
+# Removed "Dippable" to avoid BonusAction wasting
 data "Weapon Properties" "Finesse;Light;Melee"
+
+
+# Add Enchantment +1 for 2nd level spell
+new entry "DT_SHADOWBLADE_TECHNICAL_0"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "he7d1a8afg07c2g4a09ga26ag839fa4f947e1;1"
+data "Boosts" "WeaponEnchantment(1)"
+data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER')"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
 
 
 # Class spell slot 2
@@ -15,16 +26,16 @@ data "Level" "2"
 data "SpellType" "Shout"
 data "SpellSchool" "Illusion"
 data "TooltipUpcastDescription" "b7c5d405-a762-42d8-8ab0-327bebc6c4f3"
-data "TooltipUpcastDescriptionParams" "DealDamage(2d6,Psychic);DealDamage(3d6,Psychic)"
-data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOW_BLADE);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
+data "TooltipUpcastDescriptionParams" "2;3"
+data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,DT_SHADOWBLADE_TECHNICAL_0);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
 data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:2;"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
 data "Icon" "Spell_Illusion_ShadowBlade"
 data "TargetConditions" "Self()"
 data "DisplayName" "h245d543eg02dfg45f5g910age84e27663e89;2"
 data "Description" "h3ce51988gc9efg482ag9b9egdabe769a9482;3"
-data "DescriptionParams" "DealDamage(1d6,Psychic);"
-data "ExtraDescription" "h7733bf81g92a2g4f0bgbc0cgf7fd1fe30eea;3"
+data "DescriptionParams" "DealDamage(1d8+1,Psychic);"
+data "ExtraDescription" "h0bb3f910g8bfag4533g8dbcg0ab9e6639aa9;1"
 data "Sheathing" "Somatic"
 data "PrepareSound" "Action_Prepare_Item_ShadowBlade"
 data "PrepareLoopSound" "Action_Loop_Item_ShadowBlade"
@@ -49,17 +60,17 @@ data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "3"
 
 
-# Upcast for  slot 4 - change damage to 2d6
+# Upcast for  slot 4 - Enchantment +2
 new entry "SHADOWBLADE_TECHNICAL_1"
 type "StatusData"
 using "SHADOWBLADE_TECHNICAL_1"
-data "Boosts" "WeaponDamageDieOverride(2d6);"
+data "Boosts" "WeaponEnchantment(2)"
 
 new entry "Shout_ShadowBlade_Class_4"
 type "SpellData"
 using "Shout_ShadowBlade_Class"
 data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOWBLADE_TECHNICAL_1);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
-data "DescriptionParams" "DealDamage(2d6,Psychic);"
+data "DescriptionParams" "DealDamage(1d8+2,Psychic);"
 data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:4;"
 data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "4"
@@ -74,17 +85,17 @@ data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "5"
 
 
-# Upcast for slot 6 - 3d6 damage
+# Upcast for slot 6 - Enchantment +3
 new entry "SHADOWBLADE_TECHNICAL_2"
 type "StatusData"
 using "SHADOWBLADE_TECHNICAL_2"
-data "Boosts" "WeaponDamageDieOverride(3d6);"
+data "Boosts" "WeaponEnchantment(3)"
 
 new entry "Shout_ShadowBlade_Class_6"
 type "SpellData"
 using "Shout_ShadowBlade_Class"
 data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f781b579f7,-1,1,true,true,true,,,'ShadowBlade',SHADOW_BLADE,SHADOWBLADE_TECHNICAL_2);ApplyStatus(SELF, MAG_SHADOW_BLADE_OWNER, 100, -1);"
-data "DescriptionParams" "DealDamage(3d6,Psychic);"
+data "DescriptionParams" "DealDamage(1d8+3,Psychic);"
 data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:6;"
 data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "6"
