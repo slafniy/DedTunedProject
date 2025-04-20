@@ -240,23 +240,35 @@ ApplyStatus(_Character, "EXHAUSTION_DEBUFF_UNCONTROLLABLE_SLEEP_RESISTANCE", 12.
 IF
 UserCharacterLongRested(_Character, _IsFullRest)
 AND
+GetHostCharacter(_Character)
+AND
 _IsFullRest == 0  // partial rest was used
+AND
+DB_PartOfTheTeam(_Teammate)
 THEN
-PROC_DT_Exhaustion_RemoveExhaustionOverSecondStage(_Character);
+PROC_DT_Exhaustion_RemoveExhaustionOverSecondStage(_Teammate);
 
 IF
 UserCharacterLongRested(_Character, _IsFullRest)
 AND
+GetHostCharacter(_Character)
+AND
 _IsFullRest == 1  // full rest was used
+AND
+DB_PartOfTheTeam(_Teammate)
 THEN
-PROC_DT_Exhaustion_RemoveAllStacks(_Character);
+PROC_DT_Exhaustion_RemoveAllStacks(_Teammate);
 
 IF
 UserCharacterLongRested(_Character, _)
 AND
-GetStatusTurns(_Character, "DT_EXHAUSTION_STACKS", _Stacks)
+GetHostCharacter(_Character)
+AND
+DB_PartOfTheTeam(_Teammate)
+AND
+GetStatusTurns(_Teammate, "DT_EXHAUSTION_STACKS", _Stacks)
 THEN
-PROC_DT_ExhaustionRefreshDebuffs(_Character, _Stacks);
+PROC_DT_ExhaustionRefreshDebuffs(_Teammate, _Stacks);
 //END_REGION
 
 
