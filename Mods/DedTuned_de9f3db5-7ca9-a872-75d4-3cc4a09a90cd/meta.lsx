@@ -37,7 +37,7 @@
                             <attribute id="Name" type="LSString" value="Free one-time respec button for Origins"/>
                             <attribute id="PublishHandle" type="uint64" value="4529368"/>
                             <attribute id="UUID" type="guid" value="7b25dc8f-1c89-cc43-c6da-bb21007a53a2"/>
-                            <attribute id="Version64" type="int64" value="36310271995674637"/>
+                            <attribute id="Version64" type="int64" value="36310271995674639"/>
                         </node>
                     </children>
                 </node>
