@@ -1,0 +1,12 @@
+# Nerfed damage - half weapon damage
+new entry "Target_DirtyTrick_Disarm"
+type "SpellData"
+using "Target_DirtyTrick_Disarm"
+data "SpellSuccess" "IF(not SavingThrow(Ability.Dexterity, SourceSpellDC())):ApplyStatus(DISARM,100,1);DealDamage(MainMeleeWeapon/2, MainMeleeWeaponDamageType);ApplyStatus(SELF,SWASHBUCKLER_ADV,100,2);"
+data "TooltipDamageList" "DealDamage(MainMeleeWeapon/2, MainMeleeWeaponDamageType)"
+
+# MeleeSpellAttack instead of MeleeWeaponAttack (uses DEX)
+new entry "Target_DirtyTrick_Blind"
+type "SpellData"
+using "Target_DirtyTrick_Blind"
+data "SpellRoll" "Attack(AttackType.MeleeSpellAttack)"
