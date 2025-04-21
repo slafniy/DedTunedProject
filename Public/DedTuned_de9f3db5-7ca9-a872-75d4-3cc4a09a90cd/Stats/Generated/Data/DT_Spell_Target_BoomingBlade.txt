@@ -1,4 +1,6 @@
 # Replacement for stock Booming Blade - Thunderous Touch
+# 1d4 Thunder, increases to 2d4 on 5 and 3d4 on 10
+# Debuff deals 1d8 Thunder, increases to 2d8 on 5 and 3d8 on 10
 new entry "Target_BoomingBlade_ClassSpell"
 type "SpellData"
 using "Target_ShockingGrasp"
@@ -7,10 +9,10 @@ data "Description" "hffc91d52ge1c7g4335g9ad8g9574cbe7d73a;1"
 data "DescriptionParams" "DealDamage(LevelMapValue(D8Cantrip),Thunder)"
 data "SpellProperties" ""
 data "SpellRoll" "Attack(AttackType.MeleeSpellAttack)"
-data "SpellSuccess" "ApplyStatus(BOOMING_BLADE,100,1);DealDamage(LevelMapValue(D4Cantrip),Thunder,Magical)"
+data "SpellSuccess" "IF(CreatureLevelBetween(1, 4, context.Source)):ApplyStatus(DT_THUNDEROUS_TOUCH,100,1);IF(CreatureLevelBetween(5, 9, context.Source)):ApplyStatus(DT_THUNDEROUS_TOUCH_5,100,1);IF(CharacterLevelGreaterThan(9, context.Source)):ApplyStatus(DT_THUNDEROUS_TOUCH_10,100,1);DealDamage(LevelMapValue(D4Cantrip),Thunder,Magical)"
 data "Icon" "Spell_Evocation_BoomingBlade"
 data "TooltipDamageList" "DealDamage(LevelMapValue(D4Cantrip),Thunder,Magical)"
-data "TooltipStatusApply" "ApplyStatus(BOOMING_BLADE,100,1)"
+data "TooltipStatusApply" "ApplyStatus(DT_THUNDEROUS_TOUCH,100,1)"
 data "DamageType" "Thunder"
 data "PrepareSound" "Spell_Prepare_Sorcerer_BoomingBlade"
 data "PrepareLoopSound" "Spell_Loop_Sorcerer_BoomingBlade_Start"
@@ -21,13 +23,39 @@ data "PrepareEffect" "da2ac9fb-af83-4650-acfe-514a425c3a2e"
 data "TargetEffect" "288e0f80-7d7c-4f36-b748-17182318180e"
 
 
-# Change debuff names
-new entry "BOOMING_BLADE"
+# Replacement for debuff - works much simpler
+new entry "DT_THUNDEROUS_TOUCH"
 type "StatusData"
-using "BOOMING_BLADE"
+data "StatusType" "BOOST"
 data "DisplayName" "h8bd2f04cgaa38g4304gb57egdc8f813d1179;1"
+data "Description" "hf92f9b1egc1a6g4339gb8b4g9f1ce11e5d67;1"
+data "DescriptionParams" "DealDamage(1d8, Thunder)"
+data "Icon" "Spell_Evocation_BoomingBlade"
+data "ApplyEffect" "80e5c40d-531d-4aa2-8b2c-3eb4dc645892"
+data "RemoveEvents" "OnMove"
+data "TickType" "EndTurn"
+data "OnRemoveFunctors" "IF(not RemoveCause(StatusRemoveCause.TimeOut)):DealDamage(1d8, Thunder,Magical);IF(not RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(DT_THUNDEROUS_TOUCH_SOUND,100,1)"
 
-new entry "BOOMING_BLADE_DAMAGE"
+
+new entry "DT_THUNDEROUS_TOUCH_5"
 type "StatusData"
-using "BOOMING_BLADE_DAMAGE"
-data "DisplayName" "he72ad971gc854g4d15gbfb7g2e6003e61d93;1"
+using "DT_THUNDEROUS_TOUCH"
+data "DescriptionParams" "DealDamage(2d8, Thunder)"
+data "OnRemoveFunctors" "IF(not RemoveCause(StatusRemoveCause.TimeOut)):DealDamage(2d8, Thunder,Magical);IF(not RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(DT_THUNDEROUS_TOUCH_SOUND,100,1)"
+
+
+new entry "DT_THUNDEROUS_TOUCH_10"
+type "StatusData"
+using "DT_THUNDEROUS_TOUCH"
+data "DescriptionParams" "DealDamage(3d8, Thunder)"
+data "OnRemoveFunctors" "IF(not RemoveCause(StatusRemoveCause.TimeOut)):DealDamage(3d8, Thunder,Magical);IF(not RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(DT_THUNDEROUS_TOUCH_SOUND,100,1)"
+
+
+# Does nothing only makes sound
+new entry "DT_THUNDEROUS_TOUCH_SOUND"
+type "StatusData"
+data "StatusType" "BOOST"
+data "SoundStop" "MAG_Status_Boost_Thunder_Reverberation"
+data "ApplyEffect" "80e5c40d-531d-4aa2-8b2c-3eb4dc645892"
+data "OnApplyFunctors" "RemoveStatus(DT_THUNDEROUS_TOUCH_SOUND)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"

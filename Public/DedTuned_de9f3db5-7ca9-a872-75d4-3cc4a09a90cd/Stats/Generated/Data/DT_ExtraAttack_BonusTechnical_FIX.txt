@@ -1,0 +1,6 @@
+# Actually check BonusActionPoint - fixes War Magic extra attack disappear on ANY resource change,
+# including PPMeter hidden resources.
+new entry "ExtraAttack_BonusTechnical"
+type "PassiveData"
+using "ExtraAttack_BonusTechnical"
+data "Conditions" "not HasActionResource('BonusActionPoint', 1, 0, false, false, context.Source)"
