@@ -15,6 +15,10 @@ data "PrepareSound" "Spell_Prepare_Sorcerer_BoomingBlade"
 data "PrepareLoopSound" "Spell_Loop_Sorcerer_BoomingBlade_Start"
 data "CastSound" ""
 data "TargetSound" "Spell_Impact_Damage_Thunder_ThunderousSmite_L1to3"
+data "CastEffect" "d8b20aa4-c6c5-443d-a559-0c9542edeec5"
+data "PrepareEffect" "da2ac9fb-af83-4650-acfe-514a425c3a2e"
+data "TargetEffect" "288e0f80-7d7c-4f36-b748-17182318180e"
+
 
 
 #new entry "Target_ShockingGrasp"
