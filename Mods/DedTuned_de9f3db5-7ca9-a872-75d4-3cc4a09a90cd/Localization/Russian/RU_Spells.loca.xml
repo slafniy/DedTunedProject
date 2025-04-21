@@ -23,4 +23,6 @@
     <content contentuid="hd4085e94g0deag411fgb0adgd9907c3910ec" version="1">Существо парализовано. Оно не может двигаться и совершать любые действия – обычные, бонусные и ответные, а также теряет бонус к &lt;LSTag Tooltip="ArmourClass"&gt;классу брони&lt;/LSTag&gt; от ловкости.</content>
 
     <content contentuid="h8bd2f04cgaa38g4304gb57egdc8f813d1179" version="1">Громовое касание</content>
+    <content contentuid="he72ad971gc854g4d15gbfb7g2e6003e61d93" version="1">Урон громового касания</content>
+    <content contentuid="hffc91d52ge1c7g4335g9ad8g9574cbe7d73a" version="1">Наложить на противника резонанс, который нанесёт [1], если цель двинется.</content>
 </contentList>
