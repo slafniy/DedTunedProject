@@ -11,6 +11,10 @@ data "Icon" "Spell_Evocation_BoomingBlade"
 data "TooltipDamageList" "DealDamage(LevelMapValue(D4Cantrip),Thunder,Magical)"
 data "TooltipStatusApply" "ApplyStatus(BOOMING_BLADE,100,1)"
 data "DamageType" "Thunder"
+data "PrepareSound" "Spell_Prepare_Sorcerer_BoomingBlade"
+data "PrepareLoopSound" "Spell_Loop_Sorcerer_BoomingBlade_Start"
+data "CastSound" ""
+data "TargetSound" "Spell_Impact_Damage_Thunder_ThunderousSmite_L1to3"
 
 
 #new entry "Target_ShockingGrasp"
