@@ -1,8 +1,20 @@
-# MAG_Mobility_ExplosionOnJump_Maul
+# Replace passive with spell
+new entry "MAG_Mobility_ExplosionOnJump_Maul"
+type "Weapon"
+using "MAG_Mobility_ExplosionOnJump_Maul"
+data "Boosts" "UnlockSpell(Projectile_DT_Jump_Hamarhraft)"
+data "PassivesOnEquip" ""
 
-# Add a cooldown - once per turn
-new entry "MAG_Mobility_ExplosionOnJump_Passive"
-type "PassiveData"
-using "MAG_Mobility_ExplosionOnJump_Passive"
-data "Properties" "OncePerTurn;IsToggled;Temporary"
-data "Description" "hb3ef55a8g6e7dg4c49gbfa4gb062aee378f0;3"
+
+new entry "Projectile_DT_Jump_Hamarhraft"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Jump"
+data "Cooldown" "OncePerTurn"
+data "ExplodeRadius" "3"
+data "SpellProperties" "GROUND:CreateExplosion(Projectile_MAG_Mobility_ExplosionOnJump_Explosion)"
+data "Icon" "Jump_Hamarhraft"
+data "DisplayName" "h0daf1588gf6acg4a3bgbbc4g682927adb8c5;1"
+data "Description" "h7f75b480g3a90g4027ga478g147ebc924580;1"
+data "DescriptionParams" "DealDamage(1d4,Thunder);Distance(3)"
+data "CastEffect" "5f99cc1c-a104-418d-ab48-b71d634da2f3"

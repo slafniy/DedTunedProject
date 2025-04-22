@@ -248,7 +248,7 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
 - Renamed to Arrow of Ricochet
 - Now only affects one additional target in 9 meters range
 
-==== Стрела из дымного пороха
+==== Smokepowder Arrow
 - Damage changed to 3d4+9 Force + 1d4 Fire (now is identical to Smokepowder bomb)
 
 ==== Smokepowder Bomb and Fireworks
@@ -286,7 +286,7 @@ Now works :)
 - Gives Blade Ward as a bonus action cantrip instead of permanent status
 
 ==== Hamarhraft
-- Passive has a once per turn cooldown
+- Passive replaced with spell that has once per turn cooldown
 
 ==== Gloves of Soul Catching
 - Passive now works only when you hit non-dead enemies

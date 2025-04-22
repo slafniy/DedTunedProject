@@ -31,4 +31,7 @@
     <content contentuid="h8f14686cge337g46d6gb9c9gd18e67fdf9a5" version="1">Attacks with this blade have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against Heavily Obscured targets.</content>
     <content contentuid="h44baa21ag5b67g4715g83a3g8b8c1ceed0a2" version="1">Using a Level 4 spell slot creates the blade with Weapon Enchantment +[1], and a Level 6 spell slot creates the blade with Weapon Enchantment +[2].</content>
     <content contentuid="h0bb3f910g8bfag4533g8dbcg0ab9e6639aa9" version="1">When you use the sword to attack a target that is in darkness, you make the &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; with &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;The shadow blade can be unequipped and equipped again, but must remain on the spellcaster's person.</content>
+
+    <content contentuid="h0daf1588gf6acg4a3bgbbc4g682927adb8c5" version="1">Hamarhraft: Thunder Jump</content>
+    <content contentuid="h7f75b480g3a90g4027ga478g147ebc924580" version="1">Jump and deal [1] in a [2] radius upon landing.</content>
 </contentList>
