@@ -89,3 +89,16 @@ function ReligionCheck(DC)
     local skillCheck = SkillCheck(Skill.Religion, DC)
     return ConditionResult(skillCheck.Result, {}, {}, skillCheck.Chance)
 end
+
+function MagicWeaponTargetConditions()
+    local target = context.Target
+
+    if Character(context.Target) then
+        target = GetActiveWeapon(target, true)  -- second arg is "isMainHand"
+    end
+
+    -- WeaponProperties.Magical exists, but it's not what I need
+    local isWeapon = IsWeapon(target)
+
+    return isWeapon
+end

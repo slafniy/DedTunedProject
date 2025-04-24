@@ -1,4 +1,5 @@
 new entry "Target_MagicWeapon"
 type "SpellData"
 using "Target_MagicWeapon"
+data "TargetConditions" "MagicWeaponTargetConditions()"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;IsMelee"
