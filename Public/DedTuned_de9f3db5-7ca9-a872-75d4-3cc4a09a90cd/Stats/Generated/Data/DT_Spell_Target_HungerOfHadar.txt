@@ -1,0 +1,6 @@
+# 3 turns instead of 10
+new entry "Target_HungerOfHadar"
+type "SpellData"
+using "Target_HungerOfHadar"
+data "SpellProperties" "GROUND:Summon(672a929d-44af-454c-8886-2923b796947f,3,Projectile_AiHelper_HungerOfHadar,,HungerOfHadar,VOID_AURA)"
+data "TooltipStatusApply" "ApplyStatus(VOID_AURA,100,3)"

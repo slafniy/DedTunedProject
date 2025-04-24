@@ -209,6 +209,7 @@ Many spells not do not require concentration, some became stronger.
 - *Shadow Blade*: base damage 1d8+1, upcast on slot 4 and 6 (1d8+2 and 1d8+3)
 - *Dirty Trick: Flick o' the Wrist*: deals half of weapon damage
 - *Booming Blade*: replaced with *Thunderous Touch* (1d4 Thunder + debuff 1d8 if the target moves)
+- *Hunger of Hadar*: lasts 3 turns
 ====
 
 === Classes
