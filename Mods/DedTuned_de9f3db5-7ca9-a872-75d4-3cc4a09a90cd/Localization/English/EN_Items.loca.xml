@@ -17,7 +17,7 @@
     <content contentuid="he83cf850g6776g4326g88f4g64a96dfb4f0a" version="1">Improved Blade Ward</content>
     <content contentuid="h3eb7fe19g1b7bg42e1g84cfg3a325ac69a49" version="1">Protect an ally: it will take only half the damage from Bludgeoning, Piercing, and Slashing attacks.</content>
 
-    <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">When you heal a creature, you make a DC [1] &lt;LSTag Tooltip="SkillCheck"&gt;Religion Check&lt;/LSTag&gt;, success granting it &lt;LSTag Type="Status" Tooltip="BLESS"&gt;Bless&lt;/LSTag&gt; for 2 turns. If the target is already &lt;LSTag Type="Status" Tooltip="BLESS"&gt;blessed&lt;/LSTag&gt; the effect duration will be increased by 2 turns.</content>
+    <content contentuid="hb99c1527ga933g4c48g84f9g42818fc9e50d" version="1">When you heal a &lt;LSTag Type="Status" Tooltip="BLESS"&gt;blessed&lt;/LSTag&gt; creature the effect duration will be increased by 1 turn.</content>
 
     <content contentuid="h06a4fd77g1e04g4b3agbfbcg4df7bcae96f1" version="1">You gain permanent &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt;.</content>
 

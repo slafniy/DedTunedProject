@@ -1,10 +1,8 @@
 # The Whispering Promise - UNI_MassHealRing
-# Remove 100% bless: instead, make a Religion skill check
+# Remove 100% bless: instead, it increases existing Bless duration
 new entry "UNI_MassHealRing_Passive"
 type "PassiveData"
 using "UNI_MassHealRing_Passive"
 data "Description" "hb99c1527ga933g4c48g84f9g42818fc9e50d;1"
-data "DescriptionParams" "10"
 data "StatsFunctorContext" "OnHeal"
-data "Conditions" "ReligionCheck(15)"
-data "StatsFunctors" "IF(HasStatus('BLESS', context.Target)):SetStatusDuration(BLESS,2,Add);IF(not HasStatus('BLESS', context.Target)):ApplyStatus(BLESS,100,2)"
+data "StatsFunctors" "IF(HasStatus('BLESS', context.Target)):SetStatusDuration(BLESS,1,Add)"

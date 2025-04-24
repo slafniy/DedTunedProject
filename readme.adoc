@@ -273,7 +273,7 @@ Now works :)
 - Gloves of Battlemage's Power now work exactly like Helmet of Arcane Acuity (give 2 stacks on weapon damage dealt). Original version do not work, and looks weak anyway.
 
 ==== The Whispering Promise
-- Now gives target Bless only if you succeeded DC 10 Religion check
+- Now increases existing Bless duration by 1 turn, but does not apply it.
 
 ==== Hellrider's Pride
 - Does not give passive Blade Ward on healed targets, instead grants a new Improved Blade Ward cantrip
