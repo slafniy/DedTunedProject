@@ -34,7 +34,7 @@ data "Icon" "Status_ThunderousTouch"
 data "ApplyEffect" "80e5c40d-531d-4aa2-8b2c-3eb4dc645892"
 data "RemoveEvents" "OnMove"
 data "TickType" "EndTurn"
-data "OnRemoveFunctors" "IF(not RemoveCause(StatusRemoveCause.TimeOut)):DealDamage(1d8, Thunder,Magical);IF(not RemoveCause(StatusRemoveCause.TimeOut)):ApplyStatus(DT_THUNDEROUS_TOUCH_SOUND,100,1)"
+data "OnRemoveFunctors" "IF(not RemoveCause(StatusRemoveCause.TimeOut) and not Dead()):DealDamage(1d8, Thunder,Magical);IF(not RemoveCause(StatusRemoveCause.TimeOut) and not Dead()):ApplyStatus(DT_THUNDEROUS_TOUCH_SOUND,100,1)"
 
 
 new entry "DT_THUNDEROUS_TOUCH_5"
