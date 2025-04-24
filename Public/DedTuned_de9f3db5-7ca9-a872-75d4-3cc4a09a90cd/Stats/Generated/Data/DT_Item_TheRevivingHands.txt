@@ -20,4 +20,4 @@ data "StatsFunctors" "IF(IsRevivifySpell()):ApplyStatus(MAG_DEATH_WARD_ON_DEAD,1
 new entry "MAG_OfRevivify_Gloves"
 type "Armor"
 using "MAG_OfRevivify_Gloves"
-data "Boosts" "RollBonus(SavingThrow, 1, Strength);UnlockSpell(Teleportation_MAG_Revivify);UnlockSpell(DT_Target_ImprovedBladeWard)"
+data "Boosts" "RollBonus(SavingThrow, 1, Strength);UnlockSpell(Teleportation_MAG_Revivify);UnlockSpell(DT_Target_ImprovedBladeWard_TwoTargets)"
