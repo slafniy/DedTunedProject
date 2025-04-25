@@ -29,7 +29,7 @@
                             <attribute id="Name" type="LSString" value="PPMeter damage meter and combat statistics"/>
                             <attribute id="PublishHandle" type="uint64" value="4407001"/>
                             <attribute id="UUID" type="guid" value="d2481ff8-5c74-cd1c-8709-6d8314bd1c30"/>
-                            <attribute id="Version64" type="int64" value="72761283627188302"/>
+                            <attribute id="Version64" type="int64" value="72902018968059983"/>
                         </node>
                         <node id="ModuleShortDesc">
                             <attribute id="Folder" type="LSString" value="OneTimeRespecButton_7b25dc8f-1c89-cc43-c6da-bb21007a53a2"/>
@@ -48,7 +48,7 @@
                     <attribute id="FileSize" type="uint64" value="0"/>
                     <attribute id="Folder" type="LSString" value="DedTuned_de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
-                    <attribute id="MD5" type="LSString" value="0fe1707d2e19bbadffe8ea20f9322d2c"/>
+                    <attribute id="MD5" type="LSString" value="d4e8ce44fdedadbd39424fa711529dce"/>
                     <attribute id="MenuLevelName" type="FixedString" value=""/>
                     <attribute id="Name" type="LSString" value="DedTuned - Exhaustion and Honor mode tuning"/>
                     <attribute id="NumPlayers" type="uint8" value="4"/>
@@ -56,7 +56,7 @@
                     <attribute id="PublishHandle" type="uint64" value="4369118"/>
                     <attribute id="StartupLevelName" type="FixedString" value=""/>
                     <attribute id="UUID" type="FixedString" value="de9f3db5-7ca9-a872-75d4-3cc4a09a90cd"/>
-                    <attribute id="Version64" type="int64" value="38280601127616645"/>
+                    <attribute id="Version64" type="int64" value="38421334321004679"/>
                     <children>
                         <node id="PublishVersion">
                             <attribute id="Version64" type="int64" value="144255927717549775"/>
