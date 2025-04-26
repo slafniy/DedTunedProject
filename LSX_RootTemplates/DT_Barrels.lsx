@@ -307,6 +307,122 @@
                     </children>
                 </node>
 
+                <!-- Runepowder Barrel - child of Smokepowder barrel, which is a child of Water barrel  -->
+                <!-- Allow to pick it up because it's a quest item -->
+                <node id="GameObjects">
+                    <attribute id="CanBePickedUp" type="bool" value="True"/>
+                    <attribute id="Description" type="TranslatedString" handle="h2c0fe352g5606g44bega8cdg871d23f67223" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h109d58a8gafd2g46a6g9804g56b1320cfa67" version="1"/>
+                    <attribute id="Icon" type="FixedString" value="Item_UNI_UND_Runepowder_Barrel"/>
+                    <attribute id="LevelName" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="79dfb371-cd87-48f3-b542-26db2d39cfe2"/>
+                    <attribute id="Name" type="LSString" value="UNI_UND_Runepowder_Barrel"/>
+                    <attribute id="ParentTemplateId" type="FixedString" value="9c875b66-4024-487f-b67c-0c175538eb5c"/>
+                    <attribute id="PhysicsTemplate" type="FixedString" value="2b70f085-56f7-b1b2-6186-56919fc883bc"/>
+                    <attribute id="ShowAttachedSpellDescriptions" type="bool" value="True"/>
+                    <attribute id="Stats" type="FixedString" value="UND_OBJ_Runepowder_Barrel"/>
+                    <attribute id="Type" type="FixedString" value="item"/>
+                    <attribute id="VisualTemplate" type="FixedString" value="843da7aa-78c3-ac87-d056-7b348d7f2645"/>
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115203108241710"/>
+                    <children>
+                        <node id="Bounds">
+                            <children>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1.32607"/>
+                                    <attribute id="Max" type="fvec3" value="0.30671707 0.8078423 0.29825205"/>
+                                    <attribute id="Min" type="fvec3" value="-0.30700037 -0.0014971495 -0.3132586"/>
+                                    <attribute id="Radius" type="float" value="0.253911"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="0"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1.32607"/>
+                                    <attribute id="Max" type="fvec3" value="0.30671707 0.8078423 0.29825205"/>
+                                    <attribute id="Min" type="fvec3" value="-0.30700037 -0.0014971495 -0.3132586"/>
+                                    <attribute id="Radius" type="float" value="0.507822"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="1"/>
+                                </node>
+                                <node id="Bound">
+                                    <attribute id="Height" type="float" value="1.32607"/>
+                                    <attribute id="Max" type="fvec3" value="0.30671707 0.8078423 0.29825205"/>
+                                    <attribute id="Min" type="fvec3" value="-0.30700037 -0.0014971495 -0.3132586"/>
+                                    <attribute id="Radius" type="float" value="0.507822"/>
+                                    <attribute id="Shape" type="uint8" value="1"/>
+                                    <attribute id="Type" type="uint8" value="2"/>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="OnDestroyActions">
+                            <children>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="5"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="ExplodeFX" type="FixedString" value="61733b78-cf1c-1184-c26e-c2b1ed205ef6"/>
+                                            <attribute id="FadeOutDelay" type="float" value="0"/>
+                                            <attribute id="FadeOutFX" type="FixedString" value=""/>
+                                            <attribute id="TargetItemState" type="uint8" value="0"/>
+                                            <attribute id="VisualWithDynamicPhysics" type="FixedString" value="63f128a8-02e4-5fcf-e2a0-b565b02cc01a"/>
+                                            <attribute id="templateAfterDestruction" type="FixedString" value="c9d78435-c081-4871-b426-9be4f7c9cd60"/>
+                                            <attribute id="visualDestruction" type="FixedString" value=""/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="26"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="ActivateSoundEvent" type="FixedString" value="3ea82655-5140-4287-9ab8-794559f182d3"/>
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="PlayOnHUD" type="bool" value="False"/>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Action">
+                                    <attribute id="ActionType" type="int32" value="10"/>
+                                    <children>
+                                        <node id="Attributes">
+                                            <attribute id="Animation" type="FixedString" value=""/>
+                                            <attribute id="CellAtGrow" type="int32" value="50"/>
+                                            <attribute id="ExternalCauseAsSurfaceOwner" type="bool" value="True"/>
+                                            <attribute id="GrowTimer" type="float" value="0.02"/>
+                                            <attribute id="LifeTime" type="float" value="-1"/>
+                                            <attribute id="SurfaceType" type="FixedString" value="SurfaceBlackPowder"/>
+                                            <attribute id="Timeout" type="float" value="0"/>
+                                            <attribute id="TotalCells" type="int32" value="120"/>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                        <node id="Scripts">
+                            <children>
+                                <node id="Script">
+                                    <attribute id="UUID" type="FixedString" value="91327f5f-966b-fabe-15fd-07d7a7dcc7b5"/>
+                                    <children>
+                                        <node id="Parameters">
+                                            <children>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
+                                                    <attribute id="Type" type="int32" value="1"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="ProjectileSpell"/>
+                                                    <attribute id="Type" type="int32" value="9"/>
+                                                    <attribute id="Value" type="LSString" value="Projectile_UND_Runepowder_Barrel_Explosion"/>
+                                                </node>
+                                            </children>
+                                        </node>
+                                    </children>
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+
             </children>
         </node>
     </region>
