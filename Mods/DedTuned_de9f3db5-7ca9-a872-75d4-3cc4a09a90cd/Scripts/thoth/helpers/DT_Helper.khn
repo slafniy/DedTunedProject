@@ -20,7 +20,7 @@ function DT_DuelistMageWeaponCondition(entity)
     return FightingStyle_Dueling(entity) & ~HasShieldEquipped(entity)
 end
 
-function IsMainHandRangedWeaponAttack()
+function DT_IsSharpshooterAttack()
     entity = context.Source
     return HasUseCosts('ActionPoint', false) & HasStringInSpellRoll('RangedWeaponAttack') & WieldingWeapon('Ammunition', false, true, entity) & WieldingWeapon('Twohanded', false, true, entity)
 end
