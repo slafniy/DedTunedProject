@@ -1,0 +1,4 @@
+new entry "Shout_Invisibility_Imp"
+type "SpellData"
+using "Shout_Invisibility_Imp"
+data "Cooldown" "OncePerShortRest"
