@@ -1,8 +1,9 @@
-# Removed IsConcentration flag
+# Removed IsConcentration flag, but added once per long rest cooldown
 
 new entry "Target_ElementalWeapon"
 type "SpellData"
 using "Target_ElementalWeapon"
+data "Cooldown" "OncePerRest"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee;IsLinkedSpellContainer"
 
 new entry "Target_ElementalWeapon_Acid"
