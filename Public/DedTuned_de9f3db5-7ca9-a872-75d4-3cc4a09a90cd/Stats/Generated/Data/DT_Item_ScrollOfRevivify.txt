@@ -1,15 +1,8 @@
 new entry "OBJ_Scroll_Revivify"
 type "Object"
 using "OBJ_Scroll_Revivify"
-# With 0% discount it will be 520 (x2.6)
-data "ValueOverride" "200"
-
-new entry "OBJ_Scroll_Revivify_TrueResurrection"
-type "Object"
-using "OBJ_Scroll_Revivify_TrueResurrection"
-data "Rarity" "Legendary"
-# With 0% discount it will be 780
-data "ValueOverride" "300"
+# With 0% discount it will be 390 (x2.6)
+data "ValueOverride" "150"
 
 # Do not allow to use it in combat
 new entry "Teleportation_Revivify_Scroll"
@@ -19,17 +12,32 @@ data "Requirements" "!Combat"
 data "Description" "h13b33db6gfd1dg4dc2g957bgfaca434636a1;1"
 
 
+new entry "OBJ_Scroll_Revivify_TrueResurrection"
+type "Object"
+using "OBJ_Scroll_Revivify_TrueResurrection"
+data "Rarity" "Legendary"
+# With 0% discount it will be 780
+data "ValueOverride" "300"
+
+new entry "Teleportation_TrueResurrection_Scroll"
+type "SpellData"
+using "Teleportation_TrueResurrection_Scroll"
+# Fix HP regain if downed - 100% instead of 100 hp
+data "OriginSpellProperties" "RegainHitPoints(context.Target.MaxHP); Resurrect(100,100);RestoreResource(Movement, 100%, 0);UseActionResource(ActionPoint,100%,0);UseActionResource(BonusActionPoint,100%,0);ApplyStatus(RESURRECTING, 100, 1)"
+
+
 # New scroll - resurrection in combat
 new entry "OBJ_Scroll_BattleRes"
 type "Object"
 using "OBJ_Scroll_Revivify"
 data "RootTemplate" "47309202-1a2e-4f09-b083-e5e06d0a4e9c"
 data "Rarity" "VeryRare"
-data "ValueOverride" "300"
+# Should be 650 with 0% discount
+data "ValueOverride" "250"
 
 new entry "Teleportation_BattleRes_Scroll"
 type "SpellData"
 using "Teleportation_Resurrection"
 data "Requirements" ""
 data "Description" "h95fd7361gc0c7g4e42g85d7g7ba50401476f;1"
-data "OriginSpellProperties" "RegainHitPoints(1);Resurrect(100,50);RestoreResource(Movement, 100%, 0);UseActionResource(ActionPoint,100%,0);UseActionResource(BonusActionPoint,100%,0);ApplyStatus(RESURRECTING, 100, 1)"
+data "OriginSpellProperties" "RegainHitPoints(context.Target.MaxHP/2);Resurrect(100,50);RestoreResource(Movement, 100%, 0);UseActionResource(ActionPoint,100%,0);UseActionResource(BonusActionPoint,100%,0);ApplyStatus(RESURRECTING, 100, 1)"

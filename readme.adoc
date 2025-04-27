@@ -242,8 +242,8 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
   but you can use it on ally in melee range
 
 ==== Scrolls
-- Scroll of Revivify: price is 500, not usable in combat
-- Scroll of Battle Resurrection: a new scroll, very rare, price is 1000, could be used in combat
+- Scroll of Revivify: price is 150, not usable in combat
+- Scroll of Battle Resurrection: a new scroll, very rare, price is 250, could be used in combat
 
 ==== Arrow of Many Targets
 - Renamed to Arrow of Ricochet
