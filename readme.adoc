@@ -204,12 +204,14 @@ Many spells not do not require concentration, some became stronger.
 - *Ensnaring Strike*: no concentration, lasts 3 turns
 - *Expeditious Retreat*: no concentration, lasts 10 turns
 - *Magic Weapon*: no concentration
+- *Elemental Weapon*: no concentration, once per long rest cooldown
 - *Spike Growth*: upcast (larger area), lasts 10 turns, gives Bleeding and Gaping Wounds instead of direct damage
 - *Hold Monster* and *Hold Person* (and its monk version): do not grant 100% crit, instead remove target AC bonus from DEX
 - *Shadow Blade*: base damage 1d8+1, upcast on slot 4 and 6 (1d8+2 and 1d8+3)
 - *Dirty Trick: Flick o' the Wrist*: deals half of weapon damage
 - *Booming Blade*: replaced with *Thunderous Touch* (1d4 Thunder + debuff 1d8 if the target moves)
 - *Hunger of Hadar*: lasts 3 turns
+- *Find Familiar: Quasit* and *Find Familiar: Imp* summons now have a Short Rest cooldown for their Invisibility spell
 ====
 
 === Classes
@@ -229,9 +231,15 @@ Note: this subclass is too weak comparing to Battle Master, so I bring him this 
 
 Note: throwing build for Berserker was insanely strong, this change alongside of Tavern Brawler nerf should calm down it a little.
 
+
 ==== Cleric War Domain
 - War Priest Action Points reset on Short Rest instead of Long Rest
   Note: additional attack as bonus action isn't THAT strong.
+
+
+==== Warlock The Hexblade
+- Accursed spectres has lower HP and duration
+
 
 === Consumables
 
