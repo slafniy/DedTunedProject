@@ -1,0 +1,31 @@
+# Nerf Accursed Spectre summons - limit turns to 5 and decrease HP to 5-10-15
+
+new entry "ACCURSED_SPECTER_FEEBLE"
+type "StatusData"
+using "ACCURSED_SPECTER_FEEBLE"
+data "OnApplyFunctors" "SwitchDeathType(Explode);Summon(d24581d5-dfb8-496d-ae86-c0b0a00e53f6,5,,,,ACCURSED_SPECTER,UNSUMMON_ABLE)"
+
+new entry "ACCURSED_SPECTER_MUNDANE"
+type "StatusData"
+using "ACCURSED_SPECTER_MUNDANE"
+data "OnApplyFunctors" "SwitchDeathType(Explode);Summon(b40e3221-6b0a-44a5-8230-823552ad475c,5,,,,ACCURSED_SPECTER,UNSUMMON_ABLE)"
+
+new entry "ACCURSED_SPECTER_PRIMORDIAL"
+type "StatusData"
+using "ACCURSED_SPECTER_PRIMORDIAL"
+data "OnApplyFunctors" "SwitchDeathType(Explode);Summon(ae379142-0051-4df0-ad01-f27292014705,5,,,,ACCURSED_SPECTER,UNSUMMON_ABLE)"
+
+new entry "AccursedSpectre_Feeble_Summon"
+type "Character"
+using "AccursedSpectre_Feeble_Summon"
+data "Vitality" "5"
+
+new entry "AccursedSpectre_Mundane_Summon"
+type "Character"
+using "AccursedSpectre_Mundane_Summon"
+data "Vitality" "10"
+
+new entry "AccursedSpectre_Primordial_Summon"
+type "Character"
+using "AccursedSpectre_Primordial_Summon"
+data "Vitality" "15"
