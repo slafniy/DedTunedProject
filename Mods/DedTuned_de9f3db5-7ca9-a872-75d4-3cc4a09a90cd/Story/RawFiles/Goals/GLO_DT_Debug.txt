@@ -1,7 +1,13 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
+// DB_Avatars - host + connected network players?
+// DB_Players - seems like "current party members"
+// DB_PartyMembers - also "current party members"
+// DB_PartOfTheTeam - current party + everyone in the camp, including non-player NPCs
 
+// IsPlayer() - is a member  of current party
+// IsPartyMember() - is a member of current party with options?
 KBSECTION
 /*// spawn fat wolf to test damage
 IF
@@ -103,6 +109,18 @@ AND
 ConcatenateInteger("My half-level: ", _HalfLevel, _msg)
 THEN
 DebugText(_Character, _msg);
+
+
+IF
+TextEvent("dtchars")
+AND
+GetHostCharacter(_Host)
+AND
+DB_PartyMembers(_Character)
+AND
+GUIDToString(_Character, _msg)
+THEN
+DebugText(_Host, _msg);
 EXITSECTION
 
 ENDEXITSECTION
