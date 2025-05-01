@@ -190,7 +190,7 @@ Many spells not do not require concentration, some became stronger.
 - *Ray Of Enfeeblement*: does not require concentration, lasts 5 turns, deals initial 2d8 necrotic damage, upcast increases damage by 1d8
 - *Stoneskin*: does not require concentration, lasts 10 turns
 - *Bestow Curse*: does not require concentration
-- *Protection From Evil And Good*: no concentration, lasts 10 turns, applies in AOE
+- *Protection From Evil And Good*: no concentration, lasts 3 turns, applies in AOE
 - *Bless*: no concentration, lasts 5 turns
 - *Bane*: no concentration, lasts 3 turns
 - *Beacon Of Hope*: no concentration, upcast increases area
