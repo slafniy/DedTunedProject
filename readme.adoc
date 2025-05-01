@@ -240,6 +240,9 @@ Note: throwing build for Berserker was insanely strong, this change alongside of
 ==== Warlock The Hexblade
 - Accursed spectres has lower HP and duration
 
+==== Shadow Magic Sorcerer
+- Hound of Ill Omen - Nimbus lasts until long rest
+
 
 === Consumables
 
