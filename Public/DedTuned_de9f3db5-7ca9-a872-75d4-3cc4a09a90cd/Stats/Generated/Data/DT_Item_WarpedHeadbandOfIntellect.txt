@@ -1,0 +1,6 @@
+# Warped Headband of Intellect - FOR_OgresForHire_HeadbandOfIntellect
+
+new entry "FOR_OgresForHire_HeadbandOfIntellect"
+type "Armor"
+using "FOR_OgresForHire_HeadbandOfIntellect"
+data "Boosts" "Ability(Intelligence, 2, 16)"
