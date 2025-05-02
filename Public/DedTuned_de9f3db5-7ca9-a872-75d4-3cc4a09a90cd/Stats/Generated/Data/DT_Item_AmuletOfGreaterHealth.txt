@@ -1,0 +1,6 @@
+# Amulet of Greater Health - MAG_ofGreaterHealth_Amulet
+
+new entry "MAG_ofGreaterHealth_Amulet"
+type "Armor"
+using "MAG_ofGreaterHealth_Amulet"
+data "Boosts" "Ability(Constitution, 2, 22);Advantage(SavingThrow, Constitution)"
