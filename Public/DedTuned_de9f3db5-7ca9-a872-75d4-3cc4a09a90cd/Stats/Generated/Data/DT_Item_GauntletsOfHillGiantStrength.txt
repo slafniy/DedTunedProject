@@ -1,0 +1,8 @@
+# +3 STR up to 22 instead of setting STR to 23
+# UNI_ARM_OfGiantHillStrength_Gloves
+
+# it has no description originally
+new entry "UNI_ARM_OfGiantHillStrength_Gloves"
+type "Armor"
+using "UNI_ARM_OfGiantHillStrength_Gloves"
+data "Boosts" "RollBonus(SavingThrow, 1, Strength);Ability(Strength, 3, 22)"
