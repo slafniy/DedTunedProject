@@ -3,4 +3,4 @@
 new entry "FOR_OgresForHire_HeadbandOfIntellect"
 type "Armor"
 using "FOR_OgresForHire_HeadbandOfIntellect"
-data "Boosts" "Ability(Intelligence, 2, 16)"
+data "Boosts" "Ability(Intelligence, 2, 18)"

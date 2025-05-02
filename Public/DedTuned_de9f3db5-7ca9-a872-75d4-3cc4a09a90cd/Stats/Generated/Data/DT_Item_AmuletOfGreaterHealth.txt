@@ -3,4 +3,4 @@
 new entry "MAG_ofGreaterHealth_Amulet"
 type "Armor"
 using "MAG_ofGreaterHealth_Amulet"
-data "Boosts" "Ability(Constitution, 2, 22);Advantage(SavingThrow, Constitution)"
+data "Boosts" "Ability(Constitution, 3, 22);Advantage(SavingThrow, Constitution)"

@@ -315,5 +315,23 @@ Now works :)
 ==== Justiciar's Scimitar
 - Fixed Shadow-Blinding - now works in Honour mode
 
+==== Club of Hill Giant Strength
+- Gives +2 STR up to 18
+
+==== Warped Headband of Intellect
+- Gives +2 INT up to 18
+
+==== Gloves of Dexterity
+- Gives +2 DEX up to 20 and do not give an attack bonus
+
+==== Handmaiden's Mace
+- Gives +3 STR up to 20
+
+==== Gauntlets of Hill Giant Strength
+- Gives +3 STR up to 22
+
+==== Amulet of Greater Health
+- Gives +3 CON up to 22
+
 === Barrels
 - Cannot be picked up

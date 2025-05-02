@@ -3,4 +3,4 @@
 new entry "MAG_Viconia_Mace"
 type "Weapon"
 using "MAG_Viconia_Mace"
-data "Boosts" "Ability(Strength, 2, 20)"
+data "Boosts" "Ability(Strength, 3, 20)"
