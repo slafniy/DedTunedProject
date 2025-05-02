@@ -1,0 +1,6 @@
+# Handmaiden's Mace
+# +2 STR up to 18 instead of override to 18
+new entry "MAG_Viconia_Mace"
+type "Weapon"
+using "MAG_Viconia_Mace"
+data "Boosts" "Ability(Strength, 2, 20)"
