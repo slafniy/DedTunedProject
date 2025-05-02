@@ -1,8 +1,8 @@
-# +2 STR up to 18 instead of setting STR to 19
-# UND_StrengthChair_Leg
+# Club of Hill Giant Strength - UND_StrengthChair_Leg
 
-new entry "UND_StrengthChair_Leg_Passive"
-type "PassiveData"
-using "UND_StrengthChair_Leg_Passive"
-data "Description" "hf0ec3a28g13b9g4d9cg8b8bg35a08035d321;1"
+# Removed intermediate passive, applied boost directly
+new entry "UND_StrengthChair_Leg"
+type "Weapon"
+using "UND_StrengthChair_Leg"
+data "PassivesOnEquip" ""
 data "Boosts" "Ability(Strength, 2, 18)"
