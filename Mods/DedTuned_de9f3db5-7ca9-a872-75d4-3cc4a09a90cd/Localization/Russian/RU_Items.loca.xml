@@ -34,4 +34,6 @@
 
     <content contentuid="h0daf1588gf6acg4a3bgbbc4g682927adb8c5" version="1">Хамархрафт: Громовой прыжок</content>
     <content contentuid="h7f75b480g3a90g4027ga478g147ebc924580" version="1">Прыгнуть и нанести [1] в радиусе [2] в месте приземления.</content>
+
+    <content contentuid="hf0ec3a28g13b9g4d9cg8b8bg35a08035d321" version="1">Увеличивает &lt;LSTag Tooltip="Strength"&gt;силу&lt;/LSTag&gt; на 2 с пределом в 18.</content>
 </contentList>

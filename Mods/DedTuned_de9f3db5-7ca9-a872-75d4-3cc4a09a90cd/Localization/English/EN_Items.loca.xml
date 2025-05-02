@@ -34,4 +34,6 @@
 
     <content contentuid="h0daf1588gf6acg4a3bgbbc4g682927adb8c5" version="1">Hamarhraft: Thunder Jump</content>
     <content contentuid="h7f75b480g3a90g4027ga478g147ebc924580" version="1">Jump and deal [1] in a [2] radius upon landing.</content>
+
+    <content contentuid="hf0ec3a28g13b9g4d9cg8b8bg35a08035d321" version="1">Increases &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; by 2, to a maximum of 18.</content>
 </contentList>

@@ -1,0 +1,7 @@
+# UND_StrengthChair_Leg
+
+new entry "UND_StrengthChair_Leg_Passive"
+type "PassiveData"
+using "UND_StrengthChair_Leg_Passive"
+data "Description" "hf0ec3a28g13b9g4d9cg8b8bg35a08035d321;1"
+data "Boosts" "Ability(Strength, 2, 18)"
