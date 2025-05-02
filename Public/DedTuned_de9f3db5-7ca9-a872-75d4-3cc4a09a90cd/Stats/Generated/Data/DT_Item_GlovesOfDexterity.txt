@@ -1,0 +1,6 @@
+# Gloves of Dexterity - MAG_BG_OfDexterity_Gloves
+# Changing DEX 18 set to +2 DEX up to 20
+new entry "MAG_BG_OfDexterity_Gloves"
+type "Armor"
+using "MAG_BG_OfDexterity_Gloves"
+data "Boosts" "Ability(Dexterity, 2, 20)"
