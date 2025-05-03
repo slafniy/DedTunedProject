@@ -34,4 +34,6 @@
 
     <content contentuid="h0daf1588gf6acg4a3bgbbc4g682927adb8c5" version="1">Хамархрафт: Громовой прыжок</content>
     <content contentuid="h7f75b480g3a90g4027ga478g147ebc924580" version="1">Прыгнуть и нанести [1] в радиусе [2] в месте приземления.</content>
+
+    <content contentuid="h92fd90cbgb824g4b1eg9112g675bf3b6d6b9" version="1">Вы получаете &lt;LSTag Tooltip="Advantage"&gt;преимущество&lt;/LSTag&gt; при &lt;LSTag Tooltip="AttackRoll"&gt;бросках атаки&lt;/LSTag&gt;, но остальные получают &lt;LSTag Tooltip="Advantage"&gt;преимущество&lt;/LSTag&gt; при &lt;LSTag Tooltip="AttackRoll"&gt;бросках атаки&lt;/LSTag&gt; по вам.</content>
 </contentList>

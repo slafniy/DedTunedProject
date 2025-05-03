@@ -1,0 +1,12 @@
+# Risky Ring - MAG_RiskyAttack_Ring
+
+new entry "MAG_RiskyAttack_Ring"
+type "Armor"
+using "MAG_RiskyAttack_Ring"
+data "Boosts" "AC(-1)"
+
+new entry "MAG_RiskyAttack_Passive"
+type "PassiveData"
+using "MAG_RiskyAttack_Passive"
+data "Description" "h92fd90cbgb824g4b1eg9112g675bf3b6d6b9;1"
+data "Boosts" "Advantage(AttackRoll);Advantage(AttackTarget)"

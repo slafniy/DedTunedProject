@@ -34,4 +34,6 @@
 
     <content contentuid="h0daf1588gf6acg4a3bgbbc4g682927adb8c5" version="1">Hamarhraft: Thunder Jump</content>
     <content contentuid="h7f75b480g3a90g4027ga478g147ebc924580" version="1">Jump and deal [1] in a [2] radius upon landing.</content>
+
+    <content contentuid="h92fd90cbgb824g4b1eg9112g675bf3b6d6b9" version="1">You gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;, but the others gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.</content>
 </contentList>

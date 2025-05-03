@@ -333,5 +333,8 @@ Now works :)
 ==== Amulet of Greater Health
 - Gives +3 CON up to 22
 
+==== Risky Ring
+- Instead of Saving Throw disadvantage gives attack roll advantage against you, and -1 AC
+
 === Barrels
 - Cannot be picked up
