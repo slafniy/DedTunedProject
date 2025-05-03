@@ -3,3 +3,9 @@ new entry "Target_HoundOfIllOmen"
 type "SpellData"
 using "Target_HoundOfIllOmen"
 data "SpellProperties" "GROUND:Summon(31083c88-f888-4972-857a-9a9f3c827856,UntilLongRest,,,'HoundOfIllOmen',HOUNDOFILLOMEN,UNSUMMON_ABLE)"
+
+# Disable no-icon status on portrait and overhead
+new entry "OMENPOINT_RESTORE"
+type "StatusData"
+using "OMENPOINT_RESTORE"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator"
