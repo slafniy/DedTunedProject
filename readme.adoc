@@ -116,7 +116,7 @@ removes them from everyone.
 
 === Feats
 Feats do not provide Ability increase bonus anymore.
-Instead, you have Ability +1 on level 7 and +2 on level 11.
+Instead, you have a free Ability +2 on level 7 and 11.
 
 I added new and changed some old feats to make different weapon build viable.
 Duals and single-handed weapon builds are stronger than in vanilla.

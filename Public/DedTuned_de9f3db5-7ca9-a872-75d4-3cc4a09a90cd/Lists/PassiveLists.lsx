@@ -5,18 +5,23 @@
         <node id="root">
             <children>
                 <node id="PassiveList">
-                    <attribute id="Name" type="FixedString" value="Level 7 ability boost"/>
-                    <attribute id="Passives" type="LSString" value="DT_AbilityImprovement_Strength_7,DT_AbilityImprovement_Dexterity_7,DT_AbilityImprovement_Constitution_7,DT_AbilityImprovement_Intelligence_7,DT_AbilityImprovement_Wisdom_7,DT_AbilityImprovement_Charisma_7"/>
+                    <attribute id="Name" type="FixedString" value="Level 7 1st ability boost"/>
+                    <attribute id="Passives" type="LSString" value="DT_AbilityImprovement_Strength_Add_1,DT_AbilityImprovement_Dexterity_Add_1,DT_AbilityImprovement_Constitution_Add_1,DT_AbilityImprovement_Intelligence_Add_1,DT_AbilityImprovement_Wisdom_Add_1,DT_AbilityImprovement_Charisma_Add_1"/>
                     <attribute id="UUID" type="guid" value="4ef235df-e280-4670-90e9-565498415951"/>
                 </node>
                 <node id="PassiveList">
+                    <attribute id="Name" type="FixedString" value="Level 7 2nd ability boost"/>
+                    <attribute id="Passives" type="LSString" value="DT_AbilityImprovement_Strength_Add_2,DT_AbilityImprovement_Dexterity_Add_2,DT_AbilityImprovement_Constitution_Add_2,DT_AbilityImprovement_Intelligence_Add_2,DT_AbilityImprovement_Wisdom_Add_2,DT_AbilityImprovement_Charisma_Add_2"/>
+                    <attribute id="UUID" type="guid" value="d0233a16-4019-41a8-838a-86ecc3251ecf"/>
+                </node>
+                <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="Level 11 1st ability boost"/>
-                    <attribute id="Passives" type="LSString" value="DT_AbilityImprovement_Strength_11_1,DT_AbilityImprovement_Dexterity_11_1,DT_AbilityImprovement_Constitution_11_1,DT_AbilityImprovement_Intelligence_11_1,DT_AbilityImprovement_Wisdom_11_1,DT_AbilityImprovement_Charisma_11_1"/>
+                    <attribute id="Passives" type="LSString" value="DT_AbilityImprovement_Strength_Add_3,DT_AbilityImprovement_Dexterity_Add_3,DT_AbilityImprovement_Constitution_Add_3,DT_AbilityImprovement_Intelligence_Add_3,DT_AbilityImprovement_Wisdom_Add_3,DT_AbilityImprovement_Charisma_Add_3"/>
                     <attribute id="UUID" type="guid" value="22881fbb-138b-4d9e-89d8-a8520e75e583"/>
                 </node>
                 <node id="PassiveList">
                     <attribute id="Name" type="FixedString" value="Level 11 2nd ability boost"/>
-                    <attribute id="Passives" type="LSString" value="DT_AbilityImprovement_Strength_11_2,DT_AbilityImprovement_Dexterity_11_2,DT_AbilityImprovement_Constitution_11_2,DT_AbilityImprovement_Intelligence_11_2,DT_AbilityImprovement_Wisdom_11_2,DT_AbilityImprovement_Charisma_11_2"/>
+                    <attribute id="Passives" type="LSString" value="DT_AbilityImprovement_Strength_Add_4,DT_AbilityImprovement_Dexterity_Add_4,DT_AbilityImprovement_Constitution_Add_4,DT_AbilityImprovement_Intelligence_Add_4,DT_AbilityImprovement_Wisdom_Add_4,DT_AbilityImprovement_Charisma_Add_4"/>
                     <attribute id="UUID" type="guid" value="8b8cdf5e-9dc5-4413-9f79-d6cd7f86e8da"/>
                 </node>
             </children>

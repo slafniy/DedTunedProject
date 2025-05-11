@@ -9,7 +9,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Barbarian"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="60bbcc97-5381-4898-bc15-908c072895de"/>
                     <attribute id="UUID" type="guid" value="d448d3c4-19b6-4ac8-b608-f73bcbd107bd"/>
                 </node>
@@ -26,7 +26,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Fighter"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="ba4e707e-4bbd-4630-963b-ce2f2947f971"/>
                     <attribute id="UUID" type="guid" value="ddb1ae2b-27d9-4803-9866-64798ec9e2e4"/>
                 </node>
@@ -43,7 +43,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Bard"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="229c98da-2cd1-4a5e-8051-9d90ec7931e7"/>
                     <attribute id="UUID" type="guid" value="4106b750-fa9d-4909-9f48-f75777971938"/>
                 </node>
@@ -60,7 +60,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Cleric"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="64474b62-b4f5-46b3-b94a-c676c6da3116"/>
                     <attribute id="UUID" type="guid" value="677e1bab-33d9-48a3-889a-92b413979d5f"/>
                 </node>
@@ -77,7 +77,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Rogue"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="9a44e828-92db-4d6c-acbc-a4f8ef340415"/>
                     <attribute id="UUID" type="guid" value="911fed70-7434-4d16-a5fc-f7c688c0f9b3"/>
                 </node>
@@ -94,7 +94,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Druid"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="6e7b7bad-e122-4679-8b3c-8f8987a9d466"/>
                     <attribute id="UUID" type="guid" value="6003c8b7-eaf5-4cfc-8ae7-870e58ad8d6d"/>
                 </node>
@@ -111,7 +111,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="17802af5-8601-4711-8d2c-149a8dfe0af8"/>
                 </node>
@@ -128,7 +128,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Paladin"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="ba2afe85-acba-4ea1-a238-2b4543f47821"/>
                     <attribute id="UUID" type="guid" value="8859a41b-8c08-47c0-97b1-4b78cfad3b7d"/>
                 </node>
@@ -145,7 +145,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Warlock"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="a7a958f1-d858-4021-9fa7-cf87e7d71377"/>
                     <attribute id="UUID" type="guid" value="72e99034-4af4-445a-a4cc-aaff101a1b79"/>
                 </node>
@@ -162,7 +162,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Sorcerer"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="e2416b02-953a-4ce8-aa8f-eb98d549d86d"/>
                     <attribute id="UUID" type="guid" value="d4ebef2d-06cf-4d31-9583-2ff8efb59f62"/>
                 </node>
@@ -179,7 +179,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Ranger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="8f068974-ed32-43fc-a9d9-028be1c01a9c"/>
                     <attribute id="UUID" type="guid" value="f804a25b-d05f-4b85-aa83-aa4ace214bae"/>
                 </node>
@@ -196,7 +196,7 @@
                     <attribute id="Level" type="uint8" value="7"/>
                     <attribute id="Name" type="LSString" value="Monk"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(4ef235df-e280-4670-90e9-565498415951,1,DT_LevelupAbilityBoost_7);SelectPassives(d0233a16-4019-41a8-838a-86ecc3251ecf,1,DT_LevelupAbilityBoost_7)"/>
                     <attribute id="TableUUID" type="guid" value="fe1319a2-86be-469c-aab5-e3b0bd714e0e"/>
                     <attribute id="UUID" type="guid" value="cde16ba1-7dfb-402a-bab6-538d385f29d4"/>
                 </node>
