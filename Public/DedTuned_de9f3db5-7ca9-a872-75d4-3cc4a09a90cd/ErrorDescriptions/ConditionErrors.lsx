@@ -10,6 +10,12 @@
                     <attribute id="Identifier" type="FixedString" value="DT_PartiallyRested"/>
                     <attribute id="UUID" type="guid" value="25d4b9e5-53d4-4402-b0e2-cc1ddcafa7f8"/>
                 </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hcbe7b0ecge2d8g4984g9485g8d037fa7f1ae" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="DT_SharpshooterBlocked"/>
+                    <attribute id="UUID" type="guid" value="9eae6f89-2e45-4a4d-9632-585642a8fe1b"/>
+                </node>
             </children>
         </node>
     </region>
