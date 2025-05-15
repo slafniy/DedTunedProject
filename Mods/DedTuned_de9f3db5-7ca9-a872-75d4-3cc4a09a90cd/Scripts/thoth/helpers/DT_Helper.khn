@@ -33,6 +33,10 @@ function DT_IsSharpshooterSpell()
     return ConditionResult(result.Result, { ConditionError("DT_SharpshooterBlocked") })
 end
 
+function DT_HasEnoughMovementForSharpshooter()
+    local result = HasActionResource('Movement', 4, 0, false, false, context.Source)
+    return ConditionResult(result.Result, { ConditionError("DT_SharpshooterNotEnoughMovement") })
+end
 
 -- Check level within bounds, including
 function CreatureLevelBetween(valueFrom, valueTo, entity)

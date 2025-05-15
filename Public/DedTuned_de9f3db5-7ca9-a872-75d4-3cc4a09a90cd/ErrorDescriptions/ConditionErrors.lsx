@@ -16,6 +16,12 @@
                     <attribute id="Identifier" type="FixedString" value="DT_SharpshooterBlocked"/>
                     <attribute id="UUID" type="guid" value="9eae6f89-2e45-4a4d-9632-585642a8fe1b"/>
                 </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="he333ecb9gfe23g4945gab57g36c19368c7fe" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="DT_SharpshooterNotEnoughMovement"/>
+                    <attribute id="UUID" type="guid" value="abfc4f4d-2878-4b2a-8269-36f11ab4d918"/>
+                </node>
             </children>
         </node>
     </region>

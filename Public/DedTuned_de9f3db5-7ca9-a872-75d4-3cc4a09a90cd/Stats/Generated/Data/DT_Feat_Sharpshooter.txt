@@ -11,8 +11,8 @@ data "PriorityOrder" "1"
 data "Properties" "ToggledDefaultAddToHotbar;IsToggled;ToggledDefaultOn;Highlighted"
 data "ToggleOnFunctors" "ApplyStatus(DT_SHARPSHOOTER_BOOST, 100, -1)"
 data "ToggleOffFunctors" "RemoveStatus(DT_SHARPSHOOTER_BOOST)"
-data "EnabledConditions" "HasActionResource('Movement', 4, 0, false, false, context.Source)"
-data "EnabledContext" "OnActionResourcesChanged"
+data "EnabledConditions" "DT_HasEnoughMovementForSharpshooter()"
+data "EnabledContext" "OnTurn;OnCastResolved;OnMovedDistance"
 
 
 new entry "DT_SHARPSHOOTER_BOOST"
