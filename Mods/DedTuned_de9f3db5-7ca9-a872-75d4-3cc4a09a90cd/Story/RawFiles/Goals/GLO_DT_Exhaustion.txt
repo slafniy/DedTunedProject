@@ -13,7 +13,7 @@ KBSECTION
 IF
 TurnStarted((CHARACTER)_Character)  // works in combat
 AND
-DB_PartyMembers(_Character)
+DB_Players(_Character)
 THEN
 ApplyStatus(_Character, "DT_EXHAUSTION_STACKS", 6.0, 1, _Character);  // 6 sec is 1 turn/stack, duration is freezed
 //END_REGION
