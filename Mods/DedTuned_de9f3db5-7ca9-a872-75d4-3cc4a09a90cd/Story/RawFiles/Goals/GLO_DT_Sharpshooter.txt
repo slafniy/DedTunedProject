@@ -1,0 +1,19 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+IF
+TurnStarted((CHARACTER)_Player)
+AND
+DB_Players(_Player)
+AND
+HasPassive(_Player, "Sharpshooter_AllIn", 1)
+AND
+HasActiveStatus(_Player, "DT_SHARPSHOOTER_BOOST", 0)
+THEN
+TogglePassive(_Player, "Sharpshooter_AllIn");
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"

@@ -1,3 +1,6 @@
+# IMPORTANT NOTE: this passive is toggled on automatically every turn.
+# It is done in Osiris, see GLO_DT_Sharpshooter
+
 new entry "Sharpshooter_AllIn"
 type "PassiveData"
 data "DisplayName" "h0bc8b568ge8bcg495dgb0e6gd554ef8bbe4b;1"
@@ -8,6 +11,8 @@ data "PriorityOrder" "1"
 data "Properties" "ToggledDefaultAddToHotbar;IsToggled;ToggledDefaultOn;Highlighted"
 data "ToggleOnFunctors" "ApplyStatus(DT_SHARPSHOOTER_BOOST, 100, -1)"
 data "ToggleOffFunctors" "RemoveStatus(DT_SHARPSHOOTER_BOOST)"
+data "EnabledConditions" "HasActionResource('Movement', 4, 0, false, false, context.Source)"
+data "EnabledContext" "OnActionResourcesChanged"
 
 
 new entry "DT_SHARPSHOOTER_BOOST"
@@ -16,4 +21,6 @@ data "StatusType" "BOOST"
 data "DisplayName" "h0bc8b568ge8bcg495dgb0e6gd554ef8bbe4b;1"
 data "Description" "h1d64aa5dg8254g4e6aga043g66ac266db010;1"
 data "Boosts" "UnlockSpellVariant(DT_IsSharpshooterSpell(),ModifyUseCosts(Add,Movement,4,0,Movement),ModifyTooltipDescription());IF(DT_IsSharpshooterSpell()):CharacterWeaponDamage(DexterityModifier)"
-data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+data "StackId" "DT_SHARPSHOOTER_BOOST"
+data "StackType" "Overwrite"
