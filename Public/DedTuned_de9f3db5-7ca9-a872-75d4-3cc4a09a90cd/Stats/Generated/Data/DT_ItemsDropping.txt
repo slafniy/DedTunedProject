@@ -1,23 +1,25 @@
+# Indicator that this item cannot be dropped
+# Handled from Osiris, see GLO_DT_ItemDropping.txt
 new entry "DT_DROPPING_NOT_ALLOWED"
 type "StatusData"
 data "StatusType" "EFFECT"
 data "StackType" "Overwrite"
 data "StackId" "DT_DROPPING_NOT_ALLOWED"
 
+# Applies DT_HAS_NO_ACTION_POINTS when needed
+new entry "DT_NoActionPointsDetectionPassive"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnActionResourcesChanged"
+data "StatsFunctors" "IF(not HasActionResource('ActionPoint',1,0) and not HasStatus('DT_HAS_NO_ACTION_POINTS')):ApplyStatus(DT_HAS_NO_ACTION_POINTS,100,-1);IF(HasActionResource('ActionPoint',1,0) and HasStatus('DT_HAS_NO_ACTION_POINTS')):RemoveStatus(DT_HAS_NO_ACTION_POINTS)"
 
-
-#new entry "DT_ActionPointsChangedEventGeneratorPassive"
-#type "PassiveData"
-#data "Properties" "IsHidden"
-#data "StatsFunctorContext" "OnActionResourcesChanged"
-#data "StatsFunctors" "ApplyStatus(DT_ACTION_POINTS_CHANGED,100,1)"
-#data "EnabledConditions" "not HasActionResource('ActionPoint', 1, 0, false, false, context.Source)"
-#
-#new entry "DT_ACTION_POINTS_CHANGED"
-#type "StatusData"
-#data "StatusType" "BOOST"
-#data "DisplayName" ";1"
-#data "Description" ";1"
-#data "Icon" "Action_Paladin_AuraOfWarding"
-#data "OnApplyFunctors" "RemoveStatus(DT_ACTION_POINTS_CHANGED)"
-##data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+# Indicator that owner has no Action Points and items should be locked
+new entry "DT_HAS_NO_ACTION_POINTS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "DT_HAS_NO_ACTION_POINTS"
+data "StackType" "Overwrite"
+#data "StatusPropertyFlags" "FreezeDuration;MultiplyEffectsByDuration;ApplyToDead;DisableCombatlog;DisableOverhead;IgnoreResting"
+data "StatusPropertyFlags" ""
+#data "RemoveConditions" "not Combat()"
+#data "RemoveEvents" "OnTurn;OnCombatEnded"

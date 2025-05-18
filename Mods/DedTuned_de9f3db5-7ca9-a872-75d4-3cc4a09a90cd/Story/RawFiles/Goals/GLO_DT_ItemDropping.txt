@@ -2,23 +2,59 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 DB_DT_IsPlayersInventoryItemStatus("DT_DROPPING_NOT_ALLOWED");
+DB_DT_NoActionPointsStatus("DT_HAS_NO_ACTION_POINTS");
 KBSECTION
-/*IF
-PreMovedBy(_Object, _Player)
-THEN
-ToInventory(_Object, _Player, -1, 0, 0);*/
-
-/*IF
+//REGION  // Add DT_NoActionPointsDetectionPassive to each player
+IF
 LevelGameplayStarted(_, _)
+AND
+DB_Players(_Player)
+AND
+HasPassive(_Player, "DT_NoActionPointsDetectionPassive", 0)
 THEN
-PROC_DT_MarkAllInventoryItems();*/
+AddPassive(_Player, "DT_NoActionPointsDetectionPassive");
 
 IF
-TextEvent("dtmarkinventory")
+CharacterJoinedParty(_Player)
 AND
-GetHostCharacter(_Player)
+HasPassive(_Player, "DT_NoActionPointsDetectionPassive", 0)
 THEN
-PROC_DT_MarkAllInventoryItems(_Player);
+AddPassive(_Player, "DT_NoActionPointsDetectionPassive");
+//END_REGION
+
+
+// Handle item RMB->Drop and LMB->Drag
+IF
+PreMovedBy((ITEM)_Item, _Player)
+AND
+DB_DT_IsPlayersInventoryItemStatus(_Status)
+AND
+HasAppliedStatus(_Item, _Status, 1)
+THEN
+ToInventory(_Item, _Player, -1, 0, 0);  // Actually instantly teleports item back into inventory
+Pickup(_Player, _Item, "", 1);  // Does nothing actually, needed just to get a record in combat log
+
+
+// Handle DT_HAS_NO_ACTION_POINTS status to decide if we should mark/unmark inventory items
+//REGION
+IF
+StatusApplied((CHARACTER)_Player, _Status, _, _)
+AND
+DB_Players(_Player)
+AND
+DB_DT_NoActionPointsStatus(_Status)
+THEN
+PROC_DT_MarkAllInventoryItems(_Player, 1);
+
+IF
+StatusRemoved((CHARACTER)_Player, _Status, _, _)
+AND
+DB_Players(_Player)
+AND
+DB_DT_NoActionPointsStatus(_Status)
+THEN
+PROC_DT_MarkAllInventoryItems(_Player, 0);
+//END_REGION
 
 
 // PROC_DT_MarkAllInventoryItems((CHARACTER)_Player)
@@ -26,24 +62,16 @@ PROC_DT_MarkAllInventoryItems(_Player);
 // or unmark if ActionPoints > 0
 //REGION
 PROC
-PROC_DT_MarkAllInventoryItems((CHARACTER)_Player)
+PROC_DT_MarkAllInventoryItems((CHARACTER)_Player, (INTEGER)_IsMark)
 AND
-DB_Players(_Player)
-AND
-GetActionResourceValuePersonal(_Player, "ActionPoint", 0, _ActionPoints)
-AND
-_ActionPoints == 0
+_IsMark == 1
 THEN
 IterateInventory(_Player, "DT_MarkAllInventoryItems_ItemIteration", "DT_MarkAllInventoryItems_ItemIterationFinished");
 
 PROC
-PROC_DT_MarkAllInventoryItems((CHARACTER)_Player)
+PROC_DT_MarkAllInventoryItems((CHARACTER)_Player, (INTEGER)_IsMark)
 AND
-DB_Players(_Player)
-AND
-GetActionResourceValuePersonal(_Player, "ActionPoint", 0, _ActionPoints)
-AND
-_ActionPoints > 0
+_IsMark == 0
 THEN
 IterateInventory(_Player, "DT_UnmarkAllInventoryItems_ItemIteration", "DT_UnmarkAllInventoryItems_ItemIterationFinished");
 
