@@ -35,6 +35,17 @@ ToInventory(_Item, _Player, -1, 0, 0);  // Actually instantly teleports item bac
 Pickup(_Player, _Item, "", 1);  // Does nothing actually, needed just to get a record in combat log
 
 
+// Handle if item was thrown - remove status from it
+IF
+OnThrown((ITEM)_Item, _, _, _, _, _, _)
+AND
+DB_DT_IsPlayersInventoryItemStatus(_Status)
+AND
+HasAppliedStatus(_Item, _Status, 1)
+THEN
+RemoveStatus(_Item, _Status, DT_ItemDropping_770195dd-1c87-4477-ac3e-a5c467f4b591);
+
+
 // Handle DT_HAS_NO_ACTION_POINTS status to decide if we should mark/unmark inventory items
 //REGION
 IF
@@ -74,7 +85,6 @@ AND
 _IsMark == 0
 THEN
 IterateInventory(_Player, "DT_UnmarkAllInventoryItems_ItemIteration", "DT_UnmarkAllInventoryItems_ItemIterationFinished");
-
 
 IF
 EntityEvent((ITEM)_Item, "DT_MarkAllInventoryItems_ItemIteration")
