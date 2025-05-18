@@ -36,6 +36,33 @@ THEN
 AddActionPoints(_Player, -1);
 
 
+// Handle case when gained item (from other player or somehow else)
+//REGION
+IF
+AddedTo((ITEM)_Item, (CHARACTER)_Player, _)
+THEN
+PROC_DT_ProcessAddedItem(_Item, _Player);
+
+PROC
+PROC_DT_ProcessAddedItem((ITEM)_Item, (CHARACTER)_Player)
+AND
+DB_DT_NoActionPointsStatus(_Status)
+AND
+HasAppliedStatus(_Player, _Status, 1)  // has no action points
+THEN
+PROC_DT_MarkItem(_Item);
+
+PROC
+PROC_DT_ProcessAddedItem((ITEM)_Item, (CHARACTER)_Player)
+AND
+DB_DT_NoActionPointsStatus(_Status)
+AND
+HasAppliedStatus(_Player, _Status, 0)  // has action points
+THEN
+PROC_DT_UnmarkItem(_Item);
+//END_REGION
+
+
 // Handle item RMB->Drop and LMB->Drag
 IF
 PreMovedBy((ITEM)_Item, _Player)
@@ -103,13 +130,27 @@ IF
 EntityEvent((ITEM)_Item, "DT_MarkAllInventoryItems_ItemIteration")
 AND
 IsEquipped(_Item, 0)  // do not process what's equipped, we want to allow a free drop for such items
+THEN
+PROC_DT_MarkItem(_Item);
+
+IF
+EntityEvent((ITEM)_Item, "DT_UnmarkAllInventoryItems_ItemIteration")
+THEN
+PROC_DT_UnmarkItem(_Item);
+//END_REGION
+
+
+// PROC_DT_MarkItem PROC_DT_UnmarkItem
+//REGION
+PROC
+PROC_DT_MarkItem((ITEM)_Item)
 AND
 DB_DT_DroppingNotAllowedItemStatus(_Status)
 THEN
 ApplyStatus(_Item, _Status, -1.0, 1, DT_ItemDropping_770195dd-1c87-4477-ac3e-a5c467f4b591);
 
-IF
-EntityEvent((ITEM)_Item, "DT_UnmarkAllInventoryItems_ItemIteration")
+PROC
+PROC_DT_UnmarkItem((ITEM)_Item)
 AND
 DB_DT_DroppingNotAllowedItemStatus(_Status)
 THEN
