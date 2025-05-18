@@ -1,0 +1,70 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_DT_IsPlayersInventoryItemStatus("DT_DROPPING_NOT_ALLOWED");
+KBSECTION
+/*IF
+PreMovedBy(_Object, _Player)
+THEN
+ToInventory(_Object, _Player, -1, 0, 0);*/
+
+/*IF
+LevelGameplayStarted(_, _)
+THEN
+PROC_DT_MarkAllInventoryItems();*/
+
+IF
+TextEvent("dtmarkinventory")
+AND
+GetHostCharacter(_Player)
+THEN
+PROC_DT_MarkAllInventoryItems(_Player);
+
+
+// PROC_DT_MarkAllInventoryItems((CHARACTER)_Player)
+// Mark "dropping not allowed" status for every non-equipped inventory item if ActionPoints == 0
+// or unmark if ActionPoints > 0
+//REGION
+PROC
+PROC_DT_MarkAllInventoryItems((CHARACTER)_Player)
+AND
+DB_Players(_Player)
+AND
+GetActionResourceValuePersonal(_Player, "ActionPoint", 0, _ActionPoints)
+AND
+_ActionPoints == 0
+THEN
+IterateInventory(_Player, "DT_MarkAllInventoryItems_ItemIteration", "DT_MarkAllInventoryItems_ItemIterationFinished");
+
+PROC
+PROC_DT_MarkAllInventoryItems((CHARACTER)_Player)
+AND
+DB_Players(_Player)
+AND
+GetActionResourceValuePersonal(_Player, "ActionPoint", 0, _ActionPoints)
+AND
+_ActionPoints > 0
+THEN
+IterateInventory(_Player, "DT_UnmarkAllInventoryItems_ItemIteration", "DT_UnmarkAllInventoryItems_ItemIterationFinished");
+
+
+IF
+EntityEvent((ITEM)_Item, "DT_MarkAllInventoryItems_ItemIteration")
+AND
+IsEquipped(_Item, 0)  // do not process what's equipped, we want to allow a free drop for such items
+AND
+DB_DT_IsPlayersInventoryItemStatus(_Status)
+THEN
+ApplyStatus(_Item, _Status, -1.0, 1, DT_ItemDropping_770195dd-1c87-4477-ac3e-a5c467f4b591);
+
+IF
+EntityEvent((ITEM)_Item, "DT_UnmarkAllInventoryItems_ItemIteration")
+AND
+DB_DT_IsPlayersInventoryItemStatus(_Status)
+THEN
+RemoveStatus(_Item, _Status, DT_ItemDropping_770195dd-1c87-4477-ac3e-a5c467f4b591);
+//END_REGION
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
